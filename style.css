@@ -1,0 +1,614 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Cairo', sans-serif;
+    line-height: 1.6;
+    color: #2d3e50;
+    background: #f4f6f9;
+}
+
+/* Logo Badge Style */
+.logo {
+    position: fixed;
+    top: 15px;
+    left: 20px;
+    z-index: 100;
+}
+
+.logo-text {
+    background: #f4a261;
+    color: #0a2472;
+    font-weight: bold;
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Language Switcher */
+.language-switcher {
+    text-align: center;
+    padding: 1rem;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    margin-left: 80px;
+}
+
+.language-switcher a {
+    text-decoration: none;
+    color: #5a6e7a;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+}
+
+.language-switcher a.active {
+    color: #1a759f;
+    font-weight: bold;
+    border-bottom: 2px solid #1a759f;
+}
+
+/* Hero Section */
+.hero {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, #0a2472, #1a759f);
+    color: white;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.bts-small {
+    font-size: 1.8rem;
+    font-weight: normal;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.btn {
+    display: inline-block;
+    background: #f4a261;
+    color: #0a2472;
+    padding: 0.8rem 2rem;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background: #e76f51;
+    color: white;
+}
+
+/* Trust Badges Section */
+.trust-badges {
+    background: #0a2472;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin: 0;
+}
+
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.badges span {
+    font-size: 0.9rem;
+}
+
+/* About Section */
+.about {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.about h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #0a2472;
+    position: relative;
+}
+
+.about h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #f4a261;
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: center;
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    color: #2d3e50;
+}
+
+.placeholder-image {
+    background: linear-gradient(135deg, #f8edeb, #f4f6f9);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    font-size: 3rem;
+    color: #1a759f;
+    border: 1px solid #e0e0e0;
+}
+
+.placeholder-image p {
+    font-size: 1rem;
+    color: #2d3e50;
+    margin-top: 0.5rem;
+}
+
+/* Services Section */
+.services {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+.services h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #0a2472;
+    position: relative;
+}
+
+.services h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #f4a261;
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-top: 3px solid #1a759f;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.service-card h3 {
+    color: #0a2472;
+    margin-bottom: 1rem;
+}
+
+/* Industries Section */
+.industries {
+    max-width: 1200px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.industries h2 {
+    color: #0a2472;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.industries h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #f4a261;
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.industries-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.industries-grid span {
+    background: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 1px solid #e0e0e0;
+}
+
+/* Testimonials Section */
+.testimonials {
+    background: #f8edeb;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #0a2472;
+    position: relative;
+}
+
+.testimonials h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #f4a261;
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-align: left;
+    border-left: 4px solid #2a9d8f;
+}
+
+.testimonial-card p:first-child {
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: #5a6e7a;
+}
+
+.client-name {
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+    color: #0a2472;
+}
+
+.client-title {
+    font-size: 0.8rem;
+    color: #7a8e9a;
+}
+
+/* Why Us Section */
+.why-us {
+    background: white;
+    padding: 3rem 2rem;
+    text-align: center;
+    max-width: 800px;
+    margin: 3rem auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.why-us h2 {
+    color: #0a2472;
+    margin-bottom: 1.5rem;
+}
+
+.why-us ul {
+    list-style: none;
+    text-align: left;
+    display: inline-block;
+}
+
+.why-us li {
+    margin: 0.8rem 0;
+    font-size: 1.1rem;
+}
+
+.highlight {
+    color: #f4a261;
+}
+
+/* Portfolio Section */
+.portfolio {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.portfolio h2 {
+    color: #0a2472;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.portfolio h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #f4a261;
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+.portfolio-card {
+    background: #f4f6f9;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: left;
+    border-left: 4px solid #2a9d8f;
+    margin-bottom: 1.5rem;
+}
+
+.portfolio-card h3 {
+    color: #0a2472;
+    margin-bottom: 0.5rem;
+}
+
+/* Contact Section */
+.contact {
+    text-align: center;
+    padding: 3rem 2rem;
+    background: #0a2472;
+    margin-top: 3rem;
+    color: white;
+}
+
+.contact h2 {
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+/* Contact Form - Grid Layout (2 columns) */
+.contact-form {
+    max-width: 700px;
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Full width fields (textarea and button) */
+.contact-form .full-width {
+    grid-column: span 2;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #f4a261;
+    box-shadow: 0 0 0 2px rgba(244,162,97,0.2);
+}
+
+.contact-form button {
+    grid-column: span 2;
+    justify-self: center;
+    width: auto;
+    min-width: 200px;
+}
+
+.btn-primary {
+    background: #f4a261;
+    color: #0a2472;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.02);
+    background: #e76f51;
+    color: white;
+}
+
+.contact-direct {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.contact-direct a {
+    color: #f4a261;
+    text-decoration: none;
+}
+
+.contact-direct a:hover {
+    text-decoration: underline;
+}
+
+.form-note {
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: #0a2472;
+    color: white;
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-links {
+    margin-top: 0.5rem;
+    font-size: 0.7rem;
+}
+
+.footer-links a {
+    color: #f4a261;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .bts-small {
+        font-size: 1.2rem;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .badges {
+        gap: 1rem;
+    }
+    
+    .badges span {
+        font-size: 0.7rem;
+    }
+    
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .language-switcher {
+        margin-left: 0;
+        padding-top: 60px;
+    }
+    
+    .logo {
+        position: relative;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    /* Contact form becomes single column on mobile */
+    .contact-form {
+        grid-template-columns: 1fr;
+        margin: 1rem;
+    }
+    
+    .contact-form .full-width {
+        grid-column: span 1;
+    }
+    
+    .contact-form button {
+        grid-column: span 1;
+    }
+}
+
+/* Arabic RTL Specific */
+[lang="ar"] .logo,
+html[dir="rtl"] .logo {
+    left: auto;
+    right: 20px;
+}
+
+[lang="ar"] .language-switcher {
+    margin-left: 0;
+    margin-right: 80px;
+}
+
+@media (max-width: 768px) {
+    [lang="ar"] .language-switcher {
+        margin-right: 0;
+    }
+}
+
+[lang="ar"] .service-card,
+html[dir="rtl"] .service-card {
+    text-align: right;
+}
+
+[lang="ar"] .why-us ul,
+html[dir="rtl"] .why-us ul {
+    text-align: right;
+    padding-right: 1.5rem;
+}
+
+[lang="ar"] .portfolio-card,
+html[dir="rtl"] .portfolio-card {
+    border-left: none;
+    border-right: 4px solid #2a9d8f;
+}
+
+[lang="ar"] .testimonial-card,
+html[dir="rtl"] .testimonial-card {
+    border-left: none;
+    border-right: 4px solid #2a9d8f;
+}
+
+[lang="ar"] .about h2::after,
+[lang="ar"] .services h2::after,
+[lang="ar"] .industries h2::after,
+[lang="ar"] .testimonials h2::after,
+[lang="ar"] .portfolio h2::after {
+    margin: 0.5rem auto 0;
+}
