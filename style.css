@@ -58,23 +58,31 @@ body {
     z-index: 2;
 }
 
-/* LOGO */
+/* ============================================ */
+/* LOGO - FIXED SIZE (SMALL & CLEAN)           */
+/* ============================================ */
+
 .logo-img {
-    width: 90px;
-    height: auto;
+    width: 100px !important;
+    height: auto !important;
+    max-width: 100px !important;
     margin-bottom: 15px;
     display: inline-block;
 }
 
-@media (min-width: 1200px) {
+/* Tablet screens */
+@media (max-width: 1024px) {
     .logo-img {
-        width: 100px;
+        width: 80px !important;
+        max-width: 80px !important;
     }
 }
 
+/* Mobile screens */
 @media (max-width: 768px) {
     .logo-img {
-        width: 60px;
+        width: 60px !important;
+        max-width: 60px !important;
     }
 }
 
@@ -592,12 +600,16 @@ footer {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+    .hero {
+        min-height: 70vh;
+    }
+    
     .hero h1 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     .hero p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
     }
 
     .about-content {
@@ -609,7 +621,7 @@ footer {
     }
 
     .badges span {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
     }
 
     .service-grid {
@@ -660,10 +672,8 @@ html[dir="rtl"] .portfolio-card {
     border-right: 4px solid #2a9d8f;
     text-align: right;
 }
-/* ============================================ */
-/* SERVICE PAGES - IMPROVED STYLES              */
-/* ============================================ */
 
+/* SERVICE PAGES STYLES */
 .service-hero {
     background: linear-gradient(135deg, #0a66c2, #003366);
     color: white;
@@ -686,7 +696,7 @@ html[dir="rtl"] .portfolio-card {
 }
 
 .service-details {
-    max-width: 1000px;
+    max-width: 900px;
     margin: 3rem auto;
     padding: 0 2rem;
 }
@@ -708,7 +718,7 @@ html[dir="rtl"] .portfolio-card {
 
 .service-card-full h2 {
     color: #0a2472;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-bottom: 1rem;
     border-left: 4px solid #f4a261;
     padding-left: 1rem;
@@ -730,52 +740,6 @@ html[dir="rtl"] .portfolio-card {
     color: #2d3e50;
 }
 
-.tech-badges {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 0.5rem;
-}
-
-.tech-badge {
-    background: #e9ecef;
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    color: #0a2472;
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
-
-.tech-badge:hover {
-    background: #0a2472;
-    color: white;
-    transform: translateY(-2px);
-}
-
-.perfect-for-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 0.75rem;
-    margin-top: 0.5rem;
-}
-
-.perfect-item {
-    background: #e9ecef;
-    padding: 0.5rem 1rem;
-    border-radius: 10px;
-    font-size: 0.85rem;
-    color: #0a2472;
-    text-align: center;
-    transition: all 0.3s ease;
-}
-
-.perfect-item:hover {
-    background: #0a2472;
-    color: white;
-    transform: translateY(-2px);
-}
-
 .service-buttons {
     display: flex;
     gap: 1rem;
@@ -784,47 +748,24 @@ html[dir="rtl"] .portfolio-card {
     flex-wrap: wrap;
 }
 
-.btn-secondary {
-    display: inline-block;
-    padding: 12px 25px;
-    background: #e0e0e0;
-    color: #333;
-    border-radius: 30px;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.btn-secondary:hover {
-    background: #ccc;
-    transform: translateY(-3px);
-}
-
 @media (max-width: 768px) {
-    .service-hero h1 {
-        font-size: 1.8rem;
+    .service-hero {
+        min-height: 40vh;
+        padding: 2rem 1rem;
     }
-    
+    .service-hero h1 {
+        font-size: 1.5rem;
+    }
     .service-hero p {
         font-size: 0.9rem;
     }
-    
     .service-card-full h2 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
-    
-    .tech-badges {
-        gap: 0.5rem;
-    }
-    
-    .perfect-for-grid {
-        grid-template-columns: 1fr;
-    }
-    
     .service-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
     .btn-secondary {
         width: 100%;
         text-align: center;

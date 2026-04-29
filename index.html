@@ -5,6 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BTS | Business Technology Solutions</title>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-72BT0DL8NJ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-72BT0DL8NJ');
+    </script>
+
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -21,11 +30,11 @@
     <div class="particles" id="particles"></div>
     <div class="hero-content">
         <div class="animate-logo">
-            <img src="images/logo.png" alt="BTS Logo" class="logo-img">
+            <img src="images/Logo.png" alt="BTS Logo" style="width: 100px; height: auto; margin-bottom: 15px;">
         </div>
         <h1 class="fade-up delay-1">Business Technology Solutions <span class="bts-small">(BTS)</span></h1>
         <p class="fade-up delay-2">Custom apps • AI predictions • Bilingual systems</p>
-        <a href="#contact" class="btn fade-up delay-3">Get in touch</a>
+        <a href="#contact" class="btn fade-up delay-3 glass-btn">Get in touch</a>
     </div>
 </header>
 
@@ -40,7 +49,7 @@
     </div>
 </section>
 
-<!-- ABOUT SECTION (UPDATED) -->
+<!-- ABOUT SECTION -->
 <section class="about">
     <h2>About BTS</h2>
     <div class="about-content">
@@ -49,7 +58,7 @@
             <p>Based in the United Kingdom, with native Arabic capabilities, we serve clients globally through secure, compliant, and scalable solutions. Our experience spans multiple sectors, including healthcare, retail, and logistics.</p>
             <p>Our approach combines strategic advisory with disciplined technical delivery, ensuring that every solution is aligned with business objectives, operational requirements, and regulatory standards.</p>
         </div>
-        <div class="about-image">
+        <div class="about-image glass-card">
             <div class="placeholder-image">
                 <span>📊</span>
                 <p>Data-Driven<br>Solutions</p>
@@ -58,62 +67,66 @@
     </div>
 </section>
 
-<!-- SERVICES SECTION -->
+<!-- SERVICES SECTION - Clickable Cards -->
 <section class="services">
     <h2>What We Build</h2>
     <div class="service-grid">
-        <div class="service-card">
+        <a href="services/no-show.html" class="service-card glass-card">
             <h3>📊 No-Show Predictor</h3>
             <p>Reduce missed appointments by 20–30% using AI. Built for clinics, dentists, salons.</p>
-        </div>
-        <div class="service-card">
+            <span class="learn-more">Learn More →</span>
+        </a>
+        <a href="services/apps.html" class="service-card glass-card">
             <h3>📱 Bilingual Business Apps</h3>
             <p>English + Arabic, RTL support, local payment gateways.</p>
-        </div>
-        <div class="service-card">
+            <span class="learn-more">Learn More →</span>
+        </a>
+        <a href="services/integration.html" class="service-card glass-card">
             <h3>🔗 System Integration</h3>
             <p>Connect your CRM, ERP, and accounting software. No more silos.</p>
-        </div>
-        <div class="service-card">
+            <span class="learn-more">Learn More →</span>
+        </a>
+        <a href="services/dashboards.html" class="service-card glass-card">
             <h3>📈 KPI Dashboards</h3>
             <p>Real-time insights from your data. Hosted in global cloud regions.</p>
-        </div>
+            <span class="learn-more">Learn More →</span>
+        </a>
     </div>
 </section>
 
-<!-- INDUSTRIES SECTION -->
+<!-- INDUSTRIES SECTION - Improved Version -->
 <section class="industries">
-    <h2>Industries We Serve</h2>
+    <h2>Industries We Work With</h2>
     <div class="industries-grid">
-        <div class="industry-item">
+        <div class="industry-item glass-card">
             <span>🏥 Healthcare</span>
-            <p class="industry-desc">AI no-show prediction • patient portals • scheduling</p>
+            <p class="industry-desc">AI-driven no-show prediction, patient scheduling systems, and digital portals that improve operational efficiency.</p>
         </div>
-        <div class="industry-item">
+        <div class="industry-item glass-card">
             <span>🛍️ Retail & E-commerce</span>
-            <p class="industry-desc">Bilingual stores • RTL support • local payments</p>
+            <p class="industry-desc">Bilingual storefronts, RTL-enabled UX, and region-ready payment experiences for global audiences.</p>
         </div>
-        <div class="industry-item">
+        <div class="industry-item glass-card">
             <span>🏨 Hospitality</span>
-            <p class="industry-desc">Booking systems • multilingual portals • staff management</p>
+            <p class="industry-desc">Smart booking systems, multilingual guest portals, and streamlined staff management tools.</p>
         </div>
-        <div class="industry-item">
+        <div class="industry-item glass-card">
             <span>🏢 Real Estate</span>
-            <p class="industry-desc">Property CRMs • bilingual listings • client portals</p>
+            <p class="industry-desc">Property CRMs, bilingual listing platforms, and client-facing dashboards for lead management.</p>
         </div>
-        <div class="industry-item">
+        <div class="industry-item glass-card">
             <span>🚚 Logistics</span>
-            <p class="industry-desc">Route optimization • delivery tracking • warehouse systems</p>
+            <p class="industry-desc">Route optimisation systems, delivery tracking dashboards, and warehouse coordination tools.</p>
         </div>
-        <div class="industry-item">
+        <div class="industry-item glass-card">
             <span>💳 Fintech</span>
-            <p class="industry-desc">Payment integration • compliance • secure dashboards</p>
+            <p class="industry-desc">Secure payment integrations, compliance-ready dashboards, and transaction monitoring systems.</p>
         </div>
     </div>
 </section>
 
 <!-- WHY US SECTION -->
-<section class="why-us">
+<section class="why-us glass-card">
     <h2>Why Work With <span class="highlight">BTS</span>?</h2>
     <ul>
         <li>✅ Bilingual delivery – English & Arabic (native)</li>
@@ -127,22 +140,45 @@
 <!-- PORTFOLIO SECTION -->
 <section class="portfolio">
     <h2>Recent Work by <span class="highlight">BTS</span></h2>
-    <div class="portfolio-card">
-        <h3>📋 No-Show Prediction for Healthcare</h3>
-        <p>AI model that predicts patient missed appointments with 80% accuracy. Reduced wasted capacity by 28% in simulation.</p>
-        <p><strong>Tech:</strong> Python, Scikit-learn, Random Forest, SimPy</p>
-    </div>
-    <div class="portfolio-card">
-        <h3>📱 Bilingual Booking System</h3>
-        <p>Complete appointment management system with English/Arabic interface, RTL support, and WhatsApp integration.</p>
-        <p><strong>Tech:</strong> Python, Streamlit, Twilio API</p>
+    <div class="portfolio-grid">
+        
+        <div class="portfolio-card glass-card">
+            <h3>📋 No-Show Prediction (Healthcare)</h3>
+            <p>AI system predicting patient no-shows with 80% accuracy, reducing simulated capacity waste by 28%.</p>
+            <p><strong>Tech Stack</strong><br>Python · Scikit-learn · Random Forest · SimPy</p>
+            <div class="portfolio-links">
+                <a href="#" class="btn-small">Live Demo →</a>
+                <a href="https://github.com/aymanwaraq/nhs-synthetic-no-shows" target="_blank" class="btn-small">GitHub →</a>
+            </div>
+        </div>
+
+        <div class="portfolio-card glass-card">
+            <h3>📱 Bilingual Booking System</h3>
+            <p>Full appointment platform supporting English/Arabic, RTL layout, and WhatsApp integration.</p>
+            <p><strong>Tech Stack</strong><br>Python · Streamlit · Twilio API</p>
+            <div class="portfolio-links">
+                <a href="#" class="btn-small">Live Demo →</a>
+                <a href="#" class="btn-small">GitHub →</a>
+            </div>
+        </div>
+
+        <div class="portfolio-card glass-card">
+            <h3>🌐 Bilingual Business Website</h3>
+            <p>Modern responsive website with RTL support, smooth animations, and custom domain deployment.</p>
+            <p><strong>Tech Stack</strong><br>HTML · CSS · JavaScript · GitHub Pages</p>
+            <div class="portfolio-links">
+                <a href="https://btsapp.net" target="_blank" class="btn-small">Live Demo →</a>
+                <a href="https://github.com/aymanwaraq/my-business-site" target="_blank" class="btn-small">GitHub →</a>
+            </div>
+        </div>
+
     </div>
 </section>
 
-<!-- CONTACT SECTION -->
+<!-- CONTACT SECTION with Formspree -->
 <section id="contact" class="contact">
     <h2>Let's Talk</h2>
-    <form id="contact-form" class="contact-form" action="#" method="post">
+    <form id="contact-form" class="contact-form" action="https://formspree.io/f/xgvazqkj" method="POST">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Email Address" required>
         <input type="tel" name="phone" placeholder="WhatsApp Number">
@@ -155,7 +191,7 @@
             <option value="other">Other / Not sure</option>
         </select>
         <textarea name="message" placeholder="Tell us about your project..." rows="4" class="full-width"></textarea>
-        <button type="submit" class="btn btn-primary">Send Message</button>
+        <button type="submit" class="btn btn-primary glass-btn">Send Message</button>
     </form>
     <div class="contact-direct">
         <p>📧 <a href="mailto:hello@btsapp.net">hello@btsapp.net</a></p>
