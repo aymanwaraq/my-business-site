@@ -65,3 +65,53 @@
     background: white;
     border-bottom: 1px solid #e0e0e0;
 }
+/* ============================================ */
+/* NEW LOGO SECTION STYLES                      */
+/* ============================================ */
+
+.logo-container {
+    text-align: center;
+    padding: 1rem 0 0.5rem 0;
+    background: white;
+}
+
+.logo-text-logo {
+    display: inline-block;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.logo-bts {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #f4a261;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+.logo-full {
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    color: #0a2472;
+    margin: 0;
+}
+
+.logo-tagline {
+    font-size: 0.6rem;
+    color: #5a6e7a;
+    margin-top: 0.3rem;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+    .logo-bts {
+        font-size: 1.6rem;
+    }
+    .logo-full {
+        font-size: 0.55rem;
+    }
+    .logo-tagline {
+        font-size: 0.5rem;
+    }
+}
