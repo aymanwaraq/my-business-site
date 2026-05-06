@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study: No-Show Prediction | BTS</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<section class="about">
+    <h2>📋 No-Show Prediction (Healthcare)</h2>
+
+    <p><strong>Client Problem</strong><br>
+    GP clinics face 15-20% missed appointments, wasting clinical capacity, increasing wait times, and costing the NHS over £1 billion annually. Existing scheduling systems cannot identify high-risk patients who are likely to miss their appointments.
+    </p>
+
+    <p><strong>Solution</strong><br>
+    A Random Forest machine learning model was developed using synthetic NHS appointment data (150,000 records). The model predicts patient no-show probability based on age, wait days, deprivation quintile, and prior attendance history. A threshold of 0.161 was selected to prioritise recall (80%), enabling targeted SMS reminders and risk-based overbooking.
+    </p>
+
+    <p><strong>Results</strong><br>
+    ✔ 28.7% relative reduction in no-show rates (23.0% → 16.4%)<br>
+    ✔ 7.3 percentage point increase in clinician utilisation (59.8% → 67.1%)<br>
+    ✔ 13.1:1 return on investment (£21,603 net benefit per GP annually)<br>
+    ✔ No negative impact on patient waiting times
+    </p>
+
+    <p><strong>Technologies</strong><br>
+    Python · Scikit-learn · Random Forest · SimPy · Pandas · Fairlearn
+    </p>
+
+    <a href="../index.html" class="btn">← Back to Home</a>
+</section>
+
+</body>
+</html>
