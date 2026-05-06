@@ -8,23 +8,11 @@
 </head>
 <body>
 
-    <!-- Header / Navigation -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h1>BTS<span>.</span></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="ar.html">الرئيسية</a></li>
-                    <li><a href="#portfolio">أعمالنا</a></li>
-                    <li><a href="services/">الخدمات</a></li>
-                    <li><a href="index.html">English</a></li>
-                    <li><a href="#contact" class="btn-nav">تواصل معنا</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <a href="index.html">EN</a>
+        <a href="ar.html" class="active">AR</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -32,7 +20,7 @@
             <div class="hero-content">
                 <h2>حلول تقنية الأعمال <span class="highlight">(BTS)</span></h2>
                 <p class="tagline">تطبيقات مخصصة • توقعات الذكاء الاصطناعي • أنظمة ثنائية اللغة</p>
-                <a href="#contact" class="btn">تواصل معنا ←</a>
+                <a href="#contact" class="btn">تواصل معنا</a>
             </div>
         </div>
     </section>
@@ -103,6 +91,19 @@
                 </div>
 
             </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>تواصل <span class="highlight">معنا</span></h2>
+            <form class="contact-form">
+                <input type="text" placeholder="الاسم" required>
+                <input type="email" placeholder="البريد الإلكتروني" required>
+                <textarea placeholder="رسالتك" rows="5" required></textarea>
+                <button type="submit" class="btn">إرسال الرسالة ←</button>
+            </form>
         </div>
     </section>
 

@@ -8,23 +8,11 @@
 </head>
 <body>
 
-    <!-- Header / Navigation -->
-    <header>
-        <div class="container">
-            <div class="logo">
-                <h1>BTS<span>.</span></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#portfolio">Work</a></li>
-                    <li><a href="services/">Services</a></li>
-                    <li><a href="ar.html">العربية</a></li>
-                    <li><a href="#contact" class="btn-nav">Get in touch</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <a href="index.html" class="active">EN</a>
+        <a href="ar.html">AR</a>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -32,7 +20,7 @@
             <div class="hero-content">
                 <h2>Business Technology Solutions <span class="highlight">(BTS)</span></h2>
                 <p class="tagline">Custom apps • AI predictions • Bilingual systems</p>
-                <a href="#contact" class="btn">Get in touch →</a>
+                <a href="#contact" class="btn">Get in touch</a>
             </div>
         </div>
     </section>
@@ -103,6 +91,19 @@
                 </div>
 
             </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Get in <span class="highlight">touch</span></h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit" class="btn">Send Message →</button>
+            </form>
         </div>
     </section>
 

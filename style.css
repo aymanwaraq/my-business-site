@@ -17,67 +17,44 @@ body {
     padding: 0 2rem;
 }
 
-/* Header */
-header {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-header .container {
+/* Language Switcher */
+.language-switcher {
+    position: absolute;
+    top: 20px;
+    right: 20px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
 }
 
-.logo h1 {
-    color: white;
-    font-size: 1.8rem;
-}
-
-.logo span {
-    color: #ffd700;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-nav ul li a {
+.language-switcher a {
     color: white;
     text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 20px;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-nav ul li a:hover {
+.language-switcher a.active {
+    background: rgba(255, 255, 255, 0.3);
     color: #ffd700;
 }
 
-.btn-nav {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    padding: 0.5rem 1.2rem;
-    border-radius: 2rem;
-    border: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.btn-nav:hover {
-    background: linear-gradient(135deg, #5a67d8, #6b46a0);
-    color: white !important;
+.language-switcher a:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
 /* Hero Section */
 .hero {
     padding: 4rem 0;
     text-align: center;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
 }
 
 .hero-content h2 {
@@ -87,7 +64,6 @@ nav ul li a:hover {
 }
 
 .highlight {
-    color: #ffd700;
     background: linear-gradient(135deg, #ffd700, #ff8c00);
     -webkit-background-clip: text;
     background-clip: text;
@@ -111,6 +87,7 @@ nav ul li a:hover {
     font-weight: 500;
     transition: all 0.3s ease;
     border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -201,6 +178,55 @@ nav ul li a:hover {
     transform: scale(1.02);
 }
 
+/* Contact Section */
+.contact {
+    padding: 4rem 0;
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: white;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 1rem;
+    border-radius: 1rem;
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
+    color: white;
+    font-size: 1rem;
+    font-family: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #ffd700;
+}
+
+.contact-form button {
+    align-self: center;
+    cursor: pointer;
+}
+
 /* Footer */
 footer {
     background: rgba(0, 0, 0, 0.3);
@@ -214,8 +240,9 @@ footer p {
 }
 
 /* RTL Support */
-[dir="rtl"] {
-    text-align: right;
+[dir="rtl"] .language-switcher {
+    right: auto;
+    left: 20px;
 }
 
 [dir="rtl"] .portfolio-links {
@@ -225,36 +252,6 @@ footer p {
 [dir="rtl"] .btn-small {
     margin-right: 0;
     margin-left: 0.5rem;
-}
-
-[dir="rtl"] nav ul {
-    flex-direction: row-reverse;
-}
-
-/* About/Case Study Page */
-.about {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
-    border-radius: 1.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.about h2 {
-    color: white;
-    margin-bottom: 1.5rem;
-}
-
-.about p {
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-}
-
-.about strong {
-    color: #ffd700;
 }
 
 /* Responsive */
@@ -275,12 +272,13 @@ footer p {
         padding: 1.2rem;
     }
     
-    nav ul {
-        gap: 1rem;
-        margin-top: 1rem;
+    .language-switcher {
+        top: 10px;
+        right: 10px;
     }
     
-    header .container {
-        flex-direction: column;
+    [dir="rtl"] .language-switcher {
+        right: auto;
+        left: 10px;
     }
 }
