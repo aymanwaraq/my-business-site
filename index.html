@@ -282,6 +282,14 @@ h2{
     position: absolute;
     left: 0;
 }
+body.ar .modal-features li:before {
+    left: auto;
+    right: 0;
+}
+body.ar .modal-features li {
+    padding-left: 0;
+    padding-right: 20px;
+}
 
 /* FORM */
 .contact-form{
@@ -475,32 +483,40 @@ input:focus, textarea:focus{
 
 <script>
 
-// ===== SOLUTION DETAILS (Bilingual) =====
+// ===== SOLUTION DETAILS (Fully Bilingual) =====
 const solutionDetails = {
     en: {
         ai: {
             title: "AI Predictions",
             icon: "🤖",
             description: "Harness the power of machine learning to forecast trends, customer behavior, and business outcomes with up to 89% accuracy.",
-            features: ["Predictive Analytics", "Demand Forecasting", "Risk Assessment", "Real-time Insights"]
+            featuresLabel: "✨ Key Features:",
+            features: ["Predictive Analytics", "Demand Forecasting", "Risk Assessment", "Real-time Insights"],
+            ctaText: "💡 Ready to transform your business?"
         },
         bilingual: {
             title: "Bilingual Platforms",
             icon: "🌐",
             description: "Reach wider audiences with fully bilingual web and mobile platforms that seamlessly switch between English and Arabic.",
-            features: ["RTL/LTR Support", "Cultural Adaptation", "Multi-language CMS", "Localized UX"]
+            featuresLabel: "✨ Key Features:",
+            features: ["RTL/LTR Support", "Cultural Adaptation", "Multi-language CMS", "Localized UX"],
+            ctaText: "💡 Ready to transform your business?"
         },
         automation: {
             title: "Automation Systems",
             icon: "⚙️",
             description: "Streamline operations, reduce manual errors, and save up to 28% in operational costs with intelligent automation.",
-            features: ["Workflow Automation", "AI Document Processing", "Smart Notifications", "Integration Ready"]
+            featuresLabel: "✨ Key Features:",
+            features: ["Workflow Automation", "AI Document Processing", "Smart Notifications", "Integration Ready"],
+            ctaText: "💡 Ready to transform your business?"
         },
         dashboards: {
             title: "Smart Dashboards",
             icon: "📊",
             description: "Visualize your business data with interactive, real-time dashboards that provide actionable insights at a glance.",
-            features: ["Real-time Analytics", "Custom Reports", "KPI Tracking", "Data Export"]
+            featuresLabel: "✨ Key Features:",
+            features: ["Real-time Analytics", "Custom Reports", "KPI Tracking", "Data Export"],
+            ctaText: "💡 Ready to transform your business?"
         }
     },
     ar: {
@@ -508,25 +524,33 @@ const solutionDetails = {
             title: "التنبؤ بالذكاء الاصطناعي",
             icon: "🤖",
             description: "استخدم قوة التعلم الآلي للتنبؤ بالاتجاهات وسلوك العملاء ونتائج الأعمال بدقة تصل إلى ٨٩٪.",
-            features: ["التحليلات التنبؤية", "توقعات الطلب", "تقييم المخاطر", "رؤى فورية"]
+            featuresLabel: "✨ الميزات الرئيسية:",
+            features: ["التحليلات التنبؤية", "توقعات الطلب", "تقييم المخاطر", "رؤى فورية"],
+            ctaText: "💡 هل أنت مستعد لتحويل أعمالك؟"
         },
         bilingual: {
             title: "منصات ثنائية اللغة",
             icon: "🌐",
             description: "تواصل مع جمهور أوسع عبر منصات ويب وتطبيقات ثنائية اللغة بالكامل تنتقل بسلاسة بين العربية والإنجليزية.",
-            features: ["دعم RTL/LTR", "تكييف ثقافي", "نظام إدارة محتوى متعدد اللغات", "تجربة مستخدم محلية"]
+            featuresLabel: "✨ الميزات الرئيسية:",
+            features: ["دعم RTL/LTR", "تكييف ثقافي", "نظام إدارة محتوى متعدد اللغات", "تجربة مستخدم محلية"],
+            ctaText: "💡 هل أنت مستعد لتحويل أعمالك؟"
         },
         automation: {
             title: "أنظمة الأتمتة",
             icon: "⚙️",
             description: "بسط العمليات، قلل الأخطاء البشرية، ووفر حتى ٢٨٪ من التكاليف التشغيلية باستخدام الأتمتة الذكية.",
-            features: ["أتمتة سير العمل", "معالجة المستندات بالذكاء الاصطناعي", "إشعارات ذكية", "جاهز للتكامل"]
+            featuresLabel: "✨ الميزات الرئيسية:",
+            features: ["أتمتة سير العمل", "معالجة المستندات بالذكاء الاصطناعي", "إشعارات ذكية", "جاهز للتكامل"],
+            ctaText: "💡 هل أنت مستعد لتحويل أعمالك؟"
         },
         dashboards: {
             title: "لوحات التحكم الذكية",
             icon: "📊",
             description: "عرض بيانات عملك عبر لوحات تحكم تفاعلية لحظية توفر رؤى قابلة للتنفيذ بنظرة واحدة.",
-            features: ["تحليلات لحظية", "تقارير مخصصة", "تتبع مؤشرات الأداء", "تصدير البيانات"]
+            featuresLabel: "✨ الميزات الرئيسية:",
+            features: ["تحليلات لحظية", "تقارير مخصصة", "تتبع مؤشرات الأداء", "تصدير البيانات"],
+            ctaText: "💡 هل أنت مستعد لتحويل أعمالك؟"
         }
     }
 };
@@ -547,10 +571,10 @@ function showSolution(solutionKey) {
     modalTitle.textContent = data.title;
     modalIcon.textContent = data.icon;
     
-    // Build features list HTML
+    // Build features list HTML with fully translated text
     const featuresHtml = `
         <div class="modal-features">
-            <p>✨ Key Features:</p>
+            <p>${data.featuresLabel}</p>
             <ul>
                 ${data.features.map(f => `<li>${f}</li>`).join('')}
             </ul>
@@ -560,7 +584,7 @@ function showSolution(solutionKey) {
     modalBody.innerHTML = `
         <p style="margin-bottom: 20px;">${data.description}</p>
         ${featuresHtml}
-        <p style="margin-top: 20px; color: #4ea1ff; font-weight: 500;">💡 Ready to transform your business?</p>
+        <p style="margin-top: 20px; color: #4ea1ff; font-weight: 500;">${data.ctaText}</p>
     `;
     
     modal.style.display = 'flex';
@@ -882,7 +906,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-console.log('✅ Website loaded with solution details!');
+console.log('✅ Website loaded with fully bilingual modal content!');
 
 </script>
 
