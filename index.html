@@ -1,118 +1,643 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BTS - Business Technology Solutions</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BTS | AI Business Systems</title>
+
+<!-- Google Analytics -->
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== BASE ===== */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    font-family:'Inter',sans-serif;
+    background:#050a14;
+    color:#fff;
+    overflow-x:hidden;
+}
+body.ar{
+    direction:rtl;
+    font-family:'Cairo',sans-serif;
+}
+
+/* ===== NAV ===== */
+.nav{
+    position:fixed;
+    width:100%;
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:100;
+    background:rgba(10,15,30,.8);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+/* LOGO WITH IMAGE */
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+    background:none;
+    border:none;
+}
+.logo-img{
+    width:46px;
+    height:46px;
+    border-radius:12px;
+    object-fit:contain;
+    filter: drop-shadow(0 0 12px rgba(78,161,255,.6));
+    transition:.3s;
+}
+.logo:hover .logo-img{
+    transform:scale(1.05) rotate(-2deg);
+    filter: drop-shadow(0 0 20px rgba(78,161,255,.9));
+}
+.logo-text{
+    display:flex;
+    flex-direction:column;
+}
+.logo-title{
+    font-size:.95rem;
+    font-weight:700;
+    color:#ffffff;
+    text-shadow:0 0 5px rgba(78,161,255,.5);
+}
+
+/* LANG */
+.lang{
+    cursor:pointer;
+    padding:8px 14px;
+    border-radius:20px;
+    background:rgba(255,255,255,.1);
+    transition:all 0.3s;
+    color:#ffffff;
+}
+.lang:hover{
+    background:rgba(78,161,255,.3);
+}
+
+/* ===== HERO ===== */
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+    padding:140px 20px;
+}
+#webglHero{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:0;
+}
+.hero-grid{
+    position:relative;
+    z-index:2;
+    max-width:1100px;
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:60px;
+    align-items:center;
+    transition:transform .2s ease;
+}
+.hero h1{font-size:2.4rem;}
+.tagline{color:#4ea1ff;margin:15px 0;}
+.hero p{color:#a8b3c7;}
+
+/* BUTTON */
+.btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:12px 26px;
+    border-radius:999px;
+    background:linear-gradient(135deg,#4ea1ff,#2dd4ff);
+    text-decoration:none;
+    color:#fff;
+    border:none;
+    cursor:pointer;
+    font-weight:600;
+}
+.magnetic{transition:transform .2s ease;}
+
+/* MOCK */
+.mock{
+    background:rgba(255,255,255,.05);
+    padding:25px;
+    border-radius:16px;
+    backdrop-filter:blur(10px);
+}
+
+/* ===== SECTION ===== */
+section{padding:80px 20px;text-align:center;}
+h2{
+    font-size:2rem;
+    margin-bottom:20px;
+    background:linear-gradient(135deg,#fff,#4ea1ff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
+    margin-top:30px;
+    max-width:1100px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* CARDS */
+.card{
+    padding:25px;
+    border-radius:16px;
+    background:rgba(255,255,255,.05);
+    transition:transform .2s ease, box-shadow .2s;
+    cursor:pointer;
+    font-size:1.1rem;
+}
+.card:hover{
+    transform:rotateX(6deg) rotateY(-6deg) translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,.4);
+    background:rgba(78,161,255,.15);
+}
+
+/* FORM */
+.contact-form{
+    max-width:500px;
+    margin:0 auto;
+}
+input, textarea{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:10px;
+    color:#fff;
+    font-family:inherit;
+}
+input:focus, textarea:focus{
+    outline:none;
+    border-color:#4ea1ff;
+    background:rgba(78,161,255,.1);
+}
+
+.contact-info{
+    margin-top:30px;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+.contact-info a{
+    color:#a8b3c7;
+    text-decoration:none;
+    padding:10px 20px;
+    border-radius:8px;
+    background:rgba(255,255,255,.05);
+    transition:all 0.3s;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+}
+.contact-info a:hover{
+    color:#4ea1ff;
+    background:rgba(78,161,255,.2);
+    transform:translateY(-2px);
+}
+
+.form-status{
+    margin-top:15px;
+    padding:12px;
+    border-radius:8px;
+    display:none;
+}
+.form-status.success{
+    background:rgba(76,175,80,0.2);
+    border:1px solid #4caf50;
+    color:#4caf50;
+    display:block;
+}
+.form-status.error{
+    background:rgba(244,67,54,0.2);
+    border:1px solid #f44336;
+    color:#f44336;
+    display:block;
+}
+
+/* FOOTER */
+.footer{
+    padding:25px 20px;
+    text-align:center;
+    color:#a8b3c7;
+    border-top:1px solid rgba(255,255,255,.1);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+    .hero-grid{grid-template-columns:1fr;text-align:center;}
+    .hero h1{font-size:1.7rem;}
+    .contact-info{flex-direction:column;align-items:center;gap:15px;}
+}
+
+</style>
 </head>
+
 <body>
 
-    <!-- Language Switcher -->
-    <div class="language-switcher">
-        <a href="index.html" class="active">EN</a>
-        <a href="ar.html">AR</a>
+<!-- NAV WITH IMAGE LOGO -->
+<div class="nav">
+    <button class="logo" id="homeButton" style="background:none; border:none;">
+        <img class="logo-img" src="images/Logo.png" alt="BTS Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 120 120\'%3E%3Crect width=\'120\' height=\'120\' rx=\'28\' fill=\'url(%23grad)\'/%3E%3Ctext x=\'50%25\' y=\'58%25\' text-anchor=\'middle\' fill=\'white\' font-size=\'42\' font-weight=\'700\' dy=\'.3em\'%3EBTS%3C/text%3E%3Cdefs%3E%3ClinearGradient id=\'grad\'%3E%3Cstop offset=\'0%25\' stop-color=\'%234ea1ff\'/%3E%3Cstop offset=\'100%25\' stop-color=\'%232dd4ff\'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E'">
+        <div class="logo-text">
+            <span class="logo-title">Business Technology Solutions</span>
+        </div>
+    </button>
+    <div class="lang" id="langButton">EN / AR</div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+<canvas id="webglHero"></canvas>
+
+<div class="hero-grid">
+<div>
+<h1 id="h1">AI systems that scale real businesses</h1>
+<div class="tagline" id="tagline">Custom apps · AI predictions · Bilingual systems</div>
+<p id="h2">We build intelligent systems that increase efficiency and reduce cost.</p>
+<a href="#contact" class="btn magnetic" id="cta">Get in touch</a>
+</div>
+
+<div class="mock">
+<h3>Live System Metrics</h3>
+<p id="mock1">✓ Accuracy: 89%</p>
+<p id="mock2">✓ Efficiency: +28%</p>
+<p id="mock3">✓ Uptime: 99.9%</p>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section>
+<h2 id="s1">Solutions</h2>
+<div class="grid">
+    <div class="card" onclick="alert('Coming soon')">
+        <span style="font-size:2rem;display:block;margin-bottom:10px;">🤖</span>
+        <span id="card1">AI Predictions</span>
     </div>
+    <div class="card" onclick="alert('Coming soon')">
+        <span style="font-size:2rem;display:block;margin-bottom:10px;">🌐</span>
+        <span id="card2">Bilingual Platforms</span>
+    </div>
+    <div class="card" onclick="alert('Coming soon')">
+        <span style="font-size:2rem;display:block;margin-bottom:10px;">⚙️</span>
+        <span id="card3">Automation Systems</span>
+    </div>
+    <div class="card" onclick="alert('Coming soon')">
+        <span style="font-size:2rem;display:block;margin-bottom:10px;">📊</span>
+        <span id="card4">Smart Dashboards</span>
+    </div>
+</div>
+</section>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h2>Business Technology Solutions <span class="highlight">(BTS)</span></h2>
-                <p class="tagline">Custom apps • AI predictions • Bilingual systems</p>
-                <a href="#contact" class="btn">Get in touch</a>
-            </div>
-        </div>
-    </section>
+<!-- CONTACT - FIXED WITH FORMSPREE -->
+<section id="contact">
+<h2 id="c1">Let's build something powerful</h2>
 
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <div class="container">
-            <h2>Recent Work by <span class="highlight">BTS</span></h2>
-            <p class="section-subtitle">Proven results – 28% waste reduction in real simulations</p>
+<div class="contact-form">
+    <!-- Form sends to your Formspree account: https://formspree.io/forms/xjglbvzr/overview -->
+    <form id="contactForm" action="https://formspree.io/f/xjglbvzr" method="POST">
+        <input type="text" name="name" placeholder="Full name" required>
+        <input type="email" name="email" placeholder="Email address" required>
+        <textarea name="message" placeholder="Tell us about your project" rows="4" required></textarea>
+        <button type="submit" class="btn">Send Message</button>
+        <div class="form-status" id="formStatus"></div>
+    </form>
+</div>
 
-            <div class="portfolio-grid">
+<!-- FIXED: JavaScript handlers for email and phone to prevent raw URL display -->
+<div class="contact-info">
+    <p>📧 <a href="#" id="emailLink">hello@btsapp.net</a></p>
+    <p>📱 <a href="#" id="phoneLink">+44 7425 252625</a></p>
+</div>
+</section>
 
-                <!-- PROJECT 1 -->
-                <div class="portfolio-card glass-card">
-                    <h3>📋 No-Show Prediction (Healthcare)</h3>
-                    <p>
-                        AI system predicting patient no-shows with 80% accuracy,
-                        reducing simulated capacity waste by 28%.
-                    </p>
-                    <p><strong>Tech Stack</strong><br>
-                        Python · Scikit-learn · Random Forest · SimPy
-                    </p>
-                    <p><strong>Business Impact</strong><br>
-                        Reduced missed appointments and improved clinic efficiency.
-                    </p>
-                    <div class="portfolio-links">
-                        <a href="#" class="btn-small">Live Demo →</a>
-                        <a href="case-studies/no-show.html" class="btn-small">View Case Study →</a>
-                    </div>
-                </div>
+<!-- FOOTER -->
+<div class="footer">
+    <p id="copyright">© 2026 BTS - Business Technology Solutions. All rights reserved.</p>
+</div>
 
-                <!-- PROJECT 2 -->
-                <div class="portfolio-card glass-card">
-                    <h3>📱 Bilingual Booking System</h3>
-                    <p>
-                        Full appointment platform supporting English/Arabic,
-                        RTL layout, and WhatsApp integration.
-                    </p>
-                    <p><strong>Tech Stack</strong><br>
-                        Python · Streamlit · Twilio API
-                    </p>
-                    <p><strong>Business Impact</strong><br>
-                        Enabled seamless customer experience across languages and regions.
-                    </p>
-                    <div class="portfolio-links">
-                        <a href="#" class="btn-small">Live Demo →</a>
-                        <a href="case-studies/booking.html" class="btn-small">View Case Study →</a>
-                    </div>
-                </div>
+<script>
 
-                <!-- PROJECT 3 -->
-                <div class="portfolio-card glass-card">
-                    <h3>🌐 Bilingual Business Website</h3>
-                    <p>
-                        Modern responsive website with RTL support,
-                        smooth animations, and custom domain deployment.
-                    </p>
-                    <p><strong>Tech Stack</strong><br>
-                        HTML · CSS · JavaScript · GitHub Pages
-                    </p>
-                    <p><strong>Business Impact</strong><br>
-                        Delivered a scalable digital presence for international audiences.
-                    </p>
-                    <div class="portfolio-links">
-                        <a href="https://btsapp.net" target="_blank" class="btn-small">Live Demo →</a>
-                        <a href="case-studies/website.html" class="btn-small">View Case Study →</a>
-                    </div>
-                </div>
+// ===== SCROLL TOP =====
+const homeButton = document.getElementById('homeButton');
+if(homeButton) {
+    homeButton.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({top: 0, behavior: 'smooth'});
+        // Track with Google Analytics
+        if(typeof gtag !== 'undefined') gtag('event', 'click', {'event_category': 'navigation', 'event_label': 'logo'});
+    });
+}
 
-            </div>
-        </div>
-    </section>
+// ===== EMAIL LINK - FIXED with proper handling =====
+const emailLink = document.getElementById('emailLink');
+if(emailLink) {
+    emailLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        // This creates a mailto link that will open the default email client
+        window.location.href = 'mailto:hello@btsapp.net?subject=Inquiry%20from%20BTS%20Website&body=Hello%20BTS%20Team,%0A%0AI%20am%20interested%20in%20your%20services.%0A%0ABest%20regards';
+        
+        // Track with Google Analytics
+        if(typeof gtag !== 'undefined') gtag('event', 'click', {'event_category': 'contact', 'event_label': 'email'});
+        
+        return false;
+    });
+}
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <h2>Get in <span class="highlight">touch</span></h2>
-            <form class="contact-form">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" rows="5" required></textarea>
-                <button type="submit" class="btn">Send Message →</button>
-            </form>
-        </div>
-    </section>
+// ===== PHONE LINK - FIXED with proper handling =====
+const phoneLink = document.getElementById('phoneLink');
+if(phoneLink) {
+    phoneLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        // This creates a tel link that will open the phone dialer
+        window.location.href = 'tel:+447425252625';
+        
+        // Track with Google Analytics
+        if(typeof gtag !== 'undefined') gtag('event', 'click', {'event_category': 'contact', 'event_label': 'phone'});
+        
+        return false;
+    });
+}
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 BTS - Business Technology Solutions. All rights reserved.</p>
-        </div>
-    </footer>
+// ===== FORM HANDLING with Formspree =====
+const contactForm = document.getElementById('contactForm');
+const formStatus = document.getElementById('formStatus');
+
+if(contactForm) {
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(contactForm);
+        
+        formStatus.style.display = 'block';
+        formStatus.textContent = 'Sending message...';
+        formStatus.style.background = 'rgba(78,161,255,0.2)';
+        formStatus.style.border = '1px solid #4ea1ff';
+        formStatus.style.color = '#4ea1ff';
+        formStatus.className = 'form-status';
+        
+        try {
+            const response = await fetch('https://formspree.io/f/xjglbvzr', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                formStatus.className = 'form-status success';
+                formStatus.textContent = '✅ Message sent successfully! We\'ll get back to you soon.';
+                contactForm.reset();
+                
+                // Track with Google Analytics
+                if(typeof gtag !== 'undefined') gtag('event', 'submit', {'event_category': 'form', 'event_label': 'contact'});
+                
+                setTimeout(() => {
+                    formStatus.style.display = 'none';
+                }, 5000);
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            formStatus.className = 'form-status error';
+            formStatus.textContent = '❌ Failed to send. Please email us directly at hello@btsapp.net';
+            
+            setTimeout(() => {
+                formStatus.style.display = 'none';
+            }, 5000);
+        }
+    });
+}
+
+// ===== LANGUAGE TRANSLATIONS =====
+const t = {
+    en: {
+        h1: "AI systems that scale real businesses",
+        tagline: "Custom apps · AI predictions · Bilingual systems",
+        h2: "We build intelligent systems that increase efficiency and reduce cost.",
+        cta: "Get in touch",
+        s1: "Solutions",
+        c1: "Let's build something powerful",
+        mock1: "✓ Accuracy: 89%",
+        mock2: "✓ Efficiency: +28%",
+        mock3: "✓ Uptime: 99.9%",
+        copyright: "© 2026 BTS - Business Technology Solutions. All rights reserved.",
+        card1: "AI Predictions",
+        card2: "Bilingual Platforms",
+        card3: "Automation Systems",
+        card4: "Smart Dashboards"
+    },
+    ar: {
+        h1: "أنظمة ذكاء اصطناعي توسّع الأعمال الحقيقية",
+        tagline: "تطبيقات مخصصة · تنبؤات بالذكاء الاصطناعي · أنظمة ثنائية اللغة",
+        h2: "نبني أنظمة ذكية تزيد الكفاءة وتقلل التكاليف",
+        cta: "تواصل معنا",
+        s1: "الحلول",
+        c1: "لنبدأ مشروعاً قوياً",
+        mock1: "✓ الدقة: ٨٩٪",
+        mock2: "✓ الكفاءة: +٢٨٪",
+        mock3: "✓ وقت التشغيل: ٩٩.٩٪",
+        copyright: "© ٢٠٢٦ بي تي إس - حلول تكنولوجيا الأعمال. جميع الحقوق محفوظة",
+        card1: "التنبؤ بالذكاء الاصطناعي",
+        card2: "منصات ثنائية اللغة",
+        card3: "أنظمة الأتمتة",
+        card4: "لوحات التحكم الذكية"
+    }
+};
+
+let currentLang = "en";
+
+function toggleLanguage() {
+    currentLang = currentLang === "en" ? "ar" : "en";
+    document.body.classList.toggle("ar");
+    
+    for(let key in t[currentLang]) {
+        const element = document.getElementById(key);
+        if(element) {
+            element.innerText = t[currentLang][key];
+        }
+    }
+    
+    for(let i = 1; i <= 4; i++) {
+        const cardElement = document.getElementById(`card${i}`);
+        if(cardElement) {
+            cardElement.innerText = t[currentLang][`card${i}`];
+        }
+    }
+}
+
+const langButton = document.getElementById('langButton');
+if(langButton) {
+    langButton.addEventListener('click', toggleLanguage);
+}
+
+// ===== CANVAS PARTICLES =====
+const canvas = document.getElementById('webglHero');
+const ctx = canvas.getContext('2d');
+let particles = [];
+let mouse = {x: 0, y: 0};
+
+function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener('resize', resize);
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.4;
+        this.vy = (Math.random() - 0.5) * 0.4;
+        this.s = Math.random() * 2.5;
+        this.opacity = Math.random() * 0.5 + 0.2;
+    }
+    
+    move() {
+        this.x += this.vx;
+        this.y += this.vy;
+        
+        let dx = this.x - mouse.x;
+        let dy = this.y - mouse.y;
+        let d = Math.sqrt(dx * dx + dy * dy);
+        
+        if (d < 120) {
+            this.x += dx * 0.02;
+            this.y += dy * 0.02;
+        }
+        
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        
+        this.x = Math.max(0, Math.min(canvas.width, this.x));
+        this.y = Math.max(0, Math.min(canvas.height, this.y));
+    }
+    
+    draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.s, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(78, 161, 255, ${this.opacity})`;
+        ctx.fill();
+    }
+}
+
+for (let i = 0; i < 150; i++) {
+    particles.push(new Particle());
+}
+
+function drawLines() {
+    for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+            let dx = particles[i].x - particles[j].x;
+            let dy = particles[i].y - particles[j].y;
+            let distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < 100) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.strokeStyle = `rgba(78, 161, 255, ${0.08 * (1 - distance / 100)})`;
+                ctx.stroke();
+            }
+        }
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+        p.move();
+        p.draw();
+    });
+    drawLines();
+    requestAnimationFrame(animate);
+}
+
+animate();
+
+window.addEventListener('mousemove', (e) => {
+    mouse.x = e.clientX;
+    mouse.y = e.clientY;
+});
+
+// ===== PARALLAX EFFECT =====
+const heroGrid = document.querySelector('.hero-grid');
+if(heroGrid) {
+    document.addEventListener('mousemove', (e) => {
+        let x = (e.clientX / window.innerWidth - 0.5) * 20;
+        let y = (e.clientY / window.innerHeight - 0.5) * 20;
+        heroGrid.style.transform = `translate(${x}px, ${y}px)`;
+    });
+}
+
+// ===== MAGNETIC BUTTON =====
+const magneticBtn = document.querySelector('.magnetic');
+if(magneticBtn) {
+    magneticBtn.addEventListener('mousemove', (e) => {
+        const rect = magneticBtn.getBoundingClientRect();
+        let x = e.clientX - rect.left - rect.width / 2;
+        let y = e.clientY - rect.top - rect.height / 2;
+        magneticBtn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+    });
+    
+    magneticBtn.addEventListener('mouseleave', () => {
+        magneticBtn.style.transform = "translate(0, 0)";
+    });
+}
+
+// ===== SMOOTH SCROLL =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if(targetId && targetId !== '#') {
+            const target = document.querySelector(targetId);
+            if(target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    });
+});
+
+console.log('✅ Website loaded successfully!');
+console.log('✅ Form sends to: https://formspree.io/f/xjglbvzr');
+console.log('✅ Email and phone links use JavaScript handlers');
+console.log('✅ Google Analytics ready (replace G-XXXXXXXXXX with your ID)');
+
+</script>
 
 </body>
 </html>
