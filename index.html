@@ -179,6 +179,109 @@ h2{
     box-shadow:0 20px 40px rgba(0,0,0,.4);
     background:rgba(78,161,255,.15);
 }
+.card-icon{
+    font-size:2rem;
+    display:block;
+    margin-bottom:10px;
+}
+
+/* MODAL POPUP */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background: linear-gradient(135deg, rgba(20,30,55,0.95), rgba(10,15,35,0.95));
+    backdrop-filter: blur(20px);
+    margin: auto;
+    padding: 40px;
+    border-radius: 24px;
+    width: 90%;
+    max-width: 500px;
+    border: 1px solid rgba(78,161,255,0.3);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    animation: modalSlideIn 0.3s ease;
+}
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(78,161,255,0.3);
+}
+.modal-header h3 {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg,#4ea1ff,#2dd4ff);
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
+}
+.modal-close {
+    font-size: 2rem;
+    cursor: pointer;
+    color: #a8b3c7;
+    transition: 0.2s;
+    line-height: 1;
+}
+.modal-close:hover {
+    color: #4ea1ff;
+    transform: scale(1.1);
+}
+.modal-body {
+    color: #cbd5e1;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+.modal-icon {
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.modal-features {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+.modal-features p {
+    color: #4ea1ff;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+.modal-features ul {
+    list-style: none;
+    padding-left: 0;
+}
+.modal-features li {
+    margin: 8px 0;
+    padding-left: 20px;
+    position: relative;
+}
+.modal-features li:before {
+    content: "✓";
+    color: #2dd4ff;
+    position: absolute;
+    left: 0;
+}
 
 /* FORM */
 .contact-form{
@@ -264,12 +367,25 @@ input:focus, textarea:focus{
     .hero h1{font-size:1.7rem;}
     .contact-info{flex-direction:column;align-items:center;gap:15px;}
     .contact-item{width:80%;justify-content:center;}
+    .modal-content{padding:25px;margin:20px;width:auto;}
 }
 
 </style>
 </head>
 
 <body>
+
+<!-- MODAL POPUP -->
+<div id="solutionModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modalTitle">AI Predictions</h3>
+            <span class="modal-close">&times;</span>
+        </div>
+        <div id="modalIcon" class="modal-icon">🤖</div>
+        <div id="modalBody" class="modal-body"></div>
+    </div>
+</div>
 
 <!-- NAV WITH IMAGE LOGO -->
 <div class="nav">
@@ -307,20 +423,20 @@ input:focus, textarea:focus{
 <section>
 <h2 id="s1">Solutions</h2>
 <div class="grid">
-    <div class="card" onclick="alert('Coming soon')">
-        <span style="font-size:2rem;display:block;margin-bottom:10px;">🤖</span>
+    <div class="card" data-solution="ai">
+        <span class="card-icon">🤖</span>
         <span id="card1">AI Predictions</span>
     </div>
-    <div class="card" onclick="alert('Coming soon')">
-        <span style="font-size:2rem;display:block;margin-bottom:10px;">🌐</span>
+    <div class="card" data-solution="bilingual">
+        <span class="card-icon">🌐</span>
         <span id="card2">Bilingual Platforms</span>
     </div>
-    <div class="card" onclick="alert('Coming soon')">
-        <span style="font-size:2rem;display:block;margin-bottom:10px;">⚙️</span>
+    <div class="card" data-solution="automation">
+        <span class="card-icon">⚙️</span>
         <span id="card3">Automation Systems</span>
     </div>
-    <div class="card" onclick="alert('Coming soon')">
-        <span style="font-size:2rem;display:block;margin-bottom:10px;">📊</span>
+    <div class="card" data-solution="dashboards">
+        <span class="card-icon">📊</span>
         <span id="card4">Smart Dashboards</span>
     </div>
 </div>
@@ -340,7 +456,6 @@ input:focus, textarea:focus{
     </form>
 </div>
 
-<!-- Email & Phone - Clean copy to clipboard (no notification messages) -->
 <div class="contact-info">
     <div class="contact-item" id="emailContainer">
         <span class="contact-icon">📧</span>
@@ -360,6 +475,117 @@ input:focus, textarea:focus{
 
 <script>
 
+// ===== SOLUTION DETAILS (Bilingual) =====
+const solutionDetails = {
+    en: {
+        ai: {
+            title: "AI Predictions",
+            icon: "🤖",
+            description: "Harness the power of machine learning to forecast trends, customer behavior, and business outcomes with up to 89% accuracy.",
+            features: ["Predictive Analytics", "Demand Forecasting", "Risk Assessment", "Real-time Insights"]
+        },
+        bilingual: {
+            title: "Bilingual Platforms",
+            icon: "🌐",
+            description: "Reach wider audiences with fully bilingual web and mobile platforms that seamlessly switch between English and Arabic.",
+            features: ["RTL/LTR Support", "Cultural Adaptation", "Multi-language CMS", "Localized UX"]
+        },
+        automation: {
+            title: "Automation Systems",
+            icon: "⚙️",
+            description: "Streamline operations, reduce manual errors, and save up to 28% in operational costs with intelligent automation.",
+            features: ["Workflow Automation", "AI Document Processing", "Smart Notifications", "Integration Ready"]
+        },
+        dashboards: {
+            title: "Smart Dashboards",
+            icon: "📊",
+            description: "Visualize your business data with interactive, real-time dashboards that provide actionable insights at a glance.",
+            features: ["Real-time Analytics", "Custom Reports", "KPI Tracking", "Data Export"]
+        }
+    },
+    ar: {
+        ai: {
+            title: "التنبؤ بالذكاء الاصطناعي",
+            icon: "🤖",
+            description: "استخدم قوة التعلم الآلي للتنبؤ بالاتجاهات وسلوك العملاء ونتائج الأعمال بدقة تصل إلى ٨٩٪.",
+            features: ["التحليلات التنبؤية", "توقعات الطلب", "تقييم المخاطر", "رؤى فورية"]
+        },
+        bilingual: {
+            title: "منصات ثنائية اللغة",
+            icon: "🌐",
+            description: "تواصل مع جمهور أوسع عبر منصات ويب وتطبيقات ثنائية اللغة بالكامل تنتقل بسلاسة بين العربية والإنجليزية.",
+            features: ["دعم RTL/LTR", "تكييف ثقافي", "نظام إدارة محتوى متعدد اللغات", "تجربة مستخدم محلية"]
+        },
+        automation: {
+            title: "أنظمة الأتمتة",
+            icon: "⚙️",
+            description: "بسط العمليات، قلل الأخطاء البشرية، ووفر حتى ٢٨٪ من التكاليف التشغيلية باستخدام الأتمتة الذكية.",
+            features: ["أتمتة سير العمل", "معالجة المستندات بالذكاء الاصطناعي", "إشعارات ذكية", "جاهز للتكامل"]
+        },
+        dashboards: {
+            title: "لوحات التحكم الذكية",
+            icon: "📊",
+            description: "عرض بيانات عملك عبر لوحات تحكم تفاعلية لحظية توفر رؤى قابلة للتنفيذ بنظرة واحدة.",
+            features: ["تحليلات لحظية", "تقارير مخصصة", "تتبع مؤشرات الأداء", "تصدير البيانات"]
+        }
+    }
+};
+
+// ===== MODAL FUNCTIONS =====
+const modal = document.getElementById('solutionModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalIcon = document.getElementById('modalIcon');
+const modalBody = document.getElementById('modalBody');
+const closeModal = document.querySelector('.modal-close');
+
+let currentLangModal = "en";
+
+function showSolution(solutionKey) {
+    const data = solutionDetails[currentLangModal][solutionKey];
+    if (!data) return;
+    
+    modalTitle.textContent = data.title;
+    modalIcon.textContent = data.icon;
+    
+    // Build features list HTML
+    const featuresHtml = `
+        <div class="modal-features">
+            <p>✨ Key Features:</p>
+            <ul>
+                ${data.features.map(f => `<li>${f}</li>`).join('')}
+            </ul>
+        </div>
+    `;
+    
+    modalBody.innerHTML = `
+        <p style="margin-bottom: 20px;">${data.description}</p>
+        ${featuresHtml}
+        <p style="margin-top: 20px; color: #4ea1ff; font-weight: 500;">💡 Ready to transform your business?</p>
+    `;
+    
+    modal.style.display = 'flex';
+}
+
+// Close modal
+closeModal.onclick = function() {
+    modal.style.display = 'none';
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+
+// Add click handlers to cards
+document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', function() {
+        const solution = this.getAttribute('data-solution');
+        if (solution) showSolution(solution);
+    });
+});
+
 // ===== SCROLL TOP =====
 const homeButton = document.getElementById('homeButton');
 if(homeButton) {
@@ -370,21 +596,17 @@ if(homeButton) {
     });
 }
 
-// ===== EMAIL - Copy to clipboard (silent, professional) =====
+// ===== EMAIL - Copy to clipboard =====
 const emailContainer = document.getElementById('emailContainer');
 if(emailContainer) {
     emailContainer.addEventListener('click', async function(e) {
         e.preventDefault();
         const email = 'hello@btsapp.net';
-        
-        // Copy to clipboard silently
         try {
             await navigator.clipboard.writeText(email);
-            // Also try to open email client as backup
             window.location.href = `mailto:${email}`;
             if(typeof gtag !== 'undefined') gtag('event', 'click', {'event_category': 'contact', 'event_label': 'email'});
         } catch (err) {
-            // Fallback for older browsers
             const textarea = document.createElement('textarea');
             textarea.value = email;
             document.body.appendChild(textarea);
@@ -396,21 +618,17 @@ if(emailContainer) {
     });
 }
 
-// ===== PHONE - Copy to clipboard (silent, professional) =====
+// ===== PHONE - Copy to clipboard =====
 const phoneContainer = document.getElementById('phoneContainer');
 if(phoneContainer) {
     phoneContainer.addEventListener('click', async function(e) {
         e.preventDefault();
         const phoneNumber = '+447425252625';
-        
-        // Copy to clipboard silently
         try {
             await navigator.clipboard.writeText(phoneNumber);
-            // Also try to open dialer as backup
             window.location.href = `tel:${phoneNumber}`;
             if(typeof gtag !== 'undefined') gtag('event', 'click', {'event_category': 'contact', 'event_label': 'phone'});
         } catch (err) {
-            // Fallback for older browsers
             const textarea = document.createElement('textarea');
             textarea.value = phoneNumber;
             document.body.appendChild(textarea);
@@ -421,12 +639,6 @@ if(phoneContainer) {
         }
     });
 }
-
-// Add cursor style
-const contactItems = document.querySelectorAll('.contact-item');
-contactItems.forEach(item => {
-    item.style.cursor = 'pointer';
-});
 
 // ===== FORM HANDLING =====
 const contactForm = document.getElementById('contactForm');
@@ -518,6 +730,7 @@ let currentLang = "en";
 
 function toggleLanguage() {
     currentLang = currentLang === "en" ? "ar" : "en";
+    currentLangModal = currentLang;
     document.body.classList.toggle("ar");
     
     for(let key in t[currentLang]) {
@@ -669,7 +882,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-console.log('✅ Website loaded - Professional clean version');
+console.log('✅ Website loaded with solution details!');
 
 </script>
 
