@@ -771,3 +771,32 @@ html[dir="rtl"] .portfolio-card {
         text-align: center;
     }
 }
+/* RTL Grid Support */
+.rtl-grid {
+    direction: rtl;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Reverse button order in RTL if needed */
+.rtl-grid .portfolio-links {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+
+.rtl-grid .portfolio-links a:first-child {
+    margin-right: 0;
+    margin-left: 1rem;
+}
+
+/* Optional: Adjust card text alignment */
+[dir="rtl"] .portfolio-card {
+    text-align: right;
+}
+
+[dir="rtl"] .portfolio-links .btn-small {
+    direction: ltr; /* Keeps arrow icons readable */
+    display: inline-block;
+}
