@@ -456,22 +456,14 @@ body.rtl .logo-text {
   margin-bottom: 16px;
   cursor: pointer;
   transition: all 0.2s;
+  text-decoration: none;
+  color: white;
 }
 
 .contact-item:hover {
   border-color: #4a90e2;
   background: rgba(74, 144, 226, 0.1);
   transform: translateY(-2px);
-}
-
-.contact-item a {
-  color: white;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  width: 100%;
-  justify-content: center;
 }
 
 /* Result Modal */
@@ -719,9 +711,7 @@ const content = {
       successMessage: 'Thank you for reaching out. Our team will get back to you within 24 hours.',
       errorTitle: 'Something went wrong ❌',
       errorMessage: 'Please try again or email us directly at hello@btsapp.net',
-      closeBtn: 'Close',
-      email: 'Email us',
-      call: 'Call us'
+      closeBtn: 'Close'
     }
   },
   ar: {
@@ -776,9 +766,7 @@ const content = {
       successMessage: 'شكراً لتواصلك. سيتواصل معك فريقنا خلال ٢٤ ساعة.',
       errorTitle: 'حدث خطأ ❌',
       errorMessage: 'الرجاء المحاولة مرة أخرى أو مراسلتنا مباشرة على hello@btsapp.net',
-      closeBtn: 'إغلاق',
-      email: 'راسلنا عبر البريد',
-      call: 'اتصل بنا'
+      closeBtn: 'إغلاق'
     }
   }
 };
@@ -809,12 +797,10 @@ class Particle {
   }
 
   update() {
-    // Calculate distance to mouse
     const dx = mouseX - this.x;
     const dy = mouseY - this.y;
     const dist = Math.sqrt(dx * dx + dy * dy);
     
-    // Mouse attraction/repulsion
     if (dist < 120) {
       const angle = Math.atan2(dy, dx);
       const force = (120 - dist) / 120;
@@ -822,18 +808,14 @@ class Particle {
       const pushY = Math.sin(angle) * force * 1.5;
       this.x -= pushX;
       this.y -= pushY;
-      
-      // Enlarge particles near mouse
       this.size = this.baseSize + force * 3;
     } else {
-      // Gentle floating movement
       this.angle += this.floatSpeed;
       this.x += Math.sin(this.angle) * 0.3;
       this.y += Math.cos(this.angle * 0.7) * 0.3;
       this.size = this.baseSize;
     }
     
-    // Boundary check - wrap around
     if (this.x < -50) this.x = canvas.width + 50;
     if (this.x > canvas.width + 50) this.x = -50;
     if (this.y < -50) this.y = canvas.height + 50;
@@ -843,8 +825,6 @@ class Particle {
   draw() {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    
-    // Gradient fill based on position
     const gradient = ctx.createLinearGradient(this.x, this.y, this.x + 10, this.y + 10);
     gradient.addColorStop(0, `rgba(74, 144, 226, ${0.4 + Math.sin(Date.now() * 0.001 + this.x) * 0.1})`);
     gradient.addColorStop(1, `rgba(123, 44, 191, ${0.3})`);
@@ -856,12 +836,8 @@ class Particle {
 function initParticles() {
   particles = [];
   const particleCount = Math.floor((canvas.width * canvas.height) / 7000);
-  
   for (let i = 0; i < particleCount; i++) {
-    particles.push(new Particle(
-      Math.random() * canvas.width,
-      Math.random() * canvas.height
-    ));
+    particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height));
   }
 }
 
@@ -871,23 +847,14 @@ function drawConnections() {
       const dx = particles[i].x - particles[j].x;
       const dy = particles[i].y - particles[j].y;
       const distance = Math.sqrt(dx * dx + dy * dy);
-      
       if (distance < connectionDistance) {
-        // Calculate opacity based on distance
         const opacity = (1 - distance / connectionDistance) * 0.3;
-        
         ctx.beginPath();
         ctx.moveTo(particles[i].x, particles[i].y);
         ctx.lineTo(particles[j].x, particles[j].y);
-        
-        // Gradient line
-        const gradient = ctx.createLinearGradient(
-          particles[i].x, particles[i].y,
-          particles[j].x, particles[j].y
-        );
+        const gradient = ctx.createLinearGradient(particles[i].x, particles[i].y, particles[j].x, particles[j].y);
         gradient.addColorStop(0, `rgba(74, 144, 226, ${opacity})`);
         gradient.addColorStop(1, `rgba(123, 44, 191, ${opacity * 0.8})`);
-        
         ctx.strokeStyle = gradient;
         ctx.lineWidth = 0.8;
         ctx.stroke();
@@ -898,16 +865,11 @@ function drawConnections() {
 
 function animateParticles() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
-  // Update and draw all particles
   for (const particle of particles) {
     particle.update();
     particle.draw();
   }
-  
-  // Draw connections between particles
   drawConnections();
-  
   requestAnimationFrame(animateParticles);
 }
 
@@ -918,16 +880,12 @@ function resizeCanvas() {
   initParticles();
 }
 
-window.addEventListener('resize', () => {
-  setTimeout(resizeCanvas, 100);
-});
-
+window.addEventListener('resize', () => setTimeout(resizeCanvas, 100));
 window.addEventListener('mousemove', (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
 });
 
-// Initialize canvas
 resizeCanvas();
 animateParticles();
 
@@ -956,7 +914,6 @@ function renderPage() {
   document.getElementById('ctaBtn2').innerText = t.cta.btn2;
   document.getElementById('footerText').innerText = t.footer;
   
-  // Solutions grid
   document.getElementById('solutionsGrid').innerHTML = t.solutions.items.map(item => `
     <div class="card">
       <div class="card-icon">${item.icon}</div>
@@ -965,7 +922,6 @@ function renderPage() {
     </div>
   `).join('');
   
-  // Industries grid
   document.getElementById('industriesGrid').innerHTML = t.industries.items.map(item => `
     <div class="card">
       <h3 style="color: #4a90e2;">${item.name}</h3>
@@ -973,7 +929,6 @@ function renderPage() {
     </div>
   `).join('');
   
-  // RTL handling
   if (currentLang === 'ar') {
     document.body.classList.add('rtl');
   } else {
@@ -981,7 +936,7 @@ function renderPage() {
   }
 }
 
-// ==================== RESULT MODAL (Success/Error) ====================
+// ==================== RESULT MODAL ====================
 function showResultModal(isSuccess, title, message) {
   const modal = document.createElement('div');
   modal.className = 'modal';
@@ -995,14 +950,10 @@ function showResultModal(isSuccess, title, message) {
     </div>
   `;
   document.body.appendChild(modal);
-  
-  // Auto close after 4 seconds
-  setTimeout(() => {
-    if (document.body.contains(modal)) modal.remove();
-  }, 4000);
+  setTimeout(() => { if (document.body.contains(modal)) modal.remove(); }, 4000);
 }
 
-// ==================== CONSULTATION MODAL WITH AJAX FORM ====================
+// ==================== CONSULTATION MODAL ====================
 function openConsultation() {
   const t = content[currentLang];
   const modal = document.createElement('div');
@@ -1036,16 +987,8 @@ function openConsultation() {
   
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (typeof gtag !== 'undefined') gtag('event', 'form_submission', { 'event_category': 'engagement', 'event_label': 'consultation_request' });
     
-    // Track form submission in Google Analytics
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'form_submission', {
-        'event_category': 'engagement',
-        'event_label': 'consultation_request'
-      });
-    }
-    
-    // Show loading state
     const originalText = submitBtn.innerText;
     submitBtn.innerHTML = '<span class="spinner"></span>' + t.modal.sending;
     submitBtn.disabled = true;
@@ -1056,45 +999,23 @@ function openConsultation() {
       const response = await fetch('https://formspree.io/f/xjglbvzr', {
         method: 'POST',
         body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { 'Accept': 'application/json' }
       });
       
       if (response.ok) {
-        // Track successful submission
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'form_success', {
-            'event_category': 'engagement',
-            'event_label': 'consultation_success'
-          });
-        }
-        
-        // Close the consultation modal
+        if (typeof gtag !== 'undefined') gtag('event', 'form_success', { 'event_category': 'engagement', 'event_label': 'consultation_success' });
         modal.remove();
-        // Show success message
         showResultModal(true, t.modal.successTitle, t.modal.successMessage);
       } else {
         throw new Error('Submission failed');
       }
     } catch (error) {
-      // Track error
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'form_error', {
-          'event_category': 'error',
-          'event_label': 'consultation_error'
-        });
-      }
-      
-      // Reset button
+      if (typeof gtag !== 'undefined') gtag('event', 'form_error', { 'event_category': 'error', 'event_label': 'consultation_error' });
       submitBtn.innerHTML = originalText;
       submitBtn.disabled = false;
-      
       const statusDiv = document.getElementById('formStatus');
       statusDiv.style.color = '#ef4444';
       statusDiv.innerHTML = '❌ ' + (currentLang === 'en' ? 'Failed to send. Please try again.' : 'فشل الإرسال. الرجاء المحاولة مرة أخرى.');
-      
-      // Also show error modal after 1.5 seconds
       setTimeout(() => {
         if (document.body.contains(modal)) {
           modal.remove();
@@ -1114,25 +1035,20 @@ function openContact() {
     <div class="modal-content">
       <span class="modal-close" onclick="this.parentElement.parentElement.remove()">×</span>
       <h2>${t.modal.contactTitle}</h2>
-      <a href="mailto:hello@btsapp.net" class="contact-item" style="text-decoration: none;">
+      <a href="mailto:hello@btsapp.net" class="contact-item">
         <span>📧</span>
         <span>hello@btsapp.net</span>
-        <span style="margin-left: auto; font-size: 12px; color: #4a90e2;">${t.modal.email} →</span>
       </a>
-      <a href="tel:+447425252625" class="contact-item" style="text-decoration: none;">
+      <a href="tel:+447425252625" class="contact-item">
         <span>📞</span>
         <span>+44 7425 252625</span>
-        <span style="margin-left: auto; font-size: 12px; color: #4a90e2;">${t.modal.call} →</span>
       </a>
     </div>
   `;
   document.body.appendChild(modal);
   
-  // Track contact modal open
   if (typeof gtag !== 'undefined') {
-    gtag('event', 'contact_modal_open', {
-      'event_category': 'engagement'
-    });
+    gtag('event', 'contact_modal_open', { 'event_category': 'engagement' });
   }
 }
 
@@ -1140,26 +1056,12 @@ function openContact() {
 function toggleLanguage() {
   currentLang = currentLang === 'en' ? 'ar' : 'en';
   renderPage();
-  
-  // Track language toggle
-  if (typeof gtag !== 'undefined') {
-    gtag('event', 'language_toggle', {
-      'event_category': 'engagement',
-      'event_label': currentLang
-    });
-  }
+  if (typeof gtag !== 'undefined') gtag('event', 'language_toggle', { 'event_category': 'engagement', 'event_label': currentLang });
 }
 
 function scrollToSection(id) {
   document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-  
-  // Track navigation
-  if (typeof gtag !== 'undefined') {
-    gtag('event', 'nav_click', {
-      'event_category': 'navigation',
-      'event_label': id
-    });
-  }
+  if (typeof gtag !== 'undefined') gtag('event', 'nav_click', { 'event_category': 'navigation', 'event_label': id });
 }
 
 function toggleMobileMenu() {
@@ -1184,7 +1086,6 @@ function toggleMobileMenu() {
   }
 }
 
-// Track initial page view
 if (typeof gtag !== 'undefined') {
   gtag('event', 'page_view', {
     'page_title': 'BTS Business Technology Solutions',
@@ -1192,7 +1093,6 @@ if (typeof gtag !== 'undefined') {
   });
 }
 
-// Initial render
 renderPage();
 </script>
 
