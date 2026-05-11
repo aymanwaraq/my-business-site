@@ -4,6 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BTS | Business Technology Solutions</title>
+
+<!-- Google Analytics (Replace G-XXXXXXXXXX with your actual Measurement ID) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-72BT0DL8NJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-72BT0DL8NJ');
+</script>
+
 <style>
 * {
   margin: 0;
@@ -49,8 +59,8 @@ body.rtl {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(10, 10, 15, 0.9);
-  backdrop-filter: blur(10px);
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   z-index: 100;
   padding: 12px 0;
@@ -68,44 +78,54 @@ body.rtl {
 .logo {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 12px;
-  transition: background 0.2s;
+  padding: 6px 12px;
+  border-radius: 14px;
+  transition: all 0.3s ease;
 }
 
 .logo:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(74, 144, 226, 0.1);
+  transform: scale(1.02);
 }
 
 .logo-img {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
   object-fit: cover;
+  box-shadow: 0 4px 15px rgba(74, 144, 226, 0.25);
 }
 
 .logo-text {
   display: flex;
   flex-direction: column;
+  text-align: left;
+}
+
+body.rtl .logo-text {
+  text-align: right;
 }
 
 .logo-title {
-  font-weight: 600;
-  font-size: 14px;
-  background: linear-gradient(135deg, #4a90e2, #7b2cbf);
+  font-size: 20px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ffffff, #4a90e2, #7b2cbf, #e879f9);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+  letter-spacing: -0.3px;
+  line-height: 1.3;
 }
 
 .logo-sub {
-  font-size: 10px;
-  color: #707080;
+  font-size: 11px;
+  color: #8a8a9e;
   margin-top: 2px;
+  letter-spacing: 0.3px;
 }
 
 .nav-links {
@@ -120,27 +140,31 @@ body.rtl {
   color: #a0a0b0;
   cursor: pointer;
   font-size: 14px;
-  transition: color 0.2s;
+  font-weight: 500;
+  transition: all 0.2s;
+  padding: 8px 0;
 }
 
 .nav-links button:hover {
-  color: white;
+  color: #4a90e2;
 }
 
 .lang-btn {
-  padding: 6px 14px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: transparent;
-  color: white;
+  padding: 6px 16px;
+  border-radius: 30px;
+  border: 1px solid rgba(74, 144, 226, 0.3);
+  background: rgba(74, 144, 226, 0.05);
+  color: #4a90e2;
   cursor: pointer;
   font-size: 12px;
+  font-weight: 500;
   transition: all 0.2s;
 }
 
 .lang-btn:hover {
   border-color: #4a90e2;
-  background: rgba(74, 144, 226, 0.1);
+  background: rgba(74, 144, 226, 0.15);
+  transform: translateY(-1px);
 }
 
 .mobile-btn {
@@ -165,10 +189,10 @@ body.rtl {
 }
 
 .hero-title {
-  font-size: 44px;
+  font-size: 48px;
   font-weight: 800;
   line-height: 1.2;
-  background: linear-gradient(135deg, #ffffff, #4a90e2);
+  background: linear-gradient(135deg, #ffffff, #4a90e2, #7b2cbf);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -176,8 +200,8 @@ body.rtl {
 }
 
 .hero-desc {
-  color: #a0a0b0;
-  font-size: 16px;
+  color: #b0b0c0;
+  font-size: 18px;
   margin-bottom: 32px;
   line-height: 1.6;
 }
@@ -197,11 +221,12 @@ body.rtl {
   color: white;
   border: none;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: all 0.2s;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(74, 144, 226, 0.3);
 }
 
 .btn-primary:disabled {
@@ -225,6 +250,7 @@ body.rtl {
 .btn-secondary:hover {
   border-color: #4a90e2;
   background: rgba(74, 144, 226, 0.1);
+  transform: translateY(-2px);
 }
 
 .hero-card {
@@ -233,6 +259,7 @@ body.rtl {
   border-radius: 24px;
   padding: 40px;
   text-align: center;
+  backdrop-filter: blur(10px);
 }
 
 .hero-card h3 {
@@ -257,7 +284,7 @@ body.rtl {
 }
 
 .section-title {
-  font-size: 32px;
+  font-size: 36px;
   font-weight: 700;
   background: linear-gradient(135deg, #ffffff, #4a90e2);
   -webkit-background-clip: text;
@@ -298,6 +325,7 @@ body.rtl {
 .card:hover {
   transform: translateY(-4px);
   border-color: rgba(74, 144, 226, 0.3);
+  background: rgba(30, 30, 45, 0.7);
 }
 
 .card-icon {
@@ -442,7 +470,7 @@ body.rtl {
   background: rgba(74, 144, 226, 0.1);
 }
 
-/* Success/Error Modal */
+/* Result Modal */
 .result-modal-icon {
   font-size: 56px;
   margin-bottom: 16px;
@@ -501,6 +529,13 @@ body.rtl .modal-close {
   .cta-box {
     padding: 40px 24px;
   }
+  .logo-title {
+    font-size: 14px;
+  }
+  .logo-img {
+    width: 40px;
+    height: 40px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -512,9 +547,6 @@ body.rtl .modal-close {
   }
   .hero-title {
     font-size: 28px;
-  }
-  .logo-title {
-    display: none;
   }
 }
 
@@ -745,61 +777,151 @@ const content = {
 
 let currentLang = 'en';
 
-// ==================== CANVAS BACKGROUND ====================
+// ==================== ENHANCED CANVAS WITH CONNECTED LINES & MOUSE INTERACTION ====================
 const canvas = document.getElementById('bgCanvas');
 const ctx = canvas.getContext('2d');
-let dots = [];
-let mouseX = 0, mouseY = 0;
+let particles = [];
+let mouseX = window.innerWidth / 2;
+let mouseY = window.innerHeight / 2;
+let connectionDistance = 150;
+
+class Particle {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.originalX = x;
+    this.originalY = y;
+    this.size = Math.random() * 3 + 1.5;
+    this.baseSize = this.size;
+    this.vx = (Math.random() - 0.5) * 0.3;
+    this.vy = (Math.random() - 0.5) * 0.3;
+    this.angle = Math.random() * Math.PI * 2;
+    this.floatSpeed = 0.005 + Math.random() * 0.01;
+    this.floatRadius = 15 + Math.random() * 20;
+  }
+
+  update() {
+    // Calculate distance to mouse
+    const dx = mouseX - this.x;
+    const dy = mouseY - this.y;
+    const dist = Math.sqrt(dx * dx + dy * dy);
+    
+    // Mouse attraction/repulsion
+    if (dist < 120) {
+      const angle = Math.atan2(dy, dx);
+      const force = (120 - dist) / 120;
+      const pushX = Math.cos(angle) * force * 1.5;
+      const pushY = Math.sin(angle) * force * 1.5;
+      this.x -= pushX;
+      this.y -= pushY;
+      
+      // Enlarge particles near mouse
+      this.size = this.baseSize + force * 3;
+    } else {
+      // Gentle floating movement
+      this.angle += this.floatSpeed;
+      this.x += Math.sin(this.angle) * 0.3;
+      this.y += Math.cos(this.angle * 0.7) * 0.3;
+      this.size = this.baseSize;
+    }
+    
+    // Boundary check - wrap around
+    if (this.x < -50) this.x = canvas.width + 50;
+    if (this.x > canvas.width + 50) this.x = -50;
+    if (this.y < -50) this.y = canvas.height + 50;
+    if (this.y > canvas.height + 50) this.y = -50;
+  }
+
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    
+    // Gradient fill based on position
+    const gradient = ctx.createLinearGradient(this.x, this.y, this.x + 10, this.y + 10);
+    gradient.addColorStop(0, `rgba(74, 144, 226, ${0.4 + Math.sin(Date.now() * 0.001 + this.x) * 0.1})`);
+    gradient.addColorStop(1, `rgba(123, 44, 191, ${0.3})`);
+    ctx.fillStyle = gradient;
+    ctx.fill();
+  }
+}
+
+function initParticles() {
+  particles = [];
+  const particleCount = Math.floor((canvas.width * canvas.height) / 7000);
+  
+  for (let i = 0; i < particleCount; i++) {
+    particles.push(new Particle(
+      Math.random() * canvas.width,
+      Math.random() * canvas.height
+    ));
+  }
+}
+
+function drawConnections() {
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      
+      if (distance < connectionDistance) {
+        // Calculate opacity based on distance
+        const opacity = (1 - distance / connectionDistance) * 0.3;
+        
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        
+        // Gradient line
+        const gradient = ctx.createLinearGradient(
+          particles[i].x, particles[i].y,
+          particles[j].x, particles[j].y
+        );
+        gradient.addColorStop(0, `rgba(74, 144, 226, ${opacity})`);
+        gradient.addColorStop(1, `rgba(123, 44, 191, ${opacity * 0.8})`);
+        
+        ctx.strokeStyle = gradient;
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      }
+    }
+  }
+}
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  // Update and draw all particles
+  for (const particle of particles) {
+    particle.update();
+    particle.draw();
+  }
+  
+  // Draw connections between particles
+  drawConnections();
+  
+  requestAnimationFrame(animateParticles);
+}
 
 function resizeCanvas() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  const count = Math.floor((canvas.width * canvas.height) / 10000);
-  dots = [];
-  for (let i = 0; i < count; i++) {
-    dots.push({
-      x: Math.random() * canvas.width,
-      y: Math.random() * canvas.height,
-      r: Math.random() * 2 + 1,
-      a: Math.random() * 0.3 + 0.1,
-      vx: (Math.random() - 0.5) * 0.2,
-      vy: (Math.random() - 0.5) * 0.2
-    });
-  }
+  connectionDistance = Math.min(180, Math.max(120, canvas.width / 8));
+  initParticles();
 }
 
-function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  for (const dot of dots) {
-    dot.x += dot.vx;
-    dot.y += dot.vy;
-    if (dot.x < 0) dot.x = canvas.width;
-    if (dot.x > canvas.width) dot.x = 0;
-    if (dot.y < 0) dot.y = canvas.height;
-    if (dot.y > canvas.height) dot.y = 0;
-    
-    const dx = dot.x - mouseX;
-    const dy = dot.y - mouseY;
-    const dist = Math.sqrt(dx * dx + dy * dy);
-    if (dist < 100) {
-      const angle = Math.atan2(dy, dx);
-      const force = (100 - dist) / 100;
-      dot.x += Math.cos(angle) * force;
-      dot.y += Math.sin(angle) * force;
-    }
-    
-    ctx.beginPath();
-    ctx.arc(dot.x, dot.y, dot.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(74, 144, 226, ${dot.a})`;
-    ctx.fill();
-  }
-  requestAnimationFrame(animate);
-}
+window.addEventListener('resize', () => {
+  setTimeout(resizeCanvas, 100);
+});
 
-window.addEventListener('resize', resizeCanvas);
-window.addEventListener('mousemove', (e) => { mouseX = e.clientX; mouseY = e.clientY; });
+window.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+});
+
+// Initialize canvas
 resizeCanvas();
-animate();
+animateParticles();
 
 // ==================== RENDER ====================
 function renderPage() {
@@ -907,6 +1029,14 @@ function openConsultation() {
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     
+    // Track form submission in Google Analytics
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'form_submission', {
+        'event_category': 'engagement',
+        'event_label': 'consultation_request'
+      });
+    }
+    
     // Show loading state
     const originalText = submitBtn.innerText;
     submitBtn.innerHTML = '<span class="spinner"></span>' + t.modal.sending;
@@ -924,6 +1054,14 @@ function openConsultation() {
       });
       
       if (response.ok) {
+        // Track successful submission
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'form_success', {
+            'event_category': 'engagement',
+            'event_label': 'consultation_success'
+          });
+        }
+        
         // Close the consultation modal
         modal.remove();
         // Show success message
@@ -932,6 +1070,14 @@ function openConsultation() {
         throw new Error('Submission failed');
       }
     } catch (error) {
+      // Track error
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'form_error', {
+          'event_category': 'error',
+          'event_label': 'consultation_error'
+        });
+      }
+      
       // Reset button
       submitBtn.innerHTML = originalText;
       submitBtn.disabled = false;
@@ -940,7 +1086,7 @@ function openConsultation() {
       statusDiv.style.color = '#ef4444';
       statusDiv.innerHTML = '❌ ' + (currentLang === 'en' ? 'Failed to send. Please try again.' : 'فشل الإرسال. الرجاء المحاولة مرة أخرى.');
       
-      // Also show error modal after 1 second
+      // Also show error modal after 1.5 seconds
       setTimeout(() => {
         if (document.body.contains(modal)) {
           modal.remove();
@@ -971,16 +1117,39 @@ function openContact() {
     </div>
   `;
   document.body.appendChild(modal);
+  
+  // Track contact modal open
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'contact_modal_open', {
+      'event_category': 'engagement'
+    });
+  }
 }
 
 // ==================== UTILITIES ====================
 function toggleLanguage() {
   currentLang = currentLang === 'en' ? 'ar' : 'en';
   renderPage();
+  
+  // Track language toggle
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'language_toggle', {
+      'event_category': 'engagement',
+      'event_label': currentLang
+    });
+  }
 }
 
 function scrollToSection(id) {
   document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  
+  // Track navigation
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'nav_click', {
+      'event_category': 'navigation',
+      'event_label': id
+    });
+  }
 }
 
 function toggleMobileMenu() {
@@ -1003,6 +1172,14 @@ function toggleMobileMenu() {
     links.style.borderBottom = '1px solid rgba(255,255,255,0.1)';
     links.style.gap = '15px';
   }
+}
+
+// Track initial page view
+if (typeof gtag !== 'undefined') {
+  gtag('event', 'page_view', {
+    'page_title': 'BTS Business Technology Solutions',
+    'page_location': window.location.href
+  });
 }
 
 // Initial render
