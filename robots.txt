@@ -1,0 +1,4 @@
+# robots.txt for BTS website
+User-agent: *
+Allow: /
+Sitemap: https://aymanwaraq.github.io/my-business-site/sitemap.xml
