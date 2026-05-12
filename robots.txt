@@ -1,13 +1,4 @@
 User-agent: *
 Allow: /
 
-# Block Google from trying to crawl non-existent pages
-Disallow: /images/
-Disallow: /*.js$
-Disallow: /*.css$
-
-# Tell Google where your sitemap is
 Sitemap: https://btsapp.net/sitemap.xml
-
-# Crawl delay for bots (gentle on your server)
-Crawl-delay: 1

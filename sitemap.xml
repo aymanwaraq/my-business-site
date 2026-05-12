@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <!-- Homepage - English -->
+
   <url>
     <loc>https://btsapp.net/</loc>
     <lastmod>2026-05-12</lastmod>
@@ -11,8 +10,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://btsapp.net/"/>
     <xhtml:link rel="alternate" hreflang="ar" href="https://btsapp.net/?lang=ar"/>
   </url>
-  
-  <!-- Homepage - Arabic version -->
+
   <url>
     <loc>https://btsapp.net/?lang=ar</loc>
     <lastmod>2026-05-12</lastmod>
