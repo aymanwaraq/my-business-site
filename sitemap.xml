@@ -2,24 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
-  <!-- Homepage - English -->
   <url>
-    <loc>https://aymanwaraq.github.io/my-business-site/</loc>
+    <loc>https://btsapp.net/</loc>
     <lastmod>2026-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aymanwaraq.github.io/my-business-site/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://aymanwaraq.github.io/my-business-site/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://btsapp.net/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://btsapp.net/?lang=ar"/>
   </url>
   
-  <!-- Homepage - Arabic version -->
   <url>
-    <loc>https://aymanwaraq.github.io/my-business-site/?lang=ar</loc>
+    <loc>https://btsapp.net/?lang=ar</loc>
     <lastmod>2026-05-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://aymanwaraq.github.io/my-business-site/"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="https://aymanwaraq.github.io/my-business-site/?lang=ar"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://btsapp.net/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://btsapp.net/?lang=ar"/>
   </url>
   
 </urlset>
