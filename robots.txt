@@ -1,14 +1,4 @@
-# Allow all search engines to crawl
 User-agent: *
 Allow: /
 
-# Sitemap location
 Sitemap: https://btsapp.net/sitemap.xml
-
-# Recommended: Slow down crawlers to save bandwidth
-Crawl-delay: 1
-
-# Disallow crawling of non-essential files
-Disallow: /images/
-Disallow: /*.js$
-Disallow: /*.css$
