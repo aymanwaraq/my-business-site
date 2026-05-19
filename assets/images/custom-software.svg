@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a90e2"/>
+      <stop offset="100%" style="stop-color:#7b2cbf"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0a0a0f"/>
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="20" fill="url(#bgGrad)" stroke="url(#grad)" stroke-width="1.5"/>
+  <rect x="55" y="60" width="90" height="60" rx="6" fill="none" stroke="url(#grad)" stroke-width="1.5"/>
+  <rect x="60" y="65" width="80" height="12" rx="2" fill="#4a90e2" opacity="0.3"/>
+  <rect x="60" y="82" width="60" height="10" rx="2" fill="#4a90e2" opacity="0.2"/>
+  <rect x="60" y="97" width="75" height="10" rx="2" fill="#7b2cbf" opacity="0.25"/>
+  <path d="M100 130 L90 140 L100 150" fill="none" stroke="url(#grad)" stroke-width="1.5"/>
+  <path d="M120 130 L130 140 L120 150" fill="none" stroke="url(#grad)" stroke-width="1.5"/>
+</svg>
