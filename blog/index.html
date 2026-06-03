@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BTS Blog | AI & Technology Insights</title>
+<meta name="description" content="Insights on AI, automation, digital transformation, and business technology from BTS">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a href="../index.html" class="back-home" id="backHome">← Back to Home</a>
+
+<div class="blog-container">
+  <div class="blog-hero">
+    <h1 id="blogTitle">BTS Blog</h1>
+    <p id="blogSubtitle">Insights on AI, automation, digital transformation, and business technology</p>
+  </div>
+
+  <div class="filters-bar">
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all" id="filterAll">All</button>
+      <button class="filter-btn" data-filter="en" id="filterEn">English</button>
+      <button class="filter-btn" data-filter="ar" id="filterAr">العربية</button>
+    </div>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search articles...">
+    </div>
+  </div>
+
+  <div class="blog-grid" id="blogGrid"></div>
+  <div class="no-results" id="noResults" style="display:none;">No articles found</div>
+</div>
+
+<script>
+  let allPosts = [];
+  let currentLang = 'all';
+
+  async function loadPosts() {
+    try {
+      const res = await fetch('posts.json');
+      allPosts = await res.json();
+      renderPosts();
+    } catch(e) {
+      console.error('Error loading posts:', e);
+      document.getElementById('blogGrid').innerHTML = '<div class="no-results">Error loading articles. Please check posts.json file.</div>';
+    }
+  }
+
+  function renderPosts() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const filtered = allPosts.filter(post => {
+      const matchesLang = currentLang === 'all' || post.lang === currentLang;
+      const matchesSearch = post.title.toLowerCase().includes(searchTerm) || 
+                            post.summary.toLowerCase().includes(searchTerm) ||
+                            (post.category && post.category.toLowerCase().includes(searchTerm));
+      return matchesLang && matchesSearch;
+    });
+
+    const grid = document.getElementById('blogGrid');
+    const noResults = document.getElementById('noResults');
+
+    if (filtered.length === 0) {
+      grid.innerHTML = '';
+      noResults.style.display = 'block';
+      return;
+    }
+
+    noResults.style.display = 'none';
+    grid.innerHTML = filtered.map(post => `
+      <a class="blog-card" href="article.html?slug=${post.slug}" dir="${post.lang === 'ar' ? 'rtl' : 'ltr'}">
+        <img src="${post.cover}" alt="${post.title}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'400\\' height=\\'200\\'%3E%3Crect width=\\'400\\' height=\\'200\\' fill=\\'%231a1a2a\\'/%3E%3Ctext x=\\'50%25\\' y=\\'50%25\\' text-anchor=\\'middle\\' fill=\\'%234a90e2\\' dy=\\'.3em\\'%3EBTS%3C/text%3E%3C/svg%3E'">
+        <div class="blog-card-content">
+          <div class="blog-card-meta">
+            <span>📂 ${post.category}</span>
+            <span>📅 ${post.date}</span>
+            <span>✍️ ${post.author}</span>
+          </div>
+          <div class="blog-card-title">${post.title}</div>
+          <div class="blog-card-summary">${post.summary.substring(0, 120)}${post.summary.length > 120 ? '...' : ''}</div>
+          <div class="read-more">${post.lang === 'ar' ? 'اقرأ المقال ←' : 'Read Article →'}</div>
+        </div>
+      </a>
+    `).join('');
+  }
+
+  function setupFilters() {
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentLang = btn.dataset.filter;
+        renderPosts();
+        // RTL body class for Arabic filter
+        if (currentLang === 'ar') {
+          document.body.classList.add('rtl');
+          document.documentElement.setAttribute('dir', 'rtl');
+        } else {
+          document.body.classList.remove('rtl');
+          document.documentElement.setAttribute('dir', 'ltr');
+        }
+      });
+    });
+    document.getElementById('searchInput').addEventListener('input', renderPosts);
+  }
+
+  // Multilingual UI
+  function updateUI() {
+    const isRTL = document.body.classList.contains('rtl');
+    document.getElementById('blogTitle').innerText = isRTL ? 'مدونة BTS' : 'BTS Blog';
+    document.getElementById('blogSubtitle').innerHTML = isRTL ? 'رؤى حول الذكاء الاصطناعي، الأتمتة، التحول الرقمي، وتكنولوجيا الأعمال' : 'Insights on AI, automation, digital transformation, and business technology';
+    document.getElementById('filterAll').innerText = isRTL ? 'الكل' : 'All';
+    document.getElementById('filterEn').innerText = 'English';
+    document.getElementById('filterAr').innerText = 'العربية';
+    document.getElementById('backHome').innerHTML = isRTL ? '→ العودة للرئيسية' : '← Back to Home';
+  }
+
+  loadPosts();
+  setupFilters();
+  updateUI();
+
+  // Watch for RTL changes
+  const observer = new MutationObserver(updateUI);
+  observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+</script>
+</body>
+</html>

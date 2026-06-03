@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BTS Blog Admin Panel</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body style="background:#0a0a0f;">
+
+<a href="index.html" class="back-home">← Back to Blog</a>
+
+<div class="admin-container">
+  <div class="admin-card">
+    <h1>📝 Blog Admin</h1>
+    <p class="sub">Create articles — then copy the JSON to <code>posts.json</code></p>
+
+    <form id="adminForm">
+      <div class="admin-row">
+        <div class="admin-form-group">
+          <label>Language</label>
+          <select id="lang">
+            <option value="en">English</option>
+            <option value="ar">Arabic</option>
+          </select>
+        </div>
+        <div class="admin-form-group">
+          <label>Date</label>
+          <input type="date" id="date" value="2026-05-26">
+        </div>
+      </div>
+
+      <div class="admin-form-group">
+        <label>Title</label>
+        <input type="text" id="title" placeholder="Article title">
+      </div>
+
+      <div class="admin-row">
+        <div class="admin-form-group">
+          <label>Slug (URL: article.html?slug=this-text)</label>
+          <input type="text" id="slug" placeholder="example-article-title">
+        </div>
+        <div class="admin-form-group">
+          <label>Category</label>
+          <input type="text" id="category" placeholder="AI, Automation, Business">
+        </div>
+      </div>
+
+      <div class="admin-form-group">
+        <label>Cover Image Path</label>
+        <input type="text" id="cover" value="../assets/blog/cover.jpg">
+      </div>
+
+      <div class="admin-form-group">
+        <label>Summary (short description)</label>
+        <textarea id="summary" rows="2" placeholder="Brief summary of the article..."></textarea>
+      </div>
+
+      <div class="admin-form-group">
+        <label>Full Article Content (Markdown-style — each line is a paragraph)</label>
+        <textarea id="content" rows="15" placeholder="Write your article here...
+Each line becomes a paragraph.
+
+## Headings start with ##
+
+> Quotes start with >
+
+[youtube:VIDEO_ID] for YouTube videos
+
+| Header1 | Header2 |
+| Cell1 | Cell2 |
+
+[faq] Question 1 | Answer 1 || Question 2 | Answer 2 [/faq]
+
+[chart:bar] 2023,2024,2025 | 20,40,70,90"></textarea>
+        <small style="color:var(--text-gray); display:block; margin-top:8px;">
+          💡 Tips: <strong>## Heading</strong> | <strong>> Quote</strong> | <strong>[youtube:VIDEO_ID]</strong> | 
+          <strong>| Table | with | pipes |</strong> | <strong>[faq] Q | A || Q2 | A2 [/faq]</strong> | 
+          <strong>[chart:bar] Labels | Data</strong>
+        </small>
+      </div>
+
+      <div class="admin-row">
+        <div class="admin-form-group">
+          <label>Chart Labels (comma separated)</label>
+          <input type="text" id="chartLabels" placeholder="2023,2024,2025,2026">
+        </div>
+        <div class="admin-form-group">
+          <label>Chart Data (comma separated)</label>
+          <input type="text" id="chartData" placeholder="20,40,70,90">
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 16px; margin-top: 20px;">
+        <button type="button" class="btn-primary" id="generateBtn">Generate JSON</button>
+        <button type="button" class="btn-secondary" id="copyBtn">Copy to Clipboard</button>
+      </div>
+    </form>
+
+    <h2 style="margin: 30px 0 16px;">Generated Article JSON</h2>
+    <pre id="output">Click "Generate JSON" to see your article here</pre>
+    <p style="margin-top: 16px; color: var(--text-gray); font-size: 13px;">
+      📌 Copy this JSON and add it to <strong>blog/posts.json</strong> (inside the array, separated by commas).
+    </p>
+  </div>
+</div>
+
+<script>
+  function generateSlug(title) {
+    return title.toLowerCase()
+      .replace(/[^\w\s\u0600-\u06FF]/g, '')
+      .replace(/\s+/g, '-')
+      .substring(0, 60);
+  }
+
+  function parseContent(text, lang, chartLabels, chartData) {
+    const lines = text.split('\n');
+    const content = [];
+    let i = 0;
+
+    while (i < lines.length) {
+      let line = lines[i].trim();
+      if (line === '') { i++; continue; }
+
+      // Headings (## or #)
+      if (line.startsWith('## ')) {
+        content.push({ type: 'heading', text: line.substring(3).trim() });
+        i++;
+        continue;
+      }
+      if (line.startsWith('# ')) {
+        content.push({ type: 'heading', text: line.substring(2).trim() });
+        i++;
+        continue;
+      }
+
+      // Quotes
+      if (line.startsWith('> ')) {
+        content.push({ type: 'quote', text: line.substring(2).trim() });
+        i++;
+        continue;
+      }
+
+      // YouTube
+      const youtubeMatch = line.match(/\[youtube:([^\]]+)\]/);
+      if (youtubeMatch) {
+        content.push({ type: 'youtube', videoId: youtubeMatch[1].trim() });
+        i++;
+        continue;
+      }
+
+      // FAQ section
+      const faqStartMatch = line.match(/\[faq\]/i);
+      if (faqStartMatch) {
+        const faqItems = [];
+        i++;
+        while (i < lines.length && !lines[i].includes('[/faq]')) {
+          const faqLine = lines[i].trim();
+          if (faqLine && faqLine.includes('|')) {
+            const parts = faqLine.split('||');
+            for (const part of parts) {
+              const qa = part.split('|');
+              if (qa.length >= 2) {
+                faqItems.push({ q: qa[0].trim(), a: qa[1].trim() });
+              }
+            }
+          }
+          i++;
+        }
+        if (faqItems.length) {
+          content.push({ type: 'faq', items: faqItems });
+        }
+        i++;
+        continue;
+      }
+
+      // Table detection (line starts with |)
+      if (line.startsWith('|')) {
+        const rows = [];
+        let hasHeader = false;
+        let headers = [];
+
+        while (i < lines.length && lines[i].trim().startsWith('|')) {
+          const cells = lines[i].trim().split('|').filter(c => c.trim() !== '').map(c => c.trim());
+          if (!hasHeader && cells.length) {
+            headers = cells;
+            hasHeader = true;
+          } else if (cells.length) {
+            rows.push(cells);
+          }
+          i++;
+        }
+        if (headers.length || rows.length) {
+          content.push({ type: 'table', headers: headers, rows: rows });
+        }
+        continue;
+      }
+
+      // Regular paragraph
+      content.push({ type: 'paragraph', text: line });
+      i++;
+    }
+
+    // Add chart if provided
+    if (chartLabels && chartData && chartLabels.length && chartData.length) {
+      const labels = chartLabels.split(',').map(s => s.trim());
+      const data = chartData.split(',').map(n => parseFloat(n.trim()));
+      if (labels.length && data.length) {
+        content.push({ type: 'chart', chartType: 'bar', labels: labels, data: data });
+      }
+    }
+
+    return content;
+  }
+
+  document.getElementById('generateBtn').addEventListener('click', () => {
+    const lang = document.getElementById('lang').value;
+    let title = document.getElementById('title').value;
+    let slug = document.getElementById('slug').value;
+    const date = document.getElementById('date').value;
+    const category = document.getElementById('category').value;
+    const cover = document.getElementById('cover').value;
+    const summary = document.getElementById('summary').value;
+    const contentText = document.getElementById('content').value;
+    const chartLabels = document.getElementById('chartLabels').value;
+    const chartData = document.getElementById('chartData').value;
+
+    if (!title) {
+      alert('Please enter a title');
+      return;
+    }
+
+    if (!slug) {
+      slug = generateSlug(title);
+    }
+
+    const article = {
+      id: Date.now(),
+      slug: slug,
+      lang: lang,
+      title: title,
+      date: date,
+      category: category,
+      author: 'BTS',
+      cover: cover,
+      summary: summary,
+      content: parseContent(contentText, lang, chartLabels, chartData)
+    };
+
+    if (lang === 'ar') {
+      article.direction = 'rtl';
+    }
+
+    document.getElementById('output').textContent = JSON.stringify(article, null, 2);
+  });
+
+  document.getElementById('copyBtn').addEventListener('click', () => {
+    const text = document.getElementById('output').textContent;
+    if (text && text !== 'Click "Generate JSON" to see your article here') {
+      navigator.clipboard.writeText(text);
+      alert('JSON copied to clipboard!');
+    } else {
+      alert('Generate JSON first');
+    }
+  });
+
+  // Auto-generate slug from title
+  document.getElementById('title').addEventListener('input', (e) => {
+    const slugField = document.getElementById('slug');
+    if (!slugField.value) {
+      slugField.value = generateSlug(e.target.value);
+    }
+  });
+</script>
+</body>
+</html>
