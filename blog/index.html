@@ -6,7 +6,262 @@
 <title>BTS Blog | AI & Technology Insights</title>
 <meta name="description" content="Insights on AI, automation, digital transformation, and business technology from BTS">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --bg-dark: #0a0a0f;
+    --bg-card: rgba(20, 20, 30, 0.6);
+    --bg-card-hover: rgba(30, 30, 45, 0.8);
+    --primary: #4a90e2;
+    --secondary: #7b2cbf;
+    --accent: #e879f9;
+    --gold: #C9A84C;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-light: rgba(255, 255, 255, 0.12);
+    --text-gray: #a0a0b0;
+    --text-light: #c0c0d0;
+    --radius: 20px;
+    --radius-sm: 12px;
+  }
+
+  body {
+    background: var(--bg-dark);
+    color: #ffffff;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  body.rtl {
+    direction: rtl;
+    text-align: right;
+    font-family: 'Cairo', 'Inter', sans-serif;
+  }
+
+  /* Back to Home button */
+  .back-home {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(74, 144, 226, 0.15);
+    border: 1px solid var(--border);
+    border-radius: 40px;
+    padding: 8px 18px;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    transition: all 0.2s;
+  }
+
+  body.rtl .back-home {
+    left: auto;
+    right: 20px;
+  }
+
+  .back-home:hover {
+    background: rgba(74, 144, 226, 0.3);
+    border-color: var(--primary);
+  }
+
+  /* Blog Container */
+  .blog-container {
+    max-width: 1200px;
+    margin: 100px auto 60px;
+    padding: 0 24px;
+  }
+
+  /* Hero Section */
+  .blog-hero {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  .blog-hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 16px;
+  }
+
+  .blog-hero p {
+    color: var(--text-gray);
+    font-size: 18px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Filters Bar */
+  .filters-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 40px;
+    padding: 16px 20px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    backdrop-filter: blur(10px);
+  }
+
+  .filter-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    padding: 8px 20px;
+    border-radius: 40px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.04);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    transition: all 0.2s;
+  }
+
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-color: transparent;
+  }
+
+  .search-box input {
+    padding: 10px 18px;
+    border-radius: 40px;
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 14px;
+    width: 250px;
+    outline: none;
+    transition: all 0.2s;
+  }
+
+  .search-box input:focus {
+    border-color: var(--primary);
+  }
+
+  /* Blog Grid */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 28px;
+    margin-bottom: 50px;
+  }
+
+  /* Blog Card */
+  .blog-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+  }
+
+  .blog-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(74, 144, 226, 0.5);
+    background: var(--bg-card-hover);
+  }
+
+  .blog-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    background: #111;
+  }
+
+  .blog-card-content {
+    padding: 22px;
+  }
+
+  .blog-card-meta {
+    color: var(--primary);
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .blog-card-title {
+    font-size: 20px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .blog-card-summary {
+    color: var(--text-gray);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .read-more {
+    margin-top: 16px;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s;
+  }
+
+  .blog-card:hover .read-more {
+    gap: 10px;
+  }
+
+  .no-results {
+    text-align: center;
+    padding: 60px;
+    color: var(--text-gray);
+  }
+
+  /* Loading state */
+  .loading {
+    text-align: center;
+    padding: 60px;
+    color: var(--text-gray);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .blog-hero h1 {
+      font-size: 32px;
+    }
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+    .filters-bar {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .search-box input {
+      width: 100%;
+    }
+  }
+</style>
 </head>
 <body>
 
@@ -23,19 +278,51 @@
       <button class="filter-btn active" data-filter="all" id="filterAll">All</button>
       <button class="filter-btn" data-filter="en" id="filterEn">English</button>
       <button class="filter-btn" data-filter="ar" id="filterAr">العربية</button>
+      <button class="filter-btn" id="langToggleBtn" style="background: linear-gradient(135deg, #4a90e2, #7b2cbf); border-color: transparent;">عربي</button>
     </div>
     <div class="search-box">
       <input type="text" id="searchInput" placeholder="Search articles...">
     </div>
   </div>
 
-  <div class="blog-grid" id="blogGrid"></div>
+  <div class="blog-grid" id="blogGrid">
+    <div class="loading">Loading articles...</div>
+  </div>
   <div class="no-results" id="noResults" style="display:none;">No articles found</div>
 </div>
 
 <script>
   let allPosts = [];
   let currentLang = 'all';
+  let currentUI = 'en';
+
+  // UI text translations
+  const uiText = {
+    en: {
+      title: 'BTS Blog',
+      subtitle: 'Insights on AI, automation, digital transformation, and business technology',
+      filterAll: 'All',
+      filterEn: 'English',
+      filterAr: 'العربية',
+      searchPlaceholder: 'Search articles...',
+      backHome: '← Back to Home',
+      noResults: 'No articles found',
+      langToggle: 'عربي',
+      loading: 'Loading articles...'
+    },
+    ar: {
+      title: 'مدونة BTS',
+      subtitle: 'رؤى حول الذكاء الاصطناعي، الأتمتة، التحول الرقمي، وتكنولوجيا الأعمال',
+      filterAll: 'الكل',
+      filterEn: 'English',
+      filterAr: 'العربية',
+      searchPlaceholder: 'ابحث في المقالات...',
+      backHome: '→ العودة للرئيسية',
+      noResults: 'لم يتم العثور على مقالات',
+      langToggle: 'EN',
+      loading: 'جاري تحميل المقالات...'
+    }
+  };
 
   async function loadPosts() {
     try {
@@ -44,7 +331,7 @@
       renderPosts();
     } catch(e) {
       console.error('Error loading posts:', e);
-      document.getElementById('blogGrid').innerHTML = '<div class="no-results">Error loading articles. Please check posts.json file.</div>';
+      document.getElementById('blogGrid').innerHTML = `<div class="no-results">${uiText[currentUI].noResults}</div>`;
     }
   }
 
@@ -53,8 +340,7 @@
     const filtered = allPosts.filter(post => {
       const matchesLang = currentLang === 'all' || post.lang === currentLang;
       const matchesSearch = post.title.toLowerCase().includes(searchTerm) || 
-                            post.summary.toLowerCase().includes(searchTerm) ||
-                            (post.category && post.category.toLowerCase().includes(searchTerm));
+                            post.summary.toLowerCase().includes(searchTerm);
       return matchesLang && matchesSearch;
     });
 
@@ -64,12 +350,13 @@
     if (filtered.length === 0) {
       grid.innerHTML = '';
       noResults.style.display = 'block';
+      noResults.innerText = uiText[currentUI].noResults;
       return;
     }
 
     noResults.style.display = 'none';
     grid.innerHTML = filtered.map(post => `
-      <a class="blog-card" href="article.html?slug=${post.slug}" dir="${post.lang === 'ar' ? 'rtl' : 'ltr'}">
+      <a class="blog-card" href="article.html?slug=${post.slug}&lang=${currentUI}" dir="${post.lang === 'ar' ? 'rtl' : 'ltr'}">
         <img src="${post.cover}" alt="${post.title}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'400\\' height=\\'200\\'%3E%3Crect width=\\'400\\' height=\\'200\\' fill=\\'%231a1a2a\\'/%3E%3Ctext x=\\'50%25\\' y=\\'50%25\\' text-anchor=\\'middle\\' fill=\\'%234a90e2\\' dy=\\'.3em\\'%3EBTS%3C/text%3E%3C/svg%3E'">
         <div class="blog-card-content">
           <div class="blog-card-meta">
@@ -85,44 +372,62 @@
     `).join('');
   }
 
+  function updateUI() {
+    document.getElementById('blogTitle').innerText = uiText[currentUI].title;
+    document.getElementById('blogSubtitle').innerHTML = uiText[currentUI].subtitle;
+    document.getElementById('filterAll').innerText = uiText[currentUI].filterAll;
+    document.getElementById('filterEn').innerText = uiText[currentUI].filterEn;
+    document.getElementById('filterAr').innerText = uiText[currentUI].filterAr;
+    document.getElementById('searchInput').placeholder = uiText[currentUI].searchPlaceholder;
+    document.getElementById('backHome').innerHTML = uiText[currentUI].backHome;
+    document.getElementById('langToggleBtn').innerText = uiText[currentUI].langToggle;
+    
+    // Set RTL for Arabic
+    if (currentUI === 'ar') {
+      document.body.classList.add('rtl');
+      document.documentElement.setAttribute('dir', 'rtl');
+    } else {
+      document.body.classList.remove('rtl');
+      document.documentElement.setAttribute('dir', 'ltr');
+    }
+    
+    renderPosts();
+  }
+
   function setupFilters() {
-    document.querySelectorAll('.filter-btn').forEach(btn => {
+    document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
       btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         currentLang = btn.dataset.filter;
         renderPosts();
-        // RTL body class for Arabic filter
-        if (currentLang === 'ar') {
-          document.body.classList.add('rtl');
-          document.documentElement.setAttribute('dir', 'rtl');
-        } else {
-          document.body.classList.remove('rtl');
-          document.documentElement.setAttribute('dir', 'ltr');
-        }
       });
     });
+    
     document.getElementById('searchInput').addEventListener('input', renderPosts);
+    document.getElementById('langToggleBtn').addEventListener('click', () => {
+      currentUI = currentUI === 'en' ? 'ar' : 'en';
+      updateUI();
+      localStorage.setItem('blogLang', currentUI);
+    });
   }
 
-  // Multilingual UI
-  function updateUI() {
-    const isRTL = document.body.classList.contains('rtl');
-    document.getElementById('blogTitle').innerText = isRTL ? 'مدونة BTS' : 'BTS Blog';
-    document.getElementById('blogSubtitle').innerHTML = isRTL ? 'رؤى حول الذكاء الاصطناعي، الأتمتة، التحول الرقمي، وتكنولوجيا الأعمال' : 'Insights on AI, automation, digital transformation, and business technology';
-    document.getElementById('filterAll').innerText = isRTL ? 'الكل' : 'All';
-    document.getElementById('filterEn').innerText = 'English';
-    document.getElementById('filterAr').innerText = 'العربية';
-    document.getElementById('backHome').innerHTML = isRTL ? '→ العودة للرئيسية' : '← Back to Home';
+  function initLanguage() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlLang = urlParams.get('lang');
+    const savedLang = localStorage.getItem('blogLang');
+    
+    if (urlLang === 'ar') {
+      currentUI = 'ar';
+    } else if (savedLang) {
+      currentUI = savedLang;
+    }
+    updateUI();
   }
 
-  loadPosts();
+  initLanguage();
   setupFilters();
-  updateUI();
-
-  // Watch for RTL changes
-  const observer = new MutationObserver(updateUI);
-  observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+  loadPosts();
 </script>
 </body>
 </html>
