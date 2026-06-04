@@ -1086,6 +1086,7 @@ body.rtl .scroll-top {
       <button onclick="window.location.href='blog/index.html'">Blog</button>
       <button onclick="scrollToSection('solutions')" id="navSolutions">Solutions</button>
       <button onclick="scrollToSection('industries')" id="navIndustries">Industries</button>
+      <button onclick="window.location.href='/blog/'" id="navBlog">Blog</button>
       <button onclick="scrollToSection('contact')" id="navContact">Contact</button>
       <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">عربي</button>
       <button class="nav-cta" onclick="openConsultation()" id="navCta">Start Your Project</button>
@@ -1098,6 +1099,7 @@ body.rtl .scroll-top {
   <div class="drawer-close" onclick="closeMobileDrawer()">×</div>
   <button onclick="scrollToSection('solutions'); closeMobileDrawer()" id="mobileSolutions">Solutions</button>
   <button onclick="scrollToSection('industries'); closeMobileDrawer()" id="mobileIndustries">Industries</button>
+  <button onclick="window.location.href='/blog/'">Blog</button>
   <button onclick="scrollToSection('contact'); closeMobileDrawer()" id="mobileContact">Contact</button>
   <button class="lang-mobile" onclick="toggleLanguage(); closeMobileDrawer()" id="mobileLangBtn">عربي</button>
   <button class="nav-cta" onclick="openConsultation(); closeMobileDrawer()" id="mobileCta">Start Your Project</button>
@@ -1177,7 +1179,37 @@ body.rtl .scroll-top {
     <div class="grid-3" id="industriesGrid"></div>
   </div>
 </section>
+<section id="industries" class="section">
+  ... (Industries content)
+</section>
 
+<!-- ========== FEATURED BLOG SECTION (ADD THIS) ========== -->
+<section class="section" style="background: rgba(15, 20, 30, 0.3);">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Latest from Our Blog</h2>
+      <p class="section-subtitle">Insights on AI, automation, and digital transformation</p>
+    </div>
+    <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+      <div class="card" onclick="window.location.href='/blog/article.html?slug=uk-gcc-trade-agreement-opportunities'">
+        <h3>🇬🇧 UK-GCC Trade Agreement</h3>
+        <p>How British AI companies can serve the Gulf market under the new $5B trade deal.</p>
+        <div class="card-more">Read Article →</div>
+      </div>
+      <div class="card" onclick="window.location.href='/blog/article.html?slug=الأتمتة-التشغيلية-الخدمات-اللوجستية-السعودي'">
+        <h3>🇸🇦 الأتمتة التشغيلية في السعودية</h3>
+        <p>كيف تساعد الأنظمة الذكية شركات النقل والخدمات اللوجستية</p>
+        <div class="card-more">اقرأ المقال ←</div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ========== END FEATURED BLOG SECTION ========== -->
+
+<!-- Trust Section -->
+<section class="trust-section">
+  ...
+</section>
 <section class="trust-section">
   <div class="container">
     <div class="trust-grid">
@@ -1277,6 +1309,7 @@ body.rtl .scroll-top {
       </div>
       <div class="footer-col"><h4 id="footerSolutions">Solutions</h4><ul><li><a onclick="scrollToSection('solutions')" id="footerSolutionsAI">AI Solutions</a></li><li><a onclick="scrollToSection('all-services')" id="footerSolutionsTech">Technology Solutions</a></li><li><a onclick="scrollToSection('digital-services')" id="footerSolutionsDigital">Digital Marketing</a></li></ul></div>
       <div class="footer-col"><h4 id="footerCompany">Company</h4><ul><li><a onclick="scrollToSection('hero')" id="footerCompanyAbout">About Us</a></li><li><a onclick="scrollToSection('contact')" id="footerCompanyContact">Contact</a></li><li><a onclick="openConsultation()" id="footerCompanyStart">Start a Project</a></li></ul></div>
+      <div class="footer-col"><h4>Resources</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/sitemap-blog.xml">Sitemap</a></li></ul></div>
       <div class="footer-col"><h4 id="footerContactTitle">Contact</h4><ul><li><a href="mailto:hello@btsapp.net">hello@btsapp.net</a></li><li><a href="tel:+447425252625">+44 7425 252625</a></li><li><a onclick="openWhatsApp()" id="footerWhatsApp">WhatsApp</a></li></ul></div>
     </div>
     <div class="footer-bottom">
@@ -1321,7 +1354,10 @@ const content = {
       companyAbout: 'About Us',
       companyContact: 'Contact',
       companyStart: 'Start a Project',
-      whatsapp: 'WhatsApp'
+      whatsapp: 'WhatsApp',
+      resources: 'Resources',
+      blogLink: 'Blog',
+      sitemapLink: 'Sitemap'
     },
     modal: { consultTitle: 'Start Your Project', nameLabel: 'Full Name', emailLabel: 'Email Address', phoneLabel: 'Phone Number', serviceLabel: 'Service Interested In', messageLabel: 'Project Description', submitBtn: 'Submit Request', sending: 'Sending...', successTitle: 'Message Sent! ✅', successMessage: 'Thank you for reaching out. Our team will get back to you within 24 hours.', errorTitle: 'Something went wrong ❌', errorMessage: 'Please try again or email us directly at hello@btsapp.net', closeBtn: 'Close' }
   },
@@ -1351,7 +1387,10 @@ const content = {
       companyAbout: 'من نحن',
       companyContact: 'اتصل بنا',
       companyStart: 'ابدأ مشروعك',
-      whatsapp: 'واتساب'
+      whatsapp: 'واتساب',
+      resources: 'المصادر',
+      blogLink: 'المدونة',
+      sitemapLink: 'خريطة الموقع'
     },
     modal: { consultTitle: 'ابدأ مشروعك', nameLabel: 'الاسم الكامل', emailLabel: 'البريد الإلكتروني', phoneLabel: 'رقم الجوال', serviceLabel: 'الخدمة المطلوبة', messageLabel: 'وصف المشروع', submitBtn: 'إرسال الطلب', sending: 'جاري الإرسال...', successTitle: 'تم إرسال الرسالة! ✅', successMessage: 'شكراً لتواصلك. سيتواصل معك فريقنا خلال ٢٤ ساعة.', errorTitle: 'حدث خطأ ❌', errorMessage: 'الرجاء المحاولة مرة أخرى أو مراسلتنا على hello@btsapp.net', closeBtn: 'إغلاق' }
   }
