@@ -334,7 +334,7 @@ body.rtl .drawer-close {
 }
 
 .hero-title {
-  font-size: 34px;
+  font-size: 27px;
   font-weight: 800;
   line-height: 1.2;
   background: linear-gradient(135deg, #ffffff, var(--primary), var(--secondary));
@@ -359,10 +359,10 @@ body.rtl .drawer-close {
 }
 
 .btn-primary {
-  padding: 12px 28px;
+  padding: 10px 22px;
   border-radius: 40px;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13px;
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: white;
   border: none;
@@ -376,10 +376,10 @@ body.rtl .drawer-close {
 }
 
 .btn-secondary {
-  padding: 12px 28px;
+  padding: 10px 22px;
   border-radius: 40px;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 13px;
   background: transparent;
   border: 1px solid var(--border-light);
   color: white;
@@ -393,88 +393,115 @@ body.rtl .drawer-close {
   transform: translateY(-2px);
 }
 
-.stats-row {
-  display: flex;
-  gap: 0;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  max-width: 400px;
-}
-
-.stat-item {
-  flex: 1;
-  padding: 20px 16px;
-  text-align: center;
-  border-left: 1px solid var(--border);
-}
-
-body.rtl .stat-item {
-  border-left: none;
-  border-right: 1px solid var(--border);
-}
-
-.stat-item:first-child {
-  border-left: none;
-}
-
-body.rtl .stat-item:first-child {
-  border-right: none;
-}
-
-.stat-number {
-  font-size: 28px;
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--gold), #ffffff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  display: block;
-  line-height: 1;
-}
-
-.stat-label {
-  font-size: 12px;
-  color: var(--text-gray);
-  margin-top: 6px;
-  font-weight: 500;
-}
-
-.globe-icon {
-  display: inline-block;
-  animation: spinGlobe 3s linear infinite;
-  transform-origin: center;
-  font-size: 28px;
-  width: 32px;
-  height: 32px;
-  line-height: 1;
-}
-
-@keyframes spinGlobe {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
 .hero-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 32px;
+  border-radius: 18px;
+  padding: 20px;
   text-align: center;
   backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-card img {
+  width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-bottom: 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.hero-card img:hover {
+  transform: scale(1.02);
 }
 
 .hero-card h3 {
   color: var(--primary);
-  font-size: 20px;
-  margin-bottom: 12px;
+  font-size: 16px;
+  margin-bottom: 8px;
 }
 
 .hero-card p {
   color: var(--text-gray);
-  font-size: 14px;
-  line-height: 1.6;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Image Lightbox */
+.image-lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  cursor: pointer;
+}
+
+.image-lightbox.active {
+  display: flex;
+}
+
+.image-lightbox img {
+  max-width: 95%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 12px;
+  box-shadow: 0 10px 60px rgba(0, 0, 0, 0.8);
+}
+
+.image-lightbox .close-btn {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+  z-index: 10000;
+  transition: transform 0.3s ease;
+  background: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  line-height: 1;
+}
+
+.image-lightbox .close-btn:hover {
+  transform: rotate(90deg);
+}
+
+.image-lightbox .zoom-hint {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .image-lightbox {
+    padding: 20px;
+  }
+  .image-lightbox .close-btn {
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+  }
+  .image-lightbox .zoom-hint {
+    bottom: 20px;
+    font-size: 11px;
+  }
 }
 
 .ticker {
@@ -1046,7 +1073,8 @@ body.rtl .scroll-top {
 @media (max-width: 1000px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
-  .hero-title { font-size: 28px; }
+  .hero-title { font-size: 24px; }
+  .hero-card img { max-height: 180px; }
 }
 
 @media (max-width: 768px) {
@@ -1059,14 +1087,12 @@ body.rtl .scroll-top {
   .contact-grid { grid-template-columns: 1fr; }
   .faq-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
-  .stats-row { max-width: 100%; }
   .cta-box { padding: 36px 24px; }
   .cta-box h2 { font-size: 24px; }
   .container { padding: 0 20px; }
   .hero { padding: 120px 0 40px; }
   .hero-title { font-size: 22px; }
-  .stat-number { font-size: 22px; }
-  .globe-icon { font-size: 22px; width: 24px; height: 24px; }
+  .hero-card img { max-height: 150px; }
 }
 </style>
 </head>
@@ -1119,22 +1145,31 @@ body.rtl .scroll-top {
           <button class="btn-primary" onclick="openConsultation()" id="btnConsult">Start Your Project</button>
           <button class="btn-secondary" onclick="scrollToSection('solutions')" id="btnView">View Solutions</button>
         </div>
-        <div class="stats-row">
-          <div class="stat-item"><span class="stat-number">12+</span><span class="stat-label" id="statLabel1">AI Experts</span></div>
-          <div class="stat-item"><span class="stat-number">50+</span><span class="stat-label" id="statLabel2">Organizations Served</span></div>
-        </div>
       </div>
       <div class="hero-card">
+        <!-- Clickable Image with Lightbox -->
+        <img src="assets/images/bts-front.png" 
+             alt="BTS - AI Automation & Business Intelligence Solutions" 
+             onclick="openLightbox('assets/images/bts-front.png')"
+             loading="lazy">
+        
         <h3 id="cardTitle">Arabic-English Systems • Custom Software • AI Automation • Business Intelligence</h3>
         <p id="cardText">UK-GCC technology partner delivering Arabic-English business systems, custom software, AI automation, and business intelligence dashboards for modern organizations across the UK and GCC.</p>
-        <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--border);">
+        <div style="margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border); width: 100%; text-align: center;">
           <span style="font-size: 11px; color: var(--gold);">★★★★★</span>
-          <p style="font-size: 11px; margin-top: 6px;" id="ratingText">Trusted by 50+ organizations • 98% client retention • 24/7 support</p>
+          <p style="font-size: 11px; margin-top: 4px; color: var(--text-gray);" id="ratingText">24/7 support</p>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Image Lightbox -->
+<div class="image-lightbox" id="imageLightbox" onclick="closeLightbox()">
+  <button class="close-btn" onclick="event.stopPropagation(); closeLightbox();">×</button>
+  <img src="" alt="BTS Dashboard Preview" id="lightboxImage" onclick="event.stopPropagation();">
+  <span class="zoom-hint">Click anywhere to close</span>
+</div>
 
 <div class="ticker" id="tickerSection">
   <div class="ticker-track" id="tickerTrack"></div>
@@ -1332,7 +1367,7 @@ const content = {
       cardTitle: 'Arabic-English Systems • Custom Software • AI Automation • Business Intelligence', 
       cardText: 'UK-GCC technology partner delivering Arabic-English business systems, custom software, AI automation, and business intelligence dashboards for modern organizations across the UK and GCC.' 
     },
-    ratingText: 'Trusted by 50+ organizations • 98% client retention • 24/7 support',
+    ratingText: '24/7 support',
     stats: { labels: ['AI Experts', 'Organizations Served'] },
     solutions: { title: 'Enterprise AI Solutions', subtitle: 'Custom AI, automation, and analytics solutions built for operational excellence' },
     allServices: { title: 'Complete Technology Solutions', subtitle: 'End-to-end digital transformation for modern enterprises' },
@@ -1377,7 +1412,7 @@ const content = {
       cardTitle: 'أنظمة عربية-إنجليزية • برمجيات مخصصة • أتمتة الذكاء الاصطناعي • ذكاء الأعمال', 
       cardText: 'شريك تقني مقره المملكة المتحدة يقدم أنظمة عربية-إنجليزية، برمجيات مخصصة، أتمتة الذكاء الاصطناعي، ولوحات ذكاء الأعمال للمؤسسات الحديثة في المملكة المتحدة ودول الخليج.' 
     },
-    ratingText: 'موثوق من قبل ٥٠+ مؤسسة • ٩٨٪ احتفاظ بالعملاء • دعم ٢٤/٧',
+    ratingText: 'دعم ٢٤/٧',
     stats: { labels: ['خبراء ذكاء اصطناعي', 'مؤسسات خدمناها'] },
     solutions: { title: 'حلول الذكاء الاصطناعي للمؤسسات', subtitle: 'حلول مخصصة للذكاء الاصطناعي والأتمتة والتحليلات للتميز التشغيلي' },
     allServices: { title: 'حلول تقنية متكاملة', subtitle: 'تحول رقمي شامل للمؤسسات الحديثة' },
@@ -1663,6 +1698,30 @@ window.addEventListener('scroll', () => {
   else scrollBtn.classList.remove('show');
 });
 
+// ==================== IMAGE LIGHTBOX FUNCTIONS ====================
+function openLightbox(imageSrc) {
+    const lightbox = document.getElementById('imageLightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    lightboxImage.src = imageSrc;
+    lightbox.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    const lightbox = document.getElementById('imageLightbox');
+    lightbox.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Close lightbox on ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeLightbox();
+    }
+});
+
+// ==================== END IMAGE LIGHTBOX FUNCTIONS ====================
+
 function initFaq() {
   document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('click', () => item.classList.toggle('open'));
@@ -1726,8 +1785,6 @@ function renderPage() {
   document.getElementById('cardTitle').innerHTML = t.hero.cardTitle;
   document.getElementById('cardText').innerText = t.hero.cardText;
   document.getElementById('ratingText').innerText = t.ratingText;
-  document.getElementById('statLabel1').innerText = t.stats.labels[0];
-  document.getElementById('statLabel2').innerText = t.stats.labels[1];
   document.getElementById('solutionsTitle').innerText = t.solutions.title;
   document.getElementById('solutionsSubtitle').innerText = t.solutions.subtitle;
   document.getElementById('allServicesTitle').innerText = t.allServices.title;
