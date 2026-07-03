@@ -925,7 +925,7 @@
   "date": "2026-07-01",
   "category": "Business Intelligence, AI, Digital Transformation, GCC",
   "author": "BTS",
-  "cover": "../assets/blog/intelligent-dashboards-architecture.png",
+  "cover": "../assets/images/blog/intelligent-dashboards-gcc-2026.jpg",
   "summary": "Every day, businesses across the GCC generate thousands of data points from sales to operations. Yet this information remains trapped in disconnected systems. Intelligent dashboards solve this by bringing data together in real-time, enabling faster decisions and better business outcomes.",
   "content": [
     {
@@ -978,7 +978,7 @@
     },
     {
       "type": "image",
-      "src": "../assets/blog/from-disconnected-systems.png",
+      "src": "../assets/images/blog/from-disconnected-systems.png.png",
       "caption": "From Disconnected Systems to Intelligent Decisions"
     },
     {
@@ -1151,7 +1151,7 @@
     },
     {
       "type": "image",
-      "src": "../assets/blog/traditional-vs-intelligent-dashboard.png",
+      "src": "../assets/images/blog/traditional-vs-intelligent-dashboard.png",
       "caption": "Traditional Dashboard vs. Intelligent Dashboard – A comprehensive comparison of features and business impact"
     },
     {
@@ -1178,7 +1178,7 @@
     },
     {
       "type": "image",
-      "src": "../assets/blog/intelligent-dashboards-architecture.png",
+      "src":"../assets/images/blog/intelligent-dashboards-architecture.png",
       "caption": "How Intelligent Dashboards Work – Architecture Overview from data sources to business outcomes"
     },
     {
