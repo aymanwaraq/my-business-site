@@ -915,21 +915,21 @@
         "text": "Based in Glasgow, serving organisations across Qatar and the Gulf region."
       }
     ]
-  }
-,
+  },
 {
+  {
   "id": 1783051971330,
   "slug": "why-gcc-businesses-need-intelligent-dashboards-2026",
   "lang": "en",
   "title": "Why GCC Businesses Need Intelligent Dashboards in 2026",
-  "date": "2026-05-26",
+  "date": "2026-07-01",
   "category": "Business Intelligence, AI, Digital Transformation, GCC",
   "author": "BTS",
-  "cover": "\t../assets/blog/intelligent-dashboards-gcc-2026.jpg",
+  "cover": "../assets/blog/intelligent-dashboards-gcc-2026.jpg",
   "summary": "Every day, businesses across the GCC generate thousands of data points from sales to operations. Yet this information remains trapped in disconnected systems. Intelligent dashboards solve this by bringing data together in real-time, enabling faster decisions and better business outcomes.",
   "content": [
     {
-      "type": "paragraph",
+      "type": "heading",
       "text": "From Disconnected Systems to Strategic Decisions"
     },
     {
@@ -977,8 +977,9 @@
       "text": "Within minutes, management knows where attention is needed. Decisions that once took days now happen in hours."
     },
     {
-      "type": "paragraph",
-      "text": "[image:../assets/blog/from-disconnected-systems.png|From Disconnected Systems to Intelligent Decisions]"
+      "type": "image",
+      "src": "../assets/blog/from-disconnected-systems.png",
+      "caption": "From Disconnected Systems to Intelligent Decisions"
     },
     {
       "type": "paragraph",
@@ -1062,27 +1063,27 @@
     },
     {
       "type": "paragraph",
-      "text": "• Show historical data only — providing yesterday's news rather than today's reality"
+      "text": "• Show historical data only — providing yesterday's news rather than today's reality."
     },
     {
       "type": "paragraph",
-      "text": "• Require manual updates — creating additional workload for already busy teams"
+      "text": "• Require manual updates — creating additional workload for already busy teams."
     },
     {
       "type": "paragraph",
-      "text": "• Contain too many metrics — overwhelming users with information rather than insight"
+      "text": "• Contain too many metrics — overwhelming users with information rather than insight."
     },
     {
       "type": "paragraph",
-      "text": "• Lack business context — presenting numbers without explaining what they mean"
+      "text": "• Lack business context — presenting numbers without explaining what they mean."
     },
     {
       "type": "paragraph",
-      "text": "• Don't generate recommendations — leaving interpretation to the user"
+      "text": "• Don't generate recommendations — leaving interpretation to the user."
     },
     {
       "type": "paragraph",
-      "text": "• Don't integrate all operational systems — creating data silos rather than breaking them down"
+      "text": "• Don't integrate all operational systems — creating data silos rather than breaking them down."
     },
     {
       "type": "paragraph",
@@ -1109,32 +1110,32 @@
       "text": "The GCC is experiencing one of the fastest digital transformation movements in the world. Governments across Saudi Arabia, the UAE, and Qatar have launched ambitious national programs to build knowledge-based and digitally enabled economies."
     },
     {
-      "type": "paragraph",
-      "text": "### Saudi Vision 2030"
+      "type": "heading",
+      "text": "Saudi Vision 2030"
     },
     {
       "type": "paragraph",
       "text": "Saudi Arabia's Vision 2030 is accelerating technology adoption across public and private sectors. The Kingdom is investing heavily in cloud infrastructure, digital government services, and advanced analytics capabilities to reduce oil dependency and build a diversified economy."
     },
     {
-      "type": "paragraph",
-      "text": "### UAE Artificial Intelligence Strategy"
+      "type": "heading",
+      "text": "UAE Artificial Intelligence Strategy"
     },
     {
       "type": "paragraph",
       "text": "The UAE continues to expand investments in artificial intelligence, cloud infrastructure, smart cities, and digital government services. As the first country in the region to appoint a Minister of State for Artificial Intelligence, the UAE is positioning itself as a global leader in technology adoption."
     },
     {
-      "type": "paragraph",
-      "text": "### Qatar National Vision 2030"
+      "type": "heading",
+      "text": "Qatar National Vision 2030"
     },
     {
       "type": "paragraph",
       "text": "Qatar's National Vision 2030 and Digital Agenda 2030 place digital transformation and technology innovation at the centre of long-term economic development. The country is building a knowledge-based economy through strategic investments in technology and innovation."
     },
     {
-      "type": "paragraph",
-      "text": "### Connecting National Strategy to Business Reality"
+      "type": "heading",
+      "text": "Connecting National Strategy to Business Reality"
     },
     {
       "type": "paragraph",
@@ -1149,62 +1150,22 @@
       "text": "Traditional Dashboard vs. Intelligent Dashboard: A Comparison"
     },
     {
-      "type": "paragraph",
-      "text": "[image:../assets/blog/traditional-vs-intelligent-dashboard.png|Traditional Dashboard vs. Intelligent Dashboard]"
+      "type": "image",
+      "src": "../assets/blog/traditional-vs-intelligent-dashboard.png",
+      "caption": "Traditional Dashboard vs. Intelligent Dashboard – A comprehensive comparison of features and business impact"
     },
     {
       "type": "table",
-      "headers": [
-        "Feature",
-        "Traditional Dashboard",
-        "Intelligent Dashboard"
-      ],
+      "headers": ["Feature", "Traditional Dashboard", "Intelligent Dashboard"],
       "rows": [
-        [
-          "---------",
-          "----------------------",
-          "----------------------"
-        ],
-        [
-          "Data Updates",
-          "Manual, daily or weekly",
-          "Real-time, automated"
-        ],
-        [
-          "Integration",
-          "Limited, often single source",
-          "Multiple systems, ERP, CRM, spreadsheets"
-        ],
-        [
-          "Analytics",
-          "Descriptive (what happened)",
-          "Predictive & prescriptive (what will happen & what to do)"
-        ],
-        [
-          "User Experience",
-          "Static charts and tables",
-          "Interactive, role-specific views"
-        ],
-        [
-          "Alerting",
-          "None or email-based",
-          "Automated, real-time notifications"
-        ],
-        [
-          "Recommendations",
-          "None",
-          "AI-generated, actionable insights"
-        ],
-        [
-          "Language Support",
-          "Usually single language",
-          "Arabic & English bilingual support"
-        ],
-        [
-          "Deployment",
-          "On-premise, complex",
-          "Cloud-native, scalable, secure"
-        ]
+        ["Data Updates", "Manual, daily or weekly", "Real-time, automated"],
+        ["Integration", "Limited, often single source", "Multiple systems, ERP, CRM, spreadsheets"],
+        ["Analytics", "Descriptive (what happened)", "Predictive & prescriptive (what will happen & what to do)"],
+        ["User Experience", "Static charts and tables", "Interactive, role-specific views"],
+        ["Alerting", "None or email-based", "Automated, real-time notifications"],
+        ["Recommendations", "None", "AI-generated, actionable insights"],
+        ["Language Support", "Usually single language", "Arabic & English bilingual support"],
+        ["Deployment", "On-premise, complex", "Cloud-native, scalable, secure"]
       ]
     },
     {
@@ -1216,20 +1177,21 @@
       "text": "BTS follows a structured methodology to ensure every dashboard delivers measurable business value."
     },
     {
-      "type": "paragraph",
-      "text": "[image:../assets/blog/intelligent-dashboards-architecture.png|How Intelligent Dashboards Work – Architecture Overview]"
+      "type": "image",
+      "src": "../assets/blog/intelligent-dashboards-architecture.png",
+      "caption": "How Intelligent Dashboards Work – Architecture Overview from data sources to business outcomes"
     },
     {
-      "type": "paragraph",
-      "text": "### 1. Discovery & Business Analysis"
+      "type": "heading",
+      "text": "1. Discovery & Business Analysis"
     },
     {
       "type": "paragraph",
       "text": "We begin by understanding your organisation's strategic objectives, operational processes, and reporting requirements. This includes identifying key stakeholders, defining success metrics, and mapping existing data sources."
     },
     {
-      "type": "paragraph",
-      "text": "### 2. Data Integration"
+      "type": "heading",
+      "text": "2. Data Integration"
     },
     {
       "type": "paragraph",
@@ -1268,40 +1230,40 @@
       "text": "• SQL databases and cloud APIs"
     },
     {
-      "type": "paragraph",
-      "text": "### 3. Dashboard Design"
+      "type": "heading",
+      "text": "3. Dashboard Design"
     },
     {
       "type": "paragraph",
       "text": "We design dashboards around business objectives rather than generic templates. This includes selecting the most meaningful performance indicators, designing intuitive visualisations, and creating role-specific views for executives, managers, and operational teams."
     },
     {
-      "type": "paragraph",
-      "text": "### 4. Analytics & Business Rules"
+      "type": "heading",
+      "text": "4. Analytics & Business Rules"
     },
     {
       "type": "paragraph",
       "text": "We incorporate business logic, predictive capabilities, and automated alerting to ensure the dashboard provides actionable insights rather than just raw data. This transforms the dashboard from a reporting tool into a decision-support system."
     },
     {
-      "type": "paragraph",
-      "text": "### 5. User Testing"
+      "type": "heading",
+      "text": "5. User Testing"
     },
     {
       "type": "paragraph",
       "text": "We work with end-users to validate the dashboard design, refine visualisations, and ensure the information presented is clear, relevant, and actionable."
     },
     {
-      "type": "paragraph",
-      "text": "### 6. Deployment"
+      "type": "heading",
+      "text": "6. Deployment"
     },
     {
       "type": "paragraph",
       "text": "We deploy the dashboard using secure cloud infrastructure, ensuring data protection, scalability, and accessibility across your organisation."
     },
     {
-      "type": "paragraph",
-      "text": "### 7. Continuous Improvement"
+      "type": "heading",
+      "text": "7. Continuous Improvement"
     },
     {
       "type": "paragraph",
@@ -1312,48 +1274,48 @@
       "text": "Industry-Specific Applications"
     },
     {
-      "type": "paragraph",
-      "text": "### Logistics and Supply Chain"
+      "type": "heading",
+      "text": "Logistics and Supply Chain"
     },
     {
       "type": "paragraph",
       "text": "A logistics dashboard can display shipments in transit, delayed deliveries, customer activity, fleet performance, warehouse operations, revenue by customer, and risk alerts. Managers can identify issues immediately rather than waiting for end-of-week reports. Logistics companies using intelligent dashboards typically report faster response times to supply chain disruptions."
     },
     {
-      "type": "paragraph",
-      "text": "### Healthcare"
+      "type": "heading",
+      "text": "Healthcare"
     },
     {
       "type": "paragraph",
       "text": "Healthcare organisations can monitor appointment attendance, no-show rates, staff workload, patient trends, and service demand forecasts. This enables better resource allocation, reduced wait times, and improved patient outcomes."
     },
     {
-      "type": "paragraph",
-      "text": "### Retail and E-Commerce"
+      "type": "heading",
+      "text": "Retail and E-Commerce"
     },
     {
       "type": "paragraph",
       "text": "Retail businesses can track sales performance, product demand, inventory levels, customer behaviour, and marketing effectiveness. This enables data-driven decisions about pricing, promotions, and product assortment."
     },
     {
-      "type": "paragraph",
-      "text": "### Real Estate"
+      "type": "heading",
+      "text": "Real Estate"
     },
     {
       "type": "paragraph",
       "text": "Property companies can monitor occupancy rates, maintenance requests, leasing performance, revenue trends, and portfolio analytics. This provides better visibility into portfolio performance and helps identify emerging opportunities."
     },
     {
-      "type": "paragraph",
-      "text": "### Banking and Finance"
+      "type": "heading",
+      "text": "Banking and Finance"
     },
     {
       "type": "paragraph",
       "text": "Financial institutions can monitor risk indicators, fraud detection, customer acquisition costs, portfolio performance, and regulatory compliance. This enables proactive risk management and better customer service."
     },
     {
-      "type": "paragraph",
-      "text": "### Manufacturing"
+      "type": "heading",
+      "text": "Manufacturing"
     },
     {
       "type": "paragraph",
@@ -1368,16 +1330,16 @@
       "text": "Modern business intelligence platforms can predict future demand, detect operational risks, identify unusual activity, forecast revenue, generate executive summaries, and recommend actions. This transforms dashboards from reporting tools into decision-support systems."
     },
     {
-      "type": "paragraph",
-      "text": "### Supporting Decision-Makers—Not Replacing Them"
+      "type": "heading",
+      "text": "Supporting Decision-Makers—Not Replacing Them"
     },
     {
       "type": "paragraph",
       "text": "At BTS, we believe advanced analytics should support decision-makers not replace them. Our dashboards provide insights and recommendations, but the final decisions remain with experienced business leaders who understand the broader context and strategic objectives."
     },
     {
-      "type": "paragraph",
-      "text": "### Natural-Language Capabilities"
+      "type": "heading",
+      "text": "Natural-Language Capabilities"
     },
     {
       "type": "paragraph",
@@ -1409,31 +1371,31 @@
     },
     {
       "type": "paragraph",
-      "text": "• Faster management reporting — reducing reporting time from days to hours"
+      "text": "• Faster management reporting — reducing reporting time from days to hours."
     },
     {
       "type": "paragraph",
-      "text": "• Improved operational visibility — understanding what's happening across the business"
+      "text": "• Improved operational visibility — understanding what's happening across the business."
     },
     {
       "type": "paragraph",
-      "text": "• Reduced manual reporting effort — freeing up staff for higher-value work"
+      "text": "• Reduced manual reporting effort — freeing up staff for higher-value work."
     },
     {
       "type": "paragraph",
-      "text": "• Better cross-department collaboration — breaking down data silos"
+      "text": "• Better cross-department collaboration — breaking down data silos."
     },
     {
       "type": "paragraph",
-      "text": "• Earlier identification of operational risks — preventing issues before they escalate"
+      "text": "• Earlier identification of operational risks — preventing issues before they escalate."
     },
     {
       "type": "paragraph",
-      "text": "• More informed strategic planning — decisions based on real data, not intuition"
+      "text": "• More informed strategic planning — decisions based on real data, not intuition."
     },
     {
       "type": "paragraph",
-      "text": "• Enhanced competitive advantage — responding faster to market changes"
+      "text": "• Enhanced competitive advantage — responding faster to market changes."
     },
     {
       "type": "heading",
@@ -1445,35 +1407,35 @@
     },
     {
       "type": "paragraph",
-      "text": "• Natural-language search — simply ask questions in plain English or Arabic"
+      "text": "• Natural-language search — simply ask questions in plain English or Arabic."
     },
     {
       "type": "paragraph",
-      "text": "• Voice assistants — interact with dashboards using voice commands"
+      "text": "• Voice assistants — interact with dashboards using voice commands."
     },
     {
       "type": "paragraph",
-      "text": "• Predictive capabilities — anticipate future trends and challenges"
+      "text": "• Predictive capabilities — anticipate future trends and challenges."
     },
     {
       "type": "paragraph",
-      "text": "• Digital twins — simulate scenarios and test strategies"
+      "text": "• Digital twins — simulate scenarios and test strategies."
     },
     {
       "type": "paragraph",
-      "text": "• AI-generated executive summaries — automatically synthesise key insights"
+      "text": "• AI-generated executive summaries — automatically synthesise key insights."
     },
     {
       "type": "paragraph",
-      "text": "• Automated anomaly detection — identify unusual patterns in real time"
+      "text": "• Automated anomaly detection — identify unusual patterns in real time."
     },
     {
       "type": "paragraph",
-      "text": "• Real-time forecasting — update predictions based on the latest data"
+      "text": "• Real-time forecasting — update predictions based on the latest data."
     },
     {
       "type": "paragraph",
-      "text": "• Advanced data visualisation — intuitive, interactive, and engaging"
+      "text": "• Advanced data visualisation — intuitive, interactive, and engaging."
     },
     {
       "type": "paragraph",
@@ -1485,59 +1447,31 @@
     },
     {
       "type": "paragraph",
-      "text": "What is an Intelligent Dashboard?"
+      "text": "What is an Intelligent Dashboard? An Intelligent Dashboard is a business intelligence tool that combines real-time data visualisation, automated reporting, predictive analytics, and actionable insights to support faster, more informed decision-making."
     },
     {
       "type": "paragraph",
-      "text": "An Intelligent Dashboard is a business intelligence tool that combines real-time data visualisation, automated reporting, predictive analytics, and actionable insights to support faster, more informed decision-making."
+      "text": "How is it different from Power BI or Tableau? Tools like Power BI and Tableau are excellent visualisation platforms. However, an Intelligent Dashboard goes beyond visualisation by incorporating business logic, predictive capabilities, automated alerts, and role-specific views tailored to your organisation's objectives."
     },
     {
       "type": "paragraph",
-      "text": "How is it different from Power BI or Tableau?"
+      "text": "Can BTS integrate existing ERP and CRM systems? Yes. BTS specialises in integrating data from multiple systems including SAP, Oracle, Microsoft Dynamics, Salesforce, HubSpot, and many others. We bring your existing data together into a single source of truth."
     },
     {
       "type": "paragraph",
-      "text": "Tools like Power BI and Tableau are excellent visualisation platforms. However, an Intelligent Dashboard goes beyond visualisation by incorporating business logic, predictive capabilities, automated alerts, and role-specific views tailored to your organisation's objectives."
+      "text": "Can dashboards support Arabic and English? Absolutely. BTS develops bilingual dashboards that support both Arabic and English, making data accessible to all team members regardless of their preferred language."
     },
     {
       "type": "paragraph",
-      "text": "Can BTS integrate existing ERP and CRM systems?"
+      "text": "How long does implementation take? Implementation typically takes 4–12 weeks depending on the complexity of your systems, the number of data sources, and your specific reporting requirements."
     },
     {
       "type": "paragraph",
-      "text": "Yes. BTS specialises in integrating data from multiple systems including SAP, Oracle, Microsoft Dynamics, Salesforce, HubSpot, and many others. We bring your existing data together into a single source of truth."
+      "text": "Can small and medium businesses benefit from Intelligent Dashboards? Yes. Intelligent Dashboards are scalable and can be tailored to organisations of any size. We work with SMEs as well as large enterprises to provide the business intelligence capabilities they need."
     },
     {
       "type": "paragraph",
-      "text": "Can dashboards support Arabic and English?"
-    },
-    {
-      "type": "paragraph",
-      "text": "Absolutely. BTS develops bilingual dashboards that support both Arabic and English, making data accessible to all team members regardless of their preferred language."
-    },
-    {
-      "type": "paragraph",
-      "text": "How long does implementation take?"
-    },
-    {
-      "type": "paragraph",
-      "text": "Implementation typically takes 4–12 weeks depending on the complexity of your systems, the number of data sources, and your specific reporting requirements."
-    },
-    {
-      "type": "paragraph",
-      "text": "Can small and medium businesses benefit from Intelligent Dashboards?"
-    },
-    {
-      "type": "paragraph",
-      "text": "Yes. Intelligent Dashboards are scalable and can be tailored to organisations of any size. We work with SMEs as well as large enterprises to provide the business intelligence capabilities they need."
-    },
-    {
-      "type": "paragraph",
-      "text": "Is my data secure?"
-    },
-    {
-      "type": "paragraph",
-      "text": "Yes. BTS implements enterprise-grade security protocols including encryption, access controls, and secure cloud deployment to protect your business data."
+      "text": "Is my data secure? Yes. BTS implements enterprise-grade security protocols including encryption, access controls, and secure cloud deployment to protect your business data."
     },
     {
       "type": "heading",
@@ -1545,11 +1479,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Data has become one of the most valuable assets a business owns. However, data alone does not create competitive advantage—understanding it does."
-    },
-    {
-      "type": "paragraph",
-      "text": "Intelligent Dashboards transform raw information into meaningful insight, helping organisations respond faster, operate more efficiently, and make better strategic decisions."
+      "text": "Data has become one of the most valuable assets a business owns. However, data alone does not create competitive advantage—understanding it does. Intelligent Dashboards transform raw information into meaningful insight, helping organisations respond faster, operate more efficiently, and make better strategic decisions."
     },
     {
       "type": "paragraph",
@@ -1561,19 +1491,11 @@
     },
     {
       "type": "paragraph",
-      "text": "Whether your organisation operates in logistics, healthcare, retail, manufacturing, or professional services, BTS can help you transform disconnected data into a secure, intelligent dashboard tailored to your business."
+      "text": "Whether your organisation operates in logistics, healthcare, retail, manufacturing, or professional services, BTS can help you transform disconnected data into a secure, intelligent dashboard tailored to your business. Book a consultation to discuss your goals and discover how real-time business intelligence can improve operational visibility, reporting, and strategic decision-making."
     },
     {
-      "type": "paragraph",
-      "text": "Book a consultation to discuss your goals and discover how real-time business intelligence can improve operational visibility, reporting, and strategic decision-making."
-    },
-    {
-      "type": "paragraph",
-      "text": "---"
-    },
-    {
-      "type": "paragraph",
-      "text": "**Contact BTS**"
+      "type": "heading",
+      "text": "Contact BTS"
     },
     {
       "type": "paragraph",
@@ -1592,40 +1514,12 @@
       "text": "Website: https://btsapp.net"
     },
     {
-      "type": "paragraph",
-      "text": "**About BTS Business Technology Solutions**"
+      "type": "heading",
+      "text": "About BTS Business Technology Solutions"
     },
     {
       "type": "paragraph",
-      "text": "BTS helps organisations automate operations, unlock business insights, and build scalable digital systems designed for long-term growth."
-    },
-    {
-      "type": "paragraph",
-      "text": "Our services include:"
-    },
-    {
-      "type": "paragraph",
-      "text": "• Intelligent Dashboards & Business Intelligence"
-    },
-    {
-      "type": "paragraph",
-      "text": "• AI-Powered Operational Automation"
-    },
-    {
-      "type": "paragraph",
-      "text": "• System Integration across ERP, CRM, and operational systems"
-    },
-    {
-      "type": "paragraph",
-      "text": "• Bilingual Business Applications (Arabic and English)"
-    },
-    {
-      "type": "paragraph",
-      "text": "• Predictive Analytics Solutions"
-    },
-    {
-      "type": "paragraph",
-      "text": "• Digital Transformation Consulting"
+      "text": "BTS helps organisations automate operations, unlock business insights, and build scalable digital systems designed for long-term growth. Our services include Intelligent Dashboards & Business Intelligence, AI-Powered Operational Automation, System Integration across ERP, CRM, and operational systems, Bilingual Business Applications (Arabic and English), Predictive Analytics Solutions, and Digital Transformation Consulting."
     },
     {
       "type": "paragraph",
@@ -1633,7 +1527,7 @@
     },
     {
       "type": "paragraph",
-      "text": "*BTS — Intelligent dashboards, AI automation, and bilingual business systems for modern organisations across the GCC and United Kingdom.*"
+      "text": "BTS — Intelligent dashboards, AI automation, and bilingual business systems for modern organisations across the GCC and United Kingdom."
     }
   ]
 }
