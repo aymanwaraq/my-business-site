@@ -1239,7 +1239,6 @@ body.rtl .scroll-top {
     </div>
   </div>
 </section>
-
 <!-- ========== END FEATURED BLOG SECTION ========== -->
 
 <section class="trust-section">
@@ -1735,13 +1734,6 @@ function initFaq() {
     item.addEventListener('click', () => item.classList.toggle('open'));
   });
 }
-// ==================== END IMAGE LIGHTBOX FUNCTIONS ====================
-
-function initFaq() {
-  document.querySelectorAll('.faq-item').forEach(item => {
-    item.addEventListener('click', () => item.classList.toggle('open'));
-  });
-}
 
 // ==================== DYNAMIC LATEST BLOG POSTS ====================
 async function loadLatestBlogPosts() {
@@ -1934,18 +1926,6 @@ function renderPage() {
   if (document.getElementById('featuredBlogTitle')) {
     document.getElementById('featuredBlogTitle').innerText = t.featuredBlog.title;
     document.getElementById('featuredBlogSubtitle').innerText = t.featuredBlog.subtitle;
-    document.getElementById('featuredBlogMore1').innerText = t.featuredBlog.more1;
-    document.getElementById('featuredBlogMore2').innerText = t.featuredBlog.more2;
-    function renderPage() {
-  const t = content[currentLang];
-  
-  // ... all the existing code ...
-  
-  initFaq();
-  
-  // Load latest blog posts after page renders
-  setTimeout(loadLatestBlogPosts, 500);
-}
   }
   
   // Trust badges
@@ -2034,12 +2014,15 @@ function renderPage() {
   }
   
   initFaq();
+  
+  // Load latest blog posts after page renders
+  setTimeout(loadLatestBlogPosts, 500);
 }
 
 function toggleLanguage() {
   currentLang = currentLang === 'en' ? 'ar' : 'en';
   renderPage();
-  loadLatestBlogPosts();
+  loadLatestBlogPosts(); // Refresh blog posts when language changes
 }
 
 function toggleMobileDrawer() { document.getElementById('mobileDrawer').classList.add('open'); }
@@ -2139,7 +2122,10 @@ document.getElementById('contactForm')?.addEventListener('submit', async (e) => 
 });
 
 document.getElementById('scrollTopBtn').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// Initialize everything
 renderPage();
+
 const spinStyle = document.createElement('style');
 spinStyle.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
 document.head.appendChild(spinStyle);
