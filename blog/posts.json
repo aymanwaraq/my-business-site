@@ -917,7 +917,6 @@
     ]
   },
 {
-  {
   "id": 1783051971330,
   "slug": "why-gcc-businesses-need-intelligent-dashboards-2026",
   "lang": "en",
@@ -925,7 +924,7 @@
   "date": "2026-07-01",
   "category": "Business Intelligence, AI, Digital Transformation, GCC",
   "author": "BTS",
-  "cover": "../assets/images/blog/intelligent-dashboards-gcc-2026.jpg",
+  "cover": "../assets/images/blog/intelligent-dashboards-architecture.png",
   "summary": "Every day, businesses across the GCC generate thousands of data points from sales to operations. Yet this information remains trapped in disconnected systems. Intelligent dashboards solve this by bringing data together in real-time, enabling faster decisions and better business outcomes.",
   "content": [
     {
@@ -950,27 +949,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Imagine a logistics director arriving at work on Monday morning. Instead of opening six different systems, downloading spreadsheets, and requesting reports from multiple departments, a single dashboard immediately highlights:"
-    },
-    {
-      "type": "paragraph",
-      "text": "• Delayed shipments requiring urgent attention."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Warehouse capacity approaching critical limits."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Customer complaints trending upward in specific regions."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Revenue performance against monthly targets."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Operational risks flagged by predictive analytics."
+      "text": "Imagine a logistics director arriving at work on Monday morning. Instead of opening six different systems, downloading spreadsheets, and requesting reports from multiple departments, a single dashboard immediately highlights delayed shipments requiring urgent attention, warehouse capacity approaching critical limits, customer complaints trending upward in specific regions, revenue performance against monthly targets, and operational risks flagged by predictive analytics."
     },
     {
       "type": "paragraph",
@@ -978,7 +957,7 @@
     },
     {
       "type": "image",
-      "src": "../assets/images/blog/from-disconnected-systems.png.png",
+      "src": "../assets/images/blog/from-disconnected-systems.png",
       "caption": "From Disconnected Systems to Intelligent Decisions"
     },
     {
@@ -991,63 +970,11 @@
     },
     {
       "type": "paragraph",
-      "text": "An Intelligent Dashboard is more than a collection of charts. It combines:"
+      "text": "An Intelligent Dashboard is more than a collection of charts. It combines real-time business data from multiple sources, automated reporting that eliminates manual work, performance monitoring across departments and functions, predictive capabilities to forecast future trends, advanced analytics that highlight what matters, and automated alerts and recommendations for proactive action."
     },
     {
       "type": "paragraph",
-      "text": "• Real-time business data from multiple sources."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Automated reporting that eliminates manual work."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Performance monitoring across departments and functions."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Predictive capabilities to forecast future trends."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Advanced analytics that highlight what matters."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Automated alerts and recommendations for proactive action."
-    },
-    {
-      "type": "paragraph",
-      "text": "Instead of waiting for monthly reports, managers can instantly see:"
-    },
-    {
-      "type": "paragraph",
-      "text": "• Revenue performance and profitability."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Operational bottlenecks and inefficiencies."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Customer behaviour and satisfaction trends."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Shipment delays and logistics issues."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Employee productivity and resource utilisation."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Financial KPIs and budget variances."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Risk indicators and compliance metrics."
+      "text": "Instead of waiting for monthly reports, managers can instantly see revenue performance and profitability, operational bottlenecks and inefficiencies, customer behaviour and satisfaction trends, shipment delays and logistics issues, employee productivity and resource utilisation, financial KPIs and budget variances, and risk indicators and compliance metrics."
     },
     {
       "type": "paragraph",
@@ -1059,43 +986,11 @@
     },
     {
       "type": "paragraph",
-      "text": "Many organisations already have dashboards. The problem is that they are often:"
+      "text": "Many organisations already have dashboards. The problem is that they are often showing historical data only — providing yesterday's news rather than today's reality, requiring manual updates — creating additional workload for already busy teams, containing too many metrics — overwhelming users with information rather than insight, lacking business context — presenting numbers without explaining what they mean, not generating recommendations — leaving interpretation to the user, and not integrating all operational systems — creating data silos rather than breaking them down."
     },
     {
       "type": "paragraph",
-      "text": "• Show historical data only — providing yesterday's news rather than today's reality."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Require manual updates — creating additional workload for already busy teams."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Contain too many metrics — overwhelming users with information rather than insight."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Lack business context — presenting numbers without explaining what they mean."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Don't generate recommendations — leaving interpretation to the user."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Don't integrate all operational systems — creating data silos rather than breaking them down."
-    },
-    {
-      "type": "paragraph",
-      "text": "Traditional dashboards answer the question: \"What happened?\""
-    },
-    {
-      "type": "paragraph",
-      "text": "Intelligent dashboards go further by answering: \"What is happening right now?\""
-    },
-    {
-      "type": "paragraph",
-      "text": "Advanced analytics and predictive capabilities answer the most important question: \"What is likely to happen next?\""
+      "text": "Traditional dashboards answer the question: \"What happened?\" Intelligent dashboards go further by answering: \"What is happening right now?\" Advanced analytics and predictive capabilities answer the most important question: \"What is likely to happen next?\""
     },
     {
       "type": "paragraph",
@@ -1152,7 +1047,7 @@
     {
       "type": "image",
       "src": "../assets/images/blog/traditional-vs-intelligent-dashboard.png",
-      "caption": "Traditional Dashboard vs. Intelligent Dashboard – A comprehensive comparison of features and business impact"
+      "caption": "Traditional Dashboard vs. Intelligent Dashboard"
     },
     {
       "type": "table",
@@ -1178,8 +1073,8 @@
     },
     {
       "type": "image",
-      "src":"../assets/images/blog/intelligent-dashboards-architecture.png",
-      "caption": "How Intelligent Dashboards Work – Architecture Overview from data sources to business outcomes"
+      "src": "../assets/images/blog/intelligent-dashboards-architecture.png",
+      "caption": "How Intelligent Dashboards Work – Architecture Overview"
     },
     {
       "type": "heading",
@@ -1195,39 +1090,7 @@
     },
     {
       "type": "paragraph",
-      "text": "Modern dashboards require data from multiple systems:"
-    },
-    {
-      "type": "paragraph",
-      "text": "• ERP systems (SAP, Oracle, Microsoft Dynamics)"
-    },
-    {
-      "type": "paragraph",
-      "text": "• CRM platforms (Salesforce, HubSpot, Zoho)"
-    },
-    {
-      "type": "paragraph",
-      "text": "• Accounting software (QuickBooks, Xero, Sage)"
-    },
-    {
-      "type": "paragraph",
-      "text": "• HR systems (Workday, BambooHR)"
-    },
-    {
-      "type": "paragraph",
-      "text": "• Warehouse Management Systems"
-    },
-    {
-      "type": "paragraph",
-      "text": "• IoT devices and sensors"
-    },
-    {
-      "type": "paragraph",
-      "text": "• Excel spreadsheets and Google Sheets"
-    },
-    {
-      "type": "paragraph",
-      "text": "• SQL databases and cloud APIs"
+      "text": "Modern dashboards require data from multiple systems including ERP systems (SAP, Oracle, Microsoft Dynamics), CRM platforms (Salesforce, HubSpot, Zoho), accounting software (QuickBooks, Xero, Sage), HR systems (Workday, BambooHR), Warehouse Management Systems, IoT devices and sensors, Excel spreadsheets and Google Sheets, and SQL databases and cloud APIs."
     },
     {
       "type": "heading",
@@ -1323,119 +1186,11 @@
     },
     {
       "type": "heading",
-      "text": "The Evolution from Dashboards to Intelligent Dashboards"
-    },
-    {
-      "type": "paragraph",
-      "text": "Modern business intelligence platforms can predict future demand, detect operational risks, identify unusual activity, forecast revenue, generate executive summaries, and recommend actions. This transforms dashboards from reporting tools into decision-support systems."
-    },
-    {
-      "type": "heading",
-      "text": "Supporting Decision-Makers—Not Replacing Them"
-    },
-    {
-      "type": "paragraph",
-      "text": "At BTS, we believe advanced analytics should support decision-makers not replace them. Our dashboards provide insights and recommendations, but the final decisions remain with experienced business leaders who understand the broader context and strategic objectives."
-    },
-    {
-      "type": "heading",
-      "text": "Natural-Language Capabilities"
-    },
-    {
-      "type": "paragraph",
-      "text": "The next generation of dashboards will increasingly incorporate natural-language interfaces, allowing executives to ask questions like:"
-    },
-    {
-      "type": "paragraph",
-      "text": "\"What were our top-performing products last quarter in Saudi Arabia?\""
-    },
-    {
-      "type": "paragraph",
-      "text": "\"Which logistics routes are experiencing the most delays?\""
-    },
-    {
-      "type": "paragraph",
-      "text": "\"What is the forecast for Q3 revenue?\""
-    },
-    {
-      "type": "paragraph",
-      "text": "This makes data accessible to everyone in the organisation, not just data analysts."
-    },
-    {
-      "type": "heading",
-      "text": "Measurable Benefits: What Organisations Report"
-    },
-    {
-      "type": "paragraph",
-      "text": "Organisations implementing modern business intelligence platforms commonly report benefits such as:"
-    },
-    {
-      "type": "paragraph",
-      "text": "• Faster management reporting — reducing reporting time from days to hours."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Improved operational visibility — understanding what's happening across the business."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Reduced manual reporting effort — freeing up staff for higher-value work."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Better cross-department collaboration — breaking down data silos."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Earlier identification of operational risks — preventing issues before they escalate."
-    },
-    {
-      "type": "paragraph",
-      "text": "• More informed strategic planning — decisions based on real data, not intuition."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Enhanced competitive advantage — responding faster to market changes."
-    },
-    {
-      "type": "heading",
       "text": "The Future of Intelligent Dashboards"
     },
     {
       "type": "paragraph",
-      "text": "The next generation of dashboards will include:"
-    },
-    {
-      "type": "paragraph",
-      "text": "• Natural-language search — simply ask questions in plain English or Arabic."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Voice assistants — interact with dashboards using voice commands."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Predictive capabilities — anticipate future trends and challenges."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Digital twins — simulate scenarios and test strategies."
-    },
-    {
-      "type": "paragraph",
-      "text": "• AI-generated executive summaries — automatically synthesise key insights."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Automated anomaly detection — identify unusual patterns in real time."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Real-time forecasting — update predictions based on the latest data."
-    },
-    {
-      "type": "paragraph",
-      "text": "• Advanced data visualisation — intuitive, interactive, and engaging."
+      "text": "The next generation of dashboards will include natural-language search — simply ask questions in plain English or Arabic, voice assistants — interact with dashboards using voice commands, predictive capabilities — anticipate future trends and challenges, digital twins — simulate scenarios and test strategies, AI-generated executive summaries — automatically synthesise key insights, automated anomaly detection — identify unusual patterns in real time, real-time forecasting — update predictions based on the latest data, and advanced data visualisation — intuitive, interactive, and engaging."
     },
     {
       "type": "paragraph",
