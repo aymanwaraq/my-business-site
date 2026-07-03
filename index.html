@@ -1215,27 +1215,31 @@ body.rtl .scroll-top {
   </div>
 </section>
 
-<!-- ========== FEATURED BLOG SECTION (BILINGUAL) ========== -->
+<!-- ========== FEATURED BLOG SECTION (DYNAMIC) ========== -->
 <section class="section" style="background: rgba(15, 20, 30, 0.3);">
   <div class="container">
     <div class="section-header">
       <h2 class="section-title" id="featuredBlogTitle">Latest from Our Blog</h2>
       <p class="section-subtitle" id="featuredBlogSubtitle">Insights on AI, automation, and digital transformation</p>
     </div>
-    <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
-      <div class="card" onclick="window.location.href='/blog/article.html?slug=uk-gcc-trade-agreement-opportunities'">
-        <h3>🇬🇧 UK-GCC Trade Agreement</h3>
-        <p>How British AI companies can serve the Gulf market under the new $5B trade deal.</p>
-        <div class="card-more" id="featuredBlogMore1">Read Article →</div>
+    <div class="grid-2" style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;" id="latestBlogPosts">
+      <div class="card">
+        <h3>Loading...</h3>
+        <p>Loading latest articles...</p>
+        <div class="card-more">Read Article →</div>
       </div>
-      <div class="card" onclick="window.location.href='/blog/article.html?slug=الأتمتة-التشغيلية-الخدمات-اللوجستية-السعودي'">
-        <h3>🇸🇦 الأتمتة التشغيلية في السعودية</h3>
-        <p>كيف تساعد الأنظمة الذكية شركات النقل والخدمات اللوجستية</p>
-        <div class="card-more" id="featuredBlogMore2">اقرأ المقال ←</div>
+      <div class="card">
+        <h3>Loading...</h3>
+        <p>Loading latest articles...</p>
+        <div class="card-more">Read Article →</div>
       </div>
+    </div>
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="/blog/" class="btn-primary" id="viewAllBlogBtn">View All Articles →</a>
     </div>
   </div>
 </section>
+
 <!-- ========== END FEATURED BLOG SECTION ========== -->
 
 <section class="trust-section">
@@ -1731,6 +1735,93 @@ function initFaq() {
     item.addEventListener('click', () => item.classList.toggle('open'));
   });
 }
+// ==================== END IMAGE LIGHTBOX FUNCTIONS ====================
+
+function initFaq() {
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => item.classList.toggle('open'));
+  });
+}
+
+// ==================== DYNAMIC LATEST BLOG POSTS ====================
+async function loadLatestBlogPosts() {
+    try {
+        const response = await fetch('/blog/posts.json');
+        if (!response.ok) throw new Error('Failed to fetch posts');
+        const posts = await response.json();
+        
+        // Sort by date (newest first)
+        const sortedPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+        
+        // Get the 2 most recent posts
+        const latestPosts = sortedPosts.slice(0, 2);
+        
+        const blogContainer = document.getElementById('latestBlogPosts');
+        if (!blogContainer) return;
+        
+        // Get current language
+        const lang = currentLang || 'en';
+        const viewAllText = lang === 'ar' ? 'عرض جميع المقالات →' : 'View All Articles →';
+        
+        // Update "View All" button
+        const viewAllBtn = document.getElementById('viewAllBlogBtn');
+        if (viewAllBtn) {
+            viewAllBtn.textContent = viewAllText;
+            viewAllBtn.href = '/blog/?lang=' + lang;
+        }
+        
+        // Generate HTML for each post
+        blogContainer.innerHTML = latestPosts.map(post => {
+            const summary = post.summary.length > 120 ? post.summary.substring(0, 120) + '...' : post.summary;
+            const postLang = post.lang || 'en';
+            const readMore = postLang === 'ar' ? 'اقرأ المقال ←' : 'Read Article →';
+            
+            // Get emoji based on category
+            let emoji = '📝';
+            const category = post.category.toLowerCase();
+            if (category.includes('ai') || category.includes('intelligence')) emoji = '🤖';
+            else if (category.includes('logistics') || category.includes('supply')) emoji = '🚚';
+            else if (category.includes('trade') || category.includes('business')) emoji = '🌍';
+            else if (category.includes('dashboard') || category.includes('analytics')) emoji = '📊';
+            else if (category.includes('health') || category.includes('care')) emoji = '🏥';
+            else if (category.includes('automation')) emoji = '⚡';
+            else if (category.includes('digital')) emoji = '💻';
+            
+            return `
+                <div class="card" onclick="window.location.href='/blog/article.html?slug=${post.slug}&lang=${lang}'">
+                    <h3>${emoji} ${post.title}</h3>
+                    <p>${summary}</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; flex-wrap: wrap; gap: 8px;">
+                        <span style="font-size: 12px; color: var(--text-gray);">📅 ${post.date}</span>
+                        <div class="card-more">${readMore}</div>
+                    </div>
+                </div>
+            `;
+        }).join('');
+        
+    } catch(e) {
+        console.error('Error loading blog posts:', e);
+        const blogContainer = document.getElementById('latestBlogPosts');
+        if (blogContainer) {
+            blogContainer.innerHTML = `
+                <div class="card" onclick="window.location.href='/blog/'">
+                    <h3>📝 Visit Our Blog</h3>
+                    <p>Read the latest insights on AI, automation, and digital transformation from BTS.</p>
+                    <div class="card-more">Read More →</div>
+                </div>
+                <div class="card" onclick="window.location.href='/blog/'">
+                    <h3>🌐 Bilingual Content</h3>
+                    <p>Articles available in both English and Arabic for our GCC readers.</p>
+                    <div class="card-more">Read More →</div>
+                </div>
+            `;
+        }
+    }
+}
+
+function goToServicePage(page) {
+  window.location.href = 'solutions/' + page;
+}
 
 function goToServicePage(page) {
   window.location.href = 'solutions/' + page;
@@ -1838,6 +1929,16 @@ function renderPage() {
     document.getElementById('featuredBlogSubtitle').innerText = t.featuredBlog.subtitle;
     document.getElementById('featuredBlogMore1').innerText = t.featuredBlog.more1;
     document.getElementById('featuredBlogMore2').innerText = t.featuredBlog.more2;
+    function renderPage() {
+  const t = content[currentLang];
+  
+  // ... all the existing code ...
+  
+  initFaq();
+  
+  // Load latest blog posts after page renders
+  setTimeout(loadLatestBlogPosts, 500);
+}
   }
   
   // Trust badges
@@ -1931,6 +2032,7 @@ function renderPage() {
 function toggleLanguage() {
   currentLang = currentLang === 'en' ? 'ar' : 'en';
   renderPage();
+  loadLatestBlogPosts();
 }
 
 function toggleMobileDrawer() { document.getElementById('mobileDrawer').classList.add('open'); }
