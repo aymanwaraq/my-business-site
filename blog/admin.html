@@ -6,6 +6,189 @@
 <title>BTS Blog Admin Panel</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+  .admin-container {
+    max-width: 900px;
+    margin: 100px auto 60px;
+    padding: 0 24px;
+  }
+  
+  .admin-card {
+    background: rgba(20, 20, 30, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 40px;
+    backdrop-filter: blur(10px);
+  }
+  
+  .admin-card h1 {
+    font-size: 32px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #ffffff, #4a90e2, #7b2cbf);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 8px;
+  }
+  
+  .admin-card .sub {
+    color: #a0a0b0;
+    margin-bottom: 30px;
+  }
+  
+  .admin-card code {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: #4a90e2;
+    font-size: 13px;
+  }
+  
+  .admin-form-group {
+    margin-bottom: 18px;
+  }
+  
+  .admin-form-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #c0c0d0;
+    font-size: 13px;
+    font-weight: 600;
+  }
+  
+  .admin-form-group input,
+  .admin-form-group select,
+  .admin-form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    color: white;
+    font-size: 14px;
+    transition: all 0.2s;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .admin-form-group input:focus,
+  .admin-form-group select:focus,
+  .admin-form-group textarea:focus {
+    outline: none;
+    border-color: #4a90e2;
+  }
+  
+  .admin-form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .admin-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  
+  .btn-primary {
+    padding: 10px 22px;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 13px;
+    background: linear-gradient(135deg, #4a90e2, #7b2cbf);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+  }
+  
+  .btn-secondary {
+    padding: 10px 22px;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 13px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .btn-secondary:hover {
+    border-color: #4a90e2;
+    background: rgba(74, 144, 226, 0.1);
+    transform: translateY(-2px);
+  }
+  
+  #output {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 20px;
+    color: #a0a0b0;
+    font-size: 13px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-height: 400px;
+    overflow-y: auto;
+    font-family: 'Courier New', monospace;
+  }
+  
+  .back-home {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: rgba(74, 144, 226, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 40px;
+    padding: 8px 18px;
+    color: #4a90e2;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    transition: all 0.2s;
+  }
+  
+  .back-home:hover {
+    background: rgba(74, 144, 226, 0.3);
+    border-color: #4a90e2;
+  }
+  
+  @media (max-width: 768px) {
+    .admin-row {
+      grid-template-columns: 1fr;
+    }
+    .admin-card {
+      padding: 24px;
+    }
+  }
+  
+  .format-hint {
+    background: rgba(74, 144, 226, 0.05);
+    border: 1px solid rgba(74, 144, 226, 0.1);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+  }
+  
+  .format-hint strong {
+    color: #4a90e2;
+  }
+  
+  .format-hint code {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+  }
+</style>
 </head>
 <body style="background:#0a0a0f;">
 
@@ -68,16 +251,26 @@ Each line becomes a paragraph.
 
 [youtube:VIDEO_ID] for YouTube videos
 
+[video:path/to/video.mp4] for local video files
+
 | Header1 | Header2 |
 | Cell1 | Cell2 |
 
 [faq] Question 1 | Answer 1 || Question 2 | Answer 2 [/faq]
 
 [chart:bar] 2023,2024,2025 | 20,40,70,90"></textarea>
+        <div class="format-hint">
+          💡 <strong>Formatting Tips:</strong><br>
+          <code>## Heading</code> — Creates a heading<br>
+          <code>&gt; Quote</code> — Creates a blockquote<br>
+          <code>[youtube:VIDEO_ID]</code> — Embeds a YouTube video<br>
+          <code>[video:path/to/video.mp4]</code> — Embeds a local video file<br>
+          <code>| Table | with | pipes |</code> — Creates a table<br>
+          <code>[faq] Q | A || Q2 | A2 [/faq]</code> — Creates an FAQ section<br>
+          <code>[chart:bar] Labels | Data</code> — Creates a bar chart
+        </div>
         <small style="color:var(--text-gray); display:block; margin-top:8px;">
-          💡 Tips: <strong>## Heading</strong> | <strong>> Quote</strong> | <strong>[youtube:VIDEO_ID]</strong> | 
-          <strong>| Table | with | pipes |</strong> | <strong>[faq] Q | A || Q2 | A2 [/faq]</strong> | 
-          <strong>[chart:bar] Labels | Data</strong>
+          📹 For videos: Use <code>[video:../assets/videos/example.mp4]</code> or any video URL
         </small>
       </div>
 
@@ -92,9 +285,10 @@ Each line becomes a paragraph.
         </div>
       </div>
 
-      <div style="display: flex; gap: 16px; margin-top: 20px;">
+      <div style="display: flex; gap: 16px; margin-top: 20px; flex-wrap: wrap;">
         <button type="button" class="btn-primary" id="generateBtn">Generate JSON</button>
         <button type="button" class="btn-secondary" id="copyBtn">Copy to Clipboard</button>
+        <button type="button" class="btn-secondary" id="clearBtn">Clear Form</button>
       </div>
     </form>
 
@@ -142,10 +336,18 @@ Each line becomes a paragraph.
         continue;
       }
 
-      // YouTube
+      // YouTube video
       const youtubeMatch = line.match(/\[youtube:([^\]]+)\]/);
       if (youtubeMatch) {
         content.push({ type: 'youtube', videoId: youtubeMatch[1].trim() });
+        i++;
+        continue;
+      }
+
+      // Local video file
+      const videoMatch = line.match(/\[video:([^\]]+)\]/);
+      if (videoMatch) {
+        content.push({ type: 'video', src: videoMatch[1].trim() });
         i++;
         continue;
       }
@@ -259,9 +461,26 @@ Each line becomes a paragraph.
     const text = document.getElementById('output').textContent;
     if (text && text !== 'Click "Generate JSON" to see your article here') {
       navigator.clipboard.writeText(text);
-      alert('JSON copied to clipboard!');
+      const originalText = document.getElementById('copyBtn').textContent;
+      document.getElementById('copyBtn').textContent = '✅ Copied!';
+      setTimeout(() => {
+        document.getElementById('copyBtn').textContent = originalText;
+      }, 2000);
     } else {
       alert('Generate JSON first');
+    }
+  });
+
+  document.getElementById('clearBtn').addEventListener('click', () => {
+    if (confirm('Clear all form fields?')) {
+      document.getElementById('title').value = '';
+      document.getElementById('slug').value = '';
+      document.getElementById('category').value = '';
+      document.getElementById('summary').value = '';
+      document.getElementById('content').value = '';
+      document.getElementById('chartLabels').value = '';
+      document.getElementById('chartData').value = '';
+      document.getElementById('output').textContent = 'Click "Generate JSON" to see your article here';
     }
   });
 

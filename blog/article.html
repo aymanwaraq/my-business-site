@@ -16,6 +16,160 @@
   .share-btn { background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 8px 16px; border-radius: 30px; color: var(--text-gray); text-decoration: none; font-size: 13px; transition: 0.2s; }
   .share-btn:hover { background: var(--primary); color: white; }
   .table-wrapper { overflow-x: auto; }
+  
+  /* Image Modal */
+  .image-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.92);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .image-modal img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    cursor: default;
+  }
+  
+  .image-modal .close-modal {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: none;
+    border: none;
+    font-family: 'Inter', sans-serif;
+    line-height: 1;
+    z-index: 10000;
+  }
+  
+  .image-modal .close-modal:hover {
+    transform: rotate(90deg);
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Make article images clickable */
+  .article-body img {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 20px 0;
+  }
+  
+  .article-body img:hover {
+    transform: scale(1.02);
+  }
+  
+  .article-cover {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    width: 100%;
+    border-radius: 12px;
+    margin: 20px 0;
+  }
+  
+  .article-cover:hover {
+    transform: scale(1.01);
+  }
+  
+  /* Video wrapper for responsive videos */
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    margin: 20px 0;
+    background: #000;
+  }
+  
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  /* Chart box */
+  .chart-box {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+  }
+  
+  .chart-box canvas {
+    max-height: 300px;
+  }
+  
+  .caption {
+    color: var(--text-gray);
+    font-size: 13px;
+    text-align: center;
+    margin-top: 8px;
+  }
+  
+  .faq-section {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+  }
+  
+  .faq-question {
+    font-weight: 700;
+    font-size: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--primary);
+  }
+  
+  .faq-answer {
+    padding: 10px 0 16px 0;
+    color: var(--text-gray);
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .faq-answer:last-child {
+    border-bottom: none;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .image-modal img {
+      max-width: 95%;
+      max-height: 80%;
+    }
+    .image-modal .close-modal {
+      top: 15px;
+      right: 20px;
+      font-size: 30px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -38,7 +192,7 @@
     }
     if (block.type === 'image') {
       return `
-        <img src="${block.src}" alt="${block.caption || ''}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'600\\' height=\\'300\\'%3E%3Crect width=\\'600\\' height=\\'300\\' fill=\\'%231a1a2a\\'/%3E%3Ctext x=\\'50%25\\' y=\\'50%25\\' text-anchor=\\'middle\\' fill=\\'%234a90e2\\' dy=\\'.3em\\'%3EBTS%3C/text%3E%3C/svg%3E'">
+        <img src="${block.src}" alt="${block.caption || ''}" class="clickable-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'600\\' height=\\'300\\'%3E%3Crect width=\\'600\\' height=\\'300\\' fill=\\'%231a1a2a\\'/%3E%3Ctext x=\\'50%25\\' y=\\'50%25\\' text-anchor=\\'middle\\' fill=\\'%234a90e2\\' dy=\\'.3em\\'%3EBTS%3C/text%3E%3C/svg%3E'">
         ${block.caption ? `<div class="caption">${block.caption}</div>` : ''}
       `;
     }
@@ -51,6 +205,10 @@
     }
     if (block.type === 'youtube') {
       return `<div class="video-wrapper"><iframe src="https://www.youtube.com/embed/${block.videoId}" frameborder="0" allowfullscreen></iframe></div>`;
+    }
+    if (block.type === 'video') {
+      // Handle direct video embedding
+      return `<div class="video-wrapper"><video controls style="width:100%;height:100%;"><source src="${block.src}" type="${block.type || 'video/mp4'}">Your browser does not support the video tag.</video></div>`;
     }
     if (block.type === 'table') {
       let tableHtml = '<div class="table-wrapper"><table>';
@@ -77,6 +235,57 @@
       return faqHtml;
     }
     return '';
+  }
+
+  // Function to make all images clickable with lightbox
+  function makeImagesClickable() {
+    // Target all images in the article
+    const images = document.querySelectorAll('.article-body img, .article-cover, .clickable-image');
+    
+    images.forEach(img => {
+      // Remove existing listeners to avoid duplicates
+      img.removeEventListener('click', img._clickHandler);
+      
+      img._clickHandler = function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        
+        // Create modal
+        const modal = document.createElement('div');
+        modal.className = 'image-modal';
+        modal.innerHTML = `
+          <button class="close-modal">&times;</button>
+          <img src="${this.src}" alt="${this.alt || 'Article Image'}">
+        `;
+        document.body.appendChild(modal);
+        
+        // Close modal
+        const closeModal = () => {
+          modal.remove();
+        };
+        
+        modal.querySelector('.close-modal').addEventListener('click', function(e) {
+          e.stopPropagation();
+          closeModal();
+        });
+        
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeModal();
+        });
+        
+        // Close with Escape key
+        const escHandler = (e) => {
+          if (e.key === 'Escape') {
+            closeModal();
+            document.removeEventListener('keydown', escHandler);
+          }
+        };
+        document.addEventListener('keydown', escHandler);
+      };
+      
+      img.addEventListener('click', img._clickHandler);
+      img.style.cursor = 'pointer';
+    });
   }
 
   async function loadArticle() {
@@ -142,6 +351,9 @@
       `;
 
       document.getElementById('articleContainer').innerHTML = articleHtml;
+
+      // Make images clickable after rendering
+      setTimeout(makeImagesClickable, 100);
 
       // Render charts after DOM is ready
       if (post.content && post.content.length) {
