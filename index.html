@@ -1283,9 +1283,9 @@ body.rtl .scroll-top {
           <h2 class="section-title" id="contactTitle" style="font-size: 30px;">Let's Talk</h2>
           <p class="section-subtitle" id="contactSubtitle" style="margin: 0;">Have a project in mind? We'd love to hear from you.</p>
         </div>
-        <div class="contact-item" onclick="window.location.href='mailto:hello@btsapp.net'">
+        <div class="contact-item" onclick="window.location.href='mailto:info@btsapp.net'">
           <div class="contact-icon">📧</div>
-          <div><div style="font-size: 11px; color: var(--text-gray);">Email us</div><div style="font-weight: 600;">hello@btsapp.net</div></div>
+          <div><div style="font-size: 11px; color: var(--text-gray);">Email us</div><div style="font-weight: 600;">info@btsapp.net</div></div>
         </div>
         <div class="contact-item" onclick="window.location.href='tel:+447425252625'">
           <div class="contact-icon">📞</div>
@@ -1343,7 +1343,7 @@ body.rtl .scroll-top {
       <div class="footer-col"><h4 id="footerSolutions">Solutions</h4><ul><li><a onclick="scrollToSection('solutions')" id="footerSolutionsAI">AI Solutions</a></li><li><a onclick="scrollToSection('all-services')" id="footerSolutionsTech">Technology Solutions</a></li><li><a onclick="scrollToSection('digital-services')" id="footerSolutionsDigital">Digital Marketing</a></li></ul></div>
       <div class="footer-col"><h4 id="footerCompany">Company</h4><ul><li><a onclick="scrollToSection('hero')" id="footerCompanyAbout">About Us</a></li><li><a onclick="scrollToSection('contact')" id="footerCompanyContact">Contact</a></li><li><a onclick="openConsultation()" id="footerCompanyStart">Start a Project</a></li></ul></div>
       <div class="footer-col"><h4 id="footerResources">Resources</h4><ul><li><a href="/blog/" id="footerBlogLink">Blog</a></li></ul></div>
-      <div class="footer-col"><h4 id="footerContactTitle">Contact</h4><ul><li><a href="mailto:hello@btsapp.net">hello@btsapp.net</a></li><li><a href="tel:+447425252625">+44 7425 252625</a></li><li><a onclick="openWhatsApp()" id="footerWhatsApp">WhatsApp</a></li></ul></div>
+      <div class="footer-col"><h4 id="footerContactTitle">Contact</h4><ul><li><a href="mailto:info@btsapp.net">info@btsapp.net</a></li><li><a href="tel:+447425252625">+44 7425 252625</a></li><li><a onclick="openWhatsApp()" id="footerWhatsApp">WhatsApp</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <span id="footerText">
@@ -1406,7 +1406,7 @@ const content = {
       more1: 'Read Article →',
       more2: 'Read Article →'
     },
-    modal: { consultTitle: 'Start Your Project', nameLabel: 'Full Name', emailLabel: 'Email Address', phoneLabel: 'Phone Number', serviceLabel: 'Service Interested In', messageLabel: 'Project Description', submitBtn: 'Submit Request', sending: 'Sending...', successTitle: 'Message Sent! ✅', successMessage: 'Thank you for reaching out. Our team will get back to you within 24 hours.', errorTitle: 'Something went wrong ❌', errorMessage: 'Please try again or email us directly at hello@btsapp.net', closeBtn: 'Close' }
+    modal: { consultTitle: 'Start Your Project', nameLabel: 'Full Name', emailLabel: 'Email Address', phoneLabel: 'Phone Number', serviceLabel: 'Service Interested In', messageLabel: 'Project Description', submitBtn: 'Submit Request', sending: 'Sending...', successTitle: 'Message Sent! ✅', successMessage: 'Thank you for reaching out. Our team will get back to you within 24 hours.', errorTitle: 'Something went wrong ❌', errorMessage: 'Please try again or email us directly at info@btsapp.net', closeBtn: 'Close' }
   },
   ar: {
     logo: 'حلول تكنولوجيا الأعمال',
@@ -1451,7 +1451,7 @@ const content = {
       more1: 'اقرأ المقال ←',
       more2: 'اقرأ المقال ←'
     },
-    modal: { consultTitle: 'ابدأ مشروعك', nameLabel: 'الاسم الكامل', emailLabel: 'البريد الإلكتروني', phoneLabel: 'رقم الجوال', serviceLabel: 'الخدمة المطلوبة', messageLabel: 'وصف المشروع', submitBtn: 'إرسال الطلب', sending: 'جاري الإرسال...', successTitle: 'تم إرسال الرسالة! ✅', successMessage: 'شكراً لتواصلك. سيتواصل معك فريقنا خلال ٢٤ ساعة.', errorTitle: 'حدث خطأ ❌', errorMessage: 'الرجاء المحاولة مرة أخرى أو مراسلتنا على hello@btsapp.net', closeBtn: 'إغلاق' }
+    modal: { consultTitle: 'ابدأ مشروعك', nameLabel: 'الاسم الكامل', emailLabel: 'البريد الإلكتروني', phoneLabel: 'رقم الجوال', serviceLabel: 'الخدمة المطلوبة', messageLabel: 'وصف المشروع', submitBtn: 'إرسال الطلب', sending: 'جاري الإرسال...', successTitle: 'تم إرسال الرسالة! ✅', successMessage: 'شكراً لتواصلك. سيتواصل معك فريقنا خلال ٢٤ ساعة.', errorTitle: 'حدث خطأ ❌', errorMessage: 'الرجاء المحاولة مرة أخرى أو مراسلتنا على info@btsapp.net', closeBtn: 'إغلاق' }
   }
 };
 
@@ -2091,7 +2091,7 @@ function openConsultation() {
 function openContact() {
   const modal = document.createElement('div');
   modal.className = 'modal';
-  modal.innerHTML = `<div class="modal-content" style="text-align: center;"><span class="modal-close" onclick="this.parentElement.parentElement.remove()">×</span><h2>Contact BTS</h2><a href="mailto:hello@btsapp.net" class="contact-item" style="margin: 10px 0;">📧 hello@btsapp.net</a><a href="tel:+447425252625" class="contact-item" style="margin: 10px 0;">📞 +44 7425 252625</a><button class="btn-primary" onclick="openWhatsApp(); this.closest('.modal').remove()" style="margin-top: 10px;">💬 Chat on WhatsApp</button></div>`;
+  modal.innerHTML = `<div class="modal-content" style="text-align: center;"><span class="modal-close" onclick="this.parentElement.parentElement.remove()">×</span><h2>Contact BTS</h2><a href="mailto:info@btsapp.net" class="contact-item" style="margin: 10px 0;">📧 info@btsapp.net</a><a href="tel:+447425252625" class="contact-item" style="margin: 10px 0;">📞 +44 7425 252625</a><button class="btn-primary" onclick="openWhatsApp(); this.closest('.modal').remove()" style="margin-top: 10px;">💬 Chat on WhatsApp</button></div>`;
   document.body.appendChild(modal);
 }
 
@@ -2114,7 +2114,7 @@ document.getElementById('contactForm')?.addEventListener('submit', async (e) => 
       showResultModal(true, currentLang === 'en' ? 'Message Sent! ✅' : 'تم إرسال الرسالة! ✅', currentLang === 'en' ? 'Thank you. Our team will respond within 24 hours.' : 'شكراً. سيرد فريقنا خلال ٢٤ ساعة.');
     } else throw new Error();
   } catch (error) {
-    showResultModal(false, currentLang === 'en' ? 'Error ❌' : 'خطأ ❌', currentLang === 'en' ? 'Please try again or email hello@btsapp.net' : 'الرجاء المحاولة مرة أخرى');
+    showResultModal(false, currentLang === 'en' ? 'Error ❌' : 'خطأ ❌', currentLang === 'en' ? 'Please try again or email info@btsapp.net' : 'الرجاء المحاولة مرة أخرى');
   } finally {
     submitBtn.innerHTML = originalText;
     submitBtn.disabled = false;
