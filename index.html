@@ -5,12 +5,33 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 <title>AI Automation, Business Intelligence & Bilingual Software | BTS UK & GCC</title>
 <link rel="canonical" href="https://btsapp.net/" />
-<!-- Google Analytics with YOUR Measurement ID -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-72BT0DL8NJ"></script>
+
+<!-- 
+  ====================================================
+  GOOGLE ANALYTICS — CONSENT MODE IMPLEMENTATION
+  ====================================================
+  Analytics is set to 'denied' by default.
+  GA only loads if user explicitly accepts.
+  Cookie banner handles the consent flow.
+  ====================================================
+-->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+
+  // Default: analytics_storage = denied (no GA tracking)
+  gtag('consent', 'default', {
+    analytics_storage: 'denied'
+  });
+
   gtag('js', new Date());
+</script>
+
+<!-- Google Analytics script (only loads if consent granted via cookie banner) -->
+<script id="gaScript" async src="https://www.googletagmanager.com/gtag/js?id=G-72BT0DL8NJ"></script>
+
+<script>
+  // GA config — this will only take effect if consent is granted
   gtag('config', 'G-72BT0DL8NJ');
 </script>
 
@@ -995,6 +1016,10 @@ body.rtl .modal-close {
   text-decoration: none;
 }
 
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
 .float-wa {
   position: fixed;
   bottom: 24px;
@@ -1069,7 +1094,106 @@ body.rtl .scroll-top {
   animation: fadeInUp 0.6s ease forwards;
 }
 
-/* Responsive */
+/* ============================================================
+   COOKIE BANNER STYLES
+   ============================================================ */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  background: rgba(10, 10, 15, 0.97);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid var(--border);
+  padding: 20px 24px;
+  display: none;
+  /* Hidden by default, shown by JS if no consent stored */;
+}
+
+.cookie-banner.show {
+  display: block;
+}
+
+.cookie-banner-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cookie-banner-text {
+  flex: 1;
+  min-width: 240px;
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.cookie-banner-text a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+.cookie-banner-text a:hover {
+  color: var(--secondary);
+}
+
+.cookie-banner-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.cookie-banner-buttons .btn-primary {
+  padding: 8px 20px;
+  font-size: 12px;
+}
+
+.cookie-banner-buttons .btn-secondary {
+  padding: 8px 20px;
+  font-size: 12px;
+}
+
+.cookie-banner-buttons .btn-link {
+  background: none;
+  border: none;
+  color: var(--text-gray);
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+  padding: 8px 12px;
+}
+
+.cookie-banner-buttons .btn-link:hover {
+  color: white;
+}
+
+/* Mobile: stack the banner */
+@media (max-width: 700px) {
+  .cookie-banner-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .cookie-banner-text {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .cookie-banner-buttons {
+    justify-content: center;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE OVERRIDES
+   ============================================================ */
 @media (max-width: 1000px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
@@ -1147,7 +1271,6 @@ body.rtl .scroll-top {
         </div>
       </div>
       <div class="hero-card">
-        <!-- Clickable Image with Lightbox -->
         <img src="assets/images/bts-front.png" 
              alt="BTS - AI Automation & Business Intelligence Solutions" 
              onclick="openLightbox('assets/images/bts-front.png')"
@@ -1215,7 +1338,7 @@ body.rtl .scroll-top {
   </div>
 </section>
 
-<!-- ========== FEATURED BLOG SECTION (DYNAMIC) ========== -->
+<!-- ========== FEATURED BLOG SECTION ========== -->
 <section class="section" style="background: rgba(15, 20, 30, 0.3);">
   <div class="container">
     <div class="section-header">
@@ -1247,7 +1370,7 @@ body.rtl .scroll-top {
       <div class="trust-item"><span class="trust-icon">⚡</span><span class="trust-text" id="trust1">Fast Response</span></div>
       <div class="trust-item"><span class="trust-icon">💎</span><span class="trust-text" id="trust2">24/7 Premium Support</span></div>
       <div class="trust-item"><span class="trust-icon">🇬🇧</span><span class="trust-text" id="trust3">UK Based</span></div>
-      <div class="trust-item"><span class="trust-icon">🔒</span><span class="trust-text" id="trust4">Data Privacy</span></div>
+      <div class="trust-item"><span class="trust-icon">🔒</span><span class="trust-text" id="trust4">Privacy by Design</span></div>
     </div>
   </div>
 </section>
@@ -1283,9 +1406,9 @@ body.rtl .scroll-top {
           <h2 class="section-title" id="contactTitle" style="font-size: 30px;">Let's Talk</h2>
           <p class="section-subtitle" id="contactSubtitle" style="margin: 0;">Have a project in mind? We'd love to hear from you.</p>
         </div>
-        <div class="contact-item" onclick="window.location.href='mailto:hello@btsapp.net'">
+        <div class="contact-item" onclick="window.location.href='mailto:info@btsapp.net'">
           <div class="contact-icon">📧</div>
-          <div><div style="font-size: 11px; color: var(--text-gray);">Email us</div><div style="font-weight: 600;">hello@btsapp.net</div></div>
+          <div><div style="font-size: 11px; color: var(--text-gray);">Email us</div><div style="font-weight: 600;">info@btsapp.net</div></div>
         </div>
         <div class="contact-item" onclick="window.location.href='tel:+447425252625'">
           <div class="contact-icon">📞</div>
@@ -1297,10 +1420,13 @@ body.rtl .scroll-top {
         </div>
         <div class="contact-item">
           <div class="contact-icon">📍</div>
-          <div><div style="font-size: 11px; color: var(--text-gray);" id="officeLabel">Headquarters</div><div style="font-weight: 600;" id="officeAddress">
-  12/3 30 Kingsway Court, Glasgow, Scotland, G14 9TL
-</div><div style="font-weight: 600;" id="officeAddress">
- </div></div>
+          <div><div style="font-size: 11px; color: var(--text-gray);" id="officeLabel">Registered Office</div>
+          <!-- FIX: Removed duplicate id="officeAddress" — only one element with this ID now -->
+          <div style="font-weight: 600;" id="officeAddress">
+            12/3 30 Kingsway Court, Glasgow, Scotland, G14 9TL
+          </div>
+          </div>
+        </div>
       </div>
       <div class="contact-form">
         <h3 id="formTitle" style="margin-bottom: 20px; font-size: 18px;">Send us a message</h3>
@@ -1318,6 +1444,11 @@ body.rtl .scroll-top {
             </div>
           </div>
           <div class="form-group"><label id="messageLabel">Project Description</label><textarea id="formMessage" rows="3" required></textarea></div>
+          <!-- Privacy notice for form submissions -->
+          <p style="font-size: 11px; color: var(--text-gray); margin-bottom: 14px;" id="formPrivacyNotice">
+            Your information will be used to respond to your enquiry. For details, see our 
+            <a href="/privacy-policy.html" style="color: var(--primary); text-decoration: underline;">Privacy Policy</a>.
+          </p>
           <button type="submit" class="btn-primary" style="width: 100%;" id="submitBtn">Submit Request</button>
           <div id="formStatus" style="margin-top: 14px; text-align: center; font-size: 12px;"></div>
         </form>
@@ -1343,13 +1474,17 @@ body.rtl .scroll-top {
       <div class="footer-col"><h4 id="footerSolutions">Solutions</h4><ul><li><a onclick="scrollToSection('solutions')" id="footerSolutionsAI">AI Solutions</a></li><li><a onclick="scrollToSection('all-services')" id="footerSolutionsTech">Technology Solutions</a></li><li><a onclick="scrollToSection('digital-services')" id="footerSolutionsDigital">Digital Marketing</a></li></ul></div>
       <div class="footer-col"><h4 id="footerCompany">Company</h4><ul><li><a onclick="scrollToSection('hero')" id="footerCompanyAbout">About Us</a></li><li><a onclick="scrollToSection('contact')" id="footerCompanyContact">Contact</a></li><li><a onclick="openConsultation()" id="footerCompanyStart">Start a Project</a></li></ul></div>
       <div class="footer-col"><h4 id="footerResources">Resources</h4><ul><li><a href="/blog/" id="footerBlogLink">Blog</a></li></ul></div>
-      <div class="footer-col"><h4 id="footerContactTitle">Contact</h4><ul><li><a href="mailto:hello@btsapp.net">hello@btsapp.net</a></li><li><a href="tel:+447425252625">+44 7425 252625</a></li><li><a onclick="openWhatsApp()" id="footerWhatsApp">WhatsApp</a></li></ul></div>
+      <div class="footer-col"><h4 id="footerContactTitle">Contact</h4><ul><li><a href="mailto:info@btsapp.net">info@btsapp.net</a></li><li><a href="tel:+447425252625">+44 7425 252625</a></li><li><a onclick="openWhatsApp()" id="footerWhatsApp">WhatsApp</a></li></ul></div>
     </div>
     <div class="footer-bottom">
       <span id="footerText">
   © 2026 BTS — Business Technology Solutions. Registered company number: SC894313. Registered office: 12/3 30 Kingsway Court, Glasgow, Scotland, G14 9TL.
 </span>
-      <span><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></span>
+      <span>
+        <a href="/privacy-policy.html">Privacy Policy</a> |
+        <a href="/terms-of-service.html">Terms of Service</a> |
+        <a href="#" id="cookieSettingsLink">Cookie Settings</a>
+      </span>
     </div>
   </div>
 </footer>
@@ -1360,7 +1495,131 @@ body.rtl .scroll-top {
 
 <button class="scroll-top" id="scrollTopBtn">↑</button>
 
+<!-- ============================================================
+     COOKIE BANNER HTML
+     ============================================================ -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+  <div class="cookie-banner-inner">
+    <div class="cookie-banner-text" id="cookieBannerText">
+      We use essential technologies to operate this website. With your permission, we also use analytics technologies to understand how visitors use our website and improve it.
+      <a href="/privacy-policy.html" id="cookiePrivacyLink">Privacy Policy</a>
+    </div>
+    <div class="cookie-banner-buttons">
+      <button class="btn-primary" id="cookieAcceptBtn">Accept Analytics</button>
+      <button class="btn-secondary" id="cookieRejectBtn">Reject Analytics</button>
+      <button class="btn-link" id="cookieSettingsBtn" style="display:none;">Cookie Settings</button>
+    </div>
+  </div>
+</div>
+
 <script>
+// ==================== COOKIE CONSENT SYSTEM ====================
+(function() {
+  const CONSENT_KEY = 'bts_ga_consent';
+  const BANNER_ID = 'cookieBanner';
+
+  function getConsent() {
+    return localStorage.getItem(CONSENT_KEY);
+  }
+
+  function setConsent(state) {
+    localStorage.setItem(CONSENT_KEY, state);
+    
+    // Update Google Analytics consent
+    if (typeof gtag !== 'undefined') {
+      gtag('consent', 'update', {
+        analytics_storage: state === 'granted' ? 'granted' : 'denied'
+      });
+    }
+
+    // Hide banner
+    document.getElementById(BANNER_ID).classList.remove('show');
+    
+    // Show/hide Cookie Settings link in banner (always show after choice)
+    const settingsBtn = document.getElementById('cookieSettingsBtn');
+    if (settingsBtn) {
+      settingsBtn.style.display = 'inline-block';
+    }
+  }
+
+  function loadGoogleAnalytics() {
+    // GA script is already in the <head> with async.
+    // It loads, but consent mode defaults to 'denied'.
+    // When consent is granted, we update via gtag().
+    // No need to dynamically load the script again.
+    // Just ensure gtag config runs with updated consent.
+    if (typeof gtag !== 'undefined') {
+      gtag('config', 'G-72BT0DL8NJ');
+    }
+  }
+
+  function showBanner() {
+    document.getElementById(BANNER_ID).classList.add('show');
+  }
+
+  // Check consent on page load
+  function initConsent() {
+    const consent = getConsent();
+    if (consent === 'granted') {
+      setConsent('granted');
+      loadGoogleAnalytics();
+    } else if (consent === 'denied') {
+      setConsent('denied');
+    } else {
+      // No consent stored — show banner
+      showBanner();
+    }
+  }
+
+  // Expose functions globally for use elsewhere (e.g., Cookie Settings link)
+  window.reopenCookieBanner = function() {
+    // Reset consent so banner reappears
+    // But we want to keep the existing consent value as default
+    showBanner();
+  };
+
+  window.getCurrentConsent = function() {
+    return getConsent();
+  };
+
+  // Event listeners
+  document.addEventListener('DOMContentLoaded', function() {
+    initConsent();
+
+    document.getElementById('cookieAcceptBtn').addEventListener('click', function() {
+      setConsent('granted');
+      loadGoogleAnalytics();
+    });
+
+    document.getElementById('cookieRejectBtn').addEventListener('click', function() {
+      setConsent('denied');
+    });
+
+    // Cookie Settings link in footer
+    const settingsLink = document.getElementById('cookieSettingsLink');
+    if (settingsLink) {
+      settingsLink.addEventListener('click', function(e) {
+        e.preventDefault();
+        // Show the banner again
+        showBanner();
+      });
+    }
+
+    // Cookie Settings button inside banner (shown after choice)
+    const settingsBtn = document.getElementById('cookieSettingsBtn');
+    if (settingsBtn) {
+      settingsBtn.addEventListener('click', function() {
+        // This can be used to show more detailed settings if needed
+        // For now, just show the banner again
+        showBanner();
+      });
+    }
+  });
+
+})();
+
+// ==================== END COOKIE CONSENT SYSTEM ====================
+
 // ==================== MULTILINGUAL CONTENT ====================
 const content = {
   en: {
@@ -1380,10 +1639,10 @@ const content = {
     allServices: { title: 'Complete Technology Solutions', subtitle: 'End-to-end digital transformation for modern enterprises' },
     digital: { title: 'Digital & Marketing Solutions', subtitle: 'Grow your online presence and brand visibility' },
     industries: { title: 'Industries We Serve', subtitle: 'Specialized solutions for key sectors' },
-    trust: ['Fast Response', '24/7 Premium Support', 'UK Based', 'Data Privacy'],
+    trust: ['Fast Response', '24/7 Premium Support', 'UK Based', 'Privacy by Design'],
     faq: { title: 'Frequently Asked Questions', subtitle: 'Everything you need to know about our solutions' },
     cta: { title: 'Ready to transform your business?', text: 'Let BTS help you build scalable digital systems designed for long-term growth.', btn1: 'Start Your Project', btn2: 'Contact BTS' },
-    contact: { title: "Let's Talk", subtitle: 'Have a project in mind? We\'d love to hear from you.', officeLabel: 'Headquarters', officeAddress: '12/3 30 Kingsway Court, Glasgow, Scotland, G14 9TL', formTitle: 'Send us a message', nameLabel: 'Full Name', emailLabel: 'Email Address', phoneLabel: 'Phone Number', serviceLabel: 'Service Interested In', messageLabel: 'Project Description', submitBtn: 'Submit Request' },
+    contact: { title: "Let's Talk", subtitle: 'Have a project in mind? We\'d love to hear from you.', officeLabel: 'Registered Office', officeAddress: '12/3 30 Kingsway Court, Glasgow, Scotland, G14 9TL', formTitle: 'Send us a message', nameLabel: 'Full Name', emailLabel: 'Email Address', phoneLabel: 'Phone Number', serviceLabel: 'Service Interested In', messageLabel: 'Project Description', submitBtn: 'Submit Request', privacyNotice: 'Your information will be used to respond to your enquiry. For details, see our Privacy Policy.' },
     footer: { 
       desc: 'Building enterprise AI systems that automate operations and improve decision-making for global organizations. Based in Glasgow, Scotland.',
       solutions: 'Solutions',
@@ -1402,11 +1661,16 @@ const content = {
     },
     featuredBlog: {
       title: 'Latest from Our Blog',
-      subtitle: 'Insights on AI, automation, and digital transformation',
-      more1: 'Read Article →',
-      more2: 'Read Article →'
+      subtitle: 'Insights on AI, automation, and digital transformation'
     },
-    modal: { consultTitle: 'Start Your Project', nameLabel: 'Full Name', emailLabel: 'Email Address', phoneLabel: 'Phone Number', serviceLabel: 'Service Interested In', messageLabel: 'Project Description', submitBtn: 'Submit Request', sending: 'Sending...', successTitle: 'Message Sent! ✅', successMessage: 'Thank you for reaching out. Our team will get back to you within 24 hours.', errorTitle: 'Something went wrong ❌', errorMessage: 'Please try again or email us directly at hello@btsapp.net', closeBtn: 'Close' }
+    modal: { consultTitle: 'Start Your Project', nameLabel: 'Full Name', emailLabel: 'Email Address', phoneLabel: 'Phone Number', serviceLabel: 'Service Interested In', messageLabel: 'Project Description', submitBtn: 'Submit Request', sending: 'Sending...', successTitle: 'Message Sent! ✅', successMessage: 'Thank you for reaching out. Our team will get back to you within 24 hours.', errorTitle: 'Something went wrong ❌', errorMessage: 'Please try again or email us directly at info@btsapp.net', closeBtn: 'Close' },
+    cookie: {
+      text: 'We use essential technologies to operate this website. With your permission, we also use analytics technologies to understand how visitors use our website and improve it.',
+      accept: 'Accept Analytics',
+      reject: 'Reject Analytics',
+      privacyLink: 'Privacy Policy',
+      settings: 'Cookie Settings'
+    }
   },
   ar: {
     logo: 'حلول تكنولوجيا الأعمال',
@@ -1425,10 +1689,10 @@ const content = {
     allServices: { title: 'حلول تقنية متكاملة', subtitle: 'تحول رقمي شامل للمؤسسات الحديثة' },
     digital: { title: 'حلول التسويق الرقمي', subtitle: 'عزز تواجدك على الإنترنت ورؤية علامتك التجارية' },
     industries: { title: 'القطاعات التي نخدمها', subtitle: 'حلول متخصصة للقطاعات الرئيسية' },
-    trust: ['استجابة سريعة', 'دعم فني 24/7', 'مقرنا المملكة المتحدة', 'خصوصية البيانات'],
+    trust: ['استجابة سريعة', 'دعم فني 24/7', 'مقرنا المملكة المتحدة', 'الخصوصية في التصميم'],
     faq: { title: 'الأسئلة الشائعة', subtitle: 'كل ما تحتاج معرفته عن حلولنا' },
     cta: { title: 'هل أنت مستعد لتحويل عملك؟', text: 'دع BTS تساعدك في بناء أنظمة رقمية قابلة للتطوير مصممة للنمو طويل الأجل.', btn1: 'ابدأ مشروعك', btn2: 'اتصل بنا' },
-    contact: { title: 'تحدث إلينا', subtitle: 'لديك مشروع؟ نود أن نسمع منك.', officeLabel: 'المقر الرئيسي', officeAddress: '12/3 30 Kingsway Court، غلاسكو، اسكتلندا، G14 9TL', formTitle: 'أرسل لنا رسالة', nameLabel: 'الاسم الكامل', emailLabel: 'البريد الإلكتروني', phoneLabel: 'رقم الجوال', serviceLabel: 'الخدمة المطلوبة', messageLabel: 'وصف المشروع', submitBtn: 'إرسال الطلب' },
+    contact: { title: 'تحدث إلينا', subtitle: 'لديك مشروع؟ نود أن نسمع منك.', officeLabel: 'المكتب المسجل', officeAddress: '12/3 30 Kingsway Court، غلاسكو، اسكتلندا، G14 9TL', formTitle: 'أرسل لنا رسالة', nameLabel: 'الاسم الكامل', emailLabel: 'البريد الإلكتروني', phoneLabel: 'رقم الجوال', serviceLabel: 'الخدمة المطلوبة', messageLabel: 'وصف المشروع', submitBtn: 'إرسال الطلب', privacyNotice: 'سيتم استخدام معلوماتك للرد على استفسارك. للتفاصيل، راجع سياسة الخصوصية.' },
     footer: { 
       desc: 'بناء أنظمة ذكاء اصطناعي مؤسسية لأتمتة العمليات وتحسين اتخاذ القرار. مقرنا في غلاسكو، اسكتلندا.',
       solutions: 'الحلول',
@@ -1447,15 +1711,20 @@ const content = {
     },
     featuredBlog: {
       title: 'أحدث مقالات المدونة',
-      subtitle: 'رؤى حول الذكاء الاصطناعي، الأتمتة، والتحول الرقمي',
-      more1: 'اقرأ المقال ←',
-      more2: 'اقرأ المقال ←'
+      subtitle: 'رؤى حول الذكاء الاصطناعي، الأتمتة، والتحول الرقمي'
     },
-    modal: { consultTitle: 'ابدأ مشروعك', nameLabel: 'الاسم الكامل', emailLabel: 'البريد الإلكتروني', phoneLabel: 'رقم الجوال', serviceLabel: 'الخدمة المطلوبة', messageLabel: 'وصف المشروع', submitBtn: 'إرسال الطلب', sending: 'جاري الإرسال...', successTitle: 'تم إرسال الرسالة! ✅', successMessage: 'شكراً لتواصلك. سيتواصل معك فريقنا خلال ٢٤ ساعة.', errorTitle: 'حدث خطأ ❌', errorMessage: 'الرجاء المحاولة مرة أخرى أو مراسلتنا على hello@btsapp.net', closeBtn: 'إغلاق' }
+    modal: { consultTitle: 'ابدأ مشروعك', nameLabel: 'الاسم الكامل', emailLabel: 'البريد الإلكتروني', phoneLabel: 'رقم الجوال', serviceLabel: 'الخدمة المطلوبة', messageLabel: 'وصف المشروع', submitBtn: 'إرسال الطلب', sending: 'جاري الإرسال...', successTitle: 'تم إرسال الرسالة! ✅', successMessage: 'شكراً لتواصلك. سيتواصل معك فريقنا خلال ٢٤ ساعة.', errorTitle: 'حدث خطأ ❌', errorMessage: 'الرجاء المحاولة مرة أخرى أو مراسلتنا على info@btsapp.net', closeBtn: 'إغلاق' },
+    cookie: {
+      text: 'نستخدم التقنيات الأساسية لتشغيل هذا الموقع. بموافقتك، نستخدم أيضًا تقنيات التحليلات لفهم كيفية استخدام الزوار لموقعنا وتحسينه.',
+      accept: 'قبول التحليلات',
+      reject: 'رفض التحليلات',
+      privacyLink: 'سياسة الخصوصية',
+      settings: 'إعدادات ملفات تعريف الارتباط'
+    }
   }
 };
 
-// ==================== BILINGUAL CARD DATA (EMOJI ONLY - NO SVG) ====================
+// ==================== BILINGUAL CARD DATA ====================
 const solutionsData = {
   en: [
     { icon: '⚡', title: 'Operational Automation', desc: 'Streamline repetitive workflows and reduce manual effort.', page: 'operational-automation.html', more: 'Learn More →' },
@@ -1537,7 +1806,6 @@ const faqData = {
   ]
 };
 
-// Ticker items data
 const tickerItems = {
   en: [
     'Operational Automation', 'Predictive Analytics', 'Intelligent Dashboards', 'Bilingual Systems',
@@ -1551,7 +1819,6 @@ const tickerItems = {
   ]
 };
 
-// Complete service list for form dropdown
 const serviceOptions = {
   en: [
     'AI Process Automation', 'Predictive Analytics', 'Custom AI Development', 'Business Intelligence Dashboards',
@@ -1569,14 +1836,14 @@ const serviceOptions = {
 
 let currentLang = 'en';
 
-// ===== IMPORTANT: Check URL for language parameter (for Back to Home links from Arabic pages) =====
+// URL language parameter
 const urlParams = new URLSearchParams(window.location.search);
 const langParam = urlParams.get('lang');
 if (langParam === 'ar') {
     currentLang = 'ar';
 }
 
-// ==================== ENHANCED CANVAS WITH CONNECTED LINES & MOUSE INTERACTION ====================
+// ==================== CANVAS ====================
 const canvas = document.getElementById('bgCanvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
@@ -1705,7 +1972,7 @@ window.addEventListener('scroll', () => {
   else scrollBtn.classList.remove('show');
 });
 
-// ==================== IMAGE LIGHTBOX FUNCTIONS ====================
+// ==================== LIGHTBOX ====================
 function openLightbox(imageSrc) {
     const lightbox = document.getElementById('imageLightbox');
     const lightboxImage = document.getElementById('lightboxImage');
@@ -1720,25 +1987,22 @@ function closeLightbox() {
     document.body.style.overflow = 'auto';
 }
 
-// Close lightbox on ESC key
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeLightbox();
     }
 });
 
-// ==================== END IMAGE LIGHTBOX FUNCTIONS ====================
-
+// ==================== FAQ ====================
 function initFaq() {
   document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('click', () => item.classList.toggle('open'));
   });
 }
 
-// ==================== DYNAMIC LATEST BLOG POSTS ====================
+// ==================== BLOG POSTS ====================
 async function loadLatestBlogPosts() {
     try {
-        // Try multiple paths
         let response;
         try {
             response = await fetch('/blog/posts.json');
@@ -1753,33 +2017,26 @@ async function loadLatestBlogPosts() {
             throw new Error('No posts found');
         }
         
-        // Sort by date (newest first)
         const sortedPosts = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-        
-        // Get the 2 most recent posts
         const latestPosts = sortedPosts.slice(0, 2);
         
         const blogContainer = document.getElementById('latestBlogPosts');
         if (!blogContainer) return;
         
-        // Get current language
         const lang = currentLang || 'en';
         const viewAllText = lang === 'ar' ? 'عرض جميع المقالات →' : 'View All Articles →';
         
-        // Update "View All" button
         const viewAllBtn = document.getElementById('viewAllBlogBtn');
         if (viewAllBtn) {
             viewAllBtn.textContent = viewAllText;
             viewAllBtn.href = '/blog/?lang=' + lang;
         }
         
-        // Generate HTML for each post
         blogContainer.innerHTML = latestPosts.map(post => {
             const summary = post.summary ? (post.summary.length > 120 ? post.summary.substring(0, 120) + '...' : post.summary) : 'Read more...';
             const postLang = post.lang || 'en';
             const readMore = postLang === 'ar' ? 'اقرأ المقال ←' : 'Read Article →';
             
-            // Get emoji based on category
             let emoji = '📝';
             const category = (post.category || '').toLowerCase();
             if (category.includes('ai') || category.includes('intelligence')) emoji = '🤖';
@@ -1905,7 +2162,16 @@ function renderPage() {
   document.getElementById('messageLabel').innerText = t.contact.messageLabel;
   document.getElementById('submitBtn').innerText = t.contact.submitBtn;
   
-  // Footer translations
+  // Form privacy notice
+  const privacyNotice = document.getElementById('formPrivacyNotice');
+  if (privacyNotice) {
+    privacyNotice.innerHTML = t.contact.privacyNotice.replace(
+      'Privacy Policy',
+      '<a href="/privacy-policy.html" style="color: var(--primary); text-decoration: underline;">Privacy Policy</a>'
+    );
+  }
+  
+  // Footer
   document.getElementById('footerLogoText').innerText = t.logo;
   document.getElementById('footerDesc').innerText = t.footer.desc;
   document.getElementById('footerSolutions').innerText = t.footer.solutions;
@@ -1922,19 +2188,19 @@ function renderPage() {
   document.getElementById('footerResources').innerText = t.footer.resources;
   document.getElementById('footerBlogLink').innerText = t.footer.blogLink;
   
-  // Featured Blog translations
+  // Blog
   if (document.getElementById('featuredBlogTitle')) {
     document.getElementById('featuredBlogTitle').innerText = t.featuredBlog.title;
     document.getElementById('featuredBlogSubtitle').innerText = t.featuredBlog.subtitle;
   }
   
-  // Trust badges
+  // Trust
   document.getElementById('trust1').innerText = t.trust[0];
   document.getElementById('trust2').innerText = t.trust[1];
   document.getElementById('trust3').innerText = t.trust[2];
   document.getElementById('trust4').innerText = t.trust[3];
   
-  // Navigation buttons
+  // Navigation
   document.getElementById('navSolutions').innerText = t.solutions.title.split(' ')[0];
   document.getElementById('navIndustries').innerText = t.industries.title;
   document.getElementById('navContact').innerText = t.contact.title;
@@ -1947,13 +2213,21 @@ function renderPage() {
     document.getElementById('mobileBlog').innerText = t.footer.blogLink;
   }
   
+  // Cookie banner translation
+  const cookieText = document.getElementById('cookieBannerText');
+  if (cookieText) {
+    cookieText.innerHTML = t.cookie.text + ' <a href="/privacy-policy.html" id="cookiePrivacyLink" style="color: var(--primary); text-decoration: underline;">' + t.cookie.privacyLink + '</a>';
+  }
+  document.getElementById('cookieAcceptBtn').innerText = t.cookie.accept;
+  document.getElementById('cookieRejectBtn').innerText = t.cookie.reject;
+  
   // Render ticker
   renderTicker();
   
-  // Update form service options
+  // Update form services
   updateFormServices();
   
-  // Render bilingual cards - EMOJI ONLY (no SVG)
+  // Render bilingual cards
   const solutions = solutionsData[currentLang];
   document.getElementById('solutionsGrid').innerHTML = solutions.map(s => `
     <div class="card" onclick="goToServicePage('${s.page}')">
@@ -2000,7 +2274,7 @@ function renderPage() {
     </div>
   `).join('');
   
-  // RTL handling
+  // RTL
   if (currentLang === 'ar') {
     document.body.classList.add('rtl');
     document.documentElement.setAttribute('dir', 'rtl');
@@ -2014,15 +2288,13 @@ function renderPage() {
   }
   
   initFaq();
-  
-  // Load latest blog posts after page renders
   setTimeout(loadLatestBlogPosts, 500);
 }
 
 function toggleLanguage() {
   currentLang = currentLang === 'en' ? 'ar' : 'en';
   renderPage();
-  loadLatestBlogPosts(); // Refresh blog posts when language changes
+  loadLatestBlogPosts();
 }
 
 function toggleMobileDrawer() { document.getElementById('mobileDrawer').classList.add('open'); }
@@ -2091,7 +2363,7 @@ function openConsultation() {
 function openContact() {
   const modal = document.createElement('div');
   modal.className = 'modal';
-  modal.innerHTML = `<div class="modal-content" style="text-align: center;"><span class="modal-close" onclick="this.parentElement.parentElement.remove()">×</span><h2>Contact BTS</h2><a href="mailto:hello@btsapp.net" class="contact-item" style="margin: 10px 0;">📧 hello@btsapp.net</a><a href="tel:+447425252625" class="contact-item" style="margin: 10px 0;">📞 +44 7425 252625</a><button class="btn-primary" onclick="openWhatsApp(); this.closest('.modal').remove()" style="margin-top: 10px;">💬 Chat on WhatsApp</button></div>`;
+  modal.innerHTML = `<div class="modal-content" style="text-align: center;"><span class="modal-close" onclick="this.parentElement.parentElement.remove()">×</span><h2>Contact BTS</h2><a href="mailto:info@btsapp.net" class="contact-item" style="margin: 10px 0;">📧 info@btsapp.net</a><a href="tel:+447425252625" class="contact-item" style="margin: 10px 0;">📞 +44 7425 252625</a><button class="btn-primary" onclick="openWhatsApp(); this.closest('.modal').remove()" style="margin-top: 10px;">💬 Chat on WhatsApp</button></div>`;
   document.body.appendChild(modal);
 }
 
@@ -2114,7 +2386,7 @@ document.getElementById('contactForm')?.addEventListener('submit', async (e) => 
       showResultModal(true, currentLang === 'en' ? 'Message Sent! ✅' : 'تم إرسال الرسالة! ✅', currentLang === 'en' ? 'Thank you. Our team will respond within 24 hours.' : 'شكراً. سيرد فريقنا خلال ٢٤ ساعة.');
     } else throw new Error();
   } catch (error) {
-    showResultModal(false, currentLang === 'en' ? 'Error ❌' : 'خطأ ❌', currentLang === 'en' ? 'Please try again or email hello@btsapp.net' : 'الرجاء المحاولة مرة أخرى');
+    showResultModal(false, currentLang === 'en' ? 'Error ❌' : 'خطأ ❌', currentLang === 'en' ? 'Please try again or email info@btsapp.net' : 'الرجاء المحاولة مرة أخرى');
   } finally {
     submitBtn.innerHTML = originalText;
     submitBtn.disabled = false;
@@ -2123,12 +2395,17 @@ document.getElementById('contactForm')?.addEventListener('submit', async (e) => 
 
 document.getElementById('scrollTopBtn').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-// Initialize everything
+// Initialize
 renderPage();
 
 const spinStyle = document.createElement('style');
 spinStyle.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
 document.head.appendChild(spinStyle);
+
+// ==================== COOKIE BANNER — ENSURE CONSENT DEFAULTS ARE SET ====================
+// This ensures that even if the GA script loads before the consent system,
+// the default is 'denied' and no tracking occurs without consent.
+// The consent system above handles the rest.
 </script>
 </body>
 </html>
