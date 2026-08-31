@@ -16,12 +16,12 @@
       },
       {
         "type": "paragraph",
-    "text": "The relationship between the United Kingdom and Gulf Cooperation Council (GCC) countries has been strengthening for decades. In May 2026, the UK and GCC signed a landmark trade agreement valued at $5 billion annually, with the UK government projecting a 20% increase in bilateral trade."
-  },
-  {
-    "type": "image",
-    "src": "/assets/images/blog/UK-GCC-Trade.png",
-    "caption": "UK-GCC trade agreement opens new opportunities for AI and automation companies"
+        "text": "The relationship between the United Kingdom and Gulf Cooperation Council (GCC) countries has been strengthening for decades. In May 2026, the UK and GCC signed a landmark trade agreement valued at $5 billion annually, with the UK government projecting a 20% increase in bilateral trade."
+      },
+      {
+        "type": "image",
+        "src": "/assets/images/blog/UK-GCC-Trade.png",
+        "caption": "UK-GCC trade agreement opens new opportunities for AI and automation companies"
       },
       {
         "type": "paragraph",
@@ -121,6 +121,11 @@
         "text": "تشهد شركات الخدمات اللوجستية في المملكة العربية السعودية تحولاً متسارعاً مع زيادة حجم التجارة الإلكترونية، وتوسع سلاسل الإمداد، وارتفاع توقعات العملاء فيما يتعلق بسرعة التسليم ودقة العمليات. ومع هذا النمو، أصبحت العمليات اليدوية التقليدية تمثل تحدياً كبيراً أمام الشركات التي تسعى للتوسع وتحقيق كفاءة تشغيلية أعلى."
       },
       {
+        "type": "image",
+        "caption": "الأتمتة التشغيلية في قطاع الخدمات اللوجستية السعودي",
+        "src": "/assets/images/blog/Saudi-logistics.jpg"
+      },
+      {
         "type": "paragraph",
         "text": "تأتي الأتمتة التشغيلية كحل عملي يمكّن شركات الخدمات اللوجستية من إزالة التعقيدات التشغيلية، وتقليل الأعمال المتكررة، وبناء عمليات أكثر ذكاءً وقابلية للتوسع."
       },
@@ -131,6 +136,11 @@
       {
         "type": "paragraph",
         "text": "تركز الأتمتة التشغيلية على تقليل أو إزالة العمليات اليدوية المتكررة التي تستهلك الوقت والموارد داخل المؤسسة. في قطاع الخدمات اللوجستية، تشمل هذه العمليات:"
+      },
+      {
+        "type": "image",
+        "caption": "مراكز عمليات ذكية لمراقبة الأداء وتحسين الكفاءة التشغيلية",
+        "src": "/assets/images/blog/control-room.png"
       },
       {
         "type": "paragraph",
@@ -165,6 +175,11 @@
         "text": "تقوم BTS ببناء أنظمة أتمتة ذكية تعمل بالذكاء الاصطناعي تساعد شركات الخدمات اللوجستية على تحسين العمليات اليومية وربط الأنظمة المختلفة ضمن تدفق عمل موحد."
       },
       {
+        "type": "image",
+        "caption": "شبكات نقل ذكية وسلاسل إمداد مترابطة لتسريع عمليات التوزيع",
+        "src": "/assets/images/blog/trucks-distribution.jpg"
+      },
+      {
         "type": "paragraph",
         "text": "بدلاً من إنشاء أدوات منفصلة، تقوم BTS بتصميم أنظمة أتمتة تتكامل مع الأنظمة الحالية داخل المؤسسة، مما يسمح بتقليل الاحتكاك التشغيلي وتحسين سرعة التنفيذ."
       },
@@ -175,6 +190,11 @@
       {
         "type": "paragraph",
         "text": "تطبيق الأتمتة التشغيلية داخل شركات الخدمات اللوجستية ينعكس مباشرة على الأداء:"
+      },
+      {
+        "type": "image",
+        "caption": "لوحات تحكم ذكية تساعد المؤسسات على اتخاذ قرارات أسرع وأكثر دقة",
+        "src": "/assets/images/blog/AI-logistics.jpg"
       },
       {
         "type": "paragraph",
@@ -263,6 +283,11 @@
         "text": "Across many cities, housing and homelessness services are experiencing increasing pressure."
       },
       {
+        "type": "image",
+        "caption": "AI support for housing teams without replacing human decisions",
+        "src": "/assets/images/blog/housing-ai-support.png"
+      },
+      {
         "type": "paragraph",
         "text": "Growing case volumes, rising housing demand, administrative burden, communication challenges, and limited resources are creating difficult environments for both frontline teams and the people they support."
       },
@@ -287,6 +312,11 @@
         "text": "The pressure is not theoretical. Scotland recorded 33,619 households assessed as homeless or threatened with homelessness during 2023/24, involving more than 53,000 people. More than 16,000 households were living in temporary accommodation, while over 10,000 children were living in temporary accommodation across Scotland."
       },
       {
+        "type": "image",
+        "caption": "Before and after: Manual versus AI-assisted operations",
+        "src": "/assets/images/blog/before-after.png"
+      },
+      {
         "type": "paragraph",
         "text": "These figures represent the highest levels seen for many years and illustrate why housing services are operating under increasing pressure."
       },
@@ -305,6 +335,21 @@
       {
         "type": "paragraph",
         "text": "When people discuss AI in public services, conversations often begin with automation. Can AI replace jobs? Can AI reduce staffing requirements? Can AI automate decision making?"
+      },
+      {
+        "type": "image",
+        "caption": "Estimated administrative effort reduction across key housing-support tasks",
+        "src": "/assets/images/blog/chart_1_admin_effort_reduction.png"
+      },
+      {
+        "type": "image",
+        "caption": "Total simulated administrative time before and after decision-support assistance",
+        "src": "/assets/images/blog/chart_2_total_time_saved.png"
+      },
+      {
+        "type": "image",
+        "caption": "Synthetic case mix used in the BTS workflow simulation",
+        "src": "/assets/images/blog/chart_3_case_mix.png"
       },
       {
         "type": "paragraph",
@@ -448,8 +493,18 @@
         "text": "Qatar's logistics sector is entering a new era of growth and transformation. Driven by Qatar National Vision 2030, continued investment in infrastructure, expanding e-commerce demand, and increasing international trade activity, logistics providers are under growing pressure to deliver faster, more efficient, and more scalable operations."
       },
       {
+        "type": "image",
+        "caption": "AI and automation transforming Qatar's logistics industry",
+        "src": "/assets/images/blog/icons-grid.png"
+      },
+      {
         "type": "paragraph",
         "text": "While investments in ports, warehouses, transportation fleets, and distribution networks continue to accelerate, many logistics organizations still face a common challenge: operational inefficiencies caused by manual processes, disconnected systems, and repetitive administrative work."
+      },
+      {
+        "type": "image",
+        "caption": "BTS intelligent automation solutions for the logistics sector",
+        "src": "/assets/images/blog/intelligent-automation.png"
       },
       {
         "type": "paragraph",
@@ -464,8 +519,18 @@
         "text": "Qatar's freight and logistics market is projected to grow significantly over the coming years, supported by expanding trade volumes, ongoing infrastructure development, and increasing demand for specialized logistics services."
       },
       {
+        "type": "image",
+        "caption": "Projected growth of Qatar's logistics market with AI adoption",
+        "src": "/assets/images/blog/growth-chart.png"
+      },
+      {
         "type": "heading",
         "text": "How BTS Supports Logistics Organizations"
+      },
+      {
+        "type": "image",
+        "caption": "Intelligent workflow automation for logistics operations",
+        "src": "/assets/images/blog/workflow-diagram.png"
       },
       {
         "type": "paragraph",
@@ -490,6 +555,11 @@
       {
         "type": "heading",
         "text": "System Integration"
+      },
+      {
+        "type": "image",
+        "caption": "Before and after: Manual versus AI-assisted logistics operations",
+        "src": "/assets/images/blog/before-after.png"
       },
       {
         "type": "paragraph",
@@ -565,6 +635,11 @@
         "text": "Every day, businesses across the Gulf Cooperation Council generate thousands of data points from sales transactions and customer enquiries to inventory updates, financial records, and operational workflows. Yet for many organisations, this information remains trapped in disconnected systems, making timely and informed decision-making increasingly difficult."
       },
       {
+        "type": "image",
+        "caption": "From Disconnected Systems to Intelligent Decisions",
+        "src": "/assets/images/blog/from-disconnected-systems.png"
+      },
+      {
         "type": "paragraph",
         "text": "As digital transformation accelerates across Saudi Arabia, the UAE, Qatar, and the wider GCC, executives need more than reports they need real-time business intelligence that enables faster, more confident decisions."
       },
@@ -597,6 +672,11 @@
         "text": "An Intelligent Dashboard is more than a collection of charts. It combines real-time business data from multiple sources, automated reporting that eliminates manual work, performance monitoring across departments and functions, predictive capabilities to forecast future trends, advanced analytics that highlight what matters, and automated alerts and recommendations for proactive action."
       },
       {
+        "type": "image",
+        "caption": "Traditional Dashboard vs. Intelligent Dashboard",
+        "src": "/assets/images/blog/traditional-vs-intelligent-dashboard.png"
+      },
+      {
         "type": "paragraph",
         "text": "Instead of waiting for monthly reports, managers can instantly see revenue performance and profitability, operational bottlenecks and inefficiencies, customer behaviour and satisfaction trends, shipment delays and logistics issues, employee productivity and resource utilisation, financial KPIs and budget variances, and risk indicators and compliance metrics."
       },
@@ -627,6 +707,11 @@
       {
         "type": "paragraph",
         "text": "The GCC is experiencing one of the fastest digital transformation movements in the world. Governments across Saudi Arabia, the UAE, and Qatar have launched ambitious national programs to build knowledge-based and digitally enabled economies."
+      },
+      {
+        "type": "image",
+        "caption": "How Intelligent Dashboards Work – Architecture Overview",
+        "src": "/assets/images/blog/intelligent-dashboards-architecture.png"
       },
       {
         "type": "heading",
@@ -898,6 +983,11 @@
         "text": "تتعزز العلاقة بين المملكة المتحدة ودول مجلس التعاون الخليجي منذ عقود. في مايو 2026، وقعت المملكة المتحدة ودول الخليج اتفاقية تجارية تاريخية قيمتها 5 مليارات دولار سنويًا، مع توقعات الحكومة البريطانية بزيادة التجارة الثنائية بنسبة 20%."
       },
       {
+        "type": "image",
+        "caption": "اتفاقية التجارة بين المملكة المتحدة ودول الخليج تخلق فرصًا جديدة",
+        "src": "/assets/images/blog/UK-GCC-Trade.png"
+      },
+      {
         "type": "paragraph",
         "text": "بالنسبة للشركات العاملة في مجالات الذكاء الاصطناعي والأتمتة وتطوير البرمجيات والتحول الرقمي وتكنولوجيا المؤسسات، يمكن للتقارب الاقتصادي بين المملكة المتحدة وأسواق الخليج أن يقلل الحواجز ويسرع فرص النمو."
       },
@@ -996,6 +1086,11 @@
         "text": "في العديد من المدن، تواجه خدمات الإسكان والمشردين ضغوطاً متزايدة."
       },
       {
+        "type": "image",
+        "caption": "دعم الذكاء الاصطناعي لفرق الإسكان دون استبدال القرارات البشرية",
+        "src": "/assets/images/blog/housing-ai-support.png"
+      },
+      {
         "type": "paragraph",
         "text": "أعداد الحالات المتزايدة، وارتفاع الطلب على الإسكان، والعبء الإداري، وتحديات التواصل، والموارد المحدودة تخلق بيئات صعبة لكل من الفرق الميدانية والأشخاص الذين تقدم لهم الدعم."
       },
@@ -1020,6 +1115,11 @@
         "text": "الضغط ليس نظرياً. سجلت اسكتلندا 33,619 أسرة تم تقييمها كمشردة أو مهددة بالتشرد خلال 2023/24، بما في ذلك أكثر من 53,000 شخص. كان أكثر من 16,000 أسرة تعيش في سكن مؤقت، بينما كان أكثر من 10,000 طفل يعيشون في سكن مؤقت في جميع أنحاء اسكتلندا."
       },
       {
+        "type": "image",
+        "caption": "قبل وبعد: العمليات اليدوية مقابل العمليات المدعومة بالذكاء الاصطناعي",
+        "src": "/assets/images/blog/before-after.png"
+      },
+      {
         "type": "paragraph",
         "text": "تمثل هذه الأرقام أعلى المستويات التي شوهدت منذ سنوات عديدة وتوضح سبب عمل خدمات الإسكان تحت ضغط متزايد."
       },
@@ -1038,6 +1138,21 @@
       {
         "type": "paragraph",
         "text": "عندما يناقش الناس الذكاء الاصطناعي في الخدمات العامة، غالباً ما تبدأ المحادثات بالأتمتة. هل يمكن للذكاء الاصطناعي استبدال الوظائف؟ هل يمكن للذكاء الاصطناعي تقليل متطلبات التوظيف؟ هل يمكن للذكاء الاصطناعي أتمتة اتخاذ القرار؟"
+      },
+      {
+        "type": "image",
+        "caption": "التخفيض المقدر للجهد الإداري عبر مهام دعم الإسكان الرئيسية",
+        "src": "/assets/images/blog/chart_1_admin_effort_reduction.png"
+      },
+      {
+        "type": "image",
+        "caption": "الوقت الإداري الإجمالي المحاكى قبل وبعد دعم القرار",
+        "src": "/assets/images/blog/chart_2_total_time_saved.png"
+      },
+      {
+        "type": "image",
+        "caption": "مزيج الحالات الاصطناعية المستخدم في محاكاة سير العمل من BTS",
+        "src": "/assets/images/blog/chart_3_case_mix.png"
       },
       {
         "type": "paragraph",
@@ -1182,8 +1297,18 @@
         "text": "يدخل قطاع الخدمات اللوجستية في قطر عصراً جديداً من النمو والتحول. بدافع من رؤية قطر الوطنية 2030، والاستثمار المستمر في البنية التحتية، وزيادة الطلب على التجارة الإلكترونية، وتزايد النشاط التجاري الدولي، يواجه مقدمو الخدمات اللوجستية ضغوطاً متزايدة لتقديم عمليات أسرع وأكثر كفاءة وقابلية للتوسع."
       },
       {
+        "type": "image",
+        "caption": "الذكاء الاصطناعي والأتمتة يحولان صناعة الخخدمات اللوجستية في قطر",
+        "src": "/assets/images/blog/icons-grid.png"
+      },
+      {
         "type": "paragraph",
         "text": "بينما تستمر الاستثمارات في الموانئ والمستودعات وأسطول النقل وشبكات التوزيع في التسارع، لا تزال العديد من مؤسسات الخدمات اللوجستية تواجه تحدياً شائعاً: أوجه القصور التشغيلية الناتجة عن العمليات اليدوية والأنظمة المنفصلة والأعمال الإدارية المتكررة."
+      },
+      {
+        "type": "image",
+        "caption": "حلول الأتمتة الذكية من BTS لقطاع الخدمات اللوجستية",
+        "src": "/assets/images/blog/intelligent-automation.png"
       },
       {
         "type": "paragraph",
@@ -1198,8 +1323,18 @@
         "text": "من المتوقع أن ينمو سوق الشحن والخدمات اللوجستية في قطر بشكل كبير خلال السنوات القادمة، مدعوماً بتوسع أحجام التجارة، واستمرار تطوير البنية التحتية، وزيادة الطلب على خدمات الخدمات اللوجستية المتخصصة."
       },
       {
+        "type": "image",
+        "caption": "النمو المتوقع لسوق الخدمات اللوجستية مع تبني الذكاء الاصطناعي",
+        "src": "/assets/images/blog/growth-chart.png"
+      },
+      {
         "type": "heading",
         "text": "كيف تدعم BTS مؤسسات الخدمات اللوجستية"
+      },
+      {
+        "type": "image",
+        "caption": "أتمتة سير العمل الذكية لعمليات الخدمات اللوجستية",
+        "src": "/assets/images/blog/workflow-diagram.png"
       },
       {
         "type": "paragraph",
@@ -1224,6 +1359,11 @@
       {
         "type": "heading",
         "text": "تكامل الأنظمة"
+      },
+      {
+        "type": "image",
+        "caption": "قبل وبعد: العمليات اليدوية مقابل العمليات المدعومة بالذكاء الاصطناعي",
+        "src": "/assets/images/blog/before-after.png"
       },
       {
         "type": "paragraph",
@@ -1296,6 +1436,11 @@
         "text": "كل يوم، تولد الشركات في جميع أنحاء دول مجلس التعاون الخليجي آلاف نقاط البيانات — من المعاملات المالية واستفسارات العملاء إلى تحديثات المخزون والسجلات المالية وسير العمل التشغيلي. ومع ذلك، بالنسبة للعديد من المؤسسات، تظل هذه المعلومات محاصرة في أنظمة منفصلة، مما يجعل اتخاذ القرارات في الوقت المناسب وبشكل مستنير أكثر صعوبة."
       },
       {
+        "type": "image",
+        "caption": "من الأنظمة المنفصلة إلى القرارات الذكية",
+        "src": "/assets/images/blog/from-disconnected-systems.png"
+      },
+      {
         "type": "paragraph",
         "text": "مع تسارع التحول الرقمي في جميع أنحاء المملكة العربية السعودية والإمارات وقطر ودول الخليج الأوسع، يحتاج المديرون التنفيذيون إلى أكثر من مجرد تقارير — بل يحتاجون إلى ذكاء أعمال في الوقت الفعلي يمكنهم من اتخاذ قرارات أسرع وأكثر ثقة."
       },
@@ -1328,6 +1473,11 @@
         "text": "لوحة التحكم الذكية هي أكثر من مجرد مجموعة من الرسوم البيانية. إنها تجمع بيانات الأعمال في الوقت الفعلي من مصادر متعددة، والتقارير الآلية التي تلغي العمل اليدوي، ومراقبة الأداء عبر الأقسام والوظائف، والقدرات التنبؤية للتنبؤ بالاتجاهات المستقبلية، والتحليلات المتقدمة التي تسلط الضوء على ما يهم، والتنبيهات والتوصيات الآلية للعمل الاستباقي."
       },
       {
+        "type": "image",
+        "caption": "لوحة التحكم التقليدية مقابل لوحة التحكم الذكية",
+        "src": "/assets/images/blog/traditional-vs-intelligent-dashboard.png"
+      },
+      {
         "type": "paragraph",
         "text": "بدلاً من انتظار التقارير الشهرية، يمكن للمديرين رؤية أداء الإيرادات والربحية، والاختناقات التشغيلية وأوجه القصور، واتجاهات سلوك العملاء ورضاهم، وتأخيرات الشحن ومشاكل الخدمات اللوجستية، وإنتاجية الموظفين واستخدام الموارد، ومؤشرات الأداء المالية وانحرافات الميزانية، ومؤشرات المخاطر ومقاييس الامتثال."
       },
@@ -1358,6 +1508,11 @@
       {
         "type": "paragraph",
         "text": "تشهد دول الخليج واحدة من أسرع حركات التحول الرقمي في العالم. أطلقت الحكومات في جميع أنحاء المملكة العربية السعودية والإمارات وقطر برامج وطنية طموحة لبناء اقتصادات قائمة على المعرفة وممكّنة رقمياً."
+      },
+      {
+        "type": "image",
+        "caption": "كيف تعمل لوحات التحكم الذكية – نظرة عامة على البنية",
+        "src": "/assets/images/blog/intelligent-dashboards-architecture.png"
       },
       {
         "type": "heading",
@@ -1591,4 +1746,3 @@
     "direction": "rtl"
   }
 ]
-
