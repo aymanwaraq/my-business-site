@@ -314,6 +314,34 @@
             margin: 24px 0;
         }
 
+        /* Table styles for article content */
+        .article-content table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin: 20px 0;
+        }
+
+        .article-content th {
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            text-align: left;
+            background: rgba(74, 144, 226, 0.1);
+            color: white;
+            font-weight: 600;
+        }
+
+        .article-content td {
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            color: var(--text-light);
+        }
+
+        body.rtl .article-content th,
+        body.rtl .article-content td {
+            text-align: right;
+        }
+
         .article-divider {
             border: none;
             border-top: 1px solid var(--border);
@@ -556,6 +584,13 @@
             .article-author { flex-direction: column; text-align: center; }
             .footer-inner { grid-template-columns: 1fr; gap: 24px; }
             .article-container { padding: 100px 0 40px; }
+            .article-content table {
+                font-size: 12px;
+            }
+            .article-content th,
+            .article-content td {
+                padding: 6px 10px;
+            }
         }
     </style>
 </head>
@@ -712,6 +747,77 @@
         };
     }
 
+    // ==================== RENDER CONTENT HELPER ====================
+    function renderContent(contentBlocks) {
+        let html = '';
+
+        if (!contentBlocks) return '<p>No content available.</p>';
+
+        if (typeof contentBlocks === 'string') {
+            return contentBlocks;
+        }
+
+        if (!Array.isArray(contentBlocks)) {
+            return '<p>No content available.</p>';
+        }
+
+        contentBlocks.forEach(block => {
+            switch (block.type) {
+                case 'heading':
+                    html += `<h2>${block.text || ''}</h2>`;
+                    break;
+
+                case 'paragraph':
+                    html += `<p>${block.text || ''}</p>`;
+                    break;
+
+                case 'quote':
+                    html += `<blockquote>${block.text || ''}</blockquote>`;
+                    break;
+
+                case 'image':
+                    if (block.src) {
+                        html += `<img src="${block.src}" alt="${block.caption || ''}" style="max-width:100%;border-radius:12px;margin:20px 0;">`;
+                        if (block.caption) {
+                            html += `<p style="text-align:center;font-size:13px;color:var(--text-gray);">${block.caption}</p>`;
+                        }
+                    }
+                    break;
+
+                case 'table':
+                    if (block.headers && block.rows && block.rows.length > 0) {
+                        html += `<div style="overflow-x:auto;margin:20px 0;">`;
+                        html += `<table style="width:100%;border-collapse:collapse;font-size:14px;">`;
+                        
+                        // Headers
+                        html += `<thead><tr>`;
+                        block.headers.forEach(header => {
+                            html += `<th style="border:1px solid var(--border);padding:10px 14px;text-align:left;background:rgba(74,144,226,0.1);color:white;">${header}</th>`;
+                        });
+                        html += `</tr></thead>`;
+                        
+                        // Rows
+                        html += `<tbody>`;
+                        block.rows.forEach(row => {
+                            html += `<tr>`;
+                            row.forEach(cell => {
+                                html += `<td style="border:1px solid var(--border);padding:10px 14px;color:var(--text-light);">${cell}</td>`;
+                            });
+                            html += `</tr>`;
+                        });
+                        html += `</tbody></table></div>`;
+                    }
+                    break;
+
+                default:
+                    html += `<p>${block.text || ''}</p>`;
+                    break;
+            }
+        });
+
+        return html || '<p>No content available.</p>';
+    }
+
     async function loadArticle() {
         const container = document.getElementById('articleContent');
         const params = getUrlParams();
@@ -751,14 +857,15 @@
                         <p style="font-size:48px;margin-bottom:16px;">📄</p>
                         <h3 style="color:white;margin-bottom:8px;">Article not found</h3>
                         <p>The article you're looking for doesn't exist or has been moved.</p>
+                        <p style="font-size:13px;margin-top:8px;color:var(--text-gray);">Try switching languages or <a href="/blog/" style="color:var(--primary);text-decoration:underline;">return to the blog</a>.</p>
                         <a href="/blog/" style="color:var(--primary);text-decoration:underline;margin-top:16px;display:inline-block;">Back to Blog</a>
                     </div>
                 `;
                 return;
             }
 
-            // Render the article
-            const contentHtml = article.content || article.body || '<p>No content available.</p>';
+            // Render the article content using the helper function
+            const contentHtml = renderContent(article.content);
 
             container.innerHTML = `
                 <article>
