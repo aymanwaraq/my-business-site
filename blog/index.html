@@ -1,572 +1,791 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BTS Blog | AI & Technology Insights</title>
-<meta name="description" content="Insights on AI, automation, digital transformation, and business technology from BTS">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTS Blog – AI, Automation & Business Intelligence</title>
+    <link rel="canonical" href="https://btsapp.net/blog/" />
+    <meta name="description" content="Insights on AI automation, business intelligence, bilingual software, and digital transformation from BTS – Business Technology Solutions.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  :root {
-    --bg-dark: #0a0a0f;
-    --bg-card: rgba(20, 20, 30, 0.6);
-    --bg-card-hover: rgba(30, 30, 45, 0.8);
-    --primary: #4a90e2;
-    --secondary: #7b2cbf;
-    --accent: #e879f9;
-    --gold: #C9A84C;
-    --border: rgba(255, 255, 255, 0.08);
-    --border-light: rgba(255, 255, 255, 0.12);
-    --text-gray: #a0a0b0;
-    --text-light: #c0c0d0;
-    --radius: 20px;
-    --radius-sm: 12px;
-  }
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: rgba(20, 20, 30, 0.6);
+            --bg-card-hover: rgba(30, 30, 45, 0.8);
+            --primary: #4a90e2;
+            --secondary: #7b2cbf;
+            --accent: #e879f9;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-light: rgba(255, 255, 255, 0.12);
+            --text-gray: #a0a0b0;
+            --text-light: #c0c0d0;
+            --radius: 20px;
+            --radius-sm: 12px;
+            --whatsapp: #25D366;
+        }
 
-  body {
-    background: var(--bg-dark);
-    color: #ffffff;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    line-height: 1.5;
-    overflow-x: hidden;
-  }
+        body {
+            background: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-  body.rtl {
-    direction: rtl;
-    text-align: right;
-    font-family: 'Cairo', 'Inter', sans-serif;
-  }
+        body.rtl {
+            direction: rtl;
+            text-align: right;
+            font-family: 'Cairo', 'Inter', sans-serif;
+        }
 
-  /* Back to Home button */
-  .back-home {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background: rgba(74, 144, 226, 0.15);
-    border: 1px solid var(--border);
-    border-radius: 40px;
-    padding: 8px 18px;
-    color: var(--primary);
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: 600;
-    backdrop-filter: blur(10px);
-    z-index: 100;
-    transition: all 0.2s;
-  }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
 
-  body.rtl .back-home {
-    left: auto;
-    right: 20px;
-  }
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 15, 0.92);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            transition: padding 0.3s ease;
+        }
 
-  .back-home:hover {
-    background: rgba(74, 144, 226, 0.3);
-    border-color: var(--primary);
-  }
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 14px 24px;
+        }
 
-  /* Blog Container */
-  .blog-container {
-    max-width: 1200px;
-    margin: 100px auto 60px;
-    padding: 0 24px;
-  }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 14px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
 
-  /* Hero Section */
-  .blog-hero {
-    text-align: center;
-    margin-bottom: 50px;
-  }
+        .logo:hover {
+            background: rgba(74, 144, 226, 0.1);
+        }
 
-  .blog-hero h1 {
-    font-size: 48px;
-    font-weight: 800;
-    background: linear-gradient(135deg, #ffffff, var(--primary), var(--secondary));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    margin-bottom: 16px;
-  }
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
 
-  .blog-hero p {
-    color: var(--text-gray);
-    font-size: 18px;
-    max-width: 700px;
-    margin: 0 auto;
-  }
+        .logo-title {
+            font-size: 16px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
 
-  /* Filters Bar */
-  .filters-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 16px;
-    margin-bottom: 40px;
-    padding: 16px 20px;
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    backdrop-filter: blur(10px);
-  }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+        }
 
-  .filter-buttons {
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.2s;
+            padding: 8px 0;
+            position: relative;
+        }
 
-  .filter-btn {
-    padding: 8px 20px;
-    border-radius: 40px;
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.04);
-    color: white;
-    cursor: pointer;
-    font-weight: 600;
-    font-size: 13px;
-    transition: all 0.2s;
-  }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+            transform: scaleX(0);
+            transition: transform 0.25s;
+        }
 
-  .filter-btn:hover,
-  .filter-btn.active {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    border-color: transparent;
-  }
+        .nav-links a:hover {
+            color: white;
+        }
 
-  .search-box input {
-    padding: 10px 18px;
-    border-radius: 40px;
-    border: 1px solid var(--border);
-    background: rgba(255, 255, 255, 0.05);
-    color: white;
-    font-size: 14px;
-    width: 250px;
-    outline: none;
-    transition: all 0.2s;
-  }
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
 
-  .search-box input:focus {
-    border-color: var(--primary);
-  }
+        .lang-btn {
+            padding: 6px 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(74, 144, 226, 0.3);
+            background: rgba(74, 144, 226, 0.08);
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
 
-  /* Blog Grid */
-  .blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 28px;
-    margin-bottom: 50px;
-  }
+        .lang-btn:hover {
+            border-color: var(--primary);
+            background: rgba(74, 144, 226, 0.2);
+        }
 
-  /* Blog Card */
-  .blog-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    text-decoration: none;
-    color: white;
-    transition: all 0.3s;
-    cursor: pointer;
-    backdrop-filter: blur(10px);
-  }
+        .mobile-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
 
-  .blog-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(74, 144, 226, 0.5);
-    background: var(--bg-card-hover);
-  }
+        /* Hero */
+        .blog-hero {
+            padding: 120px 0 50px;
+            text-align: center;
+        }
 
-  .blog-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    background: #111;
-    cursor: pointer;
-  }
+        .blog-hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 16px;
+        }
 
-  .blog-card-content {
-    padding: 22px;
-  }
+        .blog-hero p {
+            color: var(--text-gray);
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-  .blog-card-meta {
-    color: var(--primary);
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-  }
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+            padding: 20px 0 60px;
+        }
 
-  .blog-card-title {
-    font-size: 20px;
-    font-weight: 800;
-    margin-bottom: 12px;
-    line-height: 1.3;
-  }
+        .blog-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
 
-  .blog-card-summary {
-    color: var(--text-gray);
-    font-size: 14px;
-    line-height: 1.6;
-  }
+        .blog-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(74, 144, 226, 0.4);
+            background: var(--bg-card-hover);
+        }
 
-  .read-more {
-    margin-top: 16px;
-    color: var(--primary);
-    font-weight: 700;
-    font-size: 13px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: gap 0.2s;
-  }
+        .blog-card .category {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--primary);
+            background: rgba(74, 144, 226, 0.15);
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
-  .blog-card:hover .read-more {
-    gap: 10px;
-  }
+        .blog-card h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
 
-  /* Image Modal */
-  .image-modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    animation: fadeIn 0.3s ease;
-  }
+        .blog-card p {
+            color: var(--text-gray);
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
 
-  .image-modal img {
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain;
-    border-radius: 8px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
-  }
+        .blog-card .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: var(--text-gray);
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+        }
 
-  .image-modal .close-modal {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
-    color: white;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
+        .blog-card .read-more {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 13px;
+        }
 
-  .image-modal .close-modal:hover {
-    transform: rotate(90deg);
-  }
+        .blog-card .read-more:hover {
+            color: var(--secondary);
+        }
 
-  @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-  }
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px 0 60px;
+        }
 
-  .no-results {
-    text-align: center;
-    padding: 60px;
-    color: var(--text-gray);
-  }
+        .pagination a {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s;
+        }
 
-  .loading {
-    text-align: center;
-    padding: 60px;
-    color: var(--text-gray);
-  }
+        .pagination a:hover {
+            border-color: var(--primary);
+            color: white;
+        }
 
-  /* Responsive */
-  @media (max-width: 768px) {
-    .blog-hero h1 {
-      font-size: 32px;
-    }
-    .blog-grid {
-      grid-template-columns: 1fr;
-    }
-    .filters-bar {
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .search-box input {
-      width: 100%;
-    }
-    .image-modal img {
-      max-width: 95%;
-      max-height: 80%;
-    }
-  }
-</style>
+        .pagination a.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-color: transparent;
+            color: white;
+        }
+
+        /* Footer */
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0 30px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-inner {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo p {
+            color: var(--text-gray);
+            font-size: 13px;
+            line-height: 1.7;
+            margin-top: 10px;
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            font-size: 11px;
+            color: var(--text-gray);
+        }
+
+        .footer-bottom a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .footer-bottom a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .social-link {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--text-gray);
+            transition: all 0.2s;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .float-wa {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 52px;
+            height: 52px;
+            background: var(--whatsapp);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .float-wa:hover {
+            transform: scale(1.08);
+        }
+
+        .float-wa svg {
+            width: 26px;
+            height: 26px;
+            fill: white;
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+        }
+
+        .scroll-top.show {
+            display: flex;
+        }
+
+        body.rtl .float-wa {
+            right: auto;
+            left: 24px;
+        }
+
+        body.rtl .scroll-top {
+            left: auto;
+            right: 24px;
+        }
+
+        /* Loading state */
+        .loading {
+            text-align: center;
+            padding: 60px 0;
+            color: var(--text-gray);
+        }
+
+        .loading .spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-btn { display: block; }
+            .blog-hero h1 { font-size: 28px; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .footer-inner { grid-template-columns: 1fr; gap: 24px; }
+            .blog-hero { padding: 100px 0 30px; }
+        }
+    </style>
 </head>
 <body>
 
-<a href="../index.html" class="back-home" id="backHome">← Back to Home</a>
-
-<div class="blog-container">
-  <div class="blog-hero">
-    <h1 id="blogTitle">BTS Blog</h1>
-    <p id="blogSubtitle">Insights on AI, automation, digital transformation, and business technology</p>
-  </div>
-
-  <div class="filters-bar">
-    <div class="filter-buttons">
-      <button class="filter-btn active" data-filter="all" id="filterAll">All</button>
-      <button class="filter-btn" data-filter="en" id="filterEn">English</button>
-      <button class="filter-btn" data-filter="ar" id="filterAr">العربية</button>
-      <button class="filter-btn" id="langToggleBtn" style="background: linear-gradient(135deg, #4a90e2, #7b2cbf); border-color: transparent;">عربي</button>
+<nav class="nav" id="navbar">
+    <div class="nav-inner">
+        <a href="/" class="logo">
+            <img class="logo-img" src="/assets/images/Logo.png" alt="BTS Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' rx=\'20\' fill=\'url(%23grad)\'/%3E%3Ctext x=\'50%25\' y=\'55%25\' text-anchor=\'middle\' fill=\'white\' font-size=\'34\' font-weight=\'800\' dy=\'.3em\'%3EBTS%3C/text%3E%3Cdefs%3E%3ClinearGradient id=\'grad\'%3E%3Cstop offset=\'0%25\' stop-color=\'%234a90e2\'/%3E%3Cstop offset=\'100%25\' stop-color=\'%237b2cbf\'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E'">
+            <span class="logo-title">BTS Blog</span>
+        </a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/#solutions">Solutions</a>
+            <a href="/#industries">Industries</a>
+            <a href="/#contact">Contact</a>
+            <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">عربي</button>
+        </div>
+        <button class="mobile-btn" onclick="toggleMobileDrawer()">☰</button>
     </div>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Search articles...">
-    </div>
-  </div>
+</nav>
 
-  <div class="blog-grid" id="blogGrid">
-    <div class="loading">Loading articles...</div>
-  </div>
-  <div class="no-results" id="noResults" style="display:none;">No articles found</div>
+<div class="mobile-drawer" id="mobileDrawer" style="position:fixed;top:0;right:-100%;width:80%;max-width:300px;height:100%;background:rgba(10,10,15,0.98);backdrop-filter:blur(20px);z-index:1000;transition:right 0.3s ease;padding:80px 24px 32px;display:flex;flex-direction:column;gap:20px;border-left:1px solid var(--border);">
+    <div class="drawer-close" onclick="closeMobileDrawer()" style="position:absolute;top:20px;right:20px;font-size:28px;cursor:pointer;color:var(--text-gray);">×</div>
+    <a href="/" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;">Home</a>
+    <a href="/#solutions" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;" onclick="closeMobileDrawer()">Solutions</a>
+    <a href="/#industries" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;" onclick="closeMobileDrawer()">Industries</a>
+    <a href="/#contact" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;" onclick="closeMobileDrawer()">Contact</a>
+    <button class="lang-mobile" onclick="toggleLanguage(); closeMobileDrawer()" style="background:none;border:none;color:white;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;cursor:pointer;">عربي</button>
 </div>
 
-<script>
-  let allPosts = [];
-  let currentLang = 'all';
-  let currentUI = 'en';
+<section class="blog-hero">
+    <div class="container">
+        <h1 id="blogTitle">BTS Blog</h1>
+        <p id="blogSubtitle">Insights on AI automation, business intelligence, and digital transformation</p>
+    </div>
+</section>
 
-  // UI text translations
-  const uiText = {
-    en: {
-      title: 'BTS Blog',
-      subtitle: 'Insights on AI, automation, digital transformation, and business technology',
-      filterAll: 'All',
-      filterEn: 'English',
-      filterAr: 'العربية',
-      searchPlaceholder: 'Search articles...',
-      backHome: '← Back to Home',
-      noResults: 'No articles found',
-      langToggle: 'عربي',
-      loading: 'Loading articles...'
-    },
-    ar: {
-      title: 'مدونة BTS',
-      subtitle: 'رؤى حول الذكاء الاصطناعي، الأتمتة، التحول الرقمي، وتكنولوجيا الأعمال',
-      filterAll: 'الكل',
-      filterEn: 'English',
-      filterAr: 'العربية',
-      searchPlaceholder: 'ابحث في المقالات...',
-      backHome: '→ العودة للرئيسية',
-      noResults: 'لم يتم العثور على مقالات',
-      langToggle: 'EN',
-      loading: 'جاري تحميل المقالات...'
-    }
-  };
-
-  // Image Modal System
-  function setupImageModal() {
-    function makeImagesClickable() {
-      const images = document.querySelectorAll('.blog-card img, .article-image, .post-content img');
-      images.forEach(img => {
-        img.addEventListener('click', function(e) {
-          e.stopPropagation();
-          e.preventDefault();
-          
-          const modal = document.createElement('div');
-          modal.className = 'image-modal';
-          modal.innerHTML = `
-            <span class="close-modal">&times;</span>
-            <img src="${this.src}" alt="${this.alt || 'BTS Image'}">
-          `;
-          document.body.appendChild(modal);
-          
-          const closeModal = () => {
-            modal.remove();
-          };
-          
-          modal.querySelector('.close-modal').addEventListener('click', closeModal);
-          modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
-          });
-          
-          const escHandler = (e) => {
-            if (e.key === 'Escape') {
-              closeModal();
-              document.removeEventListener('keydown', escHandler);
-            }
-          };
-          document.addEventListener('keydown', escHandler);
-        });
-      });
-    }
-
-    makeImagesClickable();
-
-    const observer = new MutationObserver(() => {
-      makeImagesClickable();
-    });
-    
-    observer.observe(document.getElementById('blogGrid'), {
-      childList: true,
-      subtree: true
-    });
-  }
-
-  async function loadPosts() {
-    try {
-      const res = await fetch('posts.json');
-      allPosts = await res.json();
-      renderPosts();
-      setTimeout(makeImagesClickable, 100);
-    } catch(e) {
-      console.error('Error loading posts:', e);
-      document.getElementById('blogGrid').innerHTML = `<div class="no-results">${uiText[currentUI].noResults}</div>`;
-    }
-  }
-
-  function makeImagesClickable() {
-    const images = document.querySelectorAll('.blog-card img');
-    images.forEach(img => {
-      img.removeEventListener('click', img._clickHandler);
-      
-      img._clickHandler = function(e) {
-        e.stopPropagation();
-        e.preventDefault();
-        
-        const modal = document.createElement('div');
-        modal.className = 'image-modal';
-        modal.innerHTML = `
-          <span class="close-modal">&times;</span>
-          <img src="${this.src}" alt="${this.alt || 'BTS Image'}">
-        `;
-        document.body.appendChild(modal);
-        
-        const closeModal = () => {
-          modal.remove();
-        };
-        
-        modal.querySelector('.close-modal').addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => {
-          if (e.target === modal) closeModal();
-        });
-        
-        const escHandler = (e) => {
-          if (e.key === 'Escape') {
-            closeModal();
-            document.removeEventListener('keydown', escHandler);
-          }
-        };
-        document.addEventListener('keydown', escHandler);
-      };
-      
-      img.addEventListener('click', img._clickHandler);
-      img.style.cursor = 'pointer';
-    });
-  }
-
-  function renderPosts() {
-    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-    const filtered = allPosts.filter(post => {
-      const matchesLang = currentLang === 'all' || post.lang === currentLang;
-      const matchesSearch = post.title.toLowerCase().includes(searchTerm) || 
-                            post.summary.toLowerCase().includes(searchTerm);
-      return matchesLang && matchesSearch;
-    });
-
-    const grid = document.getElementById('blogGrid');
-    const noResults = document.getElementById('noResults');
-
-    if (filtered.length === 0) {
-      grid.innerHTML = '';
-      noResults.style.display = 'block';
-      noResults.innerText = uiText[currentUI].noResults;
-      return;
-    }
-
-    noResults.style.display = 'none';
-    grid.innerHTML = filtered.map(post => `
-      <a class="blog-card" href="article.html?slug=${post.slug}&lang=${currentUI}" dir="${post.lang === 'ar' ? 'rtl' : 'ltr'}">
-        <img src="${post.cover}" alt="${post.title}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'400\\' height=\\'200\\'%3E%3Crect width=\\'400\\' height=\\'200\\' fill=\\'%231a1a2a\\'/%3E%3Ctext x=\\'50%25\\' y=\\'50%25\\' text-anchor=\\'middle\\' fill=\\'%234a90e2\\' dy=\\'.3em\\'%3EBTS%3C/text%3E%3C/svg%3E'">
-        <div class="blog-card-content">
-          <div class="blog-card-meta">
-            <span>📂 ${post.category}</span>
-            <span>📅 ${post.date}</span>
-            <span>✍️ ${post.author}</span>
-          </div>
-          <div class="blog-card-title">${post.title}</div>
-          <div class="blog-card-summary">${post.summary.substring(0, 120)}${post.summary.length > 120 ? '...' : ''}</div>
-          <div class="read-more">${post.lang === 'ar' ? 'اقرأ المقال ←' : 'Read Article →'}</div>
+<section>
+    <div class="container">
+        <div id="blogPosts" class="blog-grid">
+            <div class="loading">
+                <div class="spinner"></div>
+                <p style="margin-top:16px;">Loading articles...</p>
+            </div>
         </div>
-      </a>
-    `).join('');
+        <div id="pagination" class="pagination"></div>
+    </div>
+</section>
 
-    setTimeout(makeImagesClickable, 50);
-  }
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <span class="logo-title" style="font-size:18px;font-weight:800;background:linear-gradient(135deg,#ffffff,var(--primary),var(--secondary));-webkit-background-clip:text;background-clip:text;color:transparent;">BTS – Business Technology Solutions</span>
+                <p id="footerDesc">Building enterprise AI systems that automate operations and improve decision-making for global organizations. Based in Glasgow, Scotland.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">in</a>
+                    <a href="#" class="social-link">🐦</a>
+                    <a href="#" class="social-link">▶</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 id="footerSolutions">Solutions</h4>
+                <ul>
+                    <li><a href="/#solutions">AI Solutions</a></li>
+                    <li><a href="/#all-services">Technology Solutions</a></li>
+                    <li><a href="/#digital-services">Digital Marketing</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 id="footerCompany">Company</h4>
+                <ul>
+                    <li><a href="/">About Us</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                    <li><a href="/#contact">Start a Project</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 id="footerContactTitle">Contact</h4>
+                <ul>
+                    <li><a href="mailto:info@btsapp.net">info@btsapp.net</a></li>
+                    <li><a href="tel:+447425252625">+44 7425 252625</a></li>
+                    <li><a href="#" onclick="openWhatsApp(); return false;">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span id="footerText">© 2026 BTS — Business Technology Solutions. Registered company number: SC894313. Registered office: 12/3 30 Kingsway Court, Glasgow, Scotland, G14 9TL.</span>
+            <span>
+                <a href="/privacy-policy.html">Privacy Policy</a> |
+                <a href="/terms-of-service.html">Terms of Service</a> |
+                <a href="/#cookie-settings">Cookie Settings</a>
+            </span>
+        </div>
+    </div>
+</footer>
 
-  function updateUI() {
-    document.getElementById('blogTitle').innerText = uiText[currentUI].title;
-    document.getElementById('blogSubtitle').innerHTML = uiText[currentUI].subtitle;
-    document.getElementById('filterAll').innerText = uiText[currentUI].filterAll;
-    document.getElementById('filterEn').innerText = uiText[currentUI].filterEn;
-    document.getElementById('filterAr').innerText = uiText[currentUI].filterAr;
-    document.getElementById('searchInput').placeholder = uiText[currentUI].searchPlaceholder;
-    document.getElementById('backHome').innerHTML = uiText[currentUI].backHome;
-    document.getElementById('langToggleBtn').innerText = uiText[currentUI].langToggle;
-    
-    if (currentUI === 'ar') {
-      document.body.classList.add('rtl');
-      document.documentElement.setAttribute('dir', 'rtl');
-    } else {
-      document.body.classList.remove('rtl');
-      document.documentElement.setAttribute('dir', 'ltr');
+<button class="float-wa" onclick="openWhatsApp()">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.48 2 2 6.48 2 12c0 1.92.54 3.68 1.47 5.19L2 22l4.81-1.47C8.32 21.46 10.08 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+</button>
+
+<button class="scroll-top" id="scrollTopBtn">↑</button>
+
+<script>
+    // ==================== LANGUAGE ====================
+    let currentLang = 'en';
+
+    const content = {
+        en: {
+            title: 'BTS Blog',
+            subtitle: 'Insights on AI automation, business intelligence, and digital transformation',
+            footer: '© 2026 BTS — Business Technology Solutions. Registered company number: SC894313. Registered office: 12/3 30 Kingsway Court, Glasgow, Scotland, G14 9TL.'
+        },
+        ar: {
+            title: 'مدونة BTS',
+            subtitle: 'رؤى حول أتمتة الذكاء الاصطناعي، ذكاء الأعمال، والتحول الرقمي',
+            footer: '© ٢٠٢٦ بي تي إس — حلول تكنولوجيا الأعمال. رقم الشركة المسجلة: SC894313. المكتب المسجل: 12/3 30 Kingsway Court، غلاسكو، اسكتلندا، G14 9TL.'
+        }
+    };
+
+    function toggleLanguage() {
+        currentLang = currentLang === 'en' ? 'ar' : 'en';
+        renderLanguage();
+        loadPosts();
     }
-    
-    renderPosts();
-  }
 
-  function setupFilters() {
-    document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentLang = btn.dataset.filter;
-        renderPosts();
-      });
-    });
-    
-    document.getElementById('searchInput').addEventListener('input', renderPosts);
-    document.getElementById('langToggleBtn').addEventListener('click', () => {
-      currentUI = currentUI === 'en' ? 'ar' : 'en';
-      updateUI();
-      localStorage.setItem('blogLang', currentUI);
-    });
-  }
+    function renderLanguage() {
+        const t = content[currentLang];
+        document.getElementById('blogTitle').innerText = t.title;
+        document.getElementById('blogSubtitle').innerText = t.subtitle;
+        document.getElementById('footerText').innerText = t.footer;
 
-  function initLanguage() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlLang = urlParams.get('lang');
-    const savedLang = localStorage.getItem('blogLang');
-    
-    if (urlLang === 'ar') {
-      currentUI = 'ar';
-    } else if (savedLang) {
-      currentUI = savedLang;
+        if (currentLang === 'ar') {
+            document.body.classList.add('rtl');
+            document.documentElement.setAttribute('dir', 'rtl');
+            document.getElementById('langBtn').innerText = 'EN';
+        } else {
+            document.body.classList.remove('rtl');
+            document.documentElement.setAttribute('dir', 'ltr');
+            document.getElementById('langBtn').innerText = 'عربي';
+        }
     }
-    updateUI();
-  }
 
-  // Initialize everything
-  initLanguage();
-  setupFilters();
-  loadPosts();
-  setupImageModal();
+    function toggleMobileDrawer() {
+        document.getElementById('mobileDrawer').classList.add('open');
+        document.getElementById('mobileDrawer').style.right = '0';
+    }
+
+    function closeMobileDrawer() {
+        document.getElementById('mobileDrawer').classList.remove('open');
+        document.getElementById('mobileDrawer').style.right = '-100%';
+    }
+
+    function openWhatsApp() {
+        window.open('https://wa.me/447425252625', '_blank');
+    }
+
+    // ==================== BLOG POSTS ====================
+    let allPosts = [];
+    let currentPage = 1;
+    const postsPerPage = 6;
+
+    async function loadPosts() {
+        const container = document.getElementById('blogPosts');
+        container.innerHTML = '<div class="loading"><div class="spinner"></div><p style="margin-top:16px;">Loading articles...</p></div>';
+
+        try {
+            let response;
+            try {
+                response = await fetch('/blog/posts.json');
+            } catch {
+                response = await fetch('posts.json');
+            }
+
+            if (!response.ok) throw new Error('Failed to fetch posts');
+            const posts = await response.json();
+
+            // Filter by language
+            const lang = currentLang || 'en';
+            allPosts = posts.filter(post => (post.lang || 'en') === lang);
+
+            // Sort by date (newest first)
+            allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            renderPage(1);
+
+        } catch (error) {
+            console.error('Error loading posts:', error);
+            container.innerHTML = `
+                <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-gray);">
+                    <p style="font-size:48px;margin-bottom:16px;">📝</p>
+                    <h3 style="color:white;margin-bottom:8px;">No posts found</h3>
+                    <p>Check back soon for new articles.</p>
+                </div>
+            `;
+        }
+    }
+
+    function renderPage(page) {
+        currentPage = page;
+        const container = document.getElementById('blogPosts');
+        const pagination = document.getElementById('pagination');
+
+        const totalPages = Math.ceil(allPosts.length / postsPerPage);
+        const start = (page - 1) * postsPerPage;
+        const end = start + postsPerPage;
+        const pagePosts = allPosts.slice(start, end);
+
+        if (pagePosts.length === 0) {
+            container.innerHTML = `
+                <div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-gray);">
+                    <p style="font-size:48px;margin-bottom:16px;">📝</p>
+                    <h3 style="color:white;margin-bottom:8px;">No posts found</h3>
+                    <p>Check back soon for new articles.</p>
+                </div>
+            `;
+            pagination.innerHTML = '';
+            return;
+        }
+
+        const lang = currentLang || 'en';
+        const readMoreText = lang === 'ar' ? 'اقرأ المقال ←' : 'Read Article →';
+
+        container.innerHTML = pagePosts.map(post => {
+            const emojiMap = {
+                'ai': '🤖',
+                'logistics': '🚚',
+                'trade': '🌍',
+                'business': '🌍',
+                'dashboard': '📊',
+                'analytics': '📊',
+                'health': '🏥',
+                'automation': '⚡',
+                'digital': '💻'
+            };
+
+            let emoji = '📝';
+            const category = (post.category || '').toLowerCase();
+            for (const [key, value] of Object.entries(emojiMap)) {
+                if (category.includes(key)) { emoji = value; break; }
+            }
+
+            const summary = post.summary ? 
+                (post.summary.length > 140 ? post.summary.substring(0, 140) + '...' : post.summary) : 
+                'Read more about this topic.';
+
+            return `
+                <a href="/blog/article.html?slug=${post.slug}&lang=${lang}" class="blog-card">
+                    <div class="category">${post.category || 'General'}</div>
+                    <h2>${emoji} ${post.title || 'Untitled'}</h2>
+                    <p>${summary}</p>
+                    <div class="meta">
+                        <span>📅 ${post.date || 'Date TBD'}</span>
+                        <span class="read-more">${readMoreText}</span>
+                    </div>
+                </a>
+            `;
+        }).join('');
+
+        // Pagination
+        if (totalPages > 1) {
+            let paginationHtml = '';
+            for (let i = 1; i <= totalPages; i++) {
+                paginationHtml += `<a href="#" class="${i === page ? 'active' : ''}" onclick="renderPage(${i}); return false;">${i}</a>`;
+            }
+            pagination.innerHTML = paginationHtml;
+        } else {
+            pagination.innerHTML = '';
+        }
+
+        // Scroll to top of posts
+        document.querySelector('.blog-hero').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // ==================== SCROLL TOP ====================
+    window.addEventListener('scroll', () => {
+        const scrollBtn = document.getElementById('scrollTopBtn');
+        if (window.scrollY > 500) scrollBtn.classList.add('show');
+        else scrollBtn.classList.remove('show');
+    });
+
+    document.getElementById('scrollTopBtn').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ==================== INIT ====================
+    document.addEventListener('DOMContentLoaded', function() {
+        const savedLang = localStorage.getItem('btsLang') || 'en';
+        currentLang = savedLang;
+        renderLanguage();
+        loadPosts();
+    });
+
+    // Save language preference
+    const origToggle = toggleLanguage;
+    toggleLanguage = function() {
+        origToggle();
+        localStorage.setItem('btsLang', currentLang);
+    };
 </script>
+
 </body>
 </html>
