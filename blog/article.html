@@ -699,7 +699,7 @@
             footer: '© 2026 BTS — Business Technology Solutions. Registered company number: SC894313. Registered office: 12/3 30 Kingsway Court, Glasgow, Scotland, G14 9TL.'
         },
         ar: {
-            back: '→ العودة إلى المدونة',
+            back: '← العودة إلى المدونة',
             footer: '© ٢٠٢٦ بي تي إس — حلول تكنولوجيا الأعمال. رقم الشركة المسجلة: SC894313. المكتب المسجل: 12/3 30 Kingsway Court، غلاسكو، اسكتلندا، G14 9TL.'
         }
     };
@@ -749,37 +749,52 @@
 
     // ==================== RENDER CONTENT HELPER ====================
     function renderContent(contentBlocks) {
-        let html = '';
-
         if (!contentBlocks) return '<p>No content available.</p>';
-
+        
+        // If it's already a string, return it
         if (typeof contentBlocks === 'string') {
             return contentBlocks;
         }
 
+        // If it's not an array, return empty
         if (!Array.isArray(contentBlocks)) {
             return '<p>No content available.</p>';
         }
 
-        contentBlocks.forEach(block => {
-            switch (block.type) {
+        let html = '';
+
+        contentBlocks.forEach((block, index) => {
+            // Skip if block is null or undefined
+            if (!block) return;
+
+            // If block is a string, treat it as a paragraph
+            if (typeof block === 'string') {
+                html += `<p>${block}</p>`;
+                return;
+            }
+
+            const type = block.type || 'paragraph';
+            const text = block.text || '';
+            const caption = block.caption || '';
+
+            switch (type) {
                 case 'heading':
-                    html += `<h2>${block.text || ''}</h2>`;
+                    html += `<h2>${text}</h2>`;
                     break;
 
                 case 'paragraph':
-                    html += `<p>${block.text || ''}</p>`;
+                    html += `<p>${text}</p>`;
                     break;
 
                 case 'quote':
-                    html += `<blockquote>${block.text || ''}</blockquote>`;
+                    html += `<blockquote>${text}</blockquote>`;
                     break;
 
                 case 'image':
                     if (block.src) {
-                        html += `<img src="${block.src}" alt="${block.caption || ''}" style="max-width:100%;border-radius:12px;margin:20px 0;">`;
-                        if (block.caption) {
-                            html += `<p style="text-align:center;font-size:13px;color:var(--text-gray);">${block.caption}</p>`;
+                        html += `<img src="${block.src}" alt="${caption || text || 'Image'}" loading="lazy">`;
+                        if (caption) {
+                            html += `<p style="text-align:center;font-size:13px;color:var(--text-gray);margin-top:-10px;margin-bottom:20px;">${caption}</p>`;
                         }
                     }
                     break;
@@ -787,12 +802,12 @@
                 case 'table':
                     if (block.headers && block.rows && block.rows.length > 0) {
                         html += `<div style="overflow-x:auto;margin:20px 0;">`;
-                        html += `<table style="width:100%;border-collapse:collapse;font-size:14px;">`;
+                        html += `<table>`;
                         
                         // Headers
                         html += `<thead><tr>`;
                         block.headers.forEach(header => {
-                            html += `<th style="border:1px solid var(--border);padding:10px 14px;text-align:left;background:rgba(74,144,226,0.1);color:white;">${header}</th>`;
+                            html += `<th>${header}</th>`;
                         });
                         html += `</tr></thead>`;
                         
@@ -800,9 +815,13 @@
                         html += `<tbody>`;
                         block.rows.forEach(row => {
                             html += `<tr>`;
-                            row.forEach(cell => {
-                                html += `<td style="border:1px solid var(--border);padding:10px 14px;color:var(--text-light);">${cell}</td>`;
-                            });
+                            if (Array.isArray(row)) {
+                                row.forEach(cell => {
+                                    html += `<td>${cell}</td>`;
+                                });
+                            } else {
+                                html += `<td>${row}</td>`;
+                            }
                             html += `</tr>`;
                         });
                         html += `</tbody></table></div>`;
@@ -810,7 +829,8 @@
                     break;
 
                 default:
-                    html += `<p>${block.text || ''}</p>`;
+                    // Fallback for unknown types
+                    html += `<p>${text}</p>`;
                     break;
             }
         });
@@ -864,6 +884,18 @@
                 return;
             }
 
+            // Get read time
+            let readTime = article.readTime || '3 min read';
+            // If content is array, estimate reading time
+            if (Array.isArray(article.content)) {
+                const textContent = article.content
+                    .filter(b => b.type === 'paragraph' || b.type === 'heading')
+                    .map(b => b.text || '')
+                    .join(' ');
+                const wordCount = textContent.split(/\s+/).length;
+                readTime = Math.ceil(wordCount / 200) + ' min read';
+            }
+
             // Render the article content using the helper function
             const contentHtml = renderContent(article.content);
 
@@ -875,7 +907,7 @@
                         <div class="article-meta">
                             <span>📅 ${article.date || 'Date TBD'}</span>
                             <span>👤 ${article.author || 'BTS Team'}</span>
-                            <span>⏱️ ${article.readTime || '3 min read'}</span>
+                            <span>⏱️ ${readTime}</span>
                         </div>
                     </div>
                     <div class="article-content">
