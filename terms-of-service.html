@@ -207,8 +207,9 @@
 <header>
     <div class="header-inner">
 
-        <div class="brand">
-            BTS – Business Technology Solutions
+        <div class="brand" style="display: flex; align-items: center; gap: 12px;">
+        <img src="assets/images/Logo.png" alt="BTS Logo" style="height: 40px; width: auto; border-radius: 8px;" onerror="this.style.display='none'">
+        <span>BTS – Business Technology Solutions</span>
         </div>
 
         <div class="english">
@@ -1017,17 +1018,15 @@
     }
 
     function openCookieSettings() {
-
-        if (typeof window.reopenCookieBanner === 'function') {
-            window.reopenCookieBanner();
-            return;
-        }
-
-        alert(
-            document.documentElement.lang === 'ar'
-                ? 'يمكنك تعديل إعدادات ملفات تعريف الارتباط من خلال نافذة الموافقة على الموقع.'
-                : 'You can change your cookie preferences through the website cookie consent controls.'
-        );
+    // Try to reopen the cookie banner on the main page
+    if (typeof window.reopenCookieBanner === 'function') {
+        window.reopenCookieBanner();
+        return;
+    }
+    
+    // If we're on a legal page, redirect to homepage with a hash
+    // The homepage will detect this and show the banner
+    window.location.href = '/#cookie-settings';
     }
 
     document.addEventListener('DOMContentLoaded', function () {

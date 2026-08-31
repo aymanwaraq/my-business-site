@@ -1554,6 +1554,15 @@ body.rtl .scroll-top {
   document.addEventListener('DOMContentLoaded', function() {
     initConsent();
 
+    // 👇 CHECK FOR COOKIE SETTINGS HASH
+    if (window.location.hash === '#cookie-settings') {
+        setTimeout(function() {
+            showBanner();
+            // Remove the hash from URL
+            history.replaceState(null, null, ' ');
+        }, 500);
+    }
+
     document.getElementById('cookieAcceptBtn').addEventListener('click', function() {
       setConsent('granted');
       loadGoogleAnalytics();
