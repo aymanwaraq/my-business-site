@@ -592,7 +592,34 @@
                 padding: 6px 10px;
             }
         }
-    </style>
+    
+        /* ==================== CLICKABLE IMAGES ==================== */
+        .image-wrapper {
+            cursor: pointer;
+            position: relative;
+            margin: 24px 0;
+        }
+
+        .image-wrapper img {
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            max-width: 100%;
+        }
+
+        .image-wrapper img:hover {
+            transform: scale(1.01);
+            box-shadow: 0 4px 20px rgba(74, 144, 226, 0.2);
+        }
+
+        .image-caption {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-top: 8px;
+        }
+</style>
 </head>
 <body>
 
@@ -750,11 +777,93 @@
     // ==================== RENDER CONTENT HELPER ====================
     function renderContent(contentBlocks) {
         if (!contentBlocks) return '<p>No content available.</p>';
-        
-        // If it's already a string, return it
+
         if (typeof contentBlocks === 'string') {
             return contentBlocks;
         }
+
+        if (!Array.isArray(contentBlocks)) {
+            return '<p>No content available.</p>';
+        }
+
+        let html = '';
+
+        contentBlocks.forEach((block) => {
+            if (!block) return;
+
+            if (typeof block === 'string') {
+                html += `<p>${block}</p>`;
+                return;
+            }
+
+            const type = block.type || 'paragraph';
+            const text = block.text || '';
+            const caption = block.caption || '';
+            const src = block.src || '';
+
+            switch (type) {
+                case 'heading':
+                    html += `<h2>${text}</h2>`;
+                    break;
+
+                case 'paragraph':
+                    html += `<p>${text}</p>`;
+                    break;
+
+                case 'quote':
+                    html += `<blockquote>${text}</blockquote>`;
+                    break;
+
+                case 'image':
+                    if (src) {
+                        const imageSrc = resolveImagePath(src);
+                        html += `
+                            <div class="image-wrapper" onclick="openLightbox('${imageSrc}')">
+                                <img
+                                    src="${imageSrc}"
+                                    alt="${caption || text || 'Image'}"
+                                    loading="lazy"
+                                    onerror="console.error('Image failed:', '${imageSrc}'); this.style.display='none'"
+                                >
+                                ${caption ? `<div class="image-caption">${caption}</div>` : ''}
+                            </div>
+                        `;
+                    }
+                    break;
+
+                case 'table':
+                    if (block.headers && block.rows && block.rows.length > 0) {
+                        html += `<div style="overflow-x:auto;margin:20px 0;">`;
+                        html += `<table>`;
+                        html += `<thead><tr>`;
+                        block.headers.forEach(header => {
+                            html += `<th>${header}</th>`;
+                        });
+                        html += `</tr></thead>`;
+                        html += `<tbody>`;
+                        block.rows.forEach(row => {
+                            html += `<tr>`;
+                            if (Array.isArray(row)) {
+                                row.forEach(cell => {
+                                    html += `<td>${cell}</td>`;
+                                });
+                            } else {
+                                html += `<td>${row}</td>`;
+                            }
+                            html += `</tr>`;
+                        });
+                        html += `</tbody></table></div>`;
+                    }
+                    break;
+
+                default:
+                    html += `<p>${text}</p>`;
+                    break;
+            }
+        });
+
+        return html || '<p>No content available.</p>';
+    }
 
         // If it's not an array, return empty
         if (!Array.isArray(contentBlocks)) {
