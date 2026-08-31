@@ -7,7 +7,7 @@
     "date": "2026-06-02",
     "category": "Trade, AI, Business",
     "author": "BTS",
-    "cover": "/assets/images/blog/UK-GCC-Trade.png",
+    "cover": "../assets/images/blog/UK-GCC-Trade.png",
     "summary": "The landmark UK-GCC trade agreement valued at $5 billion annually opens doors for British AI and automation companies serving the Gulf market.",
     "content": [
       {
@@ -104,7 +104,7 @@
     "date": "2026-05-26",
     "category": "الخدمات اللوجستية, الأتمتة, الذكاء الاصطناعي",
     "author": "BTS",
-    "cover": "/assets/images/blog/Saudi-logistics.jpg",
+    "cover": "../assets/images/blog/Saudi-logistics.jpg",
     "summary": "كيف تساعد الأنظمة الذكية شركات النقل والخدمات اللوجستية على العمل بسرعة أكبر وكفاءة أعلى",
     "content": [
       {
@@ -246,7 +246,7 @@
     "date": "2026-05-26",
     "category": "AI, Public Services, Civic Technology",
     "author": "BTS",
-    "cover": "/assets/images/blog/housing-ai-support.png",
+    "cover": "../assets/images/blog/housing-ai-support.png",
     "summary": "How AI can help housing and homelessness services reduce administrative burden, improve communication, and support vulnerable people, without replacing human decision-making.",
     "content": [
       {
@@ -431,7 +431,7 @@
     "date": "2026-06-11",
     "category": "Logistics, AI, Automation",
     "author": "BTS",
-    "cover": "/assets/images/blog/icons-grid.png",
+    "cover": "../assets/images/blog/icons-grid.png",
     "summary": "Qatar's logistics sector is growing rapidly. Discover how AI-powered automation, workflow optimization, and system integration can help logistics providers operate faster, smarter, and more efficiently.",
     "content": [
       {
@@ -548,7 +548,7 @@
     "date": "2026-07-01",
     "category": "Business Intelligence, AI, Digital Transformation, GCC",
     "author": "BTS",
-    "cover": "/assets/images/blog/intelligent-dashboards-architecture.png",
+    "cover": "../assets/images/blog/intelligent-dashboards-architecture.png",
     "summary": "Every day, businesses across the GCC generate thousands of data points from sales to operations. Yet this information remains trapped in disconnected systems. Intelligent dashboards solve this by bringing data together in real-time, enabling faster decisions and better business outcomes.",
     "content": [
       {
@@ -881,7 +881,7 @@
     "date": "2026-06-02",
     "category": "التجارة، الذكاء الاصطناعي، الأعمال",
     "author": "BTS",
-    "cover": "/assets/images/blog/UK-GCC-Trade.png",
+    "cover": "../assets/images/blog/UK-GCC-Trade.png",
     "summary": "تفتح اتفاقية التجارة التاريخية بين المملكة المتحدة ودول الخليج، والتي تبلغ قيمتها 5 مليارات دولار سنويًا، أبوابًا لشركات الذكاء الاصطناعي والأتمتة البريطانية لخدمة السوق الخليجية.",
     "content": [
       {
@@ -979,7 +979,7 @@
     "date": "2026-05-26",
     "category": "الذكاء الاصطناعي، الخدمات العامة، التكنولوجيا المدنية",
     "author": "BTS",
-    "cover": "/assets/images/blog/housing-ai-support.png",
+    "cover": "../assets/images/blog/housing-ai-support.png",
     "summary": "كيف يمكن للذكاء الاصطناعي مساعدة خدمات الإسكان والمشردين في تقليل العبء الإداري وتحسين التواصل ودعم الأشخاص الأكثر ضعفاً، دون استبدال عملية اتخاذ القرار البشري.",
     "content": [
       {
@@ -1165,7 +1165,7 @@
     "date": "2026-06-11",
     "category": "الخدمات اللوجستية، الذكاء الاصطناعي، الأتمتة",
     "author": "BTS",
-    "cover": "/assets/images/blog/icons-grid.png",
+    "cover": "../assets/images/blog/icons-grid.png",
     "summary": "يشهد قطاع الخدمات اللوجستية في قطر نمواً متسارعاً. اكتشف كيف يمكن للأتمتة المدعومة بالذكاء الاصطناعي وتحسين سير العمل والتكامل بين الأنظمة مساعدة مقدمي الخدمات اللوجستية على العمل بشكل أسرع وأذكى وأكثر كفاءة.",
     "content": [
       {
@@ -1279,7 +1279,7 @@
     "date": "2026-07-01",
     "category": "ذكاء الأعمال، الذكاء الاصطناعي، التحول الرقمي، دول الخليج",
     "author": "BTS",
-    "cover": "/assets/images/blog/intelligent-dashboards-architecture.png",
+    "cover": "../assets/images/blog/intelligent-dashboards-architecture.png",
     "summary": "كل يوم، تولد الشركات في جميع أنحاء دول الخليج آلاف نقاط البيانات من المبيعات إلى العمليات. ومع ذلك، تظل هذه المعلومات محاصرة في أنظمة منفصلة. تحل لوحات التحكم الذكية هذه المشكلة من خلال جمع البيانات في الوقت الفعلي، مما يتيح قرارات أسرع ونتائج أعمال أفضل.",
     "content": [
       {
