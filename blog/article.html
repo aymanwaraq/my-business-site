@@ -662,6 +662,13 @@
     </div>
 </section>
 
+    <!-- Image Lightbox -->
+    <div class="image-lightbox" id="imageLightbox" onclick="closeLightbox()">
+        <button class="close-btn" onclick="event.stopPropagation(); closeLightbox();">×</button>
+        <img src="" alt="Full size image" id="lightboxImage" onclick="event.stopPropagation();">
+        <span class="zoom-hint">Click anywhere to close</span>
+    </div>
+
 <footer class="footer">
     <div class="container">
         <div class="footer-inner">
