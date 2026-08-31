@@ -785,10 +785,12 @@
     function renderContent(contentBlocks) {
         if (!contentBlocks) return '<p>No content available.</p>';
 
+        // If it's already a string, return it
         if (typeof contentBlocks === 'string') {
             return contentBlocks;
         }
 
+        // If it's not an array, return empty
         if (!Array.isArray(contentBlocks)) {
             return '<p>No content available.</p>';
         }
@@ -796,8 +798,10 @@
         let html = '';
 
         contentBlocks.forEach((block) => {
+            // Skip if block is null or undefined
             if (!block) return;
 
+            // If block is a string, treat it as a paragraph
             if (typeof block === 'string') {
                 html += `<p>${block}</p>`;
                 return;
@@ -807,6 +811,8 @@
             const text = block.text || '';
             const caption = block.caption || '';
             const src = block.src || '';
+
+            console.log('Rendering block:', type, block); // Debug log
 
             switch (type) {
                 case 'heading':
@@ -864,6 +870,7 @@
                     break;
 
                 default:
+                    // Fallback for unknown types
                     html += `<p>${text}</p>`;
                     break;
             }
