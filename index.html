@@ -452,7 +452,6 @@ body.rtl .drawer-close {
   line-height: 1.5;
 }
 
-/* Image Lightbox */
 .image-lightbox {
   display: none;
   position: fixed;
@@ -1094,9 +1093,6 @@ body.rtl .scroll-top {
   animation: fadeInUp 0.6s ease forwards;
 }
 
-/* ============================================================
-   COOKIE BANNER STYLES
-   ============================================================ */
 .cookie-banner {
   position: fixed;
   bottom: 0;
@@ -1108,7 +1104,6 @@ body.rtl .scroll-top {
   border-top: 1px solid var(--border);
   padding: 20px 24px;
   display: none;
-  /* Hidden by default, shown by JS if no consent stored */;
 }
 
 .cookie-banner.show {
@@ -1173,7 +1168,6 @@ body.rtl .scroll-top {
   color: white;
 }
 
-/* Mobile: stack the banner */
 @media (max-width: 700px) {
   .cookie-banner-inner {
     flex-direction: column;
@@ -1191,9 +1185,6 @@ body.rtl .scroll-top {
   }
 }
 
-/* ============================================================
-   RESPONSIVE OVERRIDES
-   ============================================================ */
 @media (max-width: 1000px) {
   .grid-4 { grid-template-columns: repeat(2, 1fr); }
   .grid-3 { grid-template-columns: repeat(2, 1fr); }
@@ -1287,7 +1278,6 @@ body.rtl .scroll-top {
   </div>
 </section>
 
-<!-- Image Lightbox -->
 <div class="image-lightbox" id="imageLightbox" onclick="closeLightbox()">
   <button class="close-btn" onclick="event.stopPropagation(); closeLightbox();">×</button>
   <img src="" alt="BTS Dashboard Preview" id="lightboxImage" onclick="event.stopPropagation();">
@@ -1338,7 +1328,6 @@ body.rtl .scroll-top {
   </div>
 </section>
 
-<!-- ========== FEATURED BLOG SECTION ========== -->
 <section class="section" style="background: rgba(15, 20, 30, 0.3);">
   <div class="container">
     <div class="section-header">
@@ -1362,7 +1351,6 @@ body.rtl .scroll-top {
     </div>
   </div>
 </section>
-<!-- ========== END FEATURED BLOG SECTION ========== -->
 
 <section class="trust-section">
   <div class="container">
@@ -1421,7 +1409,6 @@ body.rtl .scroll-top {
         <div class="contact-item">
           <div class="contact-icon">📍</div>
           <div><div style="font-size: 11px; color: var(--text-gray);" id="officeLabel">Registered Office</div>
-          <!-- FIX: Removed duplicate id="officeAddress" — only one element with this ID now -->
           <div style="font-weight: 600;" id="officeAddress">
             12/3 30 Kingsway Court, Glasgow, Scotland, G14 9TL
           </div>
@@ -1444,7 +1431,6 @@ body.rtl .scroll-top {
             </div>
           </div>
           <div class="form-group"><label id="messageLabel">Project Description</label><textarea id="formMessage" rows="3" required></textarea></div>
-          <!-- Privacy notice for form submissions -->
           <p style="font-size: 11px; color: var(--text-gray); margin-bottom: 14px;" id="formPrivacyNotice">
             Your information will be used to respond to your enquiry. For details, see our 
             <a href="/privacy-policy.html" style="color: var(--primary); text-decoration: underline;">Privacy Policy</a>.
@@ -1495,9 +1481,6 @@ body.rtl .scroll-top {
 
 <button class="scroll-top" id="scrollTopBtn">↑</button>
 
-<!-- ============================================================
-     COOKIE BANNER HTML
-     ============================================================ -->
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
   <div class="cookie-banner-inner">
     <div class="cookie-banner-text" id="cookieBannerText">
@@ -1513,7 +1496,6 @@ body.rtl .scroll-top {
 </div>
 
 <script>
-// ==================== COOKIE CONSENT SYSTEM ====================
 (function() {
   const CONSENT_KEY = 'bts_ga_consent';
   const BANNER_ID = 'cookieBanner';
@@ -1525,17 +1507,14 @@ body.rtl .scroll-top {
   function setConsent(state) {
     localStorage.setItem(CONSENT_KEY, state);
     
-    // Update Google Analytics consent
     if (typeof gtag !== 'undefined') {
       gtag('consent', 'update', {
         analytics_storage: state === 'granted' ? 'granted' : 'denied'
       });
     }
 
-    // Hide banner
     document.getElementById(BANNER_ID).classList.remove('show');
     
-    // Show/hide Cookie Settings link in banner (always show after choice)
     const settingsBtn = document.getElementById('cookieSettingsBtn');
     if (settingsBtn) {
       settingsBtn.style.display = 'inline-block';
@@ -1543,11 +1522,6 @@ body.rtl .scroll-top {
   }
 
   function loadGoogleAnalytics() {
-    // GA script is already in the <head> with async.
-    // It loads, but consent mode defaults to 'denied'.
-    // When consent is granted, we update via gtag().
-    // No need to dynamically load the script again.
-    // Just ensure gtag config runs with updated consent.
     if (typeof gtag !== 'undefined') {
       gtag('config', 'G-72BT0DL8NJ');
     }
@@ -1557,7 +1531,6 @@ body.rtl .scroll-top {
     document.getElementById(BANNER_ID).classList.add('show');
   }
 
-  // Check consent on page load
   function initConsent() {
     const consent = getConsent();
     if (consent === 'granted') {
@@ -1566,15 +1539,11 @@ body.rtl .scroll-top {
     } else if (consent === 'denied') {
       setConsent('denied');
     } else {
-      // No consent stored — show banner
       showBanner();
     }
   }
 
-  // Expose functions globally for use elsewhere (e.g., Cookie Settings link)
   window.reopenCookieBanner = function() {
-    // Reset consent so banner reappears
-    // But we want to keep the existing consent value as default
     showBanner();
   };
 
@@ -1582,7 +1551,6 @@ body.rtl .scroll-top {
     return getConsent();
   };
 
-  // Event listeners
   document.addEventListener('DOMContentLoaded', function() {
     initConsent();
 
@@ -1595,22 +1563,17 @@ body.rtl .scroll-top {
       setConsent('denied');
     });
 
-    // Cookie Settings link in footer
     const settingsLink = document.getElementById('cookieSettingsLink');
     if (settingsLink) {
       settingsLink.addEventListener('click', function(e) {
         e.preventDefault();
-        // Show the banner again
         showBanner();
       });
     }
 
-    // Cookie Settings button inside banner (shown after choice)
     const settingsBtn = document.getElementById('cookieSettingsBtn');
     if (settingsBtn) {
       settingsBtn.addEventListener('click', function() {
-        // This can be used to show more detailed settings if needed
-        // For now, just show the banner again
         showBanner();
       });
     }
@@ -1618,9 +1581,6 @@ body.rtl .scroll-top {
 
 })();
 
-// ==================== END COOKIE CONSENT SYSTEM ====================
-
-// ==================== MULTILINGUAL CONTENT ====================
 const content = {
   en: {
     logo: 'Business Technology Solutions',
@@ -1724,7 +1684,6 @@ const content = {
   }
 };
 
-// ==================== BILINGUAL CARD DATA ====================
 const solutionsData = {
   en: [
     { icon: '⚡', title: 'Operational Automation', desc: 'Streamline repetitive workflows and reduce manual effort.', page: 'operational-automation.html', more: 'Learn More →' },
@@ -1836,14 +1795,12 @@ const serviceOptions = {
 
 let currentLang = 'en';
 
-// URL language parameter
 const urlParams = new URLSearchParams(window.location.search);
 const langParam = urlParams.get('lang');
 if (langParam === 'ar') {
     currentLang = 'ar';
 }
 
-// ==================== CANVAS ====================
 const canvas = document.getElementById('bgCanvas');
 const ctx = canvas.getContext('2d');
 let particles = [];
@@ -1972,7 +1929,6 @@ window.addEventListener('scroll', () => {
   else scrollBtn.classList.remove('show');
 });
 
-// ==================== LIGHTBOX ====================
 function openLightbox(imageSrc) {
     const lightbox = document.getElementById('imageLightbox');
     const lightboxImage = document.getElementById('lightboxImage');
@@ -1993,14 +1949,12 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// ==================== FAQ ====================
 function initFaq() {
   document.querySelectorAll('.faq-item').forEach(item => {
     item.addEventListener('click', () => item.classList.toggle('open'));
   });
 }
 
-// ==================== BLOG POSTS ====================
 async function loadLatestBlogPosts() {
     try {
         let response;
@@ -2162,7 +2116,6 @@ function renderPage() {
   document.getElementById('messageLabel').innerText = t.contact.messageLabel;
   document.getElementById('submitBtn').innerText = t.contact.submitBtn;
   
-  // Form privacy notice
   const privacyNotice = document.getElementById('formPrivacyNotice');
   if (privacyNotice) {
     privacyNotice.innerHTML = t.contact.privacyNotice.replace(
@@ -2171,7 +2124,6 @@ function renderPage() {
     );
   }
   
-  // Footer
   document.getElementById('footerLogoText').innerText = t.logo;
   document.getElementById('footerDesc').innerText = t.footer.desc;
   document.getElementById('footerSolutions').innerText = t.footer.solutions;
@@ -2188,19 +2140,16 @@ function renderPage() {
   document.getElementById('footerResources').innerText = t.footer.resources;
   document.getElementById('footerBlogLink').innerText = t.footer.blogLink;
   
-  // Blog
   if (document.getElementById('featuredBlogTitle')) {
     document.getElementById('featuredBlogTitle').innerText = t.featuredBlog.title;
     document.getElementById('featuredBlogSubtitle').innerText = t.featuredBlog.subtitle;
   }
   
-  // Trust
   document.getElementById('trust1').innerText = t.trust[0];
   document.getElementById('trust2').innerText = t.trust[1];
   document.getElementById('trust3').innerText = t.trust[2];
   document.getElementById('trust4').innerText = t.trust[3];
   
-  // Navigation
   document.getElementById('navSolutions').innerText = t.solutions.title.split(' ')[0];
   document.getElementById('navIndustries').innerText = t.industries.title;
   document.getElementById('navContact').innerText = t.contact.title;
@@ -2213,7 +2162,6 @@ function renderPage() {
     document.getElementById('mobileBlog').innerText = t.footer.blogLink;
   }
   
-  // Cookie banner translation
   const cookieText = document.getElementById('cookieBannerText');
   if (cookieText) {
     cookieText.innerHTML = t.cookie.text + ' <a href="/privacy-policy.html" id="cookiePrivacyLink" style="color: var(--primary); text-decoration: underline;">' + t.cookie.privacyLink + '</a>';
@@ -2221,13 +2169,9 @@ function renderPage() {
   document.getElementById('cookieAcceptBtn').innerText = t.cookie.accept;
   document.getElementById('cookieRejectBtn').innerText = t.cookie.reject;
   
-  // Render ticker
   renderTicker();
-  
-  // Update form services
   updateFormServices();
   
-  // Render bilingual cards
   const solutions = solutionsData[currentLang];
   document.getElementById('solutionsGrid').innerHTML = solutions.map(s => `
     <div class="card" onclick="goToServicePage('${s.page}')">
@@ -2274,7 +2218,6 @@ function renderPage() {
     </div>
   `).join('');
   
-  // RTL
   if (currentLang === 'ar') {
     document.body.classList.add('rtl');
     document.documentElement.setAttribute('dir', 'rtl');
@@ -2395,17 +2338,11 @@ document.getElementById('contactForm')?.addEventListener('submit', async (e) => 
 
 document.getElementById('scrollTopBtn').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-// Initialize
 renderPage();
 
 const spinStyle = document.createElement('style');
 spinStyle.textContent = '@keyframes spin { to { transform: rotate(360deg); } }';
 document.head.appendChild(spinStyle);
-
-// ==================== COOKIE BANNER — ENSURE CONSENT DEFAULTS ARE SET ====================
-// This ensures that even if the GA script loads before the consent system,
-// the default is 'denied' and no tracking occurs without consent.
-// The consent system above handles the rest.
 </script>
 </body>
 </html>
