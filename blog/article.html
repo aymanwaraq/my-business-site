@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article | BTS Blog</title>
+    <title id="articleTitle">Article | BTS Blog</title>
     <link rel="canonical" href="https://btsapp.net/blog/" />
     <meta name="description" content="Read the latest insights from BTS on AI automation, business intelligence, and digital transformation.">
     
@@ -812,8 +812,6 @@
             const caption = block.caption || '';
             const src = block.src || '';
 
-            console.log('Rendering block:', type, block); // Debug log
-
             switch (type) {
                 case 'heading':
                     html += `<h2>${text}</h2>`;
@@ -1022,7 +1020,19 @@
             // Render the article content using the helper function
             const contentHtml = renderContent(article.content);
 
-            container.innerHTML = `
+                    // Update page title
+        const titleEl = document.getElementById('articleTitle');
+        if (titleEl && article.title) {
+            titleEl.textContent = article.title + ' | BTS Blog';
+        }
+        // Update canonical URL
+        const canonicalEl = document.querySelector('link[rel="canonical"]');
+        if (canonicalEl && article.slug) {
+            const lang = params.lang || 'en';
+            canonicalEl.href = `https://btsapp.net/blog/article.html?slug=${article.slug}&lang=${lang}`;
+        }
+
+        container.innerHTML = `
                 <article>
                     <div class="article-header">
                         <div class="article-category">${article.category || 'General'}</div>
