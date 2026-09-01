@@ -734,6 +734,9 @@
 
             return `
                 <a href="/blog/article.html?slug=${post.slug}&lang=${lang}" class="blog-card">
+                    ${post.cover ? `<div style="width:100%;height:180px;overflow:hidden;border-radius:12px;margin-bottom:14px;background:var(--bg-card);">
+                        <img src="${post.cover}" alt="${post.title || 'Article cover'}" style="width:100%;height:100%;object-fit:cover;" loading="lazy" onerror="this.style.display='none'">
+                    </div>` : ''}
                     <div class="category">${post.category || 'General'}</div>
                     <h2>${emoji} ${post.title || 'Untitled'}</h2>
                     <p>${summary}</p>
