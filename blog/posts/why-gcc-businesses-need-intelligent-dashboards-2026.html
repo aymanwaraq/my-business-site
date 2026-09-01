@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Why GCC Businesses Need Intelligent Dashboards in 2026 | BTS Blog</title>
+    <link rel="canonical" href="https://btsapp.net/blog/posts/why-gcc-businesses-need-intelligent-dashboards-2026.html" />
+    <meta name="description" content="Every day, businesses across the GCC generate thousands of data points from sales to operations. Yet this information remains trapped in disconnected systems. Intelligent dashboards solve this by bringing data together in real-time, enabling faster decisions and better business outcomes.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/blog/style.css">
+    <link rel="stylesheet" href="/blog/article.css">
+    
+    <style>
+        .image-wrapper {
+            cursor: pointer;
+            position: relative;
+            margin: 24px 0;
+        }
+        .image-wrapper img {
+            max-width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+        .image-wrapper img:hover {
+            transform: scale(1.01);
+            box-shadow: 0 4px 20px rgba(74,144,226,0.2);
+        }
+        .image-caption {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-top: 8px;
+        }
+        .image-lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.92);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            cursor: pointer;
+        }
+        .image-lightbox.active {
+            display: flex;
+        }
+        .image-lightbox img {
+            max-width: 95%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 10px 60px rgba(0,0,0,0.8);
+        }
+        .image-lightbox .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            z-index: 10000;
+            transition: transform 0.3s ease;
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            line-height: 1;
+        }
+        .image-lightbox .close-btn:hover {
+            transform: rotate(90deg);
+        }
+        .image-lightbox .zoom-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.4);
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 768px) {
+            .image-lightbox { padding: 20px; }
+            .image-lightbox .close-btn { top: 20px; right: 20px; font-size: 30px; }
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .table-wrapper table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .table-wrapper th {
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            text-align: left;
+            background: rgba(74,144,226,0.1);
+            color: white;
+            font-weight: 600;
+        }
+        .table-wrapper td {
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            color: var(--text-light);
+        }
+        body.rtl .table-wrapper th,
+        body.rtl .table-wrapper td {
+            text-align: right;
+        }
+    </style>
+</head>
+<body class="">
+
+<nav class="nav" id="navbar">
+    <div class="nav-inner">
+        <a href="/" class="logo">
+            <img class="logo-img" src="/assets/images/Logo.png" alt="BTS Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' rx=\'20\' fill=\'url(%23grad)\'/%3E%3Ctext x=\'50%25\' y=\'55%25\' text-anchor=\'middle\' fill=\'white\' font-size=\'34\' font-weight=\'800\' dy=\'.3em\'%3EBTS%3C/text%3E%3Cdefs%3E%3ClinearGradient id=\'grad\'%3E%3Cstop offset=\'0%25\' stop-color=\'%234a90e2\'/%3E%3Cstop offset=\'100%25\' stop-color=\'%237b2cbf\'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E'">
+            <span class="logo-title">BTS Blog</span>
+        </a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/#solutions">Solutions</a>
+            <a href="/#industries">Industries</a>
+            <a href="/#contact">Contact</a>
+            <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">عربي</button>
+        </div>
+        <button class="mobile-btn" onclick="toggleMobileDrawer()">☰</button>
+    </div>
+</nav>
+
+<div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-close" onclick="closeMobileDrawer()">×</div>
+    <a href="/" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;">Home</a>
+    <a href="/#solutions" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;" onclick="closeMobileDrawer()">Solutions</a>
+    <a href="/#industries" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;" onclick="closeMobileDrawer()">Industries</a>
+    <a href="/#contact" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;" onclick="closeMobileDrawer()">Contact</a>
+    <button class="lang-mobile" onclick="toggleLanguage(); closeMobileDrawer()" style="background:none;border:none;color:white;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;cursor:pointer;">عربي</button>
+</div>
+
+<section class="article-container">
+    <div class="container">
+        <a href="/blog/" class="article-back">← Back to Blog</a>
+
+        <article>
+            <div class="article-header">
+                <div class="article-category">Business Intelligence, AI, Digital Transformation, GCC</div>
+                <h1 class="article-title">Why GCC Businesses Need Intelligent Dashboards in 2026</h1>
+                <div class="article-meta">
+                    <span>📅 2026-07-01</span>
+                    <span>👤 BTS</span>
+                </div>
+            </div>
+
+            <img src="/assets/images/blog/intelligent-dashboards-architecture.png" alt="Why GCC Businesses Need Intelligent Dashboards in 2026" class="article-cover-image" loading="lazy" onclick="openLightbox('/assets/images/blog/intelligent-dashboards-architecture.png')">
+
+            <div class="article-body">
+                <h2>From Disconnected Systems to Strategic Decisions</h2>
+<p>Every day, businesses across the Gulf Cooperation Council generate thousands of data points from sales transactions and customer enquiries to inventory updates, financial records, and operational workflows. Yet for many organisations, this information remains trapped in disconnected systems, making timely and informed decision-making increasingly difficult.</p>
+<div class="image-wrapper" onclick="openLightbox('/assets/images/blog/from-disconnected-systems.png')">
+    <img src="/assets/images/blog/from-disconnected-systems.png" alt="From Disconnected Systems to Intelligent Decisions" loading="lazy">
+    <div class="image-caption">From Disconnected Systems to Intelligent Decisions</div>
+</div><p>As digital transformation accelerates across Saudi Arabia, the UAE, Qatar, and the wider GCC, executives need more than reports they need real-time business intelligence that enables faster, more confident decisions.</p>
+<p>The challenge is no longer about collecting data. It's about turning that data into actionable insight when it matters most.</p>
+<h2>The Reality: A Typical Monday Morning</h2>
+<p>Imagine a logistics director arriving at work on Monday morning. Instead of opening six different systems, downloading spreadsheets, and requesting reports from multiple departments, a single dashboard immediately highlights delayed shipments requiring urgent attention, warehouse capacity approaching critical limits, customer complaints trending upward in specific regions, revenue performance against monthly targets, and operational risks flagged by predictive analytics.</p>
+<p>Within minutes, management knows where attention is needed. Decisions that once took days now happen in hours.</p>
+<p>That is the power of an Intelligent Dashboard.</p>
+<h2>What Is an Intelligent Dashboard?</h2>
+<p>An Intelligent Dashboard is more than a collection of charts. It combines real-time business data from multiple sources, automated reporting that eliminates manual work, performance monitoring across departments and functions, predictive capabilities to forecast future trends, advanced analytics that highlight what matters, and automated alerts and recommendations for proactive action.</p>
+<div class="image-wrapper" onclick="openLightbox('/assets/images/blog/traditional-vs-intelligent-dashboard.png')">
+    <img src="/assets/images/blog/traditional-vs-intelligent-dashboard.png" alt="Traditional Dashboard vs. Intelligent Dashboard" loading="lazy">
+    <div class="image-caption">Traditional Dashboard vs. Intelligent Dashboard</div>
+</div><p>Instead of waiting for monthly reports, managers can instantly see revenue performance and profitability, operational bottlenecks and inefficiencies, customer behaviour and satisfaction trends, shipment delays and logistics issues, employee productivity and resource utilisation, financial KPIs and budget variances, and risk indicators and compliance metrics.</p>
+<p>The result is faster decision-making, reduced operational risk, and a more responsive organisation.</p>
+<h2>Why Many Dashboards Fail</h2>
+<p>Many organisations already have dashboards. The problem is that they are often showing historical data only — providing yesterday's news rather than today's reality, requiring manual updates — creating additional workload for already busy teams, containing too many metrics — overwhelming users with information rather than insight, lacking business context — presenting numbers without explaining what they mean, not generating recommendations — leaving interpretation to the user, and not integrating all operational systems — creating data silos rather than breaking them down.</p>
+<p>Traditional dashboards answer the question: "What happened?" Intelligent dashboards go further by answering: "What is happening right now?" Advanced analytics and predictive capabilities answer the most important question: "What is likely to happen next?"</p>
+<p>An Intelligent Dashboard goes beyond visualisation by combining automation, analytics, and business logic to support faster, more informed decision-making. Rather than simply presenting information, it helps organisations understand what requires attention and why.</p>
+<h2>Why the GCC Is Investing in Data-Driven Decision Making</h2>
+<p>The GCC is experiencing one of the fastest digital transformation movements in the world. Governments across Saudi Arabia, the UAE, and Qatar have launched ambitious national programs to build knowledge-based and digitally enabled economies.</p>
+<div class="image-wrapper" onclick="openLightbox('/assets/images/blog/intelligent-dashboards-architecture.png')">
+    <img src="/assets/images/blog/intelligent-dashboards-architecture.png" alt="How Intelligent Dashboards Work – Architecture Overview" loading="lazy">
+    <div class="image-caption">How Intelligent Dashboards Work – Architecture Overview</div>
+</div><h2>Saudi Vision 2030</h2>
+<p>Saudi Arabia's Vision 2030 is accelerating technology adoption across public and private sectors. The Kingdom is investing heavily in cloud infrastructure, digital government services, and advanced analytics capabilities to reduce oil dependency and build a diversified economy.</p>
+<h2>UAE Artificial Intelligence Strategy</h2>
+<p>The UAE continues to expand investments in artificial intelligence, cloud infrastructure, smart cities, and digital government services. As the first country in the region to appoint a Minister of State for Artificial Intelligence, the UAE is positioning itself as a global leader in technology adoption.</p>
+<h2>Qatar National Vision 2030</h2>
+<p>Qatar's National Vision 2030 and Digital Agenda 2030 place digital transformation and technology innovation at the centre of long-term economic development. The country is building a knowledge-based economy through strategic investments in technology and innovation.</p>
+<h2>Connecting National Strategy to Business Reality</h2>
+<p>These national strategies are creating new expectations for businesses. Organisations are increasingly expected to operate with greater efficiency, stronger governance, improved reporting, and data-driven decision-making. Intelligent dashboards provide a practical way to support these objectives by making operational and strategic information available in real time.</p>
+<h2>How BTS Builds Intelligent Dashboards: The Development Framework</h2>
+<p>BTS follows a structured methodology to ensure every dashboard delivers measurable business value.</p>
+<h2>1. Discovery & Business Analysis</h2>
+<p>We begin by understanding your organisation's strategic objectives, operational processes, and reporting requirements. This includes identifying key stakeholders, defining success metrics, and mapping existing data sources.</p>
+<h2>2. Data Integration</h2>
+<p>Modern dashboards require data from multiple systems including ERP systems (SAP, Oracle, Microsoft Dynamics), CRM platforms (Salesforce, HubSpot, Zoho), accounting software (QuickBooks, Xero, Sage), HR systems (Workday, BambooHR), Warehouse Management Systems, IoT devices and sensors, Excel spreadsheets and Google Sheets, and SQL databases and cloud APIs.</p>
+<h2>3. Dashboard Design</h2>
+<p>We design dashboards around business objectives rather than generic templates. This includes selecting the most meaningful performance indicators, designing intuitive visualisations, and creating role-specific views for executives, managers, and operational teams.</p>
+<h2>4. Analytics & Business Rules</h2>
+<p>We incorporate business logic, predictive capabilities, and automated alerting to ensure the dashboard provides actionable insights rather than just raw data. This transforms the dashboard from a reporting tool into a decision-support system.</p>
+<h2>5. User Testing</h2>
+<p>We work with end-users to validate the dashboard design, refine visualisations, and ensure the information presented is clear, relevant, and actionable.</p>
+<h2>6. Deployment</h2>
+<p>We deploy the dashboard using secure cloud infrastructure, ensuring data protection, scalability, and accessibility across your organisation.</p>
+<h2>7. Continuous Improvement</h2>
+<p>We provide ongoing support and maintenance, continuously refining the dashboard based on user feedback and evolving business requirements.</p>
+<h2>Industry-Specific Applications</h2>
+<h2>Logistics and Supply Chain</h2>
+<p>A logistics dashboard can display shipments in transit, delayed deliveries, customer activity, fleet performance, warehouse operations, revenue by customer, and risk alerts. Managers can identify issues immediately rather than waiting for end-of-week reports. Logistics companies using intelligent dashboards typically report faster response times to supply chain disruptions.</p>
+<h2>Healthcare</h2>
+<p>Healthcare organisations can monitor appointment attendance, no-show rates, staff workload, patient trends, and service demand forecasts. This enables better resource allocation, reduced wait times, and improved patient outcomes.</p>
+<h2>Retail and E-Commerce</h2>
+<p>Retail businesses can track sales performance, product demand, inventory levels, customer behaviour, and marketing effectiveness. This enables data-driven decisions about pricing, promotions, and product assortment.</p>
+<h2>Real Estate</h2>
+<p>Property companies can monitor occupancy rates, maintenance requests, leasing performance, revenue trends, and portfolio analytics. This provides better visibility into portfolio performance and helps identify emerging opportunities.</p>
+<h2>Banking and Finance</h2>
+<p>Financial institutions can monitor risk indicators, fraud detection, customer acquisition costs, portfolio performance, and regulatory compliance. This enables proactive risk management and better customer service.</p>
+<h2>Manufacturing</h2>
+<p>Manufacturers can track production efficiency, quality control metrics, equipment downtime, inventory levels, and supply chain performance. This enables predictive maintenance and improved operational efficiency.</p>
+<h2>The Future of Intelligent Dashboards</h2>
+<p>The next generation of dashboards will include natural-language search — simply ask questions in plain English or Arabic, voice assistants — interact with dashboards using voice commands, predictive capabilities — anticipate future trends and challenges, digital twins — simulate scenarios and test strategies, AI-generated executive summaries — automatically synthesise key insights, automated anomaly detection — identify unusual patterns in real time, real-time forecasting — update predictions based on the latest data, and advanced data visualisation — intuitive, interactive, and engaging.</p>
+<p>Businesses investing today will be well positioned to adopt these capabilities as they mature. The organisations that start their dashboard journey now will be ready to leverage tomorrow's innovations.</p>
+<h2>Frequently Asked Questions</h2>
+<p>What is an Intelligent Dashboard? An Intelligent Dashboard is a business intelligence tool that combines real-time data visualisation, automated reporting, predictive analytics, and actionable insights to support faster, more informed decision-making.</p>
+<p>How is it different from Power BI or Tableau? Tools like Power BI and Tableau are excellent visualisation platforms. However, an Intelligent Dashboard goes beyond visualisation by incorporating business logic, predictive capabilities, automated alerts, and role-specific views tailored to your organisation's objectives.</p>
+<p>Can BTS integrate existing ERP and CRM systems? Yes. BTS specialises in integrating data from multiple systems including SAP, Oracle, Microsoft Dynamics, Salesforce, HubSpot, and many others. We bring your existing data together into a single source of truth.</p>
+<p>Can dashboards support Arabic and English? Absolutely. BTS develops bilingual dashboards that support both Arabic and English, making data accessible to all team members regardless of their preferred language.</p>
+<p>How long does implementation take? Implementation typically takes 4–12 weeks depending on the complexity of your systems, the number of data sources, and your specific reporting requirements.</p>
+<p>Can small and medium businesses benefit from Intelligent Dashboards? Yes. Intelligent Dashboards are scalable and can be tailored to organisations of any size. We work with SMEs as well as large enterprises to provide the business intelligence capabilities they need.</p>
+<p>Is my data secure? Yes. BTS implements enterprise-grade security protocols including encryption, access controls, and secure cloud deployment to protect your business data.</p>
+<h2>Connect Your Existing Systems to a Single Source of Truth</h2>
+<p>Data has become one of the most valuable assets a business owns. However, data alone does not create competitive advantage—understanding it does. Intelligent Dashboards transform raw information into meaningful insight, helping organisations respond faster, operate more efficiently, and make better strategic decisions.</p>
+<p>For organisations across the GCC, the next competitive advantage may not come from collecting more data, but from using existing data more intelligently.</p>
+<h2>Ready to Turn Business Data into Better Decisions?</h2>
+<p>Whether your organisation operates in logistics, healthcare, retail, manufacturing, or professional services, BTS can help you transform disconnected data into a secure, intelligent dashboard tailored to your business. Book a consultation to discuss your goals and discover how real-time business intelligence can improve operational visibility, reporting, and strategic decision-making.</p>
+<h2>Contact BTS</h2>
+<p>Email: info@btsapp.net</p>
+<p>Phone: +44 7425 252625</p>
+<p>WhatsApp: Chat with us</p>
+<p>Website: https://btsapp.net</p>
+<h2>About BTS Business Technology Solutions</h2>
+<p>BTS helps organisations automate operations, unlock business insights, and build scalable digital systems designed for long-term growth. Our services include Intelligent Dashboards & Business Intelligence, AI-Powered Operational Automation, System Integration across ERP, CRM, and operational systems, Bilingual Business Applications (Arabic and English), Predictive Analytics Solutions, and Digital Transformation Consulting.</p>
+<p>We work with organisations across logistics, healthcare, retail, real estate, financial services, and professional services throughout the United Kingdom and GCC region.</p>
+<p>BTS — Intelligent dashboards, AI automation, and bilingual business systems for modern organisations across the GCC and United Kingdom.</p>
+
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- Image Lightbox -->
+<div class="image-lightbox" id="imageLightbox" onclick="closeLightbox()">
+    <button class="close-btn" onclick="event.stopPropagation(); closeLightbox();">×</button>
+    <img src="" alt="Full size image" id="lightboxImage" onclick="event.stopPropagation();">
+    <span class="zoom-hint">Click anywhere to close</span>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <span class="logo-title" style="font-size:18px;font-weight:800;background:linear-gradient(135deg,#ffffff,var(--primary),var(--secondary));-webkit-background-clip:text;background-clip:text;color:transparent;">BTS – Business Technology Solutions</span>
+                <p>Building enterprise AI systems that automate operations and improve decision-making for global organizations. Based in Glasgow, Scotland.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">in</a>
+                    <a href="#" class="social-link">🐦</a>
+                    <a href="#" class="social-link">▶</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="/#solutions">AI Solutions</a></li>
+                    <li><a href="/#all-services">Technology Solutions</a></li>
+                    <li><a href="/#digital-services">Digital Marketing</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/">About Us</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                    <li><a href="/#contact">Start a Project</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:info@btsapp.net">info@btsapp.net</a></li>
+                    <li><a href="tel:+447425252625">+44 7425 252625</a></li>
+                    <li><a href="#" onclick="openWhatsApp(); return false;">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 BTS — Business Technology Solutions. Registered company number: SC894313. Registered office: 12/3 30 Kingsway Court, Glasgow, Scotland, G14 9TL.</span>
+            <span>
+                <a href="/privacy-policy.html">Privacy Policy</a> |
+                <a href="/terms-of-service.html">Terms of Service</a> |
+                <a href="/#cookie-settings">Cookie Settings</a>
+            </span>
+        </div>
+    </div>
+</footer>
+
+<button class="float-wa" onclick="openWhatsApp()">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.48 2 2 6.48 2 12c0 1.92.54 3.68 1.47 5.19L2 22l4.81-1.47C8.32 21.46 10.08 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+</button>
+
+<button class="scroll-top" id="scrollTopBtn">↑</button>
+
+<script>
+    function toggleLanguage() {
+        var currentPath = window.location.pathname;
+        var isArabic = currentPath.includes('/ar/');
+        var newPath = isArabic ? currentPath.replace('/ar/', '/posts/') : currentPath.replace('/posts/', '/ar/');
+        window.location.href = newPath;
+    }
+    
+    function toggleMobileDrawer() {
+        document.getElementById('mobileDrawer').classList.add('open');
+    }
+    
+    function closeMobileDrawer() {
+        document.getElementById('mobileDrawer').classList.remove('open');
+    }
+    
+    function openWhatsApp() {
+        window.open('https://wa.me/447425252625', '_blank');
+    }
+    
+    function openLightbox(imageSrc) {
+        var lightbox = document.getElementById('imageLightbox');
+        var lightboxImage = document.getElementById('lightboxImage');
+        if (!lightbox || !lightboxImage) return;
+        lightboxImage.src = imageSrc;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeLightbox() {
+        var lightbox = document.getElementById('imageLightbox');
+        if (!lightbox) return;
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') { closeLightbox(); }
+    });
+    
+    window.addEventListener('scroll', function() {
+        var scrollBtn = document.getElementById('scrollTopBtn');
+        if (window.scrollY > 500) {
+            scrollBtn.classList.add('show');
+        } else {
+            scrollBtn.classList.remove('show');
+        }
+    });
+    
+    document.getElementById('scrollTopBtn').addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>

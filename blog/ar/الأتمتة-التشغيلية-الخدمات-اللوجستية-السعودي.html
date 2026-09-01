@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأتمتة التشغيلية في قطاع الخدمات اللوجستية السعودي | BTS Blog</title>
+    <link rel="canonical" href="https://btsapp.net/blog/posts/الأتمتة-التشغيلية-الخدمات-اللوجستية-السعودي.html" />
+    <meta name="description" content="كيف تساعد الأنظمة الذكية شركات النقل والخدمات اللوجستية على العمل بسرعة أكبر وكفاءة أعلى">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/blog/style.css">
+    <link rel="stylesheet" href="/blog/article.css">
+    
+    <style>
+        .image-wrapper {
+            cursor: pointer;
+            position: relative;
+            margin: 24px 0;
+        }
+        .image-wrapper img {
+            max-width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+        .image-wrapper img:hover {
+            transform: scale(1.01);
+            box-shadow: 0 4px 20px rgba(74,144,226,0.2);
+        }
+        .image-caption {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-top: 8px;
+        }
+        .image-lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.92);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            cursor: pointer;
+        }
+        .image-lightbox.active {
+            display: flex;
+        }
+        .image-lightbox img {
+            max-width: 95%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 10px 60px rgba(0,0,0,0.8);
+        }
+        .image-lightbox .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            z-index: 10000;
+            transition: transform 0.3s ease;
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            line-height: 1;
+        }
+        .image-lightbox .close-btn:hover {
+            transform: rotate(90deg);
+        }
+        .image-lightbox .zoom-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.4);
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 768px) {
+            .image-lightbox { padding: 20px; }
+            .image-lightbox .close-btn { top: 20px; right: 20px; font-size: 30px; }
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .table-wrapper table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .table-wrapper th {
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            text-align: left;
+            background: rgba(74,144,226,0.1);
+            color: white;
+            font-weight: 600;
+        }
+        .table-wrapper td {
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            color: var(--text-light);
+        }
+        body.rtl .table-wrapper th,
+        body.rtl .table-wrapper td {
+            text-align: right;
+        }
+    </style>
+</head>
+<body class="rtl">
+
+<nav class="nav" id="navbar">
+    <div class="nav-inner">
+        <a href="/" class="logo">
+            <img class="logo-img" src="/assets/images/Logo.png" alt="BTS Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' rx=\'20\' fill=\'url(%23grad)\'/%3E%3Ctext x=\'50%25\' y=\'55%25\' text-anchor=\'middle\' fill=\'white\' font-size=\'34\' font-weight=\'800\' dy=\'.3em\'%3EBTS%3C/text%3E%3Cdefs%3E%3ClinearGradient id=\'grad\'%3E%3Cstop offset=\'0%25\' stop-color=\'%234a90e2\'/%3E%3Cstop offset=\'100%25\' stop-color=\'%237b2cbf\'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E'">
+            <span class="logo-title">BTS Blog</span>
+        </a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/#solutions">Solutions</a>
+            <a href="/#industries">Industries</a>
+            <a href="/#contact">Contact</a>
+            <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">EN</button>
+        </div>
+        <button class="mobile-btn" onclick="toggleMobileDrawer()">☰</button>
+    </div>
+</nav>
+
+<div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-close" onclick="closeMobileDrawer()">×</div>
+    <a href="/" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;">الرئيسية</a>
+    <a href="/#solutions" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;" onclick="closeMobileDrawer()">الحلول</a>
+    <a href="/#industries" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;" onclick="closeMobileDrawer()">القطاعات</a>
+    <a href="/#contact" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;" onclick="closeMobileDrawer()">اتصل بنا</a>
+    <button class="lang-mobile" onclick="toggleLanguage(); closeMobileDrawer()" style="background:none;border:none;color:white;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;cursor:pointer;">EN</button>
+</div>
+
+<section class="article-container">
+    <div class="container">
+        <a href="/blog/" class="article-back">← العودة إلى المدونة</a>
+
+        <article>
+            <div class="article-header">
+                <div class="article-category">الخدمات اللوجستية, الأتمتة, الذكاء الاصطناعي</div>
+                <h1 class="article-title">الأتمتة التشغيلية في قطاع الخدمات اللوجستية السعودي</h1>
+                <div class="article-meta">
+                    <span>📅 2026-05-26</span>
+                    <span>👤 BTS</span>
+                </div>
+            </div>
+
+            <img src="/assets/images/blog/Saudi-logistics.jpg" alt="الأتمتة التشغيلية في قطاع الخدمات اللوجستية السعودي" class="article-cover-image" loading="lazy" onclick="openLightbox('/assets/images/blog/Saudi-logistics.jpg')">
+
+            <div class="article-body">
+                <h2>مقدمة</h2>
+<p>تشهد شركات الخدمات اللوجستية في المملكة العربية السعودية تحولاً متسارعاً مع زيادة حجم التجارة الإلكترونية، وتوسع سلاسل الإمداد، وارتفاع توقعات العملاء فيما يتعلق بسرعة التسليم ودقة العمليات. ومع هذا النمو، أصبحت العمليات اليدوية التقليدية تمثل تحدياً كبيراً أمام الشركات التي تسعى للتوسع وتحقيق كفاءة تشغيلية أعلى.</p>
+<div class="image-wrapper" onclick="openLightbox('/assets/images/blog/Saudi-logistics.jpg')">
+    <img src="/assets/images/blog/Saudi-logistics.jpg" alt="الأتمتة التشغيلية في قطاع الخدمات اللوجستية السعودي" loading="lazy">
+    <div class="image-caption">الأتمتة التشغيلية في قطاع الخدمات اللوجستية السعودي</div>
+</div><p>تأتي الأتمتة التشغيلية كحل عملي يمكّن شركات الخدمات اللوجستية من إزالة التعقيدات التشغيلية، وتقليل الأعمال المتكررة، وبناء عمليات أكثر ذكاءً وقابلية للتوسع.</p>
+<h2>ماذا تعني الأتمتة التشغيلية؟</h2>
+<p>تركز الأتمتة التشغيلية على تقليل أو إزالة العمليات اليدوية المتكررة التي تستهلك الوقت والموارد داخل المؤسسة. في قطاع الخدمات اللوجستية، تشمل هذه العمليات:</p>
+<div class="image-wrapper" onclick="openLightbox('/assets/images/blog/control-room.png')">
+    <img src="/assets/images/blog/control-room.png" alt="مراكز عمليات ذكية لمراقبة الأداء وتحسين الكفاءة التشغيلية" loading="lazy">
+    <div class="image-caption">مراكز عمليات ذكية لمراقبة الأداء وتحسين الكفاءة التشغيلية</div>
+</div><p>- إدخال بيانات الشحنات يدوياً</p>
+<p>- معالجة الطلبات بين الأقسام</p>
+<p>- متابعة الموافقات التشغيلية</p>
+<p>- تحديث الأنظمة المختلفة بشكل منفصل</p>
+<p>- إدارة الوثائق والمستندات التشغيلية</p>
+<p>عندما تعتمد الشركات على العمليات اليدوية بشكل كبير، تصبح الأخطاء أكثر تكراراً، وتتباطأ سرعة التنفيذ، وتزداد التكاليف التشغيلية.</p>
+<h2>كيف تساعد BTS شركات الخدمات اللوجستية؟</h2>
+<p>تقوم BTS ببناء أنظمة أتمتة ذكية تعمل بالذكاء الاصطناعي تساعد شركات الخدمات اللوجستية على تحسين العمليات اليومية وربط الأنظمة المختلفة ضمن تدفق عمل موحد.</p>
+<div class="image-wrapper" onclick="openLightbox('/assets/images/blog/trucks-distribution.jpg')">
+    <img src="/assets/images/blog/trucks-distribution.jpg" alt="شبكات نقل ذكية وسلاسل إمداد مترابطة لتسريع عمليات التوزيع" loading="lazy">
+    <div class="image-caption">شبكات نقل ذكية وسلاسل إمداد مترابطة لتسريع عمليات التوزيع</div>
+</div><p>بدلاً من إنشاء أدوات منفصلة، تقوم BTS بتصميم أنظمة أتمتة تتكامل مع الأنظمة الحالية داخل المؤسسة، مما يسمح بتقليل الاحتكاك التشغيلي وتحسين سرعة التنفيذ.</p>
+<h2>الأثر على الأعمال</h2>
+<p>تطبيق الأتمتة التشغيلية داخل شركات الخدمات اللوجستية ينعكس مباشرة على الأداء:</p>
+<div class="image-wrapper" onclick="openLightbox('/assets/images/blog/AI-logistics.jpg')">
+    <img src="/assets/images/blog/AI-logistics.jpg" alt="لوحات تحكم ذكية تساعد المؤسسات على اتخاذ قرارات أسرع وأكثر دقة" loading="lazy">
+    <div class="image-caption">لوحات تحكم ذكية تساعد المؤسسات على اتخاذ قرارات أسرع وأكثر دقة</div>
+</div><p>- تقليل الأعمال اليدوية</p>
+<p>- تنفيذ العمليات بشكل أسرع</p>
+<p>- تقليل الأخطاء التشغيلية</p>
+<p>- زيادة إنتاجية الفرق</p>
+<p>- تحسين تجربة العملاء</p>
+<p>- رفع قابلية التوسع التشغيلي</p>
+<p>- تحسين الاتساق بين العمليات</p>
+<h2>لماذا أصبحت الأتمتة أولوية في السوق السعودي؟</h2>
+<p>مع تسارع التحول الرقمي داخل المملكة وزيادة الاستثمارات في قطاع الخدمات اللوجستية، أصبحت القدرة على تنفيذ العمليات بسرعة وكفاءة عاملاً تنافسياً أساسياً.</p>
+<p>الشركات التي تعتمد على العمليات اليدوية فقط ستواجه صعوبة أكبر في مواكبة النمو، بينما تستطيع الشركات التي تبني أنظمة تشغيل ذكية التوسع بسرعة أكبر وبتكلفة تشغيلية أقل.</p>
+<h2>الأفضل لـ</h2>
+<p>شركات الخدمات اللوجستية، شركات النقل، شركات الشحن، المستودعات، ومزودي خدمات سلاسل الإمداد الذين يسعون إلى تقليل الجهد اليدوي، وتسريع العمليات، وبناء بيئة تشغيل أكثر ذكاءً وقابلية للتوسع.</p>
+<h2>الخلاصة</h2>
+<p>الأتمتة التشغيلية لم تعد مجرد تحسين إضافي، بل أصبحت جزءاً أساسياً من بناء شركات لوجستية قادرة على المنافسة في سوق سريع التغير. عندما تعمل الأنظمة معاً بشكل ذكي، تصبح الفرق أكثر إنتاجية، والعمليات أكثر سرعة، والنمو أكثر استدامة.</p>
+<p>---</p>
+<p>📧 info@btsapp.net | 📞 +44 7425 252625 | 📍 12/3 30 Kingsway Court, Glasgow, Scotland, G14 9TL</p>
+
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- Image Lightbox -->
+<div class="image-lightbox" id="imageLightbox" onclick="closeLightbox()">
+    <button class="close-btn" onclick="event.stopPropagation(); closeLightbox();">×</button>
+    <img src="" alt="Full size image" id="lightboxImage" onclick="event.stopPropagation();">
+    <span class="zoom-hint">Click anywhere to close</span>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <span class="logo-title" style="font-size:18px;font-weight:800;background:linear-gradient(135deg,#ffffff,var(--primary),var(--secondary));-webkit-background-clip:text;background-clip:text;color:transparent;">BTS – Business Technology Solutions</span>
+                <p>Building enterprise AI systems that automate operations and improve decision-making for global organizations. Based in Glasgow, Scotland.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">in</a>
+                    <a href="#" class="social-link">🐦</a>
+                    <a href="#" class="social-link">▶</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="/#solutions">AI Solutions</a></li>
+                    <li><a href="/#all-services">Technology Solutions</a></li>
+                    <li><a href="/#digital-services">Digital Marketing</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/">About Us</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                    <li><a href="/#contact">Start a Project</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:info@btsapp.net">info@btsapp.net</a></li>
+                    <li><a href="tel:+447425252625">+44 7425 252625</a></li>
+                    <li><a href="#" onclick="openWhatsApp(); return false;">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 BTS — Business Technology Solutions. Registered company number: SC894313. Registered office: 12/3 30 Kingsway Court, Glasgow, Scotland, G14 9TL.</span>
+            <span>
+                <a href="/privacy-policy.html">Privacy Policy</a> |
+                <a href="/terms-of-service.html">Terms of Service</a> |
+                <a href="/#cookie-settings">Cookie Settings</a>
+            </span>
+        </div>
+    </div>
+</footer>
+
+<button class="float-wa" onclick="openWhatsApp()">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.48 2 2 6.48 2 12c0 1.92.54 3.68 1.47 5.19L2 22l4.81-1.47C8.32 21.46 10.08 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+</button>
+
+<button class="scroll-top" id="scrollTopBtn">↑</button>
+
+<script>
+    function toggleLanguage() {
+        var currentPath = window.location.pathname;
+        var isArabic = currentPath.includes('/ar/');
+        var newPath = isArabic ? currentPath.replace('/ar/', '/posts/') : currentPath.replace('/posts/', '/ar/');
+        window.location.href = newPath;
+    }
+    
+    function toggleMobileDrawer() {
+        document.getElementById('mobileDrawer').classList.add('open');
+    }
+    
+    function closeMobileDrawer() {
+        document.getElementById('mobileDrawer').classList.remove('open');
+    }
+    
+    function openWhatsApp() {
+        window.open('https://wa.me/447425252625', '_blank');
+    }
+    
+    function openLightbox(imageSrc) {
+        var lightbox = document.getElementById('imageLightbox');
+        var lightboxImage = document.getElementById('lightboxImage');
+        if (!lightbox || !lightboxImage) return;
+        lightboxImage.src = imageSrc;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeLightbox() {
+        var lightbox = document.getElementById('imageLightbox');
+        if (!lightbox) return;
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') { closeLightbox(); }
+    });
+    
+    window.addEventListener('scroll', function() {
+        var scrollBtn = document.getElementById('scrollTopBtn');
+        if (window.scrollY > 500) {
+            scrollBtn.classList.add('show');
+        } else {
+            scrollBtn.classList.remove('show');
+        }
+    });
+    
+    document.getElementById('scrollTopBtn').addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>

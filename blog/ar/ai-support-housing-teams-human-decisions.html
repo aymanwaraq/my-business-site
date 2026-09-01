@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كيف يمكن للذكاء الاصطناعي دعم فرق الإسكان دون استبدال القرارات البشرية | BTS Blog</title>
+    <link rel="canonical" href="https://btsapp.net/blog/posts/ai-support-housing-teams-human-decisions.html" />
+    <meta name="description" content="كيف يمكن للذكاء الاصطناعي مساعدة خدمات الإسكان والمشردين في تقليل العبء الإداري وتحسين التواصل ودعم الأشخاص الأكثر ضعفاً، دون استبدال عملية اتخاذ القرار البشري.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/blog/style.css">
+    <link rel="stylesheet" href="/blog/article.css">
+    
+    <style>
+        .image-wrapper {
+            cursor: pointer;
+            position: relative;
+            margin: 24px 0;
+        }
+        .image-wrapper img {
+            max-width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+        .image-wrapper img:hover {
+            transform: scale(1.01);
+            box-shadow: 0 4px 20px rgba(74,144,226,0.2);
+        }
+        .image-caption {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-top: 8px;
+        }
+        .image-lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.92);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            cursor: pointer;
+        }
+        .image-lightbox.active {
+            display: flex;
+        }
+        .image-lightbox img {
+            max-width: 95%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 10px 60px rgba(0,0,0,0.8);
+        }
+        .image-lightbox .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            z-index: 10000;
+            transition: transform 0.3s ease;
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            line-height: 1;
+        }
+        .image-lightbox .close-btn:hover {
+            transform: rotate(90deg);
+        }
+        .image-lightbox .zoom-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.4);
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 768px) {
+            .image-lightbox { padding: 20px; }
+            .image-lightbox .close-btn { top: 20px; right: 20px; font-size: 30px; }
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .table-wrapper table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .table-wrapper th {
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            text-align: left;
+            background: rgba(74,144,226,0.1);
+            color: white;
+            font-weight: 600;
+        }
+        .table-wrapper td {
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            color: var(--text-light);
+        }
+        body.rtl .table-wrapper th,
+        body.rtl .table-wrapper td {
+            text-align: right;
+        }
+    </style>
+</head>
+<body class="rtl">
+
+<nav class="nav" id="navbar">
+    <div class="nav-inner">
+        <a href="/" class="logo">
+            <img class="logo-img" src="/assets/images/Logo.png" alt="BTS Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' rx=\'20\' fill=\'url(%23grad)\'/%3E%3Ctext x=\'50%25\' y=\'55%25\' text-anchor=\'middle\' fill=\'white\' font-size=\'34\' font-weight=\'800\' dy=\'.3em\'%3EBTS%3C/text%3E%3Cdefs%3E%3ClinearGradient id=\'grad\'%3E%3Cstop offset=\'0%25\' stop-color=\'%234a90e2\'/%3E%3Cstop offset=\'100%25\' stop-color=\'%237b2cbf\'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E'">
+            <span class="logo-title">BTS Blog</span>
+        </a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/#solutions">Solutions</a>
+            <a href="/#industries">Industries</a>
+            <a href="/#contact">Contact</a>
+            <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">EN</button>
+        </div>
+        <button class="mobile-btn" onclick="toggleMobileDrawer()">☰</button>
+    </div>
+</nav>
+
+<div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-close" onclick="closeMobileDrawer()">×</div>
+    <a href="/" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;">الرئيسية</a>
+    <a href="/#solutions" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;" onclick="closeMobileDrawer()">الحلول</a>
+    <a href="/#industries" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;" onclick="closeMobileDrawer()">القطاعات</a>
+    <a href="/#contact" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;" onclick="closeMobileDrawer()">اتصل بنا</a>
+    <button class="lang-mobile" onclick="toggleLanguage(); closeMobileDrawer()" style="background:none;border:none;color:white;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;cursor:pointer;">EN</button>
+</div>
+
+<section class="article-container">
+    <div class="container">
+        <a href="/blog/" class="article-back">← العودة إلى المدونة</a>
+
+        <article>
+            <div class="article-header">
+                <div class="article-category">الذكاء الاصطناعي، الخدمات العامة، التكنولوجيا المدنية</div>
+                <h1 class="article-title">كيف يمكن للذكاء الاصطناعي دعم فرق الإسكان دون استبدال القرارات البشرية</h1>
+                <div class="article-meta">
+                    <span>📅 2026-05-26</span>
+                    <span>👤 BTS</span>
+                </div>
+            </div>
+
+            <img src="/assets/images/blog/housing-ai-support.png" alt="كيف يمكن للذكاء الاصطناعي دعم فرق الإسكان دون استبدال القرارات البشرية" class="article-cover-image" loading="lazy" onclick="openLightbox('/assets/images/blog/housing-ai-support.png')">
+
+            <div class="article-body">
+                <h2>خدمات الإسكان تحت ضغط متزايد — والتكنولوجيا وحدها لن تحل المشكلة</h2>
+<p>في العديد من المدن، تواجه خدمات الإسكان والمشردين ضغوطاً متزايدة.</p>
+<div class="image-wrapper" onclick="openLightbox('/assets/images/blog/housing-ai-support.png')">
+    <img src="/assets/images/blog/housing-ai-support.png" alt="دعم الذكاء الاصطناعي لفرق الإسكان دون استبدال القرارات البشرية" loading="lazy">
+    <div class="image-caption">دعم الذكاء الاصطناعي لفرق الإسكان دون استبدال القرارات البشرية</div>
+</div><p>أعداد الحالات المتزايدة، وارتفاع الطلب على الإسكان، والعبء الإداري، وتحديات التواصل، والموارد المحدودة تخلق بيئات صعبة لكل من الفرق الميدانية والأشخاص الذين تقدم لهم الدعم.</p>
+<p>لكن خلف كل إحصائية يوجد إنسان.</p>
+<p>عائلة تواجه حالة من عدم اليقين بشأن السكن المؤقت. لاجئ يعيد بناء حياته في بلد غير مألوف. مقيم ضعيف يتنقل بين أنظمة معقدة في ظل ظروف صعبة. أب يحاول منع التشرد مع حماية عائلته.</p>
+<p>خدمات الإسكان ليست مجرد أنظمة إدارية. إنها خدمات إنسانية. ويُطلب من هذه الخدمات الإنسانية بشكل متزايد القيام بالمزيد بموارد أقل.</p>
+<h2>حجم التحدي</h2>
+<p>الضغط ليس نظرياً. سجلت اسكتلندا 33,619 أسرة تم تقييمها كمشردة أو مهددة بالتشرد خلال 2023/24، بما في ذلك أكثر من 53,000 شخص. كان أكثر من 16,000 أسرة تعيش في سكن مؤقت، بينما كان أكثر من 10,000 طفل يعيشون في سكن مؤقت في جميع أنحاء اسكتلندا.</p>
+<div class="image-wrapper" onclick="openLightbox('/assets/images/blog/before-after.png')">
+    <img src="/assets/images/blog/before-after.png" alt="قبل وبعد: العمليات اليدوية مقابل العمليات المدعومة بالذكاء الاصطناعي" loading="lazy">
+    <div class="image-caption">قبل وبعد: العمليات اليدوية مقابل العمليات المدعومة بالذكاء الاصطناعي</div>
+</div><p>تمثل هذه الأرقام أعلى المستويات التي شوهدت منذ سنوات عديدة وتوضح سبب عمل خدمات الإسكان تحت ضغط متزايد.</p>
+<p>في غلاسكو وحدها، كان ما يقرب من 3,727 أسرة تعيش في سكن مؤقت، بينما أمضت العديد من الأسر التي تنتقل إلى سكن دائم شهوراً في انتظار السكن المؤقت.</p>
+<blockquote>لم يعد السؤال هو ما إذا كانت الخدمات تحت ضغط. السؤال هو كيف ندعم الأشخاص الذين يتحملون هذا الضغط.</blockquote>
+<h2>السؤال الخاطئ حول الذكاء الاصطناعي</h2>
+<p>عندما يناقش الناس الذكاء الاصطناعي في الخدمات العامة، غالباً ما تبدأ المحادثات بالأتمتة. هل يمكن للذكاء الاصطناعي استبدال الوظائف؟ هل يمكن للذكاء الاصطناعي تقليل متطلبات التوظيف؟ هل يمكن للذكاء الاصطناعي أتمتة اتخاذ القرار؟</p>
+<div class="image-wrapper" onclick="openLightbox('/assets/images/blog/chart_1_admin_effort_reduction.png')">
+    <img src="/assets/images/blog/chart_1_admin_effort_reduction.png" alt="التخفيض المقدر للجهد الإداري عبر مهام دعم الإسكان الرئيسية" loading="lazy">
+    <div class="image-caption">التخفيض المقدر للجهد الإداري عبر مهام دعم الإسكان الرئيسية</div>
+</div><div class="image-wrapper" onclick="openLightbox('/assets/images/blog/chart_2_total_time_saved.png')">
+    <img src="/assets/images/blog/chart_2_total_time_saved.png" alt="الوقت الإداري الإجمالي المحاكى قبل وبعد دعم القرار" loading="lazy">
+    <div class="image-caption">الوقت الإداري الإجمالي المحاكى قبل وبعد دعم القرار</div>
+</div><div class="image-wrapper" onclick="openLightbox('/assets/images/blog/chart_3_case_mix.png')">
+    <img src="/assets/images/blog/chart_3_case_mix.png" alt="مزيج الحالات الاصطناعية المستخدم في محاكاة سير العمل من BTS" loading="lazy">
+    <div class="image-caption">مزيج الحالات الاصطناعية المستخدم في محاكاة سير العمل من BTS</div>
+</div><p>هذه أسئلة خاطئة. السؤال الأفضل هو: كيف يمكن للتكنولوجيا دعم الأشخاص الذين يقومون بعمل صعب بدلاً من استبدالهم؟</p>
+<p>في BTS — حلول تكنولوجيا الأعمال — نعتقد أن الذكاء الاصطناعي يجب استخدامه بشكل أساسي كدعم للقرار، وليس كبديل لاتخاذ القرار.</p>
+<h2>حقيقة العمل في دعم الإسكان</h2>
+<p>تقوم فرق الإسكان بأكثر من مجرد معالجة الطلبات. إنهم يدعمون الأشخاص والعائلات الضعيفة، وحالات السكن المؤقت، واللاجئين الذين يعيدون بناء حياتهم، والمقيمين الذين يعانون من ظروف صعبة، والأشخاص المعرضين لخطر التشرد، والأفراد الذين يحتاجون إلى دعم متعدد الوكالات.</p>
+<p>قد تتضمن كل حالة تفاعلات متعددة، وكميات كبيرة من الوثائق، ومتابعات متكررة، وتواصل عبر لغات مختلفة، وتنسيق عبر الخدمات، واعتبارات تتعلق بالحماية، وتقييمات المخاطر.</p>
+<p>العبء الإداري كبير. والنتيجة ليست مجرد ضغط عبء العمل. النتيجة هي وقت أقل متاح للجزء الإنساني من الوظيفة.</p>
+<h2>لماذا تحتاج خدمات الإسكان إلى أدوات تشغيلية أفضل</h2>
+<p>تواجه العديد من فرق الإسكان تحديات تشغيلية تجد الأنظمة الحالية صعوبة في حلها.</p>
+<h2>العبء الإداري</h2>
+<p>يقضي مسؤولو الإسكان وقتاً كبيراً في كتابة الملاحظات، وتحديث الأنظمة، ومتابعة الوثائق، وإعداد الاتصالات، وإنتاج التقارير، والبحث عن المعلومات. العمل الإداري ضروري، لكن الإدارة المفرطة تقلل من الوقت المتاح لدعم الأشخاص.</p>
+<h2>المعلومات المجزأة</h2>
+<p>غالباً ما تكون المعلومات المهمة موزعة عبر البريد الإلكتروني، وقواعد البيانات، ومحركات الأقراص المشتركة، وأنظمة الحالات، والمستندات الورقية، وجداول البيانات. تخلق المعلومات المجزأة مخاطر لأن التفاصيل المهمة يصعب العثور عليها.</p>
+<h2>حواجز التواصل</h2>
+<p>دعم المجتمعات المتنوعة يعني دعم لغات متعددة. يمكن أن تخلق حواجز اللغة تأخيرات، وسوء فهم، وتواصلاً متكرراً، وعبء عمل متزايد، وتجربة أقل جودة للمقيمين.</p>
+<h2>الرؤية المحدودة</h2>
+<p>غالباً ما يواجه المديرون صعوبة في الإجابة: أي الحالات متأخرة، وأي الفرق مثقلة بالعمل، وأين تتعطل الحالات، وأي احتياجات لغوية تتزايد. بدون رؤية، يصبح حل المشكلات أكثر صعوبة.</p>
+<p>هذه تحديات تشغيلية بقدر ما هي تحديات تكنولوجية.</p>
+<h2>نهج مختلف للتكنولوجيا المدنية</h2>
+<p>بدلاً من بناء روبوت محادثة آخر أو لوحة تحكم عامة، استكشفت BTS مفهوماً مختلفاً: منصة ذكاء لدعم الإسكان.</p>
+<blockquote>مساعدة فرق الإسكان على تنظيم المعلومات بشكل أسرع، والتواصل بشكل أكثر وضوحاً، وتحسين رؤية أعباء العمل المعقدة.</blockquote>
+<p>من المهم أن النظام لا يتخذ قرارات الإسكان. يبقى المسؤولون مسؤولين. التكنولوجيا تدعم. الناس يقررون.</p>
+<h2>النظر إلى المستقبل</h2>
+<p>من غير المرجح أن يكون مستقبل الذكاء الاصطناعي في خدمات الإسكان أنظمة آلية بالكامل تحل محل الموظفين.</p>
+<p>من المرجح أن تكون رؤية أفضل، وتواصل أفضل، وتنظيم أفضل، ودعم تشغيلي أفضل، واستخدام أفضل للموارد المحدودة.</p>
+<p>التكنولوجيا الأكثر معنى ليست دائماً الأكثر تعقيداً. في بعض الأحيان تكون التكنولوجيا الأكثر قيمة هي ببساطة التي تساعد الناس على مساعدة الآخرين بشكل أفضل.</p>
+<p>هذا هو نوع التكنولوجيا الذي تريد BTS بناءه.</p>
+<h2>لنتحدث</h2>
+<p>تلتزم BTS بتطوير أدوات ذكاء اصطناعي مسؤولة تدعم المهنيين في قطاع الإسكان، لا تحل محلهم. إذا كانت مؤسستك تشارك هذه الرؤية، نرحب بفرصة استكشاف كيف يمكن لتكنولوجيا دعم القرار أن تساعد فرقك على العمل بشكل أكثر فعالية مع الحفاظ على الحكم البشري في مركز كل قرار.</p>
+<p>البريد الإلكتروني: info@btsapp.net | الهاتف: +44 7425 252625 | الويب: btsapp.net</p>
+<p>مقرنا في غلاسكو، نخدم المؤسسات في جميع أنحاء المملكة المتحدة.</p>
+
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- Image Lightbox -->
+<div class="image-lightbox" id="imageLightbox" onclick="closeLightbox()">
+    <button class="close-btn" onclick="event.stopPropagation(); closeLightbox();">×</button>
+    <img src="" alt="Full size image" id="lightboxImage" onclick="event.stopPropagation();">
+    <span class="zoom-hint">Click anywhere to close</span>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <span class="logo-title" style="font-size:18px;font-weight:800;background:linear-gradient(135deg,#ffffff,var(--primary),var(--secondary));-webkit-background-clip:text;background-clip:text;color:transparent;">BTS – Business Technology Solutions</span>
+                <p>Building enterprise AI systems that automate operations and improve decision-making for global organizations. Based in Glasgow, Scotland.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">in</a>
+                    <a href="#" class="social-link">🐦</a>
+                    <a href="#" class="social-link">▶</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="/#solutions">AI Solutions</a></li>
+                    <li><a href="/#all-services">Technology Solutions</a></li>
+                    <li><a href="/#digital-services">Digital Marketing</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/">About Us</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                    <li><a href="/#contact">Start a Project</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:info@btsapp.net">info@btsapp.net</a></li>
+                    <li><a href="tel:+447425252625">+44 7425 252625</a></li>
+                    <li><a href="#" onclick="openWhatsApp(); return false;">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 BTS — Business Technology Solutions. Registered company number: SC894313. Registered office: 12/3 30 Kingsway Court, Glasgow, Scotland, G14 9TL.</span>
+            <span>
+                <a href="/privacy-policy.html">Privacy Policy</a> |
+                <a href="/terms-of-service.html">Terms of Service</a> |
+                <a href="/#cookie-settings">Cookie Settings</a>
+            </span>
+        </div>
+    </div>
+</footer>
+
+<button class="float-wa" onclick="openWhatsApp()">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.48 2 2 6.48 2 12c0 1.92.54 3.68 1.47 5.19L2 22l4.81-1.47C8.32 21.46 10.08 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+</button>
+
+<button class="scroll-top" id="scrollTopBtn">↑</button>
+
+<script>
+    function toggleLanguage() {
+        var currentPath = window.location.pathname;
+        var isArabic = currentPath.includes('/ar/');
+        var newPath = isArabic ? currentPath.replace('/ar/', '/posts/') : currentPath.replace('/posts/', '/ar/');
+        window.location.href = newPath;
+    }
+    
+    function toggleMobileDrawer() {
+        document.getElementById('mobileDrawer').classList.add('open');
+    }
+    
+    function closeMobileDrawer() {
+        document.getElementById('mobileDrawer').classList.remove('open');
+    }
+    
+    function openWhatsApp() {
+        window.open('https://wa.me/447425252625', '_blank');
+    }
+    
+    function openLightbox(imageSrc) {
+        var lightbox = document.getElementById('imageLightbox');
+        var lightboxImage = document.getElementById('lightboxImage');
+        if (!lightbox || !lightboxImage) return;
+        lightboxImage.src = imageSrc;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeLightbox() {
+        var lightbox = document.getElementById('imageLightbox');
+        if (!lightbox) return;
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') { closeLightbox(); }
+    });
+    
+    window.addEventListener('scroll', function() {
+        var scrollBtn = document.getElementById('scrollTopBtn');
+        if (window.scrollY > 500) {
+            scrollBtn.classList.add('show');
+        } else {
+            scrollBtn.classList.remove('show');
+        }
+    });
+    
+    document.getElementById('scrollTopBtn').addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>

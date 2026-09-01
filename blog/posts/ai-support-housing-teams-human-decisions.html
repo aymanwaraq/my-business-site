@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How AI Could Support Housing Teams Without Replacing Human Decisions | BTS Blog</title>
+    <link rel="canonical" href="https://btsapp.net/blog/posts/ai-support-housing-teams-human-decisions.html" />
+    <meta name="description" content="How AI can help housing and homelessness services reduce administrative burden, improve communication, and support vulnerable people, without replacing human decision-making.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/blog/style.css">
+    <link rel="stylesheet" href="/blog/article.css">
+    
+    <style>
+        .image-wrapper {
+            cursor: pointer;
+            position: relative;
+            margin: 24px 0;
+        }
+        .image-wrapper img {
+            max-width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+        .image-wrapper img:hover {
+            transform: scale(1.01);
+            box-shadow: 0 4px 20px rgba(74,144,226,0.2);
+        }
+        .image-caption {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-top: 8px;
+        }
+        .image-lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.92);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            cursor: pointer;
+        }
+        .image-lightbox.active {
+            display: flex;
+        }
+        .image-lightbox img {
+            max-width: 95%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 10px 60px rgba(0,0,0,0.8);
+        }
+        .image-lightbox .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            z-index: 10000;
+            transition: transform 0.3s ease;
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            line-height: 1;
+        }
+        .image-lightbox .close-btn:hover {
+            transform: rotate(90deg);
+        }
+        .image-lightbox .zoom-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.4);
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 768px) {
+            .image-lightbox { padding: 20px; }
+            .image-lightbox .close-btn { top: 20px; right: 20px; font-size: 30px; }
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .table-wrapper table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .table-wrapper th {
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            text-align: left;
+            background: rgba(74,144,226,0.1);
+            color: white;
+            font-weight: 600;
+        }
+        .table-wrapper td {
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            color: var(--text-light);
+        }
+        body.rtl .table-wrapper th,
+        body.rtl .table-wrapper td {
+            text-align: right;
+        }
+    </style>
+</head>
+<body class="">
+
+<nav class="nav" id="navbar">
+    <div class="nav-inner">
+        <a href="/" class="logo">
+            <img class="logo-img" src="/assets/images/Logo.png" alt="BTS Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' rx=\'20\' fill=\'url(%23grad)\'/%3E%3Ctext x=\'50%25\' y=\'55%25\' text-anchor=\'middle\' fill=\'white\' font-size=\'34\' font-weight=\'800\' dy=\'.3em\'%3EBTS%3C/text%3E%3Cdefs%3E%3ClinearGradient id=\'grad\'%3E%3Cstop offset=\'0%25\' stop-color=\'%234a90e2\'/%3E%3Cstop offset=\'100%25\' stop-color=\'%237b2cbf\'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E'">
+            <span class="logo-title">BTS Blog</span>
+        </a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/#solutions">Solutions</a>
+            <a href="/#industries">Industries</a>
+            <a href="/#contact">Contact</a>
+            <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">عربي</button>
+        </div>
+        <button class="mobile-btn" onclick="toggleMobileDrawer()">☰</button>
+    </div>
+</nav>
+
+<div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-close" onclick="closeMobileDrawer()">×</div>
+    <a href="/" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;">Home</a>
+    <a href="/#solutions" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;" onclick="closeMobileDrawer()">Solutions</a>
+    <a href="/#industries" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;" onclick="closeMobileDrawer()">Industries</a>
+    <a href="/#contact" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;" onclick="closeMobileDrawer()">Contact</a>
+    <button class="lang-mobile" onclick="toggleLanguage(); closeMobileDrawer()" style="background:none;border:none;color:white;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;cursor:pointer;">عربي</button>
+</div>
+
+<section class="article-container">
+    <div class="container">
+        <a href="/blog/" class="article-back">← Back to Blog</a>
+
+        <article>
+            <div class="article-header">
+                <div class="article-category">AI, Public Services, Civic Technology</div>
+                <h1 class="article-title">How AI Could Support Housing Teams Without Replacing Human Decisions</h1>
+                <div class="article-meta">
+                    <span>📅 2026-05-26</span>
+                    <span>👤 BTS</span>
+                </div>
+            </div>
+
+            <img src="/assets/images/blog/housing-ai-support.png" alt="How AI Could Support Housing Teams Without Replacing Human Decisions" class="article-cover-image" loading="lazy" onclick="openLightbox('/assets/images/blog/housing-ai-support.png')">
+
+            <div class="article-body">
+                <h2>Housing Services Are Under Growing Pressure — And Technology Alone Will Not Fix It</h2>
+<p>Across many cities, housing and homelessness services are experiencing increasing pressure.</p>
+<div class="image-wrapper" onclick="openLightbox('/assets/images/blog/housing-ai-support.png')">
+    <img src="/assets/images/blog/housing-ai-support.png" alt="AI support for housing teams without replacing human decisions" loading="lazy">
+    <div class="image-caption">AI support for housing teams without replacing human decisions</div>
+</div><p>Growing case volumes, rising housing demand, administrative burden, communication challenges, and limited resources are creating difficult environments for both frontline teams and the people they support.</p>
+<p>But behind every statistic is a person.</p>
+<p>A family facing uncertainty around temporary accommodation. A refugee rebuilding life in an unfamiliar country. A vulnerable resident navigating complex systems during difficult circumstances. A parent trying to prevent homelessness while protecting their family.</p>
+<p>Housing services are not simply administrative systems. They are human services. And increasingly, those human services are being asked to do more with less.</p>
+<h2>The Scale of the Challenge</h2>
+<p>The pressure is not theoretical. Scotland recorded 33,619 households assessed as homeless or threatened with homelessness during 2023/24, involving more than 53,000 people. More than 16,000 households were living in temporary accommodation, while over 10,000 children were living in temporary accommodation across Scotland.</p>
+<div class="image-wrapper" onclick="openLightbox('/assets/images/blog/before-after.png')">
+    <img src="/assets/images/blog/before-after.png" alt="Before and after: Manual versus AI-assisted operations" loading="lazy">
+    <div class="image-caption">Before and after: Manual versus AI-assisted operations</div>
+</div><p>These figures represent the highest levels seen for many years and illustrate why housing services are operating under increasing pressure.</p>
+<p>In Glasgow alone, approximately 3,727 households were living in temporary accommodation, while many households moving into secure accommodation had spent months waiting in temporary housing.</p>
+<blockquote>The question is no longer whether services are under pressure. The question is how we support the people carrying that pressure.</blockquote>
+<h2>The Wrong Question About Artificial Intelligence</h2>
+<p>When people discuss AI in public services, conversations often begin with automation. Can AI replace jobs? Can AI reduce staffing requirements? Can AI automate decision making?</p>
+<div class="image-wrapper" onclick="openLightbox('/assets/images/blog/chart_1_admin_effort_reduction.png')">
+    <img src="/assets/images/blog/chart_1_admin_effort_reduction.png" alt="Estimated administrative effort reduction across key housing-support tasks" loading="lazy">
+    <div class="image-caption">Estimated administrative effort reduction across key housing-support tasks</div>
+</div><div class="image-wrapper" onclick="openLightbox('/assets/images/blog/chart_2_total_time_saved.png')">
+    <img src="/assets/images/blog/chart_2_total_time_saved.png" alt="Total simulated administrative time before and after decision-support assistance" loading="lazy">
+    <div class="image-caption">Total simulated administrative time before and after decision-support assistance</div>
+</div><div class="image-wrapper" onclick="openLightbox('/assets/images/blog/chart_3_case_mix.png')">
+    <img src="/assets/images/blog/chart_3_case_mix.png" alt="Synthetic case mix used in the BTS workflow simulation" loading="lazy">
+    <div class="image-caption">Synthetic case mix used in the BTS workflow simulation</div>
+</div><p>These are the wrong questions. The better question is: how can technology support people doing difficult work instead of replacing them?</p>
+<p>At BTS — Business Technology Solutions — we believe AI should be used primarily as decision support, not decision making.</p>
+<h2>The Reality Behind Housing Support Work</h2>
+<p>Housing teams do far more than process applications. They support vulnerable people and families, temporary accommodation cases, refugees rebuilding their lives, residents experiencing difficult circumstances, people at risk of homelessness, and individuals requiring multi-agency support.</p>
+<p>Each case may involve multiple interactions, large volumes of documentation, repeated follow-ups, communication across different languages, coordination across services, safeguarding considerations, and risk assessments.</p>
+<p>The administrative burden is significant. The consequence is not simply workload pressure. The consequence is less time available for the human part of the job.</p>
+<h2>Why Housing Services Need Better Operational Tools</h2>
+<p>Many housing teams face operational challenges that existing systems struggle to solve.</p>
+<h2>Administrative Burden</h2>
+<p>Housing officers spend substantial time writing notes, updating systems, chasing documentation, preparing communication, producing reports, and searching for information. Administrative work is necessary, but excessive administration reduces time available to support people.</p>
+<h2>Fragmented Information</h2>
+<p>Important information is often spread across emails, databases, shared drives, case systems, paper documents, and spreadsheets. Fragmented information creates risk because important details become harder to find.</p>
+<h2>Communication Barriers</h2>
+<p>Supporting diverse communities means supporting multiple languages. Language barriers can create delays, misunderstandings, repeat communication, increased workload, and poorer resident experience.</p>
+<h2>Limited Visibility</h2>
+<p>Managers often struggle to answer: which cases are delayed, which teams are overloaded, where cases become stuck, and which language needs are increasing. Without visibility, problems become harder to solve.</p>
+<p>These are operational challenges as much as technology challenges.</p>
+<h2>A Different Approach To Civic Technology</h2>
+<p>Instead of building another generic chatbot or dashboard, BTS explored a different concept: a Housing Support Intelligence Platform.</p>
+<blockquote>Help housing teams organise information faster, communicate more clearly, and improve visibility of complex case workloads.</blockquote>
+<p>Importantly, the system does not make housing decisions. Officers remain responsible. Technology supports. People decide.</p>
+<h2>Looking Forward</h2>
+<p>The future of AI in housing services is unlikely to be fully automated systems replacing staff.</p>
+<p>More likely, it will be better visibility, better communication, better organisation, better operational support, and better use of limited resources.</p>
+<p>The most meaningful technology is not always the most complicated. Sometimes the most valuable technology simply helps people help other people better.</p>
+<p>That is the kind of technology BTS wants to build.</p>
+<h2>Let's Talk</h2>
+<p>At BTS, we are committed to developing responsible AI tools that support housing professionals, not replace them. If your organisation shares this vision, we would welcome the opportunity to explore how decision-support technology could help your teams work more effectively while keeping human judgement at the centre of every decision.</p>
+<p>Email: info@btsapp.net | Phone: +44 7425 252625 | Web: btsapp.net</p>
+<p>Based in Glasgow, serving organisations across the United Kingdom.</p>
+
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- Image Lightbox -->
+<div class="image-lightbox" id="imageLightbox" onclick="closeLightbox()">
+    <button class="close-btn" onclick="event.stopPropagation(); closeLightbox();">×</button>
+    <img src="" alt="Full size image" id="lightboxImage" onclick="event.stopPropagation();">
+    <span class="zoom-hint">Click anywhere to close</span>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <span class="logo-title" style="font-size:18px;font-weight:800;background:linear-gradient(135deg,#ffffff,var(--primary),var(--secondary));-webkit-background-clip:text;background-clip:text;color:transparent;">BTS – Business Technology Solutions</span>
+                <p>Building enterprise AI systems that automate operations and improve decision-making for global organizations. Based in Glasgow, Scotland.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">in</a>
+                    <a href="#" class="social-link">🐦</a>
+                    <a href="#" class="social-link">▶</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="/#solutions">AI Solutions</a></li>
+                    <li><a href="/#all-services">Technology Solutions</a></li>
+                    <li><a href="/#digital-services">Digital Marketing</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/">About Us</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                    <li><a href="/#contact">Start a Project</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:info@btsapp.net">info@btsapp.net</a></li>
+                    <li><a href="tel:+447425252625">+44 7425 252625</a></li>
+                    <li><a href="#" onclick="openWhatsApp(); return false;">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 BTS — Business Technology Solutions. Registered company number: SC894313. Registered office: 12/3 30 Kingsway Court, Glasgow, Scotland, G14 9TL.</span>
+            <span>
+                <a href="/privacy-policy.html">Privacy Policy</a> |
+                <a href="/terms-of-service.html">Terms of Service</a> |
+                <a href="/#cookie-settings">Cookie Settings</a>
+            </span>
+        </div>
+    </div>
+</footer>
+
+<button class="float-wa" onclick="openWhatsApp()">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.48 2 2 6.48 2 12c0 1.92.54 3.68 1.47 5.19L2 22l4.81-1.47C8.32 21.46 10.08 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+</button>
+
+<button class="scroll-top" id="scrollTopBtn">↑</button>
+
+<script>
+    function toggleLanguage() {
+        var currentPath = window.location.pathname;
+        var isArabic = currentPath.includes('/ar/');
+        var newPath = isArabic ? currentPath.replace('/ar/', '/posts/') : currentPath.replace('/posts/', '/ar/');
+        window.location.href = newPath;
+    }
+    
+    function toggleMobileDrawer() {
+        document.getElementById('mobileDrawer').classList.add('open');
+    }
+    
+    function closeMobileDrawer() {
+        document.getElementById('mobileDrawer').classList.remove('open');
+    }
+    
+    function openWhatsApp() {
+        window.open('https://wa.me/447425252625', '_blank');
+    }
+    
+    function openLightbox(imageSrc) {
+        var lightbox = document.getElementById('imageLightbox');
+        var lightboxImage = document.getElementById('lightboxImage');
+        if (!lightbox || !lightboxImage) return;
+        lightboxImage.src = imageSrc;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeLightbox() {
+        var lightbox = document.getElementById('imageLightbox');
+        if (!lightbox) return;
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') { closeLightbox(); }
+    });
+    
+    window.addEventListener('scroll', function() {
+        var scrollBtn = document.getElementById('scrollTopBtn');
+        if (window.scrollY > 500) {
+            scrollBtn.classList.add('show');
+        } else {
+            scrollBtn.classList.remove('show');
+        }
+    });
+    
+    document.getElementById('scrollTopBtn').addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>

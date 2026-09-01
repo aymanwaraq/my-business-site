@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لماذا تحتاج شركات الخليج إلى لوحات التحكم الذكية في 2026 | BTS Blog</title>
+    <link rel="canonical" href="https://btsapp.net/blog/posts/why-gcc-businesses-need-intelligent-dashboards-2026.html" />
+    <meta name="description" content="كل يوم، تولد الشركات في جميع أنحاء دول الخليج آلاف نقاط البيانات من المبيعات إلى العمليات. ومع ذلك، تظل هذه المعلومات محاصرة في أنظمة منفصلة. تحل لوحات التحكم الذكية هذه المشكلة من خلال جمع البيانات في الوقت الفعلي، مما يتيح قرارات أسرع ونتائج أعمال أفضل.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/blog/style.css">
+    <link rel="stylesheet" href="/blog/article.css">
+    
+    <style>
+        .image-wrapper {
+            cursor: pointer;
+            position: relative;
+            margin: 24px 0;
+        }
+        .image-wrapper img {
+            max-width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+        }
+        .image-wrapper img:hover {
+            transform: scale(1.01);
+            box-shadow: 0 4px 20px rgba(74,144,226,0.2);
+        }
+        .image-caption {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-gray);
+            margin-top: 8px;
+        }
+        .image-lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.92);
+            z-index: 9999;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            cursor: pointer;
+        }
+        .image-lightbox.active {
+            display: flex;
+        }
+        .image-lightbox img {
+            max-width: 95%;
+            max-height: 90%;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 10px 60px rgba(0,0,0,0.8);
+        }
+        .image-lightbox .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            z-index: 10000;
+            transition: transform 0.3s ease;
+            background: none;
+            border: none;
+            font-family: 'Inter', sans-serif;
+            line-height: 1;
+        }
+        .image-lightbox .close-btn:hover {
+            transform: rotate(90deg);
+        }
+        .image-lightbox .zoom-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.4);
+            font-size: 13px;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        @media (max-width: 768px) {
+            .image-lightbox { padding: 20px; }
+            .image-lightbox .close-btn { top: 20px; right: 20px; font-size: 30px; }
+        }
+        .table-wrapper {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .table-wrapper table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .table-wrapper th {
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            text-align: left;
+            background: rgba(74,144,226,0.1);
+            color: white;
+            font-weight: 600;
+        }
+        .table-wrapper td {
+            border: 1px solid var(--border);
+            padding: 10px 14px;
+            color: var(--text-light);
+        }
+        body.rtl .table-wrapper th,
+        body.rtl .table-wrapper td {
+            text-align: right;
+        }
+    </style>
+</head>
+<body class="rtl">
+
+<nav class="nav" id="navbar">
+    <div class="nav-inner">
+        <a href="/" class="logo">
+            <img class="logo-img" src="/assets/images/Logo.png" alt="BTS Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' rx=\'20\' fill=\'url(%23grad)\'/%3E%3Ctext x=\'50%25\' y=\'55%25\' text-anchor=\'middle\' fill=\'white\' font-size=\'34\' font-weight=\'800\' dy=\'.3em\'%3EBTS%3C/text%3E%3Cdefs%3E%3ClinearGradient id=\'grad\'%3E%3Cstop offset=\'0%25\' stop-color=\'%234a90e2\'/%3E%3Cstop offset=\'100%25\' stop-color=\'%237b2cbf\'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E'">
+            <span class="logo-title">BTS Blog</span>
+        </a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/#solutions">Solutions</a>
+            <a href="/#industries">Industries</a>
+            <a href="/#contact">Contact</a>
+            <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">EN</button>
+        </div>
+        <button class="mobile-btn" onclick="toggleMobileDrawer()">☰</button>
+    </div>
+</nav>
+
+<div class="mobile-drawer" id="mobileDrawer">
+    <div class="drawer-close" onclick="closeMobileDrawer()">×</div>
+    <a href="/" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;">الرئيسية</a>
+    <a href="/#solutions" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;" onclick="closeMobileDrawer()">الحلول</a>
+    <a href="/#industries" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;" onclick="closeMobileDrawer()">القطاعات</a>
+    <a href="/#contact" style="color:white;text-decoration:none;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;" onclick="closeMobileDrawer()">اتصل بنا</a>
+    <button class="lang-mobile" onclick="toggleLanguage(); closeMobileDrawer()" style="background:none;border:none;color:white;font-size:18px;font-weight:600;padding:12px;border-radius:12px;text-align:center;cursor:pointer;">EN</button>
+</div>
+
+<section class="article-container">
+    <div class="container">
+        <a href="/blog/" class="article-back">← العودة إلى المدونة</a>
+
+        <article>
+            <div class="article-header">
+                <div class="article-category">ذكاء الأعمال، الذكاء الاصطناعي، التحول الرقمي، دول الخليج</div>
+                <h1 class="article-title">لماذا تحتاج شركات الخليج إلى لوحات التحكم الذكية في 2026</h1>
+                <div class="article-meta">
+                    <span>📅 2026-07-01</span>
+                    <span>👤 BTS</span>
+                </div>
+            </div>
+
+            <img src="/assets/images/blog/intelligent-dashboards-architecture.png" alt="لماذا تحتاج شركات الخليج إلى لوحات التحكم الذكية في 2026" class="article-cover-image" loading="lazy" onclick="openLightbox('/assets/images/blog/intelligent-dashboards-architecture.png')">
+
+            <div class="article-body">
+                <h2>من الأنظمة المنفصلة إلى القرارات الاستراتيجية</h2>
+<p>كل يوم، تولد الشركات في جميع أنحاء دول مجلس التعاون الخليجي آلاف نقاط البيانات — من المعاملات المالية واستفسارات العملاء إلى تحديثات المخزون والسجلات المالية وسير العمل التشغيلي. ومع ذلك، بالنسبة للعديد من المؤسسات، تظل هذه المعلومات محاصرة في أنظمة منفصلة، مما يجعل اتخاذ القرارات في الوقت المناسب وبشكل مستنير أكثر صعوبة.</p>
+<div class="image-wrapper" onclick="openLightbox('/assets/images/blog/from-disconnected-systems.png')">
+    <img src="/assets/images/blog/from-disconnected-systems.png" alt="من الأنظمة المنفصلة إلى القرارات الذكية" loading="lazy">
+    <div class="image-caption">من الأنظمة المنفصلة إلى القرارات الذكية</div>
+</div><p>مع تسارع التحول الرقمي في جميع أنحاء المملكة العربية السعودية والإمارات وقطر ودول الخليج الأوسع، يحتاج المديرون التنفيذيون إلى أكثر من مجرد تقارير — بل يحتاجون إلى ذكاء أعمال في الوقت الفعلي يمكنهم من اتخاذ قرارات أسرع وأكثر ثقة.</p>
+<p>لم يعد التحدي يتعلق بجمع البيانات. بل يتعلق بتحويل تلك البيانات إلى رؤى قابلة للتنفيذ عندما تكون في أمس الحاجة إليها.</p>
+<h2>الواقع: صباح يوم اثنين نموذجي</h2>
+<p>تخيل مديراً للخدمات اللوجستية يصل إلى العمل صباح يوم الاثنين. بدلاً من فتح ستة أنظمة مختلفة، وتنزيل جداول البيانات، وطلب تقارير من أقسام متعددة، تسلط لوحة تحكم واحدة الضوء فوراً على الشحنات المتأخرة التي تتطلب اهتماماً عاجلاً، وسعة المستودع التي تقترب من الحدود الحرجة، وشكاوى العملاء المتزايدة في مناطق محددة، وأداء الإيرادات مقابل الأهداف الشهرية، والمخاطر التشغيلية التي تم تحديدها بواسطة التحليلات التنبؤية.</p>
+<p>في غضون دقائق، تعرف الإدارة أين يحتاج الأمر إلى اهتمام. القرارات التي كانت تستغرق أياماً تحدث الآن في ساعات.</p>
+<p>هذه هي قوة لوحة التحكم الذكية.</p>
+<h2>ما هي لوحة التحكم الذكية؟</h2>
+<p>لوحة التحكم الذكية هي أكثر من مجرد مجموعة من الرسوم البيانية. إنها تجمع بيانات الأعمال في الوقت الفعلي من مصادر متعددة، والتقارير الآلية التي تلغي العمل اليدوي، ومراقبة الأداء عبر الأقسام والوظائف، والقدرات التنبؤية للتنبؤ بالاتجاهات المستقبلية، والتحليلات المتقدمة التي تسلط الضوء على ما يهم، والتنبيهات والتوصيات الآلية للعمل الاستباقي.</p>
+<div class="image-wrapper" onclick="openLightbox('/assets/images/blog/traditional-vs-intelligent-dashboard.png')">
+    <img src="/assets/images/blog/traditional-vs-intelligent-dashboard.png" alt="لوحة التحكم التقليدية مقابل لوحة التحكم الذكية" loading="lazy">
+    <div class="image-caption">لوحة التحكم التقليدية مقابل لوحة التحكم الذكية</div>
+</div><p>بدلاً من انتظار التقارير الشهرية، يمكن للمديرين رؤية أداء الإيرادات والربحية، والاختناقات التشغيلية وأوجه القصور، واتجاهات سلوك العملاء ورضاهم، وتأخيرات الشحن ومشاكل الخدمات اللوجستية، وإنتاجية الموظفين واستخدام الموارد، ومؤشرات الأداء المالية وانحرافات الميزانية، ومؤشرات المخاطر ومقاييس الامتثال.</p>
+<p>والنتيجة هي اتخاذ قرارات أسرع، وتقليل المخاطر التشغيلية، ومؤسسة أكثر استجابة.</p>
+<h2>لماذا تفشل العديد من لوحات التحكم؟</h2>
+<p>لدى العديد من المؤسسات بالفعل لوحات تحكم. المشكلة هي أنها غالباً ما تعرض بيانات تاريخية فقط — تقدم أخبار الأمس بدلاً من واقع اليوم، وتتطلب تحديثات يدوية — مما يخلق عبء عمل إضافي للفرق المزدحمة بالفعل، وتحتوي على مقاييس كثيرة جداً — مما يطغى على المستخدمين بالمعلومات بدلاً من الرؤى، وتفتقر إلى السياق التجاري — تعرض الأرقام دون شرح معناها، ولا تولد توصيات — تاركة التفسير للمستخدم، ولا تدمج جميع الأنظمة التشغيلية — مما يخلق صوامع بيانات بدلاً من كسرها.</p>
+<p>تجيب لوحات التحكم التقليدية على السؤال: "ماذا حدث؟" تذهب لوحات التحكم الذكية إلى أبعد من ذلك من خلال الإجابة على: "ما الذي يحدث الآن؟" وتجيب التحليلات المتقدمة والقدرات التنبؤية على السؤال الأكثر أهمية: "ما الذي من المحتمل أن يحدث بعد ذلك؟"</p>
+<p>تتجاوز لوحة التحكم الذكية التصور من خلال الجمع بين الأتمتة والتحليلات والمنطق التجاري لدعم اتخاذ القرارات بشكل أسرع وأكثر استنارة. بدلاً من مجرد تقديم المعلومات، تساعد المؤسسات على فهم ما يتطلب الاهتمام ولماذا.</p>
+<h2>لماذا تستثمر دول الخليج في اتخاذ القرارات القائمة على البيانات</h2>
+<p>تشهد دول الخليج واحدة من أسرع حركات التحول الرقمي في العالم. أطلقت الحكومات في جميع أنحاء المملكة العربية السعودية والإمارات وقطر برامج وطنية طموحة لبناء اقتصادات قائمة على المعرفة وممكّنة رقمياً.</p>
+<div class="image-wrapper" onclick="openLightbox('/assets/images/blog/intelligent-dashboards-architecture.png')">
+    <img src="/assets/images/blog/intelligent-dashboards-architecture.png" alt="كيف تعمل لوحات التحكم الذكية – نظرة عامة على البنية" loading="lazy">
+    <div class="image-caption">كيف تعمل لوحات التحكم الذكية – نظرة عامة على البنية</div>
+</div><h2>رؤية السعودية 2030</h2>
+<p>تعمل رؤية السعودية 2030 على تسريع تبني التكنولوجيا في القطاعين العام والخاص. تستثمر المملكة بكثافة في البنية التحتية السحابية، والخدمات الحكومية الرقمية، وقدرات التحليلات المتقدمة لتقليل الاعتماد على النفط وبناء اقتصاد متنوع.</p>
+<h2>استراتيجية الإمارات للذكاء الاصطناعي</h2>
+<p>تواصل الإمارات توسيع استثماراتها في الذكاء الاصطناعي، والبنية التحتية السحابية، والمدن الذكية، والخدمات الحكومية الرقمية. وباعتبارها أول دولة في المنطقة تعين وزير دولة للذكاء الاصطناعي، تضع الإمارات نفسها كقائد عالمي في تبني التكنولوجيا.</p>
+<h2>رؤية قطر الوطنية 2030</h2>
+<p>تضع رؤية قطر الوطنية 2030 والخطة الرقمية 2030 التحول الرقمي والابتكار التكنولوجي في مركز التنمية الاقتصادية طويلة الأجل. تبني الدولة اقتصاداً قائماً على المعرفة من خلال استثمارات استراتيجية في التكنولوجيا والابتكار.</p>
+<h2>ربط الاستراتيجية الوطنية بالواقع التجاري</h2>
+<p>تخلق هذه الاستراتيجيات الوطنية توقعات جديدة للشركات. يُتوقع من المؤسسات بشكل متزايد العمل بكفاءة أكبر، وحوكمة أقوى، وتقارير محسنة، واتخاذ قرارات قائمة على البيانات. توفر لوحات التحكم الذكية طريقة عملية لدعم هذه الأهداف من خلال جعل المعلومات التشغيلية والاستراتيجية متاحة في الوقت الفعلي.</p>
+<h2>كيف تبني BTS لوحات التحكم الذكية: إطار التطوير</h2>
+<p>تتبع BTS منهجية منظمة لضمان أن كل لوحة تحكم تقدم قيمة تجارية قابلة للقياس.</p>
+<h2>1. الاكتشاف وتحليل الأعمال</h2>
+<p>نبدأ بفهم الأهداف الاستراتيجية لمؤسستك، والعمليات التشغيلية، ومتطلبات التقارير. ويشمل ذلك تحديد أصحاب المصلحة الرئيسيين، وتحديد مقاييس النجاح، ورسم خرائط مصادر البيانات الحالية.</p>
+<h2>2. تكامل البيانات</h2>
+<p>تتطلب لوحات التحكم الحديثة بيانات من أنظمة متعددة بما في ذلك أنظمة تخطيط موارد المؤسسات (SAP، Oracle، Microsoft Dynamics)، ومنصات إدارة علاقات العملاء (Salesforce، HubSpot، Zoho)، وبرامج المحاسبة (QuickBooks، Xero، Sage)، وأنظمة الموارد البشرية (Workday، BambooHR)، وأنظمة إدارة المستودعات، وأجهزة الاستشعار وإنترنت الأشياء، وجداول بيانات Excel وGoogle Sheets، وقواعد بيانات SQL وواجهات برمجة التطبيقات السحابية.</p>
+<h2>3. تصميم لوحة التحكم</h2>
+<p>نصمم لوحات التحكم حول الأهداف التجارية بدلاً من القوالب العامة. ويشمل ذلك اختيار مؤشرات الأداء الأكثر معنى، وتصميم تصورات بديهية، وإنشاء عروض خاصة بالدور للمديرين التنفيذيين والمديرين والفرق التشغيلية.</p>
+<h2>4. التحليلات وقواعد الأعمال</h2>
+<p>نقوم بدمج المنطق التجاري والقدرات التنبؤية والتنبيه الآلي لضمان أن لوحة التحكم توفر رؤى قابلة للتنفيذ بدلاً من مجرد بيانات خام. وهذا يحول لوحة التحكم من أداة تقارير إلى نظام دعم القرار.</p>
+<h2>5. اختبار المستخدم</h2>
+<p>نعمل مع المستخدمين النهائيين للتحقق من صحة تصميم لوحة التحكم، وتحسين التصورات، وضمان أن المعلومات المقدمة واضحة وذات صلة وقابلة للتنفيذ.</p>
+<h2>6. النشر</h2>
+<p>ننشر لوحة التحكم باستخدام بنية تحتية سحابية آمنة، مما يضمن حماية البيانات وقابلية التوسع وإمكانية الوصول عبر مؤسستك.</p>
+<h2>7. التحسين المستمر</h2>
+<p>نقدم دعماً وصيانة مستمرين، ونعمل باستمرار على تحسين لوحة التحكم بناءً على ملاحظات المستخدمين ومتطلبات الأعمال المتطورة.</p>
+<h2>تطبيقات خاصة بالصناعة</h2>
+<h2>الخدمات اللوجستية وسلسلة التوريد</h2>
+<p>يمكن للوحة تحكم الخدمات اللوجستية عرض الشحنات قيد النقل، والتسليم المتأخر، ونشاط العملاء، وأداء الأسطول، وعمليات المستودعات، والإيرادات حسب العميل، وتنبيهات المخاطر. يمكن للمديرين تحديد المشكلات فوراً بدلاً من انتظار تقارير نهاية الأسبوع.</p>
+<h2>الرعاية الصحية</h2>
+<p>يمكن لمؤسسات الرعاية الصحية مراقبة حضور المواعيد، ومعدلات عدم الحضور، وعبء عمل الموظفين، واتجاهات المرضى، وتوقعات الطلب على الخدمات. وهذا يتيح تخصيص الموارد بشكل أفضل، وتقليل أوقات الانتظار، وتحسين نتائج المرضى.</p>
+<h2>التجزئة والتجارة الإلكترونية</h2>
+<p>يمكن لشركات التجزئة تتبع أداء المبيعات، والطلب على المنتجات، ومستويات المخزون، وسلوك العملاء، وفعالية التسويق. وهذا يتيح اتخاذ قرارات قائمة على البيانات بشأن التسعير والعروض الترويجية وتشكيلة المنتجات.</p>
+<h2>العقارات</h2>
+<p>يمكن لشركات العقارات مراقبة معدلات الإشغال، وطلبات الصيانة، وأداء التأجير، واتجاهات الإيرادات، وتحليلات المحفظة. وهذا يوفر رؤية أفضل لأداء المحفظة ويساعد في تحديد الفرص الناشئة.</p>
+<h2>الخدمات المصرفية والمالية</h2>
+<p>يمكن للمؤسسات المالية مراقبة مؤشرات المخاطر، واكتشاف الاحتيال، وتكاليف اكتساب العملاء، وأداء المحفظة، والامتثال التنظيمي. وهذا يتيح إدارة استباقية للمخاطر وخدمة أفضل للعملاء.</p>
+<h2>التصنيع</h2>
+<p>يمكن للمصنعين تتبع كفاءة الإنتاج، ومقاييس مراقبة الجودة، وتعطل المعدات، ومستويات المخزون، وأداء سلسلة التوريد. وهذا يتيح الصيانة التنبؤية وتحسين الكفاءة التشغيلية.</p>
+<h2>مستقبل لوحات التحكم الذكية</h2>
+<p>سيتضمن الجيل التالي من لوحات التحكم البحث باللغة الطبيعية — طرح الأسئلة باللغة الإنجليزية أو العربية، والمساعدات الصوتية — التفاعل مع لوحات التحكم باستخدام الأوامر الصوتية، والقدرات التنبؤية — توقع الاتجاهات والتحديات المستقبلية، والنسخ الرقمية — محاكاة السيناريوهات واختبار الاستراتيجيات، والملخصات التنفيذية المولدة بالذكاء الاصطناعي — توليف الرؤى الرئيسية تلقائياً، والكشف الآلي عن الحالات الشاذة — تحديد الأنماط غير العادية في الوقت الفعلي، والتنبؤ في الوقت الفعلي — تحديث التوقعات بناءً على أحدث البيانات، وتصور البيانات المتقدم — بديهي وتفاعلي وجذاب.</p>
+<p>ستكون الشركات التي تستثمر اليوم في وضع جيد لتبني هذه القدرات عندما تنضج. المؤسسات التي تبدأ رحلة لوحة التحكم الآن ستكون جاهزة لاستغلال ابتكارات الغد.</p>
+<h2>الأسئلة الشائعة</h2>
+<p>ما هي لوحة التحكم الذكية؟ لوحة التحكم الذكية هي أداة ذكاء أعمال تجمع بين تصور البيانات في الوقت الفعلي، والتقارير الآلية، والتحليلات التنبؤية، والرؤى القابلة للتنفيذ لدعم اتخاذ القرارات بشكل أسرع وأكثر استنارة.</p>
+<p>كيف تختلف عن Power BI أو Tableau؟ أدوات مثل Power BI وTableau هي منصات تصور ممتازة. ومع ذلك، تتجاوز لوحة التحكم الذكية التصور من خلال دمج المنطق التجاري والقدرات التنبؤية والتنبيهات الآلية والعروض الخاصة بالدور والمصممة خصيصاً لأهداف مؤسستك.</p>
+<p>هل يمكن لـ BTS دمج أنظمة ERP وCRM الحالية؟ نعم. تتخصص BTS في دمج البيانات من أنظمة متعددة بما في ذلك SAP وOracle وMicrosoft Dynamics وSalesforce وHubSpot وغيرها الكثير. نجمع بياناتك الحالية في مصدر واحد للحقيقة.</p>
+<p>هل يمكن للوحات التحكم دعم اللغة العربية والإنجليزية؟ بالتأكيد. تقوم BTS بتطوير لوحات تحكم ثنائية اللغة تدعم كلاً من العربية والإنجليزية، مما يجعل البيانات متاحة لجميع أعضاء الفريق بغض النظر عن لغتهم المفضلة.</p>
+<p>كم من الوقت يستغرق التنفيذ؟ يستغرق التنفيذ عادةً من 4 إلى 12 أسبوعاً اعتماداً على تعقيد أنظمتك، وعدد مصادر البيانات، ومتطلبات التقارير الخاصة بك.</p>
+<p>هل يمكن للشركات الصغيرة والمتوسطة الاستفادة من لوحات التحكم الذكية؟ نعم. لوحات التحكم الذكية قابلة للتوسع ويمكن تصميمها للمؤسسات من أي حجم. نحن نعمل مع الشركات الصغيرة والمتوسطة وكذلك المؤسسات الكبيرة لتوفير قدرات ذكاء الأعمال التي يحتاجونها.</p>
+<p>هل بياناتي آمنة؟ نعم. تطبق BTS بروتوكولات أمان على مستوى المؤسسات بما في ذلك التشفير وضوابط الوصول والنشر السحابي الآمن لحماية بيانات عملك.</p>
+<h2>قم بتوصيل أنظمتك الحالية بمصدر واحد للحقيقة</h2>
+<p>أصبحت البيانات من الأصول الأكثر قيمة التي تمتلكها الشركة. ومع ذلك، فإن البيانات وحدها لا تخلق ميزة تنافسية — فهمها هو ما يخلقها. تحول لوحات التحكم الذكية المعلومات الخام إلى رؤى ذات معنى، مما يساعد المؤسسات على الاستجابة بشكل أسرع، والعمل بكفاءة أكبر، واتخاذ قرارات استراتيجية أفضل.</p>
+<p>بالنسبة للمؤسسات في جميع أنحاء دول الخليج، قد لا تكون الميزة التنافسية التالية في جمع المزيد من البيانات، ولكن في استخدام البيانات الحالية بشكل أكثر ذكاءً.</p>
+<h2>هل أنت مستعد لتحويل بيانات عملك إلى قرارات أفضل؟</h2>
+<p>سواء كانت مؤسستك تعمل في مجال الخدمات اللوجستية، أو الرعاية الصحية، أو التجزئة، أو التصنيع، أو الخدمات المهنية، يمكن لـ BTS مساعدتك في تحويل البيانات المنفصلة إلى لوحة تحكم ذكية وآمنة مصممة خصيصاً لعملك. احجز استشارة لمناقشة أهدافك واكتشف كيف يمكن لذكاء الأعمال في الوقت الفعلي تحسين الرؤية التشغيلية والتقارير وصنع القرار الاستراتيجي.</p>
+<h2>اتصل بشركة BTS</h2>
+<p>البريد الإلكتروني: info@btsapp.net</p>
+<p>الهاتف: +44 7425 252625</p>
+<p>الموقع الإلكتروني: https://btsapp.net</p>
+
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- Image Lightbox -->
+<div class="image-lightbox" id="imageLightbox" onclick="closeLightbox()">
+    <button class="close-btn" onclick="event.stopPropagation(); closeLightbox();">×</button>
+    <img src="" alt="Full size image" id="lightboxImage" onclick="event.stopPropagation();">
+    <span class="zoom-hint">Click anywhere to close</span>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="footer-logo">
+                <span class="logo-title" style="font-size:18px;font-weight:800;background:linear-gradient(135deg,#ffffff,var(--primary),var(--secondary));-webkit-background-clip:text;background-clip:text;color:transparent;">BTS – Business Technology Solutions</span>
+                <p>Building enterprise AI systems that automate operations and improve decision-making for global organizations. Based in Glasgow, Scotland.</p>
+                <div class="social-links">
+                    <a href="#" class="social-link">in</a>
+                    <a href="#" class="social-link">🐦</a>
+                    <a href="#" class="social-link">▶</a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Solutions</h4>
+                <ul>
+                    <li><a href="/#solutions">AI Solutions</a></li>
+                    <li><a href="/#all-services">Technology Solutions</a></li>
+                    <li><a href="/#digital-services">Digital Marketing</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="/">About Us</a></li>
+                    <li><a href="/#contact">Contact</a></li>
+                    <li><a href="/#contact">Start a Project</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:info@btsapp.net">info@btsapp.net</a></li>
+                    <li><a href="tel:+447425252625">+44 7425 252625</a></li>
+                    <li><a href="#" onclick="openWhatsApp(); return false;">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 BTS — Business Technology Solutions. Registered company number: SC894313. Registered office: 12/3 30 Kingsway Court, Glasgow, Scotland, G14 9TL.</span>
+            <span>
+                <a href="/privacy-policy.html">Privacy Policy</a> |
+                <a href="/terms-of-service.html">Terms of Service</a> |
+                <a href="/#cookie-settings">Cookie Settings</a>
+            </span>
+        </div>
+    </div>
+</footer>
+
+<button class="float-wa" onclick="openWhatsApp()">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.48 2 2 6.48 2 12c0 1.92.54 3.68 1.47 5.19L2 22l4.81-1.47C8.32 21.46 10.08 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+</button>
+
+<button class="scroll-top" id="scrollTopBtn">↑</button>
+
+<script>
+    function toggleLanguage() {
+        var currentPath = window.location.pathname;
+        var isArabic = currentPath.includes('/ar/');
+        var newPath = isArabic ? currentPath.replace('/ar/', '/posts/') : currentPath.replace('/posts/', '/ar/');
+        window.location.href = newPath;
+    }
+    
+    function toggleMobileDrawer() {
+        document.getElementById('mobileDrawer').classList.add('open');
+    }
+    
+    function closeMobileDrawer() {
+        document.getElementById('mobileDrawer').classList.remove('open');
+    }
+    
+    function openWhatsApp() {
+        window.open('https://wa.me/447425252625', '_blank');
+    }
+    
+    function openLightbox(imageSrc) {
+        var lightbox = document.getElementById('imageLightbox');
+        var lightboxImage = document.getElementById('lightboxImage');
+        if (!lightbox || !lightboxImage) return;
+        lightboxImage.src = imageSrc;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+    
+    function closeLightbox() {
+        var lightbox = document.getElementById('imageLightbox');
+        if (!lightbox) return;
+        lightbox.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') { closeLightbox(); }
+    });
+    
+    window.addEventListener('scroll', function() {
+        var scrollBtn = document.getElementById('scrollTopBtn');
+        if (window.scrollY > 500) {
+            scrollBtn.classList.add('show');
+        } else {
+            scrollBtn.classList.remove('show');
+        }
+    });
+    
+    document.getElementById('scrollTopBtn').addEventListener('click', function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+</script>
+
+</body>
+</html>
