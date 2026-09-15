@@ -1,38 +1,5 @@
 [
-  {
-    "id": 1780418517553,
-    "slug": "uk-gcc-trade-agreement-opportunities",
-    "lang": "en",
-    "title": "How the UK–GCC Trade Agreement Creates New Opportunities for AI and Automation Companies",
-    "date": "2026-06-02",
-    "category": "Trade, AI, Business",
-    "author": "BTS",
-    "cover": "/assets/images/blog/UK-GCC-Trade.png",
-    "summary": "The landmark UK-GCC trade agreement valued at $5 billion annually opens doors for British AI and automation companies serving the Gulf market.",
-    "content": [
-      {
-        "type": "heading",
-        "text": "A Historic Deal"
-      },
-      {
-        "type": "paragraph",
-        "text": "The relationship between the United Kingdom and Gulf Cooperation Council (GCC) countries has been strengthening for decades. In May 2026, the UK and GCC signed a landmark trade agreement valued at $5 billion annually, with the UK government projecting a 20% increase in bilateral trade."
-      },
-      {
-        "type": "image",
-        "src": "/assets/images/blog/UK-GCC-Trade.png",
-        "caption": "UK-GCC trade agreement opens new opportunities for AI and automation companies"
-      },
-      {
-        "type": "paragraph",
-        "text": "For businesses operating in Artificial Intelligence, automation, software development, digital transformation, and enterprise technology, closer economic alignment between the UK and Gulf markets could reduce barriers and accelerate growth opportunities."
-      },
-      {
-        "type": "paragraph",
-        "text": "For companies based in innovation hubs such as Glasgow, this creates a unique opportunity: delivering world-class technology solutions from the UK into some of the world's fastest-growing digital economies."
-      }
-    ]
-  },
+
   {
     "id": 1780525994652,
     "slug": "الأتمتة-التشغيلية-الخدمات-اللوجستية-السعودي",
@@ -391,49 +358,7 @@
       }
     ]
   },
-  {
-    "id": 1780418517554,
-    "slug": "uk-gcc-trade-agreement-opportunities",
-    "lang": "ar",
-    "title": "كيف تخلق اتفاقية التجارة بين المملكة المتحدة ودول الخليج فرصًا جديدة",
-    "date": "2026-06-02",
-    "category": "التجارة، الذكاء الاصطناعي، الأعمال",
-    "author": "BTS",
-    "cover": "/assets/images/blog/UK-GCC-Trade.png",
-    "summary": "تفتح اتفاقية التجارة التاريخية بين المملكة المتحدة ودول الخليج أبوابًا لشركات الذكاء الاصطناعي والأتمتة البريطانية",
-    "content": [
-      {
-        "type": "heading",
-        "text": "اتفاقية تاريخية"
-      },
-      {
-        "type": "paragraph",
-        "text": "تتعزز العلاقة بين المملكة المتحدة ودول مجلس التعاون الخليجي منذ عقود. في مايو 2026، وقعت المملكة المتحدة ودول الخليج اتفاقية تجارية تاريخية قيمتها 5 مليارات دولار سنويًا."
-      },
-      {
-        "type": "image",
-        "src": "/assets/images/blog/UK-GCC-Trade.png",
-        "caption": "اتفاقية التجارة بين المملكة المتحدة ودول الخليج تخلق فرصًا جديدة"
-      },
-      {
-        "type": "paragraph",
-        "text": "بالنسبة للشركات العاملة في مجالات الذكاء الاصطناعي والأتمتة، يمكن للتقارب الاقتصادي بين المملكة المتحدة وأسواق الخليج أن يقلل الحواجز ويسرع فرص النمو."
-      },
-      {
-        "type": "heading",
-        "text": "الخلاصة"
-      },
-      {
-        "type": "paragraph",
-        "text": "العلاقة التجارية بين المملكة المتحدة ودول الخليج تتعلق بالتواصل. مع انخفاض الحواجز، تتاح لشركات التكنولوجيا فرصة بناء شراكات دولية أقوى."
-      },
-      {
-        "type": "paragraph",
-        "text": "📧 info@btsapp.net | 📞 +44 7425 252625 | 📍 12/3 30 Kingsway Court, Glasgow, Scotland, G14 9TL"
-      }
-    ],
-    "direction": "rtl"
-  },
+  
   {
     "id": 1780582716026,
     "slug": "ai-support-housing-teams-human-decisions",

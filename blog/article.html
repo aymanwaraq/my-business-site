@@ -135,9 +135,9 @@
             background: rgba(74, 144, 226, 0.2);
         }
 
-        /* Article Hero */
+        /* Article Hero — REDUCED title size */
         .article-hero {
-            padding: 120px 0 30px;
+            padding: 110px 0 20px;
         }
 
         .back-link {
@@ -145,7 +145,7 @@
             color: var(--primary);
             text-decoration: none;
             font-size: 14px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             font-weight: 600;
         }
 
@@ -153,22 +153,23 @@
 
         .article-hero .category {
             display: inline-block;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             color: var(--primary);
             background: rgba(74, 144, 226, 0.15);
-            padding: 5px 16px;
+            padding: 4px 14px;
             border-radius: 20px;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
         .article-hero h1 {
-            font-size: 42px;
+            font-size: 32px;
             font-weight: 800;
-            line-height: 1.25;
-            margin-bottom: 20px;
+            line-height: 1.3;
+            margin-bottom: 16px;
+            max-width: 900px;
             background: linear-gradient(135deg, #fff, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             background-clip: text;
@@ -177,60 +178,64 @@
 
         .article-meta {
             display: flex;
-            gap: 24px;
+            gap: 20px;
             color: var(--text-gray);
-            font-size: 14px;
+            font-size: 13px;
             flex-wrap: wrap;
         }
 
+        /* Cover image — REDUCED height */
         .article-cover {
-            width: 100%;
-            max-height: 480px;
-            object-fit: cover;
-            border-radius: var(--radius);
-            margin: 20px 0 40px;
-            border: 1px solid var(--border);
-        }
+           display: block;
+           width: 100%;
+           max-width: 720px;
+           height: 260px;
+           object-fit: cover;
+           object-position: center;
+           border-radius: var(--radius);
+           margin: 10px auto 32px;
+           border: 1px solid var(--border);
+         }
 
-        /* Article Body */
+        /* Article Body — REDUCED font size */
         .article-body {
-            max-width: 780px;
-            margin: 0 auto 60px;
-            font-size: 17px;
-            line-height: 1.85;
+            max-width: 760px;
+            margin: 0 auto 50px;
+            font-size: 16px;
+            line-height: 1.75;
             color: var(--text-light);
         }
 
         .article-body h2 {
-            font-size: 26px;
+            font-size: 22px;
             font-weight: 700;
             color: #fff;
-            margin: 42px 0 16px;
-            padding-top: 8px;
+            margin: 36px 0 14px;
+            padding-top: 6px;
         }
 
         .article-body p {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .article-body ul {
-            margin: 16px 0 24px 24px;
+            margin: 14px 0 20px 24px;
         }
 
         body.rtl .article-body ul {
-            margin: 16px 24px 24px 0;
+            margin: 14px 24px 20px 0;
         }
 
         .article-body li {
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             color: var(--text-light);
         }
 
         .article-body blockquote {
             border-left: 4px solid var(--primary);
-            padding: 14px 24px;
-            margin: 32px 0;
-            font-size: 20px;
+            padding: 12px 22px;
+            margin: 28px 0;
+            font-size: 17px;
             font-style: italic;
             color: #fff;
             background: rgba(74, 144, 226, 0.06);
@@ -244,7 +249,7 @@
         }
 
         .article-image {
-            margin: 36px 0;
+            margin: 30px 0;
             text-align: center;
         }
 
@@ -252,43 +257,72 @@
             max-width: 100%;
             border-radius: var(--radius-sm);
             border: 1px solid var(--border);
+            cursor: zoom-in;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .article-image img:hover {
+            opacity: 0.9;
+            transform: scale(1.01);
         }
 
         .article-image figcaption {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-gray);
-            margin-top: 12px;
+            margin-top: 10px;
             font-style: italic;
+        }
+
+        /* Lightbox */
+        #lightbox {
+            display: none;
+        }
+        #lightbox.active {
+            display: flex !important;
+            animation: fadeIn 0.2s ease;
+        }
+        #lightbox img {
+            animation: zoomIn 0.25s ease;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         .article-cta {
             text-align: center;
-            padding: 50px 30px;
+            padding: 40px 24px;
             background: var(--bg-card);
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            margin-bottom: 80px;
+            margin-bottom: 70px;
         }
 
         .article-cta h3 {
-            font-size: 24px;
+            font-size: 21px;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .article-cta p {
             color: var(--text-gray);
-            margin-bottom: 24px;
+            margin-bottom: 20px;
+            font-size: 15px;
         }
 
         .cta-btn {
             display: inline-block;
-            padding: 14px 36px;
+            padding: 12px 32px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: #fff;
             text-decoration: none;
             border-radius: 30px;
             font-weight: 600;
+            font-size: 14px;
             transition: transform 0.2s;
         }
 
@@ -358,9 +392,11 @@
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .article-hero h1 { font-size: 26px; }
-            .article-body { font-size: 16px; }
-            .article-body h2 { font-size: 21px; }
+            .article-hero h1 { font-size: 24px; }
+            .article-hero { padding: 90px 0 20px; }
+            .article-body { font-size: 15px; }
+            .article-body h2 { font-size: 19px; }
+            .article-cover { max-height: 240px; }
         }
     </style>
 </head>
@@ -406,6 +442,10 @@
     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.48 2 2 6.48 2 12c0 1.92.54 3.68 1.47 5.19L2 22l4.81-1.47C8.32 21.46 10.08 22 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
 </button>
 
+<div id="lightbox" onclick="closeLightbox()" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);z-index:9999;cursor:zoom-out;align-items:center;justify-content:center;padding:40px;">
+    <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()" style="max-width:95%;max-height:95%;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.5);cursor:default;">
+</div>
+
 <script>
     // ==================== STATE ====================
     let currentArticle = null;
@@ -416,7 +456,6 @@
         const container = document.getElementById('article-content');
         container.innerHTML = '<div class="loading"><div class="spinner"></div><p style="margin-top:16px;">Loading article...</p></div>';
 
-        // Get slug and lang from URL query string
         const urlParams = new URLSearchParams(window.location.search);
         const slug = urlParams.get('slug');
         const lang = urlParams.get('lang') || 'en';
@@ -428,7 +467,6 @@
         }
 
         try {
-            // Fetch posts.json - try two possible locations
             let response;
             try {
                 response = await fetch('/blog/posts.json');
@@ -440,7 +478,6 @@
             if (!response.ok) throw new Error('Failed to fetch posts');
             const posts = await response.json();
 
-            // Find the article matching BOTH slug AND lang
             const article = posts.find(p => p.slug === slug && p.lang === lang);
 
             if (!article) {
@@ -461,7 +498,6 @@
     function renderArticle(article) {
         const container = document.getElementById('article-content');
 
-        // Handle RTL/LTR
         const isRTL = article.direction === 'rtl' || article.lang === 'ar';
         if (isRTL) {
             document.body.classList.add('rtl');
@@ -477,17 +513,14 @@
 
         document.title = article.title + ' | BTS Blog';
 
-        // Hero
         let html = `
-            <div class="article-hero">
-                <div class="container">
-                    <a href="/blog/" class="back-link">← ${isRTL ? 'العودة إلى المدونة' : 'Back to Blog'}</a>
-                    <div class="category">${article.category || 'General'}</div>
-                    <h1>${article.title}</h1>
-                    <div class="article-meta">
-                        <span>📅 ${formatDate(article.date, article.lang)}</span>
-                        <span>✍️ ${article.author || 'BTS'}</span>
-                    </div>
+            <div class="container">
+                <a href="/blog/" class="back-link">← ${isRTL ? 'العودة إلى المدونة' : 'Back to Blog'}</a>
+                <div class="category">${article.category || 'General'}</div>
+                <h1>${article.title}</h1>
+                <div class="article-meta">
+                    <span>📅 ${formatDate(article.date, article.lang)}</span>
+                    <span>✍️ ${article.author || 'BTS'}</span>
                 </div>
             </div>
         `;
@@ -508,7 +541,6 @@
             let openList = false;
 
             article.content.forEach(block => {
-                // Close open list if needed
                 if (openList && block.type !== 'paragraph') {
                     html += '</ul>';
                     openList = false;
@@ -521,7 +553,6 @@
 
                     case 'paragraph':
                         if (block.text.trim().startsWith('-')) {
-                            // Bullet point
                             if (!openList) {
                                 html += '<ul>';
                                 openList = true;
@@ -535,7 +566,7 @@
                     case 'image':
                         html += `
                             <figure class="article-image">
-                                <img src="${block.src}" alt="${block.caption || ''}" onerror="this.parentElement.style.display='none'">
+                                <img src="${block.src}" alt="${block.caption || ''}" onclick="openLightbox('${block.src}')" onerror="this.parentElement.style.display='none'">
                                 ${block.caption ? `<figcaption>${block.caption}</figcaption>` : ''}
                             </figure>
                         `;
@@ -583,7 +614,6 @@
         return d.toLocaleDateString(lang === 'ar' ? 'ar-EG' : 'en-GB', options);
     }
 
-    // Switch language by reloading with the matching article version
     async function switchLang() {
         if (!currentArticle) return;
         const urlParams = new URLSearchParams(window.location.search);
@@ -591,6 +621,25 @@
         const newLang = currentLang === 'en' ? 'ar' : 'en';
         window.location.href = `/blog/article.html?slug=${slug}&lang=${newLang}`;
     }
+
+    // ==================== LIGHTBOX ====================
+    function openLightbox(src) {
+        const lightbox = document.getElementById('lightbox');
+        const img = document.getElementById('lightbox-img');
+        img.src = src;
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        const lightbox = document.getElementById('lightbox');
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeLightbox();
+    });
 
     // ==================== INIT ====================
     document.addEventListener('DOMContentLoaded', loadArticle);
