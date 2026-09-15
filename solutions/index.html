@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solutions | AI, Software & Data for UK & GCC Businesses | BTS</title>
+    <link rel="canonical" href="https://btsapp.net/solutions/" />
+    <meta name="description" content="Six core capabilities for UK and GCC businesses: AI automation, custom software, logistics technology, business intelligence, document intelligence, and system integration.">
+    <meta name="keywords" content="AI solutions UK GCC, custom software Saudi Arabia, logistics technology UAE, business intelligence GCC, document AI Arabic English, system integration">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Solutions | BTS">
+    <meta property="og:description" content="Six core capabilities for UK and GCC businesses.">
+    <meta property="og:image" content="https://btsapp.net/assets/images/bts-front.png">
+    <meta property="og:url" content="https://btsapp.net/solutions/">
+    <meta property="og:site_name" content="BTS - Business Technology Solutions">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "BTS Solutions",
+      "url": "https://btsapp.net/solutions/",
+      "description": "Six core technology capabilities for UK and GCC businesses.",
+      "provider": {
+        "@type": "Organization",
+        "name": "BTS - Business Technology Solutions",
+        "url": "https://btsapp.net"
+      }
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: rgba(20, 20, 30, 0.6);
+            --bg-card-hover: rgba(30, 30, 45, 0.8);
+            --primary: #4a90e2;
+            --secondary: #7b2cbf;
+            --border: rgba(255, 255, 255, 0.08);
+            --text-gray: #a0a0b0;
+            --text-light: #c0c0d0;
+        }
+        body { background: var(--bg-dark); color: #fff; font-family: 'Inter', sans-serif; line-height: 1.65; overflow-x: hidden; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+
+        .nav { position: fixed; top: 0; width: 100%; background: rgba(10,10,15,0.92); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); z-index: 100; }
+        .nav-inner { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 14px 24px; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-img { width: 38px; height: 38px; border-radius: 10px; }
+        .logo-title { font-size: 16px; font-weight: 800; background: linear-gradient(135deg, #fff, var(--primary), var(--secondary)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .nav-links { display: flex; gap: 24px; align-items: center; }
+        .nav-links a { color: var(--text-gray); text-decoration: none; font-size: 14px; font-weight: 600; transition: color 0.2s; }
+        .nav-links a:hover { color: white; }
+        .nav-cta { padding: 8px 20px; border-radius: 30px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white !important; font-size: 13px; }
+
+        .page-hero { padding: 150px 0 60px; text-align: center; }
+        .page-hero .eyebrow { color: var(--primary); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 18px; }
+        .page-hero h1 { font-size: 52px; font-weight: 800; line-height: 1.15; background: linear-gradient(135deg, #fff, var(--primary), var(--secondary)); -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 22px; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .page-hero p { font-size: 19px; color: var(--text-gray); max-width: 720px; margin: 0 auto; }
+
+        .solutions-grid { padding: 40px 0 80px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+
+        .solution-card {
+            display: block;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px 28px;
+            text-decoration: none;
+            color: white;
+            transition: all 0.3s;
+        }
+        .solution-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(74, 144, 226, 0.4);
+            background: var(--bg-card-hover);
+        }
+        .solution-card .icon { font-size: 36px; margin-bottom: 16px; display: block; }
+        .solution-card h2 { font-size: 22px; font-weight: 700; margin-bottom: 12px; color: white; }
+        .solution-card p { color: var(--text-gray); font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
+        .solution-card .link { color: var(--primary); font-size: 14px; font-weight: 600; transition: gap 0.2s; }
+        .solution-card:hover .link { color: var(--secondary); }
+
+        .page-cta { text-align: center; padding: 70px 0 90px; background: linear-gradient(180deg, transparent, rgba(74, 144, 226, 0.06)); border-top: 1px solid var(--border); }
+        .page-cta h2 { font-size: 32px; font-weight: 800; margin-bottom: 14px; }
+        .page-cta p { color: var(--text-gray); margin-bottom: 30px; font-size: 17px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .hero-cta { display: inline-block; padding: 14px 38px; background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; text-decoration: none; border-radius: 40px; font-weight: 700; transition: transform 0.2s; }
+        .hero-cta:hover { transform: translateY(-2px); }
+
+        .footer { border-top: 1px solid var(--border); padding: 40px 0 30px; background: rgba(0, 0, 0, 0.2); font-size: 12px; color: var(--text-gray); text-align: center; }
+        .footer a { color: var(--primary); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .nav-links a:not(.nav-cta) { display: none; }
+            .page-hero h1 { font-size: 32px; }
+            .page-hero p { font-size: 16px; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <div class="nav-inner">
+        <a href="/" class="logo">
+            <img class="logo-img" src="/assets/images/Logo.png" alt="BTS Logo">
+            <span class="logo-title">BTS</span>
+        </a>
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/solutions/">Solutions</a>
+            <a href="/industries/">Industries</a>
+            <a href="/blog/">Blog</a>
+            <a href="/#contact" class="nav-cta">Contact</a>
+        </div>
+    </div>
+</nav>
+
+<section class="page-hero">
+    <div class="container">
+        <div class="eyebrow">BTS Solutions</div>
+        <h1>Six Core Capabilities</h1>
+        <p>We focus on six areas of technology delivery. Each is a strong, standalone capability. Together, they form the systems that modern organisations need.</p>
+    </div>
+</section>
+
+<section class="solutions-grid">
+    <div class="container">
+        <div class="grid">
+
+            <a href="/solutions/ai-automation.html" class="solution-card">
+                <span class="icon">⚡</span>
+                <h2>AI & Intelligent Automation</h2>
+                <p>AI systems that reduce manual work, route approvals, and support operational decisions across your business.</p>
+                <span class="link">Learn more →</span>
+            </a>
+
+            <a href="/solutions/custom-software.html" class="solution-card">
+                <span class="icon">💻</span>
+                <h2>Custom Software & Business Systems</h2>
+                <p>Bespoke applications and internal platforms built around how your business actually operates.</p>
+                <span class="link">Learn more →</span>
+            </a>
+
+            <a href="/solutions/logistics-warehouse-technology.html" class="solution-card">
+                <span class="icon">🚚</span>
+                <h2>Logistics & Warehouse Technology</h2>
+                <p>Systems for the movement, storage, and tracking of goods across UK and GCC supply chains.</p>
+                <span class="link">Learn more →</span>
+            </a>
+
+            <a href="/solutions/business-intelligence.html" class="solution-card">
+                <span class="icon">📊</span>
+                <h2>Business Intelligence & Data</h2>
+                <p>Dashboards, reporting, and data platforms that turn operational data into clear decisions.</p>
+                <span class="link">Learn more →</span>
+            </a>
+
+            <a href="/solutions/document-intelligence.html" class="solution-card">
+                <span class="icon">📄</span>
+                <h2>Document Intelligence & AI</h2>
+                <p>Systems that understand and process documents in Arabic and English automatically.</p>
+                <span class="link">Learn more →</span>
+            </a>
+
+            <a href="/solutions/cloud-api-integration.html" class="solution-card">
+                <span class="icon">🔗</span>
+                <h2>Cloud, API & System Integration</h2>
+                <p>Connecting ERP, CRM, WMS, and business systems so information flows reliably.</p>
+                <span class="link">Learn more →</span>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<section class="page-cta">
+    <div class="container">
+        <h2>Not sure which capability you need?</h2>
+        <p>Tell us about your organisation and the challenges you're facing. We'll help you identify the right approach.</p>
+        <a href="/#contact" class="hero-cta">Book a Free Consultation →</a>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2026 BTS — Business Technology Solutions. Registered company number: SC894313. Registered office: 12/3 30 Kingsway Court, Glasgow, Scotland, G14 9TL.</p>
+        <p style="margin-top:10px;">
+            <a href="/privacy-policy.html">Privacy Policy</a> ·
+            <a href="/terms-of-service.html">Terms of Service</a> ·
+            <a href="https://www.linkedin.com/company/136047029/" target="_blank" rel="noopener">LinkedIn</a>
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>
