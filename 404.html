@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page Not Found — BTS | Business Technology Solutions</title>
+<meta name="robots" content="noindex, follow">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-dark: #0a0a0f;
+    --bg-card: rgba(20, 20, 30, 0.6);
+    --primary: #4a90e2;
+    --secondary: #7b2cbf;
+    --gold: #C9A84C;
+    --border: rgba(255, 255, 255, 0.08);
+    --text-gray: #a0a0b0;
+    --text-light: #c0c0d0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg-dark);
+    color: #ffffff;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(74, 144, 226, 0.08), transparent 40%),
+      radial-gradient(circle at 80% 80%, rgba(123, 44, 191, 0.08), transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    text-decoration: none;
+  }
+
+  .brand-mark {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+    color: #fff;
+    letter-spacing: 0.5px;
+  }
+
+  .brand-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 0.2px;
+  }
+
+  .code {
+    font-size: 96px;
+    font-weight: 800;
+    line-height: 1;
+    background: linear-gradient(135deg, #ffffff, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 16px;
+    letter-spacing: -2px;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    background: linear-gradient(135deg, #ffffff, var(--primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .lead {
+    color: var(--text-light);
+    font-size: 16px;
+    max-width: 540px;
+    margin: 0 auto 12px;
+  }
+
+  .countdown {
+    color: var(--text-gray);
+    font-size: 14px;
+    margin-bottom: 36px;
+  }
+
+  .countdown strong {
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--border);
+    margin: 36px 0;
+    position: relative;
+  }
+
+  .divider::after {
+    content: 'العربية';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--bg-dark);
+    padding: 0 16px;
+    font-size: 12px;
+    color: var(--text-gray);
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .ar {
+    direction: rtl;
+    font-family: 'Cairo', 'Inter', sans-serif;
+  }
+
+  .ar h2 {
+    font-size: 22px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #ffffff, var(--primary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .ar p {
+    color: var(--text-light);
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+
+  .actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 24px;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(74, 144, 226, 0.4);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: #fff;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--primary);
+    background: rgba(74, 144, 226, 0.1);
+    transform: translateY(-2px);
+  }
+
+  .services {
+    margin-top: 44px;
+    text-align: left;
+  }
+
+  .services h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .service-link {
+    display: block;
+    padding: 14px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    text-align: center;
+  }
+
+  .service-link:hover {
+    border-color: var(--primary);
+    background: rgba(74, 144, 226, 0.1);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 640px) {
+    .code { font-size: 72px; }
+    h1 { font-size: 22px; }
+    .services-grid { grid-template-columns: 1fr 1fr; }
+    .lead { font-size: 15px; }
+    .brand { margin-bottom: 28px; }
+  }
+
+  @media (max-width: 400px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <a href="/" class="brand">
+    <div class="brand-mark">BTS</div>
+    <div class="brand-name">Business Technology Solutions</div>
+  </a>
+
+  <div class="code">404</div>
+  <h1>This page has moved or no longer exists.</h1>
+  <p class="lead">
+    We're updating our website. The page you're looking for isn't here — but our six core services are, and our team is one click away.
+  </p>
+  <p class="countdown">
+    Taking you to the homepage in <strong id="count">8</strong> seconds.
+  </p>
+
+  <div class="actions">
+    <a href="/" class="btn btn-primary">Go to Homepage →</a>
+    <a href="mailto:info@btsapp.net" class="btn btn-secondary">Email us</a>
+  </div>
+
+  <div class="services">
+    <h3>Our Core Services</h3>
+    <div class="services-grid">
+      <a href="/services/ai-automation.html" class="service-link">AI Automation</a>
+      <a href="/services/business-intelligence.html" class="service-link">Business Intelligence</a>
+      <a href="/services/custom-software.html" class="service-link">Custom Software</a>
+      <a href="/services/bilingual-systems.html" class="service-link">Bilingual Systems</a>
+      <a href="/services/system-integration.html" class="service-link">System Integration</a>
+      <a href="/services/logistics-warehouse.html" class="service-link">Logistics &amp; Warehouse</a>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="ar">
+    <h2>هذه الصفحة غير موجودة</h2>
+    <p>نقوم بتحديث موقعنا. الصفحة التي تبحث عنها غير متوفرة حالياً، لكن خدماتنا الست الأساسية متاحة، وفريقنا على بعد نقرة واحدة.</p>
+    <div class="actions">
+      <a href="/" class="btn btn-primary">الصفحة الرئيسية ←</a>
+      <a href="mailto:info@btsapp.net" class="btn btn-secondary">راسلنا</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  (function () {
+    var seconds = 8;
+    var countEl = document.getElementById('count');
+    if (!countEl) return;
+
+    var reduceMotion = window.matchMedia &&
+                       window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (reduceMotion) {
+      countEl.parentElement.textContent = 'Use the button above to continue.';
+      return;
+    }
+
+    var timer = setInterval(function () {
+      seconds -= 1;
+      countEl.textContent = seconds;
+      if (seconds <= 0) {
+        clearInterval(timer);
+        window.location.href = '/';
+      }
+    }, 1000);
+
+    ['click', 'keydown', 'touchstart'].forEach(function (evt) {
+      window.addEventListener(evt, function () {
+        clearInterval(timer);
+        var cd = countEl.parentElement;
+        if (cd) cd.textContent = 'Auto-redirect cancelled.';
+      }, { once: true, passive: true });
+    });
+  })();
+</script>
+
+</body>
+</html>
