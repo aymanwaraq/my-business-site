@@ -1,4 +1,20 @@
+﻿# ══════════════════════════════════════════════════════════════════
+# BTS — robots.txt
+# ══════════════════════════════════════════════════════════════════
+
 User-agent: *
 Allow: /
 
+# Block development / internal paths
+Disallow: /inspect.ps1
+Disallow: /.git/
+Disallow: /.vscode/
+Disallow: /blog/admin.html
+Disallow: /sitemap-blog.xml.xml
+
+# Block anything with a query string that looks like an internal test
+Disallow: /*?test=
+Disallow: /*?debug=
+
+# Sitemap
 Sitemap: https://btsapp.net/sitemap.xml

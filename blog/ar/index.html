@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>المدونة | BTS — حلول تقنية الأعمال</title>
+  <meta name="description" content="رؤى حول الذكاء الاصطناعي، والأتمتة، والخدمات اللوجستية، والتحول الرقمي في دول الخليج." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="المدونة | BTS" />
+  <meta property="og:description" content="رؤى حول الذكاء الاصطناعي، والأتمتة، والخدمات اللوجستية، والتحول الرقمي في دول الخليج." />
+  <meta property="og:url" content="https://btsapp.net/blog/ar/" />
+
+  <!-- Canonical + hreflang twin -->
+  <link rel="canonical" href="https://btsapp.net/blog/ar/" />
+  <link rel="alternate" hreflang="en" href="https://btsapp.net/blog/" />
+  <link rel="alternate" hreflang="ar" href="https://btsapp.net/blog/ar/" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/assets/css/blog.css" />
+</head>
+<body class="blog-page">
+
+  <div class="blog-container">
+    <header class="blog-header">
+      <div class="blog-header__inner">
+        <div>
+          <h1 class="blog-header__title">المدونة</h1>
+          <p class="blog-header__subtitle">
+            رؤى حول الذكاء الاصطناعي، والأتمتة، والخدمات اللوجستية، والتحول الرقمي.
+          </p>
+        </div>
+        <a class="blog-lang-switch" href="/blog/" hreflang="en" lang="en">
+          <span>English</span>
+          <span aria-hidden="true">←</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="blog-index">
+      <div id="blog-index-root" aria-live="polite" aria-busy="true"></div>
+    </main>
+  </div>
+
+  <script src="/assets/js/blog.js"></script>
+  <script>
+    Blog.init({
+      mode: "index",
+      lang: "ar",
+      postsUrl: "/blog/posts.json"
+    });
+  </script>
+</body>
+</html>

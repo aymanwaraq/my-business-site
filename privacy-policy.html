@@ -203,6 +203,16 @@
             }
         }
     </style>
+<script>
+(function(){
+  try {
+    var saved = localStorage.getItem('bts_theme');
+    var pref = saved ? saved :
+               (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (pref === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  } catch(e){}
+})();
+</script>
 </head>
 
 <body>
@@ -1277,5 +1287,19 @@
     });
 </script>
 
+<button class="scroll-top-btn" id="scrollTopBtn" type="button" aria-label="Scroll to top" title="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 19V5"/>
+    <path d="M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+<div class="img-lightbox" id="imgLightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="img-lightbox-close" id="imgLightboxClose" type="button" aria-label="Close image preview">×</button>
+  <img class="img-lightbox-img" id="imgLightboxImg" src="" alt="">
+</div>
+
 </body>
 </html>
+
+

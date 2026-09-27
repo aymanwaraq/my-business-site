@@ -1,0 +1,120 @@
+﻿# ══════════════════════════════════════════════════════════════════
+# BTS — Apache configuration for btsapp.net
+# ══════════════════════════════════════════════════════════════════
+
+Options -Indexes
+DirectoryIndex index.html
+
+# ─── Force HTTPS + strip www ────────────────────────────────────
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # HTTPS
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://btsapp.net/$1 [R=301,L]
+
+  # www → non-www
+  RewriteCond %{HTTP_HOST} ^www\.btsapp\.net$ [NC]
+  RewriteRule ^(.*)$ https://btsapp.net/$1 [R=301,L]
+
+  # ─── Old /solutions/* → new /services/* ───────────────────────
+  RewriteRule ^solutions/index\.html$                          /en.html [R=301,L]
+  RewriteRule ^solutions/index\.ar\.html$                      /ar.html [R=301,L]
+
+  RewriteRule ^solutions/operational-automation\.html$         /services/ai-automation.html [R=301,L]
+  RewriteRule ^solutions/operational-automation\.ar\.html$     /services/ai-automation.html [R=301,L]
+  RewriteRule ^solutions/intelligent-dashboards\.html$         /services/business-intelligence.html [R=301,L]
+  RewriteRule ^solutions/intelligent-dashboards\.ar\.html$     /services/business-intelligence.html [R=301,L]
+  RewriteRule ^solutions/predictive-analytics\.html$           /services/business-intelligence.html [R=301,L]
+  RewriteRule ^solutions/predictive-analytics\.ar\.html$       /services/business-intelligence.html [R=301,L]
+  RewriteRule ^solutions/custom-software\.html$                /services/custom-software.html [R=301,L]
+  RewriteRule ^solutions/custom-software\.ar\.html$            /services/custom-software.html [R=301,L]
+  RewriteRule ^solutions/bilingual-systems\.html$              /services/bilingual-systems.html [R=301,L]
+  RewriteRule ^solutions/bilingual-systems\.ar\.html$          /services/bilingual-systems.html [R=301,L]
+  RewriteRule ^solutions/system-integration\.html$             /services/system-integration.html [R=301,L]
+  RewriteRule ^solutions/system-integration\.ar\.html$         /services/system-integration.html [R=301,L]
+  RewriteRule ^solutions/whatsapp-automation\.html$            /services/ai-automation.html [R=301,L]
+  RewriteRule ^solutions/whatsapp-automation\.ar\.html$        /services/ai-automation.html [R=301,L]
+  RewriteRule ^solutions/document-intelligence\.html$          /services/business-intelligence.html [R=301,L]
+  RewriteRule ^solutions/document-intelligence\.ar\.html$      /services/business-intelligence.html [R=301,L]
+  RewriteRule ^solutions/logistics-warehouse-technology\.html$ /services/logistics-warehouse.html [R=301,L]
+  RewriteRule ^solutions/logistics-warehouse-technology\.ar\.html$ /services/logistics-warehouse.html [R=301,L]
+  RewriteRule ^solutions/mobile-app-development\.html$         /services/custom-software.html [R=301,L]
+  RewriteRule ^solutions/mobile-app-development\.ar\.html$     /services/custom-software.html [R=301,L]
+  RewriteRule ^solutions/ecommerce-solutions\.html$            /services/custom-software.html [R=301,L]
+  RewriteRule ^solutions/ecommerce-solutions\.ar\.html$        /services/custom-software.html [R=301,L]
+  RewriteRule ^solutions/cloud-api-integration\.html$          /services/system-integration.html [R=301,L]
+  RewriteRule ^solutions/cloud-api-integration\.ar\.html$      /services/system-integration.html [R=301,L]
+  RewriteRule ^solutions/complete-technology-solutions\.html$  /services/custom-software.html [R=301,L]
+  RewriteRule ^solutions/complete-technology-solutions\.ar\.html$ /services/custom-software.html [R=301,L]
+  RewriteRule ^solutions/digital-marketing\.html$              /services/digital-marketing.html [R=301,L]
+  RewriteRule ^solutions/digital-marketing\.ar\.html$          /services/digital-marketing.html [R=301,L]
+  RewriteRule ^solutions/branding-identity\.html$              /services/digital-marketing.html [R=301,L]
+  RewriteRule ^solutions/branding-identity\.ar\.html$          /services/digital-marketing.html [R=301,L]
+  RewriteRule ^solutions/email-marketing\.html$                /services/digital-marketing.html [R=301,L]
+  RewriteRule ^solutions/email-marketing\.ar\.html$            /services/digital-marketing.html [R=301,L]
+
+  # Anything else under /solutions/* → services index fallback
+  RewriteRule ^solutions/(.*)$                                 /services/ai-automation.html [R=301,L]
+
+  # ─── Old /industries/* → new /services or /locations ──────────
+  RewriteRule ^industries/index\.html$                         /en.html [R=301,L]
+  RewriteRule ^industries/index\.ar\.html$                     /ar.html [R=301,L]
+  RewriteRule ^industries/logistics-supply-chain\.html$        /services/logistics-warehouse.html [R=301,L]
+  RewriteRule ^industries/logistics-supply-chain\.ar\.html$    /services/logistics-warehouse.html [R=301,L]
+  RewriteRule ^industries/warehouse-management\.html$          /services/logistics-warehouse.html [R=301,L]
+  RewriteRule ^industries/warehouse-management\.ar\.html$      /services/logistics-warehouse.html [R=301,L]
+  RewriteRule ^industries/(.*)$                                /en.html [R=301,L]
+
+  # ─── Old /locations/gcc.html → new GCC landing ─────────────────
+  RewriteRule ^locations/gcc\.html$                            /en.html#locations [R=301,L]
+  RewriteRule ^locations/gcc\.ar\.html$                        /ar.html#locations [R=301,L]
+  RewriteRule ^locations/saudi-arabia\.html$                   /locations/ksa.html [R=301,L]
+  RewriteRule ^locations/saudi-arabia\.ar\.html$               /locations/ksa.html [R=301,L]
+  RewriteRule ^locations/index\.html$                          /en.html#locations [R=301,L]
+  RewriteRule ^locations/index\.ar\.html$                      /ar.html#locations [R=301,L]
+
+  # Strip .ar.html → Arabic equivalent (only for non-mapped pages)
+  RewriteRule ^locations/([a-z]+)\.ar\.html$                   /locations/$1.html [R=301,L]
+
+  # ─── Old blog articles → new article system ───────────────────
+  RewriteRule ^blog/admin\.html$                               /blog/ [R=301,L]
+  RewriteRule ^blog/article\.html$                             /blog/ [R=301,L]
+
+  # ─── Friendly URLs for services/locations (optional) ──────────
+  # Uncomment if you want /services/ai-automation  (no .html)
+  # RewriteCond %{REQUEST_FILENAME}.html -f
+  # RewriteRule ^(.*)$ $1.html [L]
+
+</IfModule>
+
+# ─── MIME types ─────────────────────────────────────────────────
+<IfModule mod_mime.c>
+  AddType application/json          .json
+  AddType image/svg+xml             .svg
+  AddType font/woff2                .woff2
+</IfModule>
+
+# ─── Caching ────────────────────────────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css                            "access plus 1 month"
+  ExpiresByType application/javascript              "access plus 1 month"
+  ExpiresByType image/png                           "access plus 6 months"
+  ExpiresByType image/jpeg                          "access plus 6 months"
+  ExpiresByType image/svg+xml                       "access plus 6 months"
+  ExpiresByType image/webp                          "access plus 6 months"
+  ExpiresByType text/html                           "access plus 1 day"
+  ExpiresByType application/json                    "access plus 1 hour"
+</IfModule>
+
+# ─── Security headers ───────────────────────────────────────────
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options    "nosniff"
+  Header set X-Frame-Options           "SAMEORIGIN"
+  Header set Referrer-Policy           "strict-origin-when-cross-origin"
+  Header set Permissions-Policy        "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+# ─── Custom error page ──────────────────────────────────────────
+ErrorDocument 404 /en.html

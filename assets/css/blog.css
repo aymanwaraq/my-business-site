@@ -1,0 +1,563 @@
+/* ==========================================================================
+   btsapp.net — blog.css
+   Styles /blog/, /blog/ar/, and /blog/article.html
+   One file, RTL-aware, driven by logical properties.
+   ========================================================================== */
+
+/* ---------- 1. Design tokens ---------- */
+:root {
+  /* Colors — tweak here, cascades everywhere */
+  --blog-bg:            #ffffff;
+  --blog-surface:       #f7f8fa;
+  --blog-surface-2:     #eef0f4;
+  --blog-border:        #e3e6ec;
+  --blog-text:          #14181f;
+  --blog-text-muted:    #5a6473;
+  --blog-text-faint:    #8a93a1;
+  --blog-accent:        #0b5fff;
+  --blog-accent-hover:  #0847c4;
+  --blog-chip-bg:       #eef2ff;
+  --blog-chip-text:     #2b47b8;
+  --blog-shadow-sm:     0 1px 2px rgba(20, 24, 31, 0.06);
+  --blog-shadow-md:     0 4px 12px rgba(20, 24, 31, 0.08);
+  --blog-shadow-lg:     0 12px 32px rgba(20, 24, 31, 0.10);
+
+  /* Type */
+  --blog-font:          "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
+                        "Helvetica Neue", Arial, sans-serif;
+  --blog-font-ar:       "Noto Kufi Arabic", "Tahoma", "Segoe UI",
+                        system-ui, sans-serif;
+  --blog-font-mono:     ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* Sizing */
+  --blog-max:           1180px;
+  --blog-gutter:        1.25rem;
+  --blog-radius:        12px;
+  --blog-radius-sm:     8px;
+  --blog-radius-lg:     18px;
+
+  /* Rhythm */
+  --blog-space-1:       0.25rem;
+  --blog-space-2:       0.5rem;
+  --blog-space-3:       0.75rem;
+  --blog-space-4:       1rem;
+  --blog-space-5:       1.25rem;
+  --blog-space-6:       1.5rem;
+  --blog-space-8:       2rem;
+  --blog-space-10:      2.5rem;
+  --blog-space-12:      3rem;
+  --blog-space-16:      4rem;
+}
+
+/* ---------- 2. Reset / base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body.blog-page {
+  margin: 0;
+  font-family: var(--blog-font);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--blog-text);
+  background: var(--blog-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Arabic pages get an Arabic-capable font stack */
+html[dir="rtl"] body.blog-page,
+html[lang="ar"] body.blog-page {
+  font-family: var(--blog-font-ar);
+  line-height: 1.75;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: var(--blog-accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--blog-accent-hover);
+  text-decoration: underline;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--blog-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- 3. Layout shell ---------- */
+.blog-container {
+  max-width: var(--blog-max);
+  margin-inline: auto;
+  padding-inline: var(--blog-gutter);
+}
+
+.blog-header {
+  padding-block: var(--blog-space-10) var(--blog-space-8);
+  border-bottom: 1px solid var(--blog-border);
+}
+
+.blog-header__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--blog-space-4);
+}
+
+.blog-header__title {
+  margin: 0;
+  font-size: clamp(1.75rem, 1rem + 3vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+html[dir="rtl"] .blog-header__title {
+  letter-spacing: 0;
+}
+
+.blog-header__subtitle {
+  margin: var(--blog-space-2) 0 0;
+  color: var(--blog-text-muted);
+  font-size: 1.05rem;
+  max-width: 60ch;
+}
+
+.blog-header__back {
+  font-size: 0.95rem;
+  color: var(--blog-text-muted);
+}
+
+.blog-header__back:hover {
+  color: var(--blog-accent);
+}
+
+/* Language cross-link (EN index → AR index and back) */
+.blog-lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--blog-space-2);
+  padding: 0.5rem 0.9rem;
+  border: 1px solid var(--blog-border);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  color: var(--blog-text-muted);
+  background: var(--blog-surface);
+}
+
+.blog-lang-switch:hover {
+  color: var(--blog-accent);
+  border-color: var(--blog-accent);
+  text-decoration: none;
+}
+
+/* ---------- 4. Index grid ---------- */
+.blog-index {
+  padding-block: var(--blog-space-12) var(--blog-space-16);
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--blog-space-6);
+}
+
+@media (min-width: 640px) {
+  .blog-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 960px) {
+  .blog-grid { grid-template-columns: repeat(3, 1fr); gap: var(--blog-space-8); }
+}
+
+/* ---------- 5. Post card ---------- */
+.post-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--blog-bg);
+  border: 1px solid var(--blog-border);
+  border-radius: var(--blog-radius-lg);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--blog-shadow-lg);
+  border-color: transparent;
+}
+
+.post-card__cover-link {
+  display: block;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--blog-surface-2);
+}
+
+.post-card__cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.post-card:hover .post-card__cover {
+  transform: scale(1.04);
+}
+
+.post-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--blog-space-5) var(--blog-space-5) var(--blog-space-6);
+}
+
+.post-card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--blog-space-3);
+  margin-bottom: var(--blog-space-3);
+  font-size: 0.8125rem;
+  color: var(--blog-text-faint);
+}
+
+.post-card__date {
+  font-variant-numeric: tabular-nums;
+}
+
+.post-card__meta-sep {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--blog-text-faint);
+}
+
+.post-card__title {
+  margin: 0 0 var(--blog-space-3);
+  font-size: 1.175rem;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+html[dir="rtl"] .post-card__title {
+  letter-spacing: 0;
+}
+
+.post-card__title a {
+  color: var(--blog-text);
+}
+
+.post-card__title a:hover {
+  color: var(--blog-accent);
+  text-decoration: none;
+}
+
+.post-card__summary {
+  margin: 0 0 var(--blog-space-5);
+  color: var(--blog-text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Category chips (auto-split from the comma-separated `category` field) */
+.post-card__chips,
+.article-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--blog-space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chip {
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--blog-chip-text);
+  background: var(--blog-chip-bg);
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* ---------- 6. Empty state ---------- */
+.blog-empty {
+  padding-block: var(--blog-space-16);
+  text-align: center;
+  color: var(--blog-text-muted);
+}
+
+.blog-empty__title {
+  margin: 0 0 var(--blog-space-2);
+  font-size: 1.25rem;
+  color: var(--blog-text);
+}
+
+.blog-empty__text {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ---------- 7. Loading state ---------- */
+.blog-loading {
+  padding-block: var(--blog-space-16);
+  text-align: center;
+  color: var(--blog-text-faint);
+  font-size: 0.95rem;
+}
+
+.blog-loading__dots {
+  display: inline-flex;
+  gap: 6px;
+  margin-top: var(--blog-space-3);
+}
+
+.blog-loading__dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blog-accent);
+  opacity: 0.3;
+  animation: blog-pulse 1s infinite ease-in-out;
+}
+
+.blog-loading__dots span:nth-child(2) { animation-delay: 0.15s; }
+.blog-loading__dots span:nth-child(3) { animation-delay: 0.30s; }
+
+@keyframes blog-pulse {
+  0%, 80%, 100% { opacity: 0.3; transform: scale(0.9); }
+  40%           { opacity: 1;   transform: scale(1.1); }
+}
+
+/* ---------- 8. Article page ---------- */
+.article {
+  padding-block: var(--blog-space-10) var(--blog-space-16);
+}
+
+.article__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--blog-space-2);
+  margin-bottom: var(--blog-space-8);
+  font-size: 0.9rem;
+  color: var(--blog-text-muted);
+}
+
+.article__back:hover {
+  color: var(--blog-accent);
+  text-decoration: none;
+}
+
+.article__back-arrow {
+  transition: transform 0.2s ease;
+}
+
+html[dir="ltr"] .article__back:hover .article__back-arrow { transform: translateX(-3px); }
+html[dir="rtl"] .article__back:hover .article__back-arrow { transform: translateX(3px); }
+
+.article__header {
+  max-width: 48rem;
+  margin-inline: auto;
+  margin-bottom: var(--blog-space-8);
+  text-align: start;
+}
+
+.article__chips {
+  margin-bottom: var(--blog-space-4);
+}
+
+.article__title {
+  margin: 0 0 var(--blog-space-4);
+  font-size: clamp(1.75rem, 1.2rem + 2.4vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+html[dir="rtl"] .article__title {
+  letter-spacing: 0;
+}
+
+.article__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--blog-space-3);
+  color: var(--blog-text-faint);
+  font-size: 0.9rem;
+}
+
+.article__meta-sep {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--blog-text-faint);
+}
+
+.article__hero {
+  max-width: 56rem;
+  margin-inline: auto;
+  margin-bottom: var(--blog-space-12);
+  border-radius: var(--blog-radius-lg);
+  overflow: hidden;
+  background: var(--blog-surface-2);
+}
+
+.article__hero img {
+  width: 100%;
+  height: auto;
+}
+
+/* Content blocks (rendered from the `content[]` array) */
+.article__content {
+  max-width: 44rem;
+  margin-inline: auto;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: var(--blog-text);
+}
+
+html[dir="rtl"] .article__content {
+  font-size: 1.125rem;
+  line-height: 1.85;
+}
+
+.article__content > * + * {
+  margin-top: var(--blog-space-5);
+}
+
+.article__content h2 {
+  margin-top: var(--blog-space-10);
+  margin-bottom: var(--blog-space-3);
+  font-size: 1.5rem;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+html[dir="rtl"] .article__content h2 {
+  letter-spacing: 0;
+  font-size: 1.625rem;
+}
+
+.article__content p {
+  margin: 0;
+}
+
+.article__content figure {
+  margin-block: var(--blog-space-8);
+  margin-inline: 0;
+}
+
+.article__content figure img {
+  width: 100%;
+  border-radius: var(--blog-radius);
+  background: var(--blog-surface-2);
+}
+
+.article__content figcaption {
+  margin-top: var(--blog-space-3);
+  font-size: 0.875rem;
+  color: var(--blog-text-faint);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Article footer / back link */
+.article__footer {
+  max-width: 44rem;
+  margin: var(--blog-space-16) auto 0;
+  padding-top: var(--blog-space-8);
+  border-top: 1px solid var(--blog-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--blog-space-4);
+  flex-wrap: wrap;
+}
+
+.article__footer .blog-lang-switch {
+  font-size: 0.85rem;
+}
+
+/* ---------- 9. 404 / missing article ---------- */
+.article-missing {
+  max-width: 40rem;
+  margin: var(--blog-space-16) auto;
+  text-align: center;
+  color: var(--blog-text-muted);
+}
+
+.article-missing__title {
+  margin: 0 0 var(--blog-space-3);
+  font-size: 1.5rem;
+  color: var(--blog-text);
+}
+
+.article-missing__code {
+  display: inline-block;
+  margin-bottom: var(--blog-space-4);
+  padding: 0.25rem 0.75rem;
+  font-family: var(--blog-font-mono);
+  font-size: 0.8rem;
+  color: var(--blog-text-muted);
+  background: var(--blog-surface-2);
+  border-radius: 6px;
+}
+
+/* ---------- 10. Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- 11. Print (nice-to-have) ---------- */
+@media print {
+  .blog-header__back,
+  .blog-lang-switch,
+  .article__back,
+  .article__footer {
+    display: none;
+  }
+  .post-card,
+  .article__hero {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
