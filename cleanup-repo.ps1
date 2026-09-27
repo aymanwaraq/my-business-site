@@ -1,71 +1,69 @@
 # ============================================================
-#  BTS - Repo cleanup before the final push
-#  1) Backs up current state
-#  2) Adds ignore rules
-#  3) Stops tracking backup files
-#  4) Deletes patch scripts
+#  BTS - Repo cleanup before final push
+#  Stops tracking backups + deletes patch scripts.
 # ============================================================
 
-$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "Continue"
 
-Write-Host "=== BTS Repo Cleanup ===" -ForegroundColor Cyan
+Write-Host "=== REPO CLEANUP ===" -ForegroundColor Cyan
 Write-Host ""
 
-# ---- 1. Backup the current .gitignore ------------------------
+# --- Backup current .gitignore --------------------------------
 if (Test-Path ".gitignore") {
-    Copy-Item ".gitignore" ".gitignore.backup-$(Get-Date -Format 'yyyyMMdd-HHmmss')" -Force
-    Write-Host "Backed up .gitignore" -ForegroundColor Green
-} else {
-    New-Item -ItemType File ".gitignore" | Out-Null
-    Write-Host "Created .gitignore" -ForegroundColor Green
+    Copy-Item ".gitignore" ".gitignore.precleanup-$(Get-Date -Format 'yyyyMMdd-HHmmss')" -Force
+    Write-Host "Backed up existing .gitignore" -ForegroundColor Green
 }
 
-# ---- 2. Append ignore rules ----------------------------------
-$ignoreRules = @"
+# --- Append ignore rules --------------------------------------
+$rules = @"
 
-# --- BTS added: dev artifacts ---
+# --- BTS: dev artifacts ---
 _backups/
 *.bak
 *.backup-*
 *.pretighten-*
-*.ps1
+*.precleanup-*
+*.pre-redesign-*
+patch-*.ps1
+inspect.ps1
+fix-*.ps1
+cleanup-*.ps1
 "@
 
-Add-Content -Path ".gitignore" -Value $ignoreRules -Encoding UTF8
-Write-Host "Added ignore rules to .gitignore" -ForegroundColor Green
+Add-Content -Path ".gitignore" -Value $rules -Encoding UTF8
+Write-Host "Updated .gitignore" -ForegroundColor Green
 
-# ---- 3. Stop tracking backup files ---------------------------
+# --- Stop tracking _backups folder ----------------------------
 Write-Host ""
-Write-Host "Removing tracked backup files from git index..." -ForegroundColor Yellow
-
-# _backups folder
+Write-Host "Untracking _backups/ folder..." -ForegroundColor Yellow
 if (Test-Path ".\_backups") {
     git rm -r --cached --quiet .\_backups 2>$null
-    Write-Host "  - _backups/ untracked" -ForegroundColor Gray
+    Write-Host "  Done" -ForegroundColor Gray
 }
 
-# Any .bak files anywhere
-$bakFiles = git ls-files | Select-String -Pattern '\.bak$'
-foreach ($f in $bakFiles) {
-    git rm --cached --quiet $f.ToString().Trim() 2>$null
-}
-if ($bakFiles) { Write-Host "  - *.bak files untracked" -ForegroundColor Gray }
+# --- Stop tracking loose backup files -------------------------
+Write-Host ""
+Write-Host "Untracking loose backup files..." -ForegroundColor Yellow
 
-# Any .backup-* files
-$backupFiles = git ls-files | Select-String -Pattern '\.backup-'
-foreach ($f in $backupFiles) {
-    git rm --cached --quiet $f.ToString().Trim() 2>$null
+$tracked = git ls-files
+$toUntrack = $tracked | Where-Object {
+    $_ -match '\.bak$' -or
+    $_ -match '\.backup-' -or
+    $_ -match '\.pretighten-' -or
+    $_ -match '\.pre-redesign-' -or
+    $_ -match '\.precleanup-'
 }
-if ($backupFiles) { Write-Host "  - *.backup-* files untracked" -ForegroundColor Gray }
 
-# Any .pretighten-* files
-$pretightenFiles = git ls-files | Select-String -Pattern '\.pretighten-'
-foreach ($f in $pretightenFiles) {
-    git rm --cached --quiet $f.ToString().Trim() 2>$null
+if ($toUntrack) {
+    foreach ($f in $toUntrack) {
+        git rm --cached --quiet $f 2>$null
+    }
+    Write-Host ("  Untracked {0} file(s)" -f $toUntrack.Count) -ForegroundColor Gray
+} else {
+    Write-Host "  None found" -ForegroundColor Gray
 }
-if ($pretightenFiles) { Write-Host "  - *.pretighten-* files untracked" -ForegroundColor Gray }
 
-# ---- 4. Delete patch scripts ---------------------------------
+# --- Delete patch scripts from disk ---------------------------
 Write-Host ""
 Write-Host "Removing patch scripts..." -ForegroundColor Yellow
 
@@ -76,6 +74,7 @@ $scriptsToRemove = @(
     "patch-ai-automation-v4.ps1",
     "patch-system-integration.ps1",
     "fix-erp-card.ps1",
+    "fix-hero-stats.ps1",
     "inspect.ps1"
 )
 
@@ -83,16 +82,48 @@ foreach ($s in $scriptsToRemove) {
     if (Test-Path $s) {
         git rm --cached --quiet $s 2>$null
         Remove-Item $s -Force
-        Write-Host "  - Removed $s" -ForegroundColor Gray
+        Write-Host "  Removed $s" -ForegroundColor Gray
     }
 }
 
-# ---- 5. Show status ------------------------------------------
+# --- Verify service pages still exist -------------------------
 Write-Host ""
-Write-Host "=== Status ===" -ForegroundColor Cyan
-git status --short
+Write-Host "Verifying service pages still intact..." -ForegroundColor Yellow
+$expected = @(
+    ".\services\ai-automation.html",
+    ".\services\ai-automation.ar.html",
+    ".\services\business-intelligence.html",
+    ".\services\business-intelligence.ar.html",
+    ".\services\custom-software.html",
+    ".\services\custom-software.ar.html",
+    ".\services\bilingual-systems.html",
+    ".\services\bilingual-systems.ar.html",
+    ".\services\system-integration.html",
+    ".\services\system-integration.ar.html",
+    ".\services\logistics-warehouse.html",
+    ".\services\logistics-warehouse.ar.html"
+)
+$allOk = $true
+foreach ($f in $expected) {
+    if (!(Test-Path $f)) {
+        Write-Host "  MISSING: $f" -ForegroundColor Red
+        $allOk = $false
+    }
+}
+if ($allOk) {
+    Write-Host "  All 12 service pages intact." -ForegroundColor Green
+}
+
+# --- Show current status --------------------------------------
+Write-Host ""
+Write-Host "=== GIT STATUS (summary) ===" -ForegroundColor Cyan
+git status --short | Group-Object { $_.Substring(0,2) } | ForEach-Object {
+    Write-Host ("  {0} : {1} file(s)" -f $_.Name, $_.Count) -ForegroundColor Gray
+}
 
 Write-Host ""
-Write-Host "Done. Review the status above, then commit with:" -ForegroundColor Green
+Write-Host "Cleanup complete." -ForegroundColor Green
+Write-Host ""
+Write-Host "Next: review 'git status --short' output, then commit with:" -ForegroundColor Cyan
 Write-Host "  git add -A" -ForegroundColor White
-Write-Host "  git commit -m 'Clean repo: remove backups and dev scripts'" -ForegroundColor White
+Write-Host "  git commit -m 'Clean repo: stop tracking backups, remove dev scripts'" -ForegroundColor White

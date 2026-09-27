@@ -557,7 +557,7 @@ body.rtl .bts-hero-stats { flex-direction:row-reverse; }
         <div class="bts-hero-stats">
           <div class="hs"><strong>7</strong>أسواق الخليج</div>
           <div class="hs"><strong>عربي/إنجليزي</strong>ثنائي اللغة بالتصميم</div>
-          <div class="hs"><strong>المملكة المتحدة</strong>التكنولوجيا والتنفيذ</div>
+          <div class="hs"><strong>بريطانيا</strong>هندسة وتسليم</div>
         </div>
       </div>
 

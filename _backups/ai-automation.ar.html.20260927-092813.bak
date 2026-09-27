@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ذكاء الأعمال لمؤسسات المملكة المتحدة والخليج | BTS</title>
-<meta name="description" content="تبني BTS حلول ذكاء الأعمال ولوحات التحكم وخطوط البيانات التي تحوّل بيانات الأعمال إلى رؤى واضحة قابلة للتنفيذ للمؤسسات في المملكة المتحدة ودول الخليج.">
-<link rel="canonical" href="https://btsapp.net/services/business-intelligence.ar.html">
-<link rel="alternate" hreflang="en" href="https://btsapp.net/services/business-intelligence.html">
-<link rel="alternate" hreflang="ar" href="https://btsapp.net/services/business-intelligence.ar.html">
+<title>أتمتة الذكاء الاصطناعي لعمليات الأعمال في بريطانيا والخليج | BTS</title>
+<meta name="description" content="تساعد BTS الشركات في بريطانيا ودول الخليج على أتمتة سير العمل والمستندات والموافقات وعمليات واتساب والعمليات المتكررة باستخدام الذكاء الاصطناعي وقواعد العمل وواجهات API والأتمتة الذكية.">
+<link rel="canonical" href="https://btsapp.net/services/ai-automation.ar.html">
+<link rel="alternate" hreflang="en" href="https://btsapp.net/services/ai-automation.html">
+<link rel="alternate" hreflang="ar" href="https://btsapp.net/services/ai-automation.ar.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -28,8 +28,8 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
 </script>
 <style>
 /* ═══════════════════════════════════════════════════════════
-   صفحة ذكاء الأعمال — النسخة العربية
-   نفس بنية صفحة أتمتة الذكاء الاصطناعي مع تعديلات RTL
+   صفحة أتمتة الذكاء الاصطناعي — النسخة العربية
+   نفس البنية والألوان، مع تعديلات RTL
    ═══════════════════════════════════════════════════════════ */
 
 :root {
@@ -41,7 +41,6 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
   --bts-success:#10b981;
   --bts-warning:#f59e0b;
   --bts-danger:#ef4444;
-  --bts-violet:#a78bfa;
 }
 
 /* ─── HERO ─────────────────────────────────────────────── */
@@ -123,7 +122,7 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
   text-align:right;
 }
 
-/* ─── BI TREND MOCKUP ──────────────────────────────────── */
+/* ─── PRODUCT MOCKUP ─────────────────────────────────────── */
 .bts-mock {
   background:linear-gradient(160deg,#0d1f34 0%,#0a1828 100%);
   border:1px solid rgba(255,255,255,.08);
@@ -170,79 +169,47 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
   letter-spacing:.02em;
 }
 
-/* Trend strip */
-.bts-trend-stack {
-  display:flex;
-  flex-direction:column;
+.bts-mock-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
   gap:10px;
 }
-.bts-trend {
+.bts-kpi {
   background:#0a1729;
   border:1px solid rgba(255,255,255,.06);
   border-radius:10px;
-  padding:14px 16px 12px;
-  display:grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto;
-  gap:8px 14px;
-  align-items:center;
+  padding:14px 14px 12px;
   position:relative;
   overflow:hidden;
 }
-.bts-trend::before {
-  content:""; position:absolute; top:0; right:0; left:0; height:2px;
-  background:var(--trend-accent, #3b82f6);
+.bts-kpi::before {
+  content:""; position:absolute; top:0; left:0; right:0; height:2px;
+  background:var(--kpi-accent, #3b82f6);
   opacity:.9;
 }
-.bts-trend .trend-label {
-  grid-column:1; grid-row:1;
+.bts-kpi .kpi-label {
   font-size:11px;
   color:#7a8fa8; font-weight:600;
+  margin-bottom:6px;
 }
-.bts-trend .trend-value {
-  grid-column:1; grid-row:2;
-  font-size:22px; font-weight:800; line-height:1;
-  color:#fff;
-  display:flex;
-  align-items:baseline;
-  gap:8px;
+.bts-kpi .kpi-value {
+  font-size:24px; font-weight:800; line-height:1;
+  color:var(--kpi-accent, #fff);
   direction:ltr;
   unicode-bidi:isolate;
-  justify-content:flex-end;
+  text-align:right;
+  font-family:'Inter',sans-serif;
 }
-.bts-trend .trend-delta {
-  font-size:11.5px;
-  font-weight:700;
-  color:var(--trend-accent, #3b82f6);
-}
-.bts-trend .trend-spark {
-  grid-column:2; grid-row:1 / span 2;
-  width:88px; height:38px;
-  display:block;
-  direction:ltr;
-}
-.bts-trend .trend-spark svg {
-  width:100%; height:100%;
-  display:block;
-  overflow:visible;
-}
-.bts-trend .trend-spark path.spark-line {
-  fill:none;
-  stroke:var(--trend-accent, #3b82f6);
-  stroke-width:2;
-  stroke-linecap:round;
-  stroke-linejoin:round;
-}
-.bts-trend .trend-spark path.spark-fill {
-  fill:var(--trend-accent, #3b82f6);
-  opacity:.12;
-  stroke:none;
+.bts-kpi .kpi-foot {
+  font-size:10.5px; color:#6a7d94; margin-top:6px;
 }
 
-.bts-trend.blue   { --trend-accent:#3b82f6; }
-.bts-trend.green  { --trend-accent:#10b981; }
-.bts-trend.gold   { --trend-accent:#C9A84C; }
-.bts-trend.violet { --trend-accent:#a78bfa; }
+.bts-kpi.blue   { --kpi-accent:#3b82f6; }
+.bts-kpi.green  { --kpi-accent:#10b981; }
+.bts-kpi.orange { --kpi-accent:#f59e0b; }
+.bts-kpi.red    { --kpi-accent:#ef4444; }
+.bts-kpi.purple { --kpi-accent:#a78bfa; }
+.bts-kpi.gold   { --kpi-accent:#C9A84C; }
 
 /* ─── SECTION BASE ─────────────────────────────────────── */
 .bts-section { padding:96px 0; position:relative; }
@@ -471,6 +438,7 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
 .bts-product-tag {
   display:inline-block;
   font-size:11px; font-weight:800;
+  letter-spacing:.02em;
   padding:5px 10px; border-radius:100px;
   margin-bottom:20px;
 }
@@ -489,9 +457,11 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
   border-radius: 4px;
 }
 
-/* ─── RTL refinements ─────────────────────────────────── */
+/* ─── RTL overrides ───────────────────────────────────── */
 body.rtl .bts-head .rule { margin-inline-start: 0; }
 body.rtl .bts-hero-stats { flex-direction:row-reverse; }
+body.rtl .btn-primary::after,
+body.rtl .btn-outline::after { content:""; }
 
 /* ─── RESPONSIVE ───────────────────────────────────────── */
 @media (max-width:1100px) {
@@ -506,8 +476,7 @@ body.rtl .bts-hero-stats { flex-direction:row-reverse; }
   .bts-hero { padding:64px 0 56px; }
   .bts-hero-stats { gap:22px; flex-wrap:wrap; }
   .bts-mock { padding:20px; }
-  .bts-trend { grid-template-columns: 1fr auto; padding:12px 14px 10px; }
-  .bts-trend .trend-spark { width:64px; height:32px; }
+  .bts-mock-grid { grid-template-columns:repeat(2,1fr); }
   .bts-phase { padding: 32px 24px; }
 }
 </style>
@@ -521,9 +490,9 @@ body.rtl .bts-hero-stats { flex-direction:row-reverse; }
       <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
     </button>
-    <a href="../blog/">رؤى</a>
+    <a href="../blog/ar/">رؤى</a>
     <a href="../ar.html#contact">اتصل بنا</a>
-    <a href="business-intelligence.html" onclick="setLang('en')">English</a>
+    <a href="ai-automation.html" onclick="setLang('en')">English</a>
   </div>
 </div></div>
 
@@ -532,11 +501,11 @@ body.rtl .bts-hero-stats { flex-direction:row-reverse; }
     <img src="../assets/images/Logo.png" alt="BTS">
     حلول تكنولوجيا الأعمال
   </a>
-  <button class="mobile-toggle" onclick="toggleMobile()" aria-label="افتح القائمة">☰</button>
+  <button class="mobile-toggle" onclick="toggleMobile()">☰</button>
   <ul class="nav-links">
     <li class="active"><a href="../ar.html#services">الخدمات</a></li>
     <li><a href="../ar.html#locations">الفروع</a></li>
-    <li><a href="../blog/">رؤى</a></li>
+    <li><a href="../blog/ar/">رؤى</a></li>
     <li><a href="../ar.html#about">من نحن</a></li>
     <li><a href="../ar.html#contact" class="nav-cta">ابدأ مشروعك</a></li>
   </ul>
@@ -548,8 +517,8 @@ body.rtl .bts-hero-stats { flex-direction:row-reverse; }
     <div class="bts-hero-grid">
       <div>
         <span class="bts-hero-eyebrow">تقنية بريطانية · تسليم في الخليج</span>
-        <h1>ذكاء الأعمال <em>لعمليات المؤسسات</em>.</h1>
-        <p class="bts-hero-lead">حوّل البيانات المتفرقة إلى لوحات تحكم واضحة ومؤشرات موثوقة وقرارات يمكن لفريقك تنفيذها — دون استبدال الأنظمة التي تشغّلها بالفعل.</p>
+        <h1>أتمتة الذكاء الاصطناعي <em> لعمليات المؤسسات الحقيقية</em>.</h1>
+        <p class="bts-hero-lead">حوّل المستندات والرسائل والعمليات المتكررة إلى سير عمل منظم ومترابط — الذكاء الاصطناعي يفهم المدخلات، وقواعد العمل تُقرر المنطق، والأنظمة تنفّذ المهام، ويبقى الأشخاص في السيطرة على ما يهم.</p>
         <div class="bts-hero-cta">
           <a href="../ar.html#contact" class="btn btn-primary">ابدأ مشروعك</a>
           <a href="#how" class="btn btn-outline">كيف نعمل</a>
@@ -557,63 +526,49 @@ body.rtl .bts-hero-stats { flex-direction:row-reverse; }
         <div class="bts-hero-stats">
           <div class="hs"><strong>7</strong>أسواق الخليج</div>
           <div class="hs"><strong>عربي/إنجليزي</strong>ثنائي اللغة بالتصميم</div>
-          <div class="hs"><strong>المملكة المتحدة</strong>التكنولوجيا والتنفيذ</div>
+          <div class="hs"><strong>بريطانيا</strong>هندسة وتسليم</div>
         </div>
       </div>
 
-      <!-- لوحة معاينة ذكاء الأعمال -->
+      <!-- لوحة المعاينة الحية -->
       <div class="bts-mock" aria-hidden="true">
         <div class="bts-mock-head">
           <div class="bts-mock-brand">
             <span class="dot"></span>
-            BTS Analytics
+            BTS Logistics
           </div>
-          <div class="bts-mock-sub">لوحة ذكاء الأعمال المباشرة</div>
+          <div class="bts-mock-sub">لوحة العمليات المباشرة</div>
         </div>
-        <div class="bts-trend-stack">
-          <!-- الإيرادات -->
-          <div class="bts-trend blue">
-            <div class="trend-label">الإيرادات (منذ بداية الشهر)</div>
-            <div class="trend-value">
-              £2.4M
-              <span class="trend-delta">↑ 12% شهرياً</span>
-            </div>
-            <div class="trend-spark">
-              <svg viewBox="0 0 88 38" preserveAspectRatio="none">
-                <path class="spark-fill" d="M0,30 L10,26 L20,28 L30,22 L40,20 L50,14 L60,16 L70,10 L80,8 L88,6 L88,38 L0,38 Z"/>
-                <path class="spark-line" d="M0,30 L10,26 L20,28 L30,22 L40,20 L50,14 L60,16 L70,10 L80,8 L88,6"/>
-              </svg>
-            </div>
+        <div class="bts-mock-grid">
+          <div class="bts-kpi blue">
+            <div class="kpi-label">الشحنات النشطة</div>
+            <div class="kpi-value">95</div>
+            <div class="kpi-foot">↑ 31% من الشهر الماضي</div>
           </div>
-
-          <!-- هامش الربح -->
-          <div class="bts-trend green">
-            <div class="trend-label">هامش الربح الإجمالي</div>
-            <div class="trend-value">
-              34.2%
-              <span class="trend-delta">↑ 2.1 نقطة</span>
-            </div>
-            <div class="trend-spark">
-              <svg viewBox="0 0 88 38" preserveAspectRatio="none">
-                <path class="spark-fill" d="M0,20 L10,22 L20,18 L30,20 L40,16 L50,18 L60,14 L70,12 L80,14 L88,10 L88,38 L0,38 Z"/>
-                <path class="spark-line" d="M0,20 L10,22 L20,18 L30,20 L40,16 L50,18 L60,14 L70,12 L80,14 L88,10"/>
-              </svg>
-            </div>
+          <div class="bts-kpi green">
+            <div class="kpi-label">مكتملة</div>
+            <div class="kpi-value">5</div>
+            <div class="kpi-foot">↑ 2% من الشهر الماضي</div>
           </div>
-
-          <!-- الطلبات -->
-          <div class="bts-trend gold">
-            <div class="trend-label">الطلبات المُعالجة</div>
-            <div class="trend-value">
-              847
-              <span class="trend-delta">↑ 8% أسبوعياً</span>
-            </div>
-            <div class="trend-spark">
-              <svg viewBox="0 0 88 38" preserveAspectRatio="none">
-                <path class="spark-fill" d="M0,26 L10,24 L20,22 L30,24 L40,20 L50,16 L60,18 L70,14 L80,12 L88,8 L88,38 L0,38 Z"/>
-                <path class="spark-line" d="M0,26 L10,24 L20,22 L30,24 L40,20 L50,16 L60,18 L70,14 L80,12 L88,8"/>
-              </svg>
-            </div>
+          <div class="bts-kpi orange">
+            <div class="kpi-label">قائمة الموافقات</div>
+            <div class="kpi-value">21</div>
+            <div class="kpi-foot">بانتظار المراجعة</div>
+          </div>
+          <div class="bts-kpi purple">
+            <div class="kpi-label">معالجة بالذكاء</div>
+            <div class="kpi-value">95</div>
+            <div class="kpi-foot">✓ مؤتمتة</div>
+          </div>
+          <div class="bts-kpi gold">
+            <div class="kpi-label">دقة الذكاء الاصطناعي</div>
+            <div class="kpi-value">70.6%</div>
+            <div class="kpi-foot">↑ 5.0% من التعلم</div>
+          </div>
+          <div class="bts-kpi red">
+            <div class="kpi-label">مخاطر عالية</div>
+            <div class="kpi-value">0</div>
+            <div class="kpi-foot">تحتاج انتباهاً</div>
           </div>
         </div>
       </div>
@@ -627,69 +582,69 @@ body.rtl .bts-hero-stats { flex-direction:row-reverse; }
     <div class="bts-head">
       <span class="rule"></span>
       <span class="kicker">ما يميّز BTS</span>
-      <h2>ذكاء الأعمال ليس لوحة تحكم. BTS يربط البيانات بالقرارات.</h2>
-      <p>أربعة مكونات تعمل معاً لجعل ذكاء الأعمال موثوقاً في العمليات الحقيقية.</p>
+      <h2>الذكاء الاصطناعي ليس سير العمل. BTS يربط الذكاء الاصطناعي بسير العمل.</h2>
+      <p>أربعة مكونات تعمل معاً لجعل الأتمتة موثوقة في عمليات الأعمال الحقيقية.</p>
     </div>
 
     <div class="bts-pillars">
       <div class="bts-pillar">
-        <span class="num">01 · البيانات تتصل</span>
-        <h3>من الأنظمة والجداول وواجهات API</h3>
-        <p>نجمع البيانات من أنظمة ERP وCRM وأنظمة المستودعات ونقاط البيع والجداول وواجهات API الخارجية في طبقة موحّدة موثوقة.</p>
+        <span class="num">01 · الذكاء الاصطناعي يفهم</span>
+        <h3>المستندات والرسائل والطلبات والبيانات</h3>
+        <p>الاستخراج والتصنيف والتعرّف على النوايا عبر المدخلات التي يستقبلها عملك بالفعل.</p>
       </div>
       <div class="bts-pillar">
-        <span class="num">02 · المؤشرات تتوافق</span>
-        <h3>تعريف واحد لكل مؤشر أداء</h3>
-        <p>الإيرادات، الهامش، الاستخدام، التسليم في الوقت المحدد — تُعرّف مرة واحدة، ويوافق عليها العمل، وتُطبّق باستمرار.</p>
+        <span class="num">02 · القواعد تُقرر</span>
+        <h3>الحدود والتحقق والتوجيه والتصعيد</h3>
+        <p>منطق الأعمال الذي يحكم ما يجب أن يحدث بعد ذلك — تملكه أنت، لا النموذج.</p>
       </div>
       <div class="bts-pillar">
-        <span class="num">03 · الرؤى تظهر</span>
-        <h3>لوحات وتنبيهات للأشخاص المناسبين</h3>
-        <p>الإدارة ترى الاتجاه. العمليات ترى الاستثناء. الجميع يرى الأرقام نفسها.</p>
+        <span class="num">03 · الأنظمة تنفّذ</span>
+        <h3>واجهات API وقواعد البيانات وأنظمة ERP وCRM والمستودعات</h3>
+        <p>طبقة التنفيذ حيث يقوم سير العمل بالمهام الفعلية داخل الأنظمة التي تشغّلها بالفعل.</p>
       </div>
       <div class="bts-pillar">
-        <span class="num">04 · الإجراء يتبع</span>
-        <h3>قرارات تغيّر ما يحدث بعد ذلك</h3>
-        <p>الرؤية لا تكون مفيدة إلا إذا أطلقت إجراءً — إعادة تعيين، تصعيد، إعادة طلب، مراجعة.</p>
+        <span class="num">04 · الأشخاص يتحكّمون</span>
+        <h3>الموافقات والاستثناءات والإشراف</h3>
+        <p>المراجعة البشرية حيث تهم، والتلقائية حيث لا تهم — مع تتبع كامل.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ 3. ما نقدمه ═══════════════ -->
+<!-- ═══════════════ 3. ما نؤتمته ═══════════════ -->
 <section class="bts-section navy">
   <div class="container">
     <div class="bts-head">
       <span class="rule"></span>
-      <span class="kicker">ما نقدمه</span>
-      <h2>ذكاء أعمال عملي للأسئلة التي يطرحها عملك فعلياً.</h2>
-      <p>ست قدرات تحوّل البيانات التشغيلية إلى قرارات يمكن لفرقك الاعتماد عليها.</p>
+      <span class="kicker">ما نؤتمته</span>
+      <h2>أتمتة عملية للعمليات التي تكلّفك أكثر من غيرها.</h2>
+      <p>ستة مجالات يخلق فيها الذكاء الاصطناعي وقواعد العمل والتكامل تحسيناً تشغيلياً قابلاً للقياس.</p>
     </div>
 
     <div class="bts-services">
       <div class="bts-svc">
-        <h3>لوحات المعلومات التنفيذية</h3>
-        <p>عروض مباشرة وواضحة للمؤشرات التي تهم الإدارة — الإيرادات، الهامش، الاستخدام، خط الصفقات والأداء.</p>
+        <h3>معالجة المستندات</h3>
+        <p>استخراج بيانات منظمة من الفواتير وأوامر الشراء وبوالص الشحن والمستندات الجمركية وغيرها من ملفات الأعمال.</p>
       </div>
       <div class="bts-svc">
-        <h3>تكامل البيانات</h3>
-        <p>جمع المعلومات من أنظمة ERP وCRM وأنظمة المستودعات والجداول وقواعد البيانات وواجهات API الخارجية في مصدر واحد موثوق.</p>
+        <h3>إدخال البيانات والتحقق</h3>
+        <p>نقل المعلومات بين المستندات وجداول البيانات وقواعد البيانات وأنظمة الأعمال مع تطبيق قواعد التحقق.</p>
       </div>
       <div class="bts-svc">
-        <h3>التحليلات التشغيلية</h3>
-        <p>تحديد الاتجاهات والعقبات ومشكلات الأداء عبر عمليات المستودعات واللوجستيات والمبيعات والخدمة.</p>
+        <h3>سير عمل واتساب بالذكاء الاصطناعي</h3>
+        <p>ربط محادثات العملاء والعمليات التشغيلية بسير عمل منظم وإشعارات وأنظمة داخلية.</p>
       </div>
       <div class="bts-svc">
-        <h3>رؤى تنبؤية</h3>
-        <p>استخدام البيانات التاريخية والتشغيلية لدعم التنبؤ وتخطيط الطلب والقرارات الاستباقية.</p>
+        <h3>الموافقات والتصعيد</h3>
+        <p>توجيه الطلبات إلى الشخص المناسب بناءً على قواعد العمل والحدود والاستثناءات — مع سجلات تدقيق كاملة.</p>
       </div>
       <div class="bts-svc">
-        <h3>جودة البيانات وحكومتها</h3>
-        <p>تحديد الملكية وقواعد التحقق وجداول التحديث لتبقى الأرقام موثوقة مع الوقت.</p>
+        <h3>التقارير والتنبيهات</h3>
+        <p>تحويل البيانات التشغيلية إلى تقارير آلية ولوحات تحكم حية وتنبيهات فورية.</p>
       </div>
       <div class="bts-svc">
-        <h3>التقارير المُدمجة</h3>
-        <p>دمج لوحات التحكم والتقارير مباشرة في الأنظمة التشغيلية التي يستخدمها فريقك يومياً.</p>
+        <h3>المهام الرقمية المتكررة</h3>
+        <p>أتمتة عمليات المتصفح وسطح المكتب والأنظمة حيثما كان ذلك مناسباً باستخدام RPA وواجهات API.</p>
       </div>
     </div>
   </div>
@@ -701,55 +656,55 @@ body.rtl .bts-hero-stats { flex-direction:row-reverse; }
     <div class="bts-head">
       <span class="rule"></span>
       <span class="kicker">كيف نعمل</span>
-      <h2>من بيانات متفرقة إلى قرارات يثق بها فريقك.</h2>
-      <p>نعمل على ثلاث مراحل. كل مرحلة تُسلّم شيئاً قابلاً للاستخدام قبل الانتقال إلى التالية.</p>
+      <h2>من المحادثة الأولى إلى سير العمل الفعّال.</h2>
+      <p>نعمل على ثلاث مراحل. كل مرحلة لها بداية واضحة ومخرَج واضح ونقطة قرار قبل الانتقال.</p>
     </div>
 
     <div class="bts-phases">
       <div class="bts-phase">
         <div class="bts-phase-num">01</div>
         <h3>الاستكشاف</h3>
-        <p class="bts-phase-lead">نحدد الأسئلة التي يحتاج عملك إجابات عليها فعلاً، ونراجع مصادر البيانات وراءها، ونرسم ما هو مفقود أو مكرر أو غير موثوق.</p>
+        <p class="bts-phase-lead">نرسم خريطة عمليتك، ونتحدث إلى الأشخاص الذين يشغّلونها، ونحدد أين يُفقَد الوقت والدقة. دون افتراضات — كل خطوة في المخطط تأتي من ملاحظة حقيقية.</p>
         <div class="bts-phase-meta">
           <span class="bts-phase-label">المدة النموذجية</span>
           <span class="bts-phase-value">أسبوعان</span>
         </div>
         <div class="bts-phase-meta">
           <span class="bts-phase-label">ما تحصل عليه</span>
-          <span class="bts-phase-value">تعريف المؤشرات، مراجعة مصادر البيانات، مواصفات لوحة التحكم</span>
+          <span class="bts-phase-value">خريطة العملية، فرص الأتمتة، خطة عمل مُرتّبة حسب الأولوية</span>
         </div>
       </div>
 
       <div class="bts-phase featured">
         <div class="bts-phase-num">02</div>
-        <h3>النمذجة</h3>
-        <p class="bts-phase-lead">نبني طبقة البيانات وأول لوحات التحكم. كل مؤشر يُعرّف مرة واحدة، ويُستمد من النظام الصحيح، ويُتحقق منه مقابل الأرقام التي يثق بها فريقا المالية والعمليات.</p>
+        <h3>المشروع التجريبي</h3>
+        <p class="bts-phase-lead">نؤتمت سير عمل واحد من البداية إلى النهاية — عادةً الأكثر إيلاماً. يعمل جنباً إلى جنب مع عمليتك الحالية، ويُقاس بمؤشرات تشغيلية حقيقية قبل أي انتقال كامل.</p>
         <div class="bts-phase-meta">
           <span class="bts-phase-label">المدة النموذجية</span>
           <span class="bts-phase-value">4–8 أسابيع</span>
         </div>
         <div class="bts-phase-meta">
           <span class="bts-phase-label">ما تحصل عليه</span>
-          <span class="bts-phase-value">لوحات تحكم فعّالة، خط بيانات، تعريفات موثّقة للمؤشرات</span>
+          <span class="bts-phase-value">أتمتة فعّالة، تكامل مع أنظمتك، نتائج قابلة للقياس</span>
         </div>
       </div>
 
       <div class="bts-phase">
         <div class="bts-phase-num">03</div>
-        <h3>النشر</h3>
-        <p class="bts-phase-lead">ننشر الحل للفرق التي تحتاجه، وندمج التقارير في الأنظمة التي تستخدمها، ونضع دورات التحديث والملكية والتنبيهات لتبقى الأرقام موثوقة مع الوقت.</p>
+        <h3>التوسّع</h3>
+        <p class="bts-phase-lead">بعد إثبات قيمة المشروع التجريبي، نوسّع النمط نفسه إلى سير عمل مجاور. القواعد ولوحات التحكم والموافقات تنتقل معه — فيستغرق كل سير عمل جديد وقتاً أقل من سابقه.</p>
         <div class="bts-phase-meta">
           <span class="bts-phase-label">المدة النموذجية</span>
           <span class="bts-phase-value">مستمر</span>
         </div>
         <div class="bts-phase-meta">
           <span class="bts-phase-label">ما تحصل عليه</span>
-          <span class="bts-phase-value">نشر للفرق، تقارير مُدمجة، ملكية البيانات وجدول التحديث</span>
+          <span class="bts-phase-value">سير عمل إضافي، لوحات تحكم موسّعة، تمكين الفريق الداخلي</span>
         </div>
       </div>
     </div>
 
-    <p class="bts-phases-note">ذكاء الأعمال الجيد ليس رسوماً بيانية أكثر. إنه الأرقام نفسها، يثق بها الجميع، وتُستخدم لاتخاذ قرارات أفضل.</p>
+    <p class="bts-phases-note">الأتمتة ليست استبدالاً للأشخاص. إنها إزالة العوائق من طريقة انتقال العمل عبر عملك.</p>
   </div>
 </section>
 
@@ -760,24 +715,24 @@ body.rtl .bts-hero-stats { flex-direction:row-reverse; }
       <span class="rule"></span>
       <span class="kicker">ميزة بريطانيا والخليج</span>
       <h2>مُصمّمة للطريقة التي تعمل بها الشركات في بريطانيا ودول الخليج فعلياً.</h2>
-      <p>تخصصنا هو تقاطع ثلاثة عناصر يتعامل معظم مزوّدي ذكاء الأعمال مع واحد منها فقط.</p>
+      <p>تخصصنا هو تقاطع ثلاثة عناصر يتعامل معظم المزودين مع واحد منها فقط.</p>
     </div>
 
     <div class="bts-services">
       <div class="bts-svc">
         <span class="bts-product-tag dev" style="margin-bottom:16px">تقنية بريطانية</span>
-        <h3>تحليلات مبنية وفق معايير بريطانية</h3>
-        <p>الأمان وحكومة البيانات والهندسة مُصمّمة وفق المعايير البريطانية — نظيفة وموثّقة وقابلة للصيانة من أي فريق.</p>
+        <h3>انضباط تقني وتشغيلي</h3>
+        <p>الأمان والتكامل والهندسة مُصمّمة وفق المعايير البريطانية — نظيفة وموثّقة وقابلة للصيانة من أي فريق.</p>
       </div>
       <div class="bts-svc">
         <span class="bts-product-tag dev" style="margin-bottom:16px">عربي + إنجليزي</span>
-        <h3>لوحات ثنائية اللغة، لا مترجمة</h3>
-        <p>واجهات RTL وتسميات عربية وتعريفات مؤشرات باللغتين — مُصمّمة من البداية، لا مُضافة لاحقاً.</p>
+        <h3>ثنائي اللغة بالتصميم، لا بالترجمة</h3>
+        <p>واجهات RTL ومستندات عربية وسير عمل يدعم اللغتين منذ اليوم الأول — لا يُضاف لاحقاً.</p>
       </div>
       <div class="bts-svc">
         <span class="bts-product-tag dev" style="margin-bottom:16px">عمليات الخليج</span>
-        <h3>مؤشرات للعمليات الإقليمية</h3>
-        <p>اللوجستيات، الجمارك، استخدام المستودعات، عمليات واتساب — المؤشرات التي تهم في أسواق الخليج.</p>
+        <h3>مُصمّم للمتطلبات الإقليمية</h3>
+        <p>اللوجستيات والمستندات الجمركية وعمليات واتساب وسير العمل الشائع في أسواق الخليج.</p>
       </div>
     </div>
   </div>
@@ -789,10 +744,10 @@ body.rtl .bts-hero-stats { flex-direction:row-reverse; }
     <div style="max-width:760px;margin:0 auto;text-align:center">
       <span class="rule" style="margin:0 auto 20px"></span>
       <span class="kicker" style="display:block;font-size:13px;font-weight:700;color:var(--bts-gold);margin-bottom:14px">لست متأكداً من أين تبدأ؟</span>
-      <h2 style="font-size:clamp(26px,3.2vw,40px);font-weight:800;color:#fff;line-height:1.35;margin:0 0 20px">أرسل لنا تقريراً تتمنى وجوده.</h2>
-      <p style="font-size:16.5px;line-height:1.85;color:#b8c5d6;margin:0 0 36px">أرسل لنا جدول بيانات واحداً، أو سؤالاً لا تستطيع الإجابة عليه اليوم، أو لوحة تحكم يطلبها فريقك باستمرار. سنوضّح لك ما يتطلبه الأمر — دون مقابل، ودون التزام.</p>
+      <h2 style="font-size:clamp(26px,3.2vw,40px);font-weight:800;color:#fff;line-height:1.35;margin:0 0 20px">أرسل لنا سير عمل واحد.</h2>
+      <p style="font-size:16.5px;line-height:1.85;color:#b8c5d6;margin:0 0 36px">أرسل لنا سير عمل واحد، أو مستنداً واحداً، أو عملية واحدة. سنوضّح لك أين يتناسب الذكاء الاصطناعي — دون مقابل، ودون التزام.</p>
       <div class="bts-hero-cta" style="justify-content:center">
-        <a href="../ar.html#contact" class="btn btn-primary">ناقش تقريراً</a>
+        <a href="../ar.html#contact" class="btn btn-primary">ناقش عملية</a>
         <a href="mailto:info@btsapp.net" class="btn btn-outline">راسل BTS</a>
       </div>
     </div>
@@ -802,11 +757,11 @@ body.rtl .bts-hero-stats { flex-direction:row-reverse; }
 <!-- ═══════════════ 7. الدعوة النهائية ═══════════════ -->
 <section class="cta-band">
   <div class="container">
-    <h2>هل تحتاج رؤية أوضح عبر أعمالك؟</h2>
-    <p>أرسل لنا السؤال الذي لا تستطيع الإجابة عليه اليوم. سنوضّح لك ما يتطلبه تحويله إلى لوحة تحكم موثوقة وقابلة للتكرار. نرد خلال يوم عمل واحد.</p>
+    <h2>هل لديك عملية ينبغي أتمتتها؟</h2>
+    <p>أرسل لنا سير العمل. سنساعدك في تحديد المجالات التي يمكن للذكاء الاصطناعي والأتمتة فيها خلق قيمة حقيقية. نرد خلال يوم عمل واحد.</p>
     <div class="hero-btns">
       <a href="../ar.html#contact" class="btn btn-primary">ابدأ مشروعك</a>
-      <a href="https://wa.me/447425252625?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20BTS%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D9%85%D9%86%D8%A7%D9%82%D8%B4%D8%A9%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%B0%D9%83%D8%A7%D8%A1%20%D8%A3%D8%B9%D9%85%D8%A7%D9%84." target="_blank" rel="noopener" class="btn btn-outline">تواصل عبر واتساب</a>
+      <a href="https://wa.me/447425252625?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20BTS%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D9%85%D9%86%D8%A7%D9%82%D8%B4%D8%A9%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%A3%D8%AA%D9%85%D8%AA%D8%A9." target="_blank" rel="noopener" class="btn btn-outline">تواصل عبر واتساب</a>
     </div>
   </div>
 </section>
@@ -837,7 +792,7 @@ body.rtl .bts-hero-stats { flex-direction:row-reverse; }
       </div>
       <div><h5>الشركة</h5>
         <a href="../ar.html#about">من نحن</a>
-        <a href="../blog/">رؤى</a>
+        <a href="../blog/ar/">رؤى</a>
         <a href="../ar.html#contact">اتصل بنا</a>
         <a href="../privacy-policy.html">الخصوصية</a>
       </div>

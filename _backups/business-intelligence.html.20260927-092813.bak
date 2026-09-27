@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AI Automation for UK &amp; GCC Business Operations | BTS</title>
-<meta name="description" content="BTS helps UK and GCC businesses automate workflows, documents, approvals, WhatsApp processes and repetitive operations using AI, business rules, APIs and intelligent automation.">
-<link rel="canonical" href="https://btsapp.net/services/ai-automation.html">
-<link rel="alternate" hreflang="ar" href="https://btsapp.net/services/ai-automation.ar.html">
+<title>Business Intelligence for UK &amp; GCC Businesses | BTS</title>
+<meta name="description" content="BTS builds business intelligence solutions, dashboards and data pipelines that turn business data into clear, actionable insight for UK and GCC organisations.">
+<link rel="canonical" href="https://btsapp.net/services/business-intelligence.html">
+<link rel="alternate" hreflang="ar" href="https://btsapp.net/services/business-intelligence.ar.html">
+<link rel="alternate" hreflang="en" href="https://btsapp.net/services/business-intelligence.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -27,8 +28,8 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
 </script>
 <style>
 /* ═══════════════════════════════════════════════════════════
-   AI AUTOMATION PAGE — v2 aggressive redesign
-   All colours use tokens so light/dark flip automatically.
+   BUSINESS INTELLIGENCE PAGE
+   Shares the AI Automation design system.
    ═══════════════════════════════════════════════════════════ */
 
 :root {
@@ -40,6 +41,7 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
   --bts-success:#10b981;
   --bts-warning:#f59e0b;
   --bts-danger:#ef4444;
+  --bts-violet:#a78bfa;
 }
 
 /* ─── HERO ─────────────────────────────────────────────── */
@@ -119,7 +121,7 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
   letter-spacing:-.01em; margin-bottom:4px;
 }
 
-/* ─── PRODUCT MOCKUP (KPI strip) ─────────────────────────── */
+/* ─── BI TREND MOCKUP ──────────────────────────────────── */
 .bts-mock {
   background:linear-gradient(160deg,#0d1f34 0%,#0a1828 100%);
   border:1px solid rgba(255,255,255,.08);
@@ -159,46 +161,78 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
 }
 .bts-mock-sub { font-size:11.5px; color:#7a8fa8; letter-spacing:.06em; text-transform:uppercase; }
 
-.bts-mock-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
+/* Trend strip: 3 stacked trend cards */
+.bts-trend-stack {
+  display:flex;
+  flex-direction:column;
   gap:10px;
 }
-.bts-kpi {
+.bts-trend {
   background:#0a1729;
   border:1px solid rgba(255,255,255,.06);
   border-radius:10px;
-  padding:14px 14px 12px;
+  padding:14px 16px 12px;
+  display:grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto;
+  gap:8px 14px;
+  align-items:center;
   position:relative;
   overflow:hidden;
 }
-.bts-kpi::before {
+.bts-trend::before {
   content:""; position:absolute; top:0; left:0; right:0; height:2px;
-  background:var(--kpi-accent, #3b82f6);
+  background:var(--trend-accent, #3b82f6);
   opacity:.9;
 }
-.bts-kpi .kpi-label {
+.bts-trend .trend-label {
+  grid-column:1; grid-row:1;
   font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
   color:#7a8fa8; font-weight:600;
-  margin-bottom:6px;
 }
-.bts-kpi .kpi-value {
-  font-size:24px; font-weight:800; line-height:1;
-  color:var(--kpi-accent, #fff);
+.bts-trend .trend-value {
+  grid-column:1; grid-row:2;
+  font-size:22px; font-weight:800; line-height:1;
+  color:#fff;
   letter-spacing:-.02em;
+  display:flex;
+  align-items:baseline;
+  gap:8px;
 }
-.bts-kpi .kpi-foot {
-  font-size:10.5px; color:#6a7d94; margin-top:6px;
-  letter-spacing:.02em;
+.bts-trend .trend-delta {
+  font-size:11.5px;
+  font-weight:700;
+  color:var(--trend-accent, #3b82f6);
+  letter-spacing:.01em;
+}
+.bts-trend .trend-spark {
+  grid-column:2; grid-row:1 / span 2;
+  width:88px; height:38px;
+  display:block;
+}
+.bts-trend .trend-spark svg {
+  width:100%; height:100%;
+  display:block;
+  overflow:visible;
+}
+.bts-trend .trend-spark path.spark-line {
+  fill:none;
+  stroke:var(--trend-accent, #3b82f6);
+  stroke-width:2;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.bts-trend .trend-spark path.spark-fill {
+  fill:var(--trend-accent, #3b82f6);
+  opacity:.12;
+  stroke:none;
 }
 
-/* Coloured variants */
-.bts-kpi.blue   { --kpi-accent:#3b82f6; }
-.bts-kpi.green  { --kpi-accent:#10b981; }
-.bts-kpi.orange { --kpi-accent:#f59e0b; }
-.bts-kpi.red    { --kpi-accent:#ef4444; }
-.bts-kpi.purple { --kpi-accent:#a78bfa; }
-.bts-kpi.gold   { --kpi-accent:#C9A84C; }
+/* Trend colour variants */
+.bts-trend.blue   { --trend-accent:#3b82f6; }
+.bts-trend.green  { --trend-accent:#10b981; }
+.bts-trend.gold   { --trend-accent:#C9A84C; }
+.bts-trend.violet { --trend-accent:#a78bfa; }
 
 /* ─── SECTION BASE ─────────────────────────────────────── */
 .bts-section { padding:96px 0; position:relative; }
@@ -330,163 +364,7 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
   font-size:14.5px; line-height:1.65; color:#b8c5d6; margin:0;
 }
 
-/* ─── PROCESS BAND (Section 4) ─────────────────────────── */
-.bts-process-band {
-  background:linear-gradient(135deg,#071322 0%,#122a44 100%);
-  border-radius:20px;
-  padding:52px 44px;
-  border:1px solid rgba(255,255,255,.06);
-  position:relative;
-  overflow:hidden;
-}
-.bts-process-band::before {
-  content:"";
-  position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
-  background-size:48px 48px;
-  pointer-events:none;
-}
-.bts-process {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:8px;
-  position:relative;
-  z-index:1;
-  flex-wrap:wrap;
-}
-.bts-proc-step {
-  display:flex; flex-direction:column; align-items:center;
-  flex:1; min-width:110px;
-  text-align:center;
-  position:relative;
-}
-.bts-proc-step .dot {
-  width:52px; height:52px;
-  border-radius:50%;
-  background:rgba(59,130,246,.12);
-  border:2px solid rgba(59,130,246,.4);
-  display:flex; align-items:center; justify-content:center;
-  font-size:14px; font-weight:800; color:#3b82f6;
-  margin-bottom:14px;
-  position:relative;
-  z-index:2;
-}
-.bts-proc-step.done .dot {
-  background:rgba(201,168,76,.15);
-  border-color:rgba(201,168,76,.5);
-  color:#FFD770;
-}
-.bts-proc-step .lbl {
-  font-size:12.5px; font-weight:600; color:#c4d2e4;
-  line-height:1.35; letter-spacing:.01em;
-}
-.bts-proc-line {
-  flex:0 0 auto;
-  align-self:flex-start;
-  margin-top:25px;
-  width:24px; height:2px;
-  background:linear-gradient(90deg,rgba(59,130,246,.5),rgba(201,168,76,.5));
-  opacity:.5;
-}
-
-/* ─── PRODUCTS (Section 5) ─────────────────────────────── */
-.bts-products {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:28px;
-  margin-top:16px;
-}
-.bts-product-card {
-  background:linear-gradient(160deg,#0d1f34 0%,#0a1828 100%);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:16px;
-  padding:32px;
-  transition:transform .3s, border-color .3s, box-shadow .3s;
-  position:relative;
-  overflow:hidden;
-}
-.bts-product-card:hover {
-  transform:translateY(-4px);
-  border-color:rgba(59,130,246,.35);
-  box-shadow:0 24px 60px rgba(0,0,0,.4);
-}
-.bts-product-tag {
-  display:inline-block;
-  font-size:11px; font-weight:800; letter-spacing:.12em;
-  padding:5px 10px; border-radius:100px;
-  margin-bottom:20px;
-}
-.bts-product-tag.dev {
-  color:#FFD770;
-  background:rgba(201,168,76,.1);
-  border:1px solid rgba(201,168,76,.25);
-}
-.bts-product-card h3 {
-  font-size:24px; font-weight:800; color:#fff;
-  margin:0 0 10px; letter-spacing:-.01em;
-}
-.bts-product-card > p {
-  font-size:14.5px; line-height:1.65; color:#b8c5d6;
-  margin:0 0 24px;
-}
-.bts-product-preview {
-  background:#0a1729;
-  border:1px solid rgba(255,255,255,.06);
-  border-radius:10px;
-  padding:14px;
-  margin-bottom:20px;
-}
-.bts-product-preview .bts-mock-grid { grid-template-columns:repeat(3,1fr); gap:8px; }
-.bts-product-preview .bts-kpi { padding:10px 10px 8px; }
-.bts-product-preview .bts-kpi .kpi-label { font-size:9.5px; margin-bottom:5px; }
-.bts-product-preview .bts-kpi .kpi-value { font-size:18px; }
-.bts-product-preview .bts-kpi .kpi-foot  { font-size:9.5px; margin-top:5px; }
-.bts-product-cta {
-  display:inline-flex; align-items:center; gap:8px;
-  font-size:13.5px; font-weight:700;
-  color:#3b82f6;
-  transition:gap .2s, color .2s;
-}
-.bts-product-cta:hover { gap:12px; color:#FFD770; }
-.bts-product-cta svg {
-  width:16px; height:16px;
-  stroke:currentColor; fill:none; stroke-width:2.5;
-  stroke-linecap:round; stroke-linejoin:round;
-}
-
-/* ─── RESPONSIVE ───────────────────────────────────────── */
-@media (max-width:1100px) {
-  .bts-hero-grid { grid-template-columns:1fr; gap:48px; }
-  .bts-pillars { grid-template-columns:1fr 1fr; }
-  .bts-services { grid-template-columns:1fr 1fr; }
-  .bts-products { grid-template-columns:1fr; }
-}
-@media (max-width:720px) {
-  .bts-section { padding:64px 0; }
-  .bts-pillars, .bts-services { grid-template-columns:1fr; }
-  .bts-process { gap:16px; }
-  .bts-proc-line { display:none; }
-  .bts-proc-step { min-width:calc(50% - 12px); }
-  .bts-hero { padding:64px 0 56px; }
-  .bts-hero-stats { gap:22px; flex-wrap:wrap; }
-  .bts-mock { padding:20px; }
-  .bts-mock-grid { grid-template-columns:repeat(2,1fr); }
-  .bts-product-card { padding:24px; }
-}
-
-/* â”€â”€â”€ Accessibility: keyboard focus on CTAs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.bts-hero-cta a:focus-visible,
-.bts-product-cta:focus-visible,
-.bts-hero-eyebrow:focus-visible,
-.btn:focus-visible {
-  outline: 2px solid #FFD770;
-  outline-offset: 3px;
-  border-radius: 4px;
-}
-/* ─── Engagement phases (Section 4) ─────────────────────────── */
+/* ─── ENGAGEMENT PHASES (Section 4) ────────────────────── */
 .bts-phases {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -583,14 +461,48 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
   border-color: rgba(255,255,255,.08);
   color: #b8c5d6;
 }
-@media (max-width: 900px) {
-  .bts-phases { grid-template-columns: 1fr; }
-  .bts-phase { padding: 32px 24px; }
+
+/* ─── PRODUCT TAG ─────────────────────────────────────── */
+.bts-product-tag {
+  display:inline-block;
+  font-size:11px; font-weight:800; letter-spacing:.12em;
+  padding:5px 10px; border-radius:100px;
+  margin-bottom:20px;
+}
+.bts-product-tag.dev {
+  color:#FFD770;
+  background:rgba(201,168,76,.1);
+  border:1px solid rgba(201,168,76,.25);
 }
 
-/* â”€â”€â”€ Decorative SVGs in CTAs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.bts-product-cta svg { pointer-events: none; }
-</style></head>
+/* ─── ACCESSIBILITY ───────────────────────────────────── */
+.bts-hero-cta a:focus-visible,
+.bts-hero-eyebrow:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid #FFD770;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width:1100px) {
+  .bts-hero-grid { grid-template-columns:1fr; gap:48px; }
+  .bts-pillars { grid-template-columns:1fr 1fr; }
+  .bts-services { grid-template-columns:1fr 1fr; }
+  .bts-phases { grid-template-columns:1fr; }
+}
+@media (max-width:720px) {
+  .bts-section { padding:64px 0; }
+  .bts-pillars, .bts-services { grid-template-columns:1fr; }
+  .bts-hero { padding:64px 0 56px; }
+  .bts-hero-stats { gap:22px; flex-wrap:wrap; }
+  .bts-mock { padding:20px; }
+  .bts-trend { grid-template-columns: 1fr auto; padding:12px 14px 10px; }
+  .bts-trend .trend-spark { width:64px; height:32px; }
+  .bts-phase { padding: 32px 24px; }
+}
+</style>
+</head>
 <body>
 
 <div class="utility-bar"><div class="container">
@@ -602,7 +514,7 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
     </button>
     <a href="../blog/">Insights</a>
     <a href="../en.html#contact">Contact</a>
-    <a href="ai-automation.ar.html" onclick="setLang('ar')">العربية</a>
+    <a href="business-intelligence.ar.html" onclick="setLang('ar')">العربية</a>
   </div>
 </div></div>
 
@@ -611,7 +523,7 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
     <img src="../assets/images/Logo.png" alt="BTS">
     Business Technology Solutions
   </a>
-  <button class="mobile-toggle" onclick="toggleMobile()">☰</button>
+  <button class="mobile-toggle" onclick="toggleMobile()" aria-label="Open navigation">☰</button>
   <ul class="nav-links">
     <li class="active"><a href="../en.html#services">Services</a></li>
     <li><a href="../en.html#locations">Locations</a></li>
@@ -627,58 +539,72 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
     <div class="bts-hero-grid">
       <div>
         <span class="bts-hero-eyebrow">UK Technology · GCC Delivery</span>
-        <h1>AI automation for <em>real business operations</em>.</h1>
-        <p class="bts-hero-lead">Turn documents, messages and repetitive processes into controlled, connected workflows — AI understands the inputs, business rules decide the logic, systems execute the work, and people stay in control of what matters.</p>
+        <h1>Business intelligence for <em>real business operations</em>.</h1>
+        <p class="bts-hero-lead">Turn scattered data into clear dashboards, reliable metrics and decisions your team can act on — without replacing the systems you already run.</p>
         <div class="bts-hero-cta">
           <a href="../en.html#contact" class="btn btn-primary">Start a Project</a>
-          <a href="#how" class="btn btn-outline">See how it works</a>
+          <a href="#how" class="btn btn-outline">See how we work</a>
         </div>
         <div class="bts-hero-stats">
           <div class="hs"><strong>7</strong>GCC markets</div>
           <div class="hs"><strong>AR/EN</strong>Bilingual by design</div>
-          <div class="hs"><strong>UK</strong>Technology &amp; delivery</div>
+          <div class="hs"><strong>UK</strong>Engineering &amp; delivery</div>
         </div>
       </div>
 
-      <!-- Live product mockup -->
+      <!-- BI trend mockup -->
       <div class="bts-mock" aria-hidden="true">
         <div class="bts-mock-head">
           <div class="bts-mock-brand">
             <span class="dot"></span>
-            BTS Logistics
+            BTS Analytics
           </div>
-          <div class="bts-mock-sub">Live Ops Dashboard</div>
+          <div class="bts-mock-sub">Live BI Dashboard</div>
         </div>
-        <div class="bts-mock-grid">
-          <div class="bts-kpi blue">
-            <div class="kpi-label">Active Shipments</div>
-            <div class="kpi-value">95</div>
-            <div class="kpi-foot">↑ 31% from last month</div>
+        <div class="bts-trend-stack">
+          <!-- Revenue -->
+          <div class="bts-trend blue">
+            <div class="trend-label">Revenue (MTD)</div>
+            <div class="trend-value">
+              £2.4M
+              <span class="trend-delta">↑ 12% MoM</span>
+            </div>
+            <div class="trend-spark">
+              <svg viewBox="0 0 88 38" preserveAspectRatio="none">
+                <path class="spark-fill" d="M0,30 L10,26 L20,28 L30,22 L40,20 L50,14 L60,16 L70,10 L80,8 L88,6 L88,38 L0,38 Z"/>
+                <path class="spark-line" d="M0,30 L10,26 L20,28 L30,22 L40,20 L50,14 L60,16 L70,10 L80,8 L88,6"/>
+              </svg>
+            </div>
           </div>
-          <div class="bts-kpi green">
-            <div class="kpi-label">Completed</div>
-            <div class="kpi-value">5</div>
-            <div class="kpi-foot">↑ 2% from last month</div>
+
+          <!-- Margin -->
+          <div class="bts-trend green">
+            <div class="trend-label">Gross Margin</div>
+            <div class="trend-value">
+              34.2%
+              <span class="trend-delta">↑ 2.1 pts</span>
+            </div>
+            <div class="trend-spark">
+              <svg viewBox="0 0 88 38" preserveAspectRatio="none">
+                <path class="spark-fill" d="M0,20 L10,22 L20,18 L30,20 L40,16 L50,18 L60,14 L70,12 L80,14 L88,10 L88,38 L0,38 Z"/>
+                <path class="spark-line" d="M0,20 L10,22 L20,18 L30,20 L40,16 L50,18 L60,14 L70,12 L80,14 L88,10"/>
+              </svg>
+            </div>
           </div>
-          <div class="bts-kpi orange">
-            <div class="kpi-label">Approval Queue</div>
-            <div class="kpi-value">21</div>
-            <div class="kpi-foot">Awaiting review</div>
-          </div>
-          <div class="bts-kpi purple">
-            <div class="kpi-label">AI Processed</div>
-            <div class="kpi-value">95</div>
-            <div class="kpi-foot">✓ Automated</div>
-          </div>
-          <div class="bts-kpi gold">
-            <div class="kpi-label">AI Confidence</div>
-            <div class="kpi-value">70.6%</div>
-            <div class="kpi-foot">↑ 5.0% from learning</div>
-          </div>
-          <div class="bts-kpi red">
-            <div class="kpi-label">High Risk</div>
-            <div class="kpi-value">0</div>
-            <div class="kpi-foot">Needs attention</div>
+
+          <!-- Orders -->
+          <div class="bts-trend gold">
+            <div class="trend-label">Orders Processed</div>
+            <div class="trend-value">
+              847
+              <span class="trend-delta">↑ 8% WoW</span>
+            </div>
+            <div class="trend-spark">
+              <svg viewBox="0 0 88 38" preserveAspectRatio="none">
+                <path class="spark-fill" d="M0,26 L10,24 L20,22 L30,24 L40,20 L50,16 L60,18 L70,14 L80,12 L88,8 L88,38 L0,38 Z"/>
+                <path class="spark-line" d="M0,26 L10,24 L20,22 L30,24 L40,20 L50,16 L60,18 L70,14 L80,12 L88,8"/>
+              </svg>
+            </div>
           </div>
         </div>
       </div>
@@ -692,69 +618,69 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
     <div class="bts-head">
       <span class="rule"></span>
       <span class="kicker">The BTS difference</span>
-      <h2>AI is not the workflow. BTS connects AI to the workflow.</h2>
-      <p>Four components work together to make automation reliable in real business operations.</p>
+      <h2>BI is not a dashboard. BTS connects data to decisions.</h2>
+      <p>Four components work together to make business intelligence reliable in real operations.</p>
     </div>
 
     <div class="bts-pillars">
       <div class="bts-pillar">
-        <span class="num">01 · AI UNDERSTANDS</span>
-        <h3>Documents, messages, requests and data</h3>
-        <p>Extraction, classification and intent recognition across the inputs your business already receives.</p>
+        <span class="num">01 · DATA CONNECTS</span>
+        <h3>From systems, spreadsheets and APIs</h3>
+        <p>We consolidate data from ERP, CRM, WMS, POS, spreadsheets and external APIs into one reliable layer.</p>
       </div>
       <div class="bts-pillar">
-        <span class="num">02 · RULES DECIDE</span>
-        <h3>Thresholds, validation, routing and escalation</h3>
-        <p>The business logic that governs what should happen next — owned by you, not by the model.</p>
+        <span class="num">02 · METRICS ALIGN</span>
+        <h3>One definition of every KPI</h3>
+        <p>Revenue, margin, utilisation, on-time delivery — defined once, agreed by the business, applied consistently.</p>
       </div>
       <div class="bts-pillar">
-        <span class="num">03 · SYSTEMS EXECUTE</span>
-        <h3>APIs, databases, ERP, CRM and warehouse systems</h3>
-        <p>The action layer where the workflow does real work inside the systems you already run.</p>
+        <span class="num">03 · INSIGHT SURFACES</span>
+        <h3>Dashboards and alerts for the right people</h3>
+        <p>Executives see the trend. Operations see the exception. Everyone sees the same numbers.</p>
       </div>
       <div class="bts-pillar">
-        <span class="num">04 · PEOPLE CONTROL</span>
-        <h3>Approvals, exceptions and oversight</h3>
-        <p>Human review where it matters, automatic where it doesn't — with full traceability.</p>
+        <span class="num">04 · ACTION FOLLOWS</span>
+        <h3>Decisions that change what happens next</h3>
+        <p>Insight is only useful if it triggers action — reassignment, escalation, reorder, review.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ 3. WHAT WE AUTOMATE ═══════════════ -->
+<!-- ═══════════════ 3. WHAT WE DELIVER ═══════════════ -->
 <section class="bts-section navy">
   <div class="container">
     <div class="bts-head">
       <span class="rule"></span>
-      <span class="kicker">What we automate</span>
-      <h2>Practical automation for the processes that cost you the most.</h2>
-      <p>Six areas where AI, business rules and integration create measurable operational improvement.</p>
+      <span class="kicker">What we deliver</span>
+      <h2>Practical BI for the questions your business actually asks.</h2>
+      <p>Six capabilities that turn operational data into decisions your teams can rely on.</p>
     </div>
 
     <div class="bts-services">
       <div class="bts-svc">
-        <h3>Document Processing</h3>
-        <p>Extract structured data from invoices, purchase orders, BOLs, customs paperwork and other business files.</p>
+        <h3>Executive Dashboards</h3>
+        <p>Clear, live views of the KPIs that matter to leadership — revenue, margin, utilisation, pipeline and performance.</p>
       </div>
       <div class="bts-svc">
-        <h3>Data Entry &amp; Validation</h3>
-        <p>Move information between documents, spreadsheets, databases and business systems while applying validation rules.</p>
+        <h3>Data Integration</h3>
+        <p>Bring information together from ERP, CRM, WMS, spreadsheets, databases and external APIs into one reliable source.</p>
       </div>
       <div class="bts-svc">
-        <h3>WhatsApp AI Workflows</h3>
-        <p>Connect customer and operational conversations to structured workflows, notifications and internal systems.</p>
+        <h3>Operational Analytics</h3>
+        <p>Identify trends, bottlenecks and performance issues across warehouse, logistics, sales and service operations.</p>
       </div>
       <div class="bts-svc">
-        <h3>Approvals &amp; Escalation</h3>
-        <p>Route requests to the right person based on business rules, thresholds and exceptions — with full audit trails.</p>
+        <h3>Predictive Insights</h3>
+        <p>Use historical and operational data to support forecasting, demand planning and proactive decisions.</p>
       </div>
       <div class="bts-svc">
-        <h3>Reporting &amp; Alerts</h3>
-        <p>Turn operational data into automated reports, live dashboards and real-time alerts.</p>
+        <h3>Data Quality &amp; Governance</h3>
+        <p>Define ownership, validation rules and refresh schedules so the numbers stay trustworthy over time.</p>
       </div>
       <div class="bts-svc">
-        <h3>Repetitive Digital Tasks</h3>
-        <p>Automate browser, desktop and system-based processes where appropriate using RPA and APIs.</p>
+        <h3>Embedded Reporting</h3>
+        <p>Bring dashboards and reports directly into the operational systems your teams already use every day.</p>
       </div>
     </div>
   </div>
@@ -766,114 +692,112 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
     <div class="bts-head">
       <span class="rule"></span>
       <span class="kicker">How we work</span>
-      <h2>From first conversation to running workflow.</h2>
-      <p>We work in three phases. Each one has a clear beginning, a clear deliverable, and a clear decision point before moving on.</p>
+      <h2>From scattered data to decisions your team trusts.</h2>
+      <p>We work in three phases. Each one delivers something usable before moving to the next.</p>
     </div>
 
     <div class="bts-phases">
       <div class="bts-phase">
         <div class="bts-phase-num">01</div>
         <h3>Discover</h3>
-        <p class="bts-phase-lead">We map your process, talk to the people who run it, and identify where time and accuracy are lost. No assumptions — every step in the diagram comes from a real observation.</p>
+        <p class="bts-phase-lead">We identify the questions your business actually needs answered, audit the data sources behind them, and map what's missing, duplicated or unreliable.</p>
         <div class="bts-phase-meta">
           <span class="bts-phase-label">Typical duration</span>
           <span class="bts-phase-value">2 weeks</span>
         </div>
         <div class="bts-phase-meta">
           <span class="bts-phase-label">You receive</span>
-          <span class="bts-phase-value">Process map, automation opportunities, prioritised roadmap</span>
+          <span class="bts-phase-value">KPI definition, data source audit, dashboard specification</span>
         </div>
       </div>
 
       <div class="bts-phase featured">
         <div class="bts-phase-num">02</div>
-        <h3>Pilot</h3>
-        <p class="bts-phase-lead">We automate one workflow end-to-end — usually the one causing the most pain. It runs alongside your existing process, measured against real operational metrics, before anything is switched over.</p>
+        <h3>Model</h3>
+        <p class="bts-phase-lead">We build the data layer and the first dashboards. Every metric is defined once, sourced from the right system, and validated against the numbers your finance and operations teams already trust.</p>
         <div class="bts-phase-meta">
           <span class="bts-phase-label">Typical duration</span>
           <span class="bts-phase-value">4–8 weeks</span>
         </div>
         <div class="bts-phase-meta">
           <span class="bts-phase-label">You receive</span>
-          <span class="bts-phase-value">Working automation, integration to your systems, measured results</span>
+          <span class="bts-phase-value">Working dashboards, data pipeline, documented KPI definitions</span>
         </div>
       </div>
 
       <div class="bts-phase">
         <div class="bts-phase-num">03</div>
-        <h3>Scale</h3>
-        <p class="bts-phase-lead">Once the pilot proves value, we extend the same pattern to adjacent workflows. Rules, dashboards and approvals travel with it — so each new process takes less time than the last.</p>
+        <h3>Deploy</h3>
+        <p class="bts-phase-lead">We roll out to the teams that need it, embed reporting into the systems they use, and set up refresh cycles, ownership and alerts so the numbers stay trusted over time.</p>
         <div class="bts-phase-meta">
           <span class="bts-phase-label">Typical duration</span>
           <span class="bts-phase-value">Ongoing</span>
         </div>
         <div class="bts-phase-meta">
           <span class="bts-phase-label">You receive</span>
-          <span class="bts-phase-value">Additional workflows, expanded dashboards, internal team enablement</span>
+          <span class="bts-phase-value">Team rollout, embedded reporting, data ownership and refresh schedule</span>
         </div>
       </div>
     </div>
 
-    <p class="bts-phases-note">Automation is not about replacing people. It is about removing friction from the way work moves through your business.</p>
+    <p class="bts-phases-note">Good BI is not more charts. It is the same numbers, trusted by everyone, used to make better decisions.</p>
   </div>
 </section>
-<!-- ═══════════════ 9. UK + GCC ADVANTAGE ═══════════════ -->
+
+<!-- ═══════════════ 5. UK + GCC ADVANTAGE ═══════════════ -->
 <section class="bts-section navy">
   <div class="container">
     <div class="bts-head">
       <span class="rule"></span>
       <span class="kicker">UK + GCC advantage</span>
       <h2>Built for the way UK and GCC businesses actually operate.</h2>
-      <p>Our specialisation is the intersection of three things most providers only handle one of.</p>
+      <p>Our specialisation is the intersection of three things most BI providers only handle one of.</p>
     </div>
 
     <div class="bts-services">
       <div class="bts-svc">
         <span class="bts-product-tag dev" style="margin-bottom:16px">UK TECHNOLOGY</span>
-        <h3>Technology and process discipline</h3>
-        <p>Security, integration and architecture designed to UK standards — clean, documented and maintainable by any team.</p>
+        <h3>Analytics built to UK standards</h3>
+        <p>Security, data governance and architecture designed to UK standards — clean, documented and maintainable by any team.</p>
       </div>
       <div class="bts-svc">
         <span class="bts-product-tag dev" style="margin-bottom:16px">ARABIC + ENGLISH</span>
-        <h3>Bilingual by design, not by translation</h3>
-        <p>RTL interfaces, Arabic documents, and workflows that support both languages from day one — not bolted on later.</p>
+        <h3>Bilingual dashboards, not translated ones</h3>
+        <p>RTL interfaces, Arabic labels and metric definitions in both languages — designed from the start, not bolted on.</p>
       </div>
       <div class="bts-svc">
         <span class="bts-product-tag dev" style="margin-bottom:16px">GCC OPERATIONS</span>
-        <h3>Built for regional requirements</h3>
-        <p>Logistics, customs documents, WhatsApp-based operations and the workflows common across GCC markets.</p>
+        <h3>Metrics for regional operations</h3>
+        <p>Logistics, customs, warehouse utilisation, WhatsApp-based operations — the KPIs that matter in GCC markets.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ 10. BTS LABS ═══════════════ -->
-
-
-<!-- ═══════════════ 11. SOFT CTA ═══════════════ -->
+<!-- ═══════════════ 6. SOFT CTA ═══════════════ -->
 <section class="bts-section navy">
   <div class="container">
     <div style="max-width:760px;margin:0 auto;text-align:center">
       <span class="rule" style="margin:0 auto 20px"></span>
       <span class="kicker" style="display:block;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--bts-gold);margin-bottom:14px">Not sure where to start?</span>
-      <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.02em;margin:0 0 20px">Send us one workflow.</h2>
-      <p style="font-size:17px;line-height:1.65;color:#b8c5d6;margin:0 0 36px">Send us one workflow, one document, or one process. We'll show you where AI fits — no charge, no obligation.</p>
+      <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.02em;margin:0 0 20px">Send us one report you wish you had.</h2>
+      <p style="font-size:17px;line-height:1.65;color:#b8c5d6;margin:0 0 36px">Send us one spreadsheet, one question you can't answer today, or one dashboard your team keeps asking for. We'll show you what it would take — no charge, no obligation.</p>
       <div class="bts-hero-cta" style="justify-content:center">
-        <a href="../en.html#contact" class="btn btn-primary">Discuss a Process</a>
+        <a href="../en.html#contact" class="btn btn-primary">Discuss a Report</a>
         <a href="mailto:info@btsapp.net" class="btn btn-outline">Email BTS</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════ 12. FINAL CTA ═══════════════ -->
+<!-- ═══════════════ 7. FINAL CTA ═══════════════ -->
 <section class="cta-band">
   <div class="container">
-    <h2>Have a process that should be automated?</h2>
-    <p>Send us the workflow. We'll help you identify where AI and automation can create real value. We respond within one business day.</p>
+    <h2>Need clearer visibility across your business?</h2>
+    <p>Send us the question you can't answer today. We'll show you what it would take to turn it into a reliable, repeatable dashboard. We respond within one business day.</p>
     <div class="hero-btns">
       <a href="../en.html#contact" class="btn btn-primary">Start Your Project</a>
-      <a href="https://wa.me/447425252625?text=Hi%20BTS%2C%20I%27d%20like%20to%20discuss%20an%20automation%20project." target="_blank" rel="noopener" class="btn btn-outline">WhatsApp BTS</a>
+      <a href="https://wa.me/447425252625?text=Hi%20BTS%2C%20I%27d%20like%20to%20discuss%20a%20BI%20project." target="_blank" rel="noopener" class="btn btn-outline">WhatsApp BTS</a>
     </div>
   </div>
 </section>
