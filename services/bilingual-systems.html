@@ -3,10 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Bilingual Systems - BTS</title>
-<meta name="description" content="Arabic-English software with proper RTL, localisation and user experiences built for UK-GCC operations.">
+<title>Bilingual Systems — Arabic &amp; English Software for UK &amp; GCC | BTS</title>
+<meta name="description" content="BTS builds bilingual Arabic-English systems with native RTL support, Arabic documentation and workflows that work in both languages from day one.">
 <link rel="canonical" href="https://btsapp.net/services/bilingual-systems.html">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="alternate" hreflang="ar" href="https://btsapp.net/services/bilingual-systems.ar.html">
+<link rel="alternate" hreflang="en" href="https://btsapp.net/services/bilingual-systems.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/style.css">
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
 gtag('consent','default',{analytics_storage:'denied'});</script>
@@ -22,15 +26,555 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
   } catch(e){}
 })();
 </script>
+<style>
+/* ═══════════════════════════════════════════════════════════
+   BILINGUAL SYSTEMS PAGE
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --bts-navy:#0b1a2b;
+  --bts-navy-2:#122a44;
+  --bts-navy-3:#1a3a5c;
+  --bts-blue:#3b82f6;
+  --bts-gold:#C9A84C;
+  --bts-success:#10b981;
+  --bts-warning:#f59e0b;
+  --bts-danger:#ef4444;
+  --bts-violet:#a78bfa;
+}
+
+/* ─── HERO ─────────────────────────────────────────────── */
+.bts-hero {
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(59,130,246,.18), transparent 60%),
+    radial-gradient(900px 500px at 10% 100%, rgba(201,168,76,.10), transparent 55%),
+    linear-gradient(160deg, #071322 0%, #0b1a2b 55%, #0e2136 100%);
+  color:#fff;
+  padding:96px 0 88px;
+  position:relative;
+  overflow:hidden;
+}
+.bts-hero::before {
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image: radial-gradient(circle at 70% 40%, #000 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at 70% 40%, #000 0%, transparent 70%);
+  pointer-events:none;
+}
+.bts-hero .container { position:relative; z-index:2; }
+.bts-hero-grid {
+  display:grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap:64px;
+  align-items:center;
+}
+.bts-hero-eyebrow {
+  display:inline-flex; align-items:center; gap:12px;
+  font-size:12px; letter-spacing:.16em; text-transform:uppercase;
+  color:#FFD770; font-weight:700;
+  padding:8px 14px;
+  border:1px solid rgba(255,215,112,.25);
+  border-radius:100px;
+  background:rgba(255,215,112,.06);
+  margin-bottom:28px;
+}
+.bts-hero-eyebrow::before {
+  content:""; width:6px; height:6px; border-radius:50%;
+  background:#FFD770;
+  box-shadow:0 0 0 3px rgba(255,215,112,.18);
+}
+.bts-hero h1 {
+  font-size:clamp(36px,4.2vw,58px);
+  font-weight:800;
+  line-height:1.08;
+  letter-spacing:-.02em;
+  margin:0 0 24px;
+  color:#fff;
+}
+.bts-hero h1 em {
+  font-style:normal;
+  background:linear-gradient(120deg,#FFD770,#C9A84C 60%);
+  -webkit-background-clip:text; background-clip:text;
+  color:transparent;
+}
+.bts-hero-lead {
+  font-size:18px;
+  line-height:1.65;
+  color:#c4d2e4;
+  max-width:520px;
+  margin:0 0 36px;
+}
+.bts-hero-cta { display:flex; gap:14px; flex-wrap:wrap; }
+.bts-hero-stats {
+  display:flex; gap:32px; margin-top:48px;
+  padding-top:32px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.bts-hero-stats .hs { font-size:13px; color:#7a8fa8; letter-spacing:.04em; }
+.bts-hero-stats .hs strong {
+  display:block; color:#fff; font-size:22px; font-weight:800;
+  letter-spacing:-.01em; margin-bottom:4px;
+}
+
+/* ─── SPLIT AR/EN MOCKUP ──────────────────────────────── */
+.bts-mock {
+  background:linear-gradient(160deg,#0d1f34 0%,#0a1828 100%);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
+  padding:0;
+  overflow:hidden;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.5),
+    0 0 0 1px rgba(59,130,246,.08) inset;
+  position:relative;
+  direction:ltr; /* CRITICAL: keeps EN on left, AR on right even on the AR page */
+}
+.bts-mock::before {
+  content:"";
+  position:absolute; inset:-1px;
+  border-radius:16px;
+  background:linear-gradient(135deg,rgba(59,130,246,.35),transparent 40%,transparent 60%,rgba(201,168,76,.25));
+  z-index:-1;
+  filter:blur(12px);
+  opacity:.6;
+}
+.bts-mock-head {
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 20px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  background:#08131f;
+}
+.bts-mock-brand {
+  display:flex; align-items:center; gap:10px;
+  font-size:13px; font-weight:700; color:#fff; letter-spacing:.01em;
+}
+.bts-mock-brand .dot {
+  width:7px; height:7px; border-radius:50%;
+  background:#10b981;
+  box-shadow:0 0 0 3px rgba(16,185,129,.18);
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { box-shadow:0 0 0 3px rgba(16,185,129,.2); }
+  50%     { box-shadow:0 0 0 6px rgba(16,185,129,.05); }
+}
+.bts-mock-sub {
+  font-size:10.5px; color:#7a8fa8;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-weight:600;
+}
+
+/* Split body */
+.bts-mock-split {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  min-height:340px;
+  position:relative;
+}
+.bts-mock-split::after {
+  content:"";
+  position:absolute;
+  top:0; bottom:0; left:50%;
+  width:1px;
+  background:linear-gradient(180deg,transparent,rgba(255,255,255,.08) 20%,rgba(255,255,255,.08) 80%,transparent);
+}
+.bts-mock-pane {
+  padding:22px 20px;
+}
+.bts-mock-pane.en { direction:ltr; text-align:left; }
+.bts-mock-pane.ar {
+  direction:rtl;
+  text-align:right;
+  font-family:'Cairo','Inter',sans-serif;
+  border-left:1px solid rgba(255,255,255,.06);
+}
+
+.bts-mock-pane .pane-label {
+  display:inline-block;
+  font-size:9.5px;
+  font-weight:800;
+  letter-spacing:.12em;
+  padding:3px 8px;
+  border-radius:100px;
+  margin-bottom:14px;
+}
+.bts-mock-pane.en .pane-label {
+  color:#3b82f6;
+  background:rgba(59,130,246,.12);
+  border:1px solid rgba(59,130,246,.25);
+}
+.bts-mock-pane.ar .pane-label {
+  color:#FFD770;
+  background:rgba(201,168,76,.1);
+  border:1px solid rgba(201,168,76,.25);
+}
+
+.bts-mock-pane h5 {
+  font-size:14px;
+  font-weight:800;
+  color:#fff;
+  margin:0 0 14px;
+  letter-spacing:-.005em;
+}
+.bts-mock-pane.ar h5 {
+  font-weight:700;
+  letter-spacing:0;
+}
+
+/* KPI list inside panes */
+.bts-pane-kpis {
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-bottom:18px;
+}
+.bts-pane-kpi {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:9px 12px;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:8px;
+}
+.bts-pane-kpi .k-lbl {
+  font-size:11px;
+  color:#7a8fa8;
+  font-weight:600;
+}
+.bts-pane-kpi .k-val {
+  font-size:13px;
+  font-weight:800;
+  color:#fff;
+  font-family:'Inter',sans-serif;
+  direction:ltr;
+  unicode-bidi:isolate;
+}
+.bts-pane-kpi .k-val.blue { color:#3b82f6; }
+.bts-pane-kpi .k-val.green{ color:#10b981; }
+.bts-pane-kpi .k-val.gold { color:#C9A84C; }
+
+/* Mini table inside panes */
+.bts-pane-table {
+  width:100%;
+  border-collapse:collapse;
+}
+.bts-pane-table th {
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:#6a7d94;
+  padding:4px 0 6px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  text-align:inherit;
+}
+.bts-pane-table td {
+  font-size:11px;
+  color:#b8c5d6;
+  padding:7px 0;
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.bts-pane-table tr:last-child td { border-bottom:0; }
+.bts-pane-table .st {
+  display:inline-block;
+  font-size:9px;
+  font-weight:700;
+  padding:2px 7px;
+  border-radius:100px;
+}
+.bts-pane-table .st.ok   { color:#10b981; background:rgba(16,185,129,.12); }
+.bts-pane-table .st.warn { color:#f59e0b; background:rgba(245,158,11,.12); }
+
+/* ─── SECTION BASE ─────────────────────────────────────── */
+.bts-section { padding:96px 0; position:relative; }
+.bts-section.navy {
+  background:
+    radial-gradient(900px 400px at 15% -20%, rgba(59,130,246,.10), transparent 60%),
+    linear-gradient(180deg,#0b1a2b 0%,#0a1729 100%);
+  color:#e8eef7;
+}
+.bts-section.light {
+  background:#f5f7fa;
+  color:#1a2332;
+}
+[data-theme="dark"] .bts-section.light {
+  background:#0e1f33;
+  color:#e8eef7;
+}
+
+/* ─── SECTION HEADS ────────────────────────────────────── */
+.bts-head { max-width:760px; margin-bottom:64px; }
+.bts-head .rule {
+  display:block; width:44px; height:2px;
+  background:var(--bts-gold); margin-bottom:20px;
+}
+.bts-head .kicker {
+  display:block;
+  font-size:12.5px; letter-spacing:.16em; text-transform:uppercase;
+  font-weight:700; color:var(--bts-gold); margin-bottom:14px;
+}
+.bts-head h2 {
+  font-size:clamp(28px,3.4vw,46px);
+  font-weight:800;
+  line-height:1.1;
+  letter-spacing:-.02em;
+  margin:0 0 18px;
+}
+.bts-section.navy .bts-head h2 { color:#fff; }
+.bts-section.light .bts-head h2 { color:#0b1a2b; }
+[data-theme="dark"] .bts-section.light .bts-head h2 { color:#fff; }
+.bts-head p {
+  font-size:17px; line-height:1.65; margin:0;
+  max-width:640px;
+}
+.bts-section.navy .bts-head p { color:#b8c5d6; }
+.bts-section.light .bts-head p { color:#4a5666; }
+[data-theme="dark"] .bts-section.light .bts-head p { color:#b8c5d6; }
+
+/* ─── PILLARS ──────────────────────────────────────────── */
+.bts-pillars {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
+}
+.bts-pillar {
+  background:#fff;
+  border:1px solid #e6ebf2;
+  border-radius:14px;
+  padding:32px 26px;
+  position:relative;
+  transition:transform .25s, box-shadow .25s, border-color .25s;
+}
+.bts-pillar:hover {
+  transform:translateY(-4px);
+  border-color:#3b82f6;
+  box-shadow:0 20px 40px rgba(11,26,43,.08);
+}
+[data-theme="dark"] .bts-pillar {
+  background:#122a44;
+  border-color:rgba(255,255,255,.08);
+}
+[data-theme="dark"] .bts-pillar:hover {
+  border-color:#3b82f6;
+  box-shadow:0 20px 40px rgba(0,0,0,.3);
+}
+.bts-pillar .num {
+  display:inline-block;
+  font-size:11.5px; font-weight:800; letter-spacing:.12em;
+  color:var(--bts-gold);
+  padding:5px 10px;
+  border-radius:100px;
+  background:rgba(201,168,76,.08);
+  border:1px solid rgba(201,168,76,.2);
+  margin-bottom:20px;
+}
+[data-theme="dark"] .bts-pillar .num {
+  background:rgba(201,168,76,.12);
+  border-color:rgba(201,168,76,.25);
+}
+.bts-pillar h3 {
+  font-size:18px; font-weight:700; margin:0 0 12px;
+  color:#0b1a2b; line-height:1.25;
+}
+[data-theme="dark"] .bts-pillar h3 { color:#fff; }
+.bts-pillar p {
+  font-size:14.5px; line-height:1.65; color:#4a5666; margin:0;
+}
+[data-theme="dark"] .bts-pillar p { color:#b8c5d6; }
+
+/* ─── SERVICE CARDS ────────────────────────────────────── */
+.bts-services {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+}
+.bts-svc {
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;
+  padding:32px 28px;
+  transition:background .25s, border-color .25s, transform .25s;
+  position:relative;
+  overflow:hidden;
+}
+.bts-svc::after {
+  content:"";
+  position:absolute; left:0; top:0; bottom:0; width:2px;
+  background:var(--bts-gold);
+  transform:scaleY(0);
+  transform-origin:top;
+  transition:transform .35s ease;
+}
+.bts-svc:hover {
+  background:rgba(59,130,246,.06);
+  border-color:rgba(59,130,246,.28);
+  transform:translateY(-3px);
+}
+.bts-svc:hover::after { transform:scaleY(1); }
+.bts-svc h3 {
+  font-size:17px; font-weight:700; color:#fff;
+  margin:0 0 12px; letter-spacing:-.005em;
+}
+.bts-svc p {
+  font-size:14.5px; line-height:1.65; color:#b8c5d6; margin:0;
+}
+
+/* ─── ENGAGEMENT PHASES ────────────────────────────────── */
+.bts-phases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.bts-phase {
+  background: #fff;
+  border: 1px solid #e6ebf2;
+  border-radius: 16px;
+  padding: 40px 32px;
+  position: relative;
+  transition: transform .25s, border-color .25s, box-shadow .25s;
+}
+.bts-phase:hover {
+  transform: translateY(-4px);
+  border-color: #3b82f6;
+  box-shadow: 0 24px 60px rgba(11,26,43,.08);
+}
+[data-theme="dark"] .bts-phase {
+  background: #122a44;
+  border-color: rgba(255,255,255,.08);
+}
+[data-theme="dark"] .bts-phase:hover {
+  border-color: rgba(59,130,246,.4);
+  box-shadow: 0 24px 60px rgba(0,0,0,.35);
+}
+.bts-phase.featured {
+  border-color: #3b82f6;
+  box-shadow: 0 16px 48px rgba(59,130,246,.12);
+}
+[data-theme="dark"] .bts-phase.featured {
+  border-color: rgba(59,130,246,.5);
+  box-shadow: 0 16px 48px rgba(59,130,246,.18);
+}
+.bts-phase-num {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  color: var(--bts-gold);
+  margin-bottom: 16px;
+}
+.bts-phase h3 {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -.015em;
+  color: #0b1a2b;
+  margin: 0 0 16px;
+}
+[data-theme="dark"] .bts-phase h3 { color: #fff; }
+.bts-phase-lead {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #4a5666;
+  margin: 0 0 28px;
+}
+[data-theme="dark"] .bts-phase-lead { color: #b8c5d6; }
+.bts-phase-meta {
+  padding-top: 16px;
+  border-top: 1px solid #e6ebf2;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+[data-theme="dark"] .bts-phase-meta { border-color: rgba(255,255,255,.08); }
+.bts-phase-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #7a8699;
+}
+[data-theme="dark"] .bts-phase-label { color: #7a8fa8; }
+.bts-phase-value {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #0b1a2b;
+  line-height: 1.5;
+}
+[data-theme="dark"] .bts-phase-value { color: #e8eef7; }
+.bts-phases-note {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid #e6ebf2;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #4a5666;
+  text-align: center;
+  max-width: 720px;
+  margin-inline: auto;
+  font-style: italic;
+}
+[data-theme="dark"] .bts-phases-note {
+  border-color: rgba(255,255,255,.08);
+  color: #b8c5d6;
+}
+
+/* ─── PRODUCT TAG ─────────────────────────────────────── */
+.bts-product-tag {
+  display:inline-block;
+  font-size:11px; font-weight:800; letter-spacing:.12em;
+  padding:5px 10px; border-radius:100px;
+  margin-bottom:20px;
+}
+.bts-product-tag.dev {
+  color:#FFD770;
+  background:rgba(201,168,76,.1);
+  border:1px solid rgba(201,168,76,.25);
+}
+
+/* ─── ACCESSIBILITY ───────────────────────────────────── */
+.bts-hero-cta a:focus-visible,
+.bts-hero-eyebrow:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid #FFD770;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width:1100px) {
+  .bts-hero-grid { grid-template-columns:1fr; gap:48px; }
+  .bts-pillars { grid-template-columns:1fr 1fr; }
+  .bts-services { grid-template-columns:1fr 1fr; }
+  .bts-phases { grid-template-columns:1fr; }
+}
+@media (max-width:720px) {
+  .bts-section { padding:64px 0; }
+  .bts-pillars, .bts-services { grid-template-columns:1fr; }
+  .bts-hero { padding:64px 0 56px; }
+  .bts-hero-stats { gap:22px; flex-wrap:wrap; }
+  .bts-mock-split { grid-template-columns:1fr; }
+  .bts-mock-split::after { display:none; }
+  .bts-mock-pane.ar {
+    border-left:0;
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+  .bts-phase { padding: 32px 24px; }
+}
+</style>
 </head>
 <body>
 
 <div class="utility-bar"><div class="container">
   <div><a href="../en.html">BTS · Glasgow, UK</a></div>
   <div>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    </button>
     <a href="../blog/">Insights</a>
     <a href="../en.html#contact">Contact</a>
-    <a href="../ar.html" onclick="setLang('ar')">Arabic</a>
+    <a href="bilingual-systems.ar.html" onclick="setLang('ar')">العربية</a>
   </div>
 </div></div>
 
@@ -39,7 +583,7 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
     <img src="../assets/images/Logo.png" alt="BTS">
     Business Technology Solutions
   </a>
-  <button class="mobile-toggle" onclick="toggleMobile()">☰</button>
+  <button class="mobile-toggle" onclick="toggleMobile()" aria-label="Open navigation">☰</button>
   <ul class="nav-links">
     <li class="active"><a href="../en.html#services">Services</a></li>
     <li><a href="../en.html#locations">Locations</a></li>
@@ -49,97 +593,364 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
   </ul>
 </div></nav>
 
-<section class="page-hero"><div class="container">
-  <span class="eyebrow">Service</span>
-  <h1>Bilingual Systems</h1>
-  <p>Arabic-English software with proper RTL, localisation and user experiences built for UK-GCC operations.</p>
-</div></section>
-
-<section class="section">
+<!-- ═══════════════ 1. HERO ═══════════════ -->
+<section class="bts-hero">
   <div class="container">
-    <div class="section-head">
-      <span class="kicker">What we deliver</span>
-      <h2>One system. Arabic and English.</h2>
-      <p>BTS designs bilingual systems where language is part of the product architecture—not an afterthought.</p>
-    </div>
-
-    <div class="grid-2">
-      <div class="svc">
-        <h3>Arabic &amp; English UI</h3>
-        <p>Complete interfaces with language switching and consistent terminology.</p>
+    <div class="bts-hero-grid">
+      <div>
+        <span class="bts-hero-eyebrow">UK Technology · GCC Delivery</span>
+        <h1>Bilingual systems, <em>built in both languages from day one</em>.</h1>
+        <p class="bts-hero-lead">Arabic and English interfaces, documents and workflows — designed together, tested together, delivered together. Not translated. Not bolted on. Built in.</p>
+        <div class="bts-hero-cta">
+          <a href="../en.html#contact" class="btn btn-primary">Start a Project</a>
+          <a href="#how" class="btn btn-outline">See how we work</a>
+        </div>
+        <div class="bts-hero-stats">
+          <div class="hs"><strong>7</strong>GCC markets</div>
+          <div class="hs"><strong>AR/EN</strong>Bilingual by design</div>
+          <div class="hs"><strong>UK</strong>Technology &amp; delivery</div>
+        </div>
       </div>
 
-      <div class="svc">
-        <h3>True RTL Support</h3>
-        <p>Layouts, forms, navigation and dashboards designed properly for Arabic users.</p>
-      </div>
+      <!-- Split AR/EN dashboard mockup -->
+      <div class="bts-mock" aria-hidden="true">
+        <div class="bts-mock-head">
+          <div class="bts-mock-brand">
+            <span class="dot"></span>
+            BTS Platform
+          </div>
+          <div class="bts-mock-sub">Bilingual Interface</div>
+        </div>
+        <div class="bts-mock-split">
 
-      <div class="svc">
-        <h3>Localisation</h3>
-        <p>Adapt dates, numbers, terminology and workflows to the target market.</p>
-      </div>
+          <!-- English pane (always left) -->
+          <div class="bts-mock-pane en">
+            <span class="pane-label">ENGLISH</span>
+            <h5>Dashboard</h5>
+            <div class="bts-pane-kpis">
+              <div class="bts-pane-kpi">
+                <span class="k-lbl">Orders</span>
+                <span class="k-val blue">847</span>
+              </div>
+              <div class="bts-pane-kpi">
+                <span class="k-lbl">Revenue</span>
+                <span class="k-val green">£2.4M</span>
+              </div>
+              <div class="bts-pane-kpi">
+                <span class="k-lbl">Pending</span>
+                <span class="k-val gold">12</span>
+              </div>
+            </div>
+            <h5>Recent Orders</h5>
+            <table class="bts-pane-table">
+              <thead>
+                <tr>
+                  <th>Order</th>
+                  <th>Customer</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#SO-1042</td>
+                  <td>Acme Corp</td>
+                  <td><span class="st ok">Approved</span></td>
+                </tr>
+                <tr>
+                  <td>#SO-1041</td>
+                  <td>Gulf Logistics</td>
+                  <td><span class="st warn">Pending</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-      <div class="svc">
-        <h3>UK-GCC Systems</h3>
-        <p>Software designed to support organisations operating across British and GCC environments.</p>
+          <!-- Arabic pane (always right) -->
+          <div class="bts-mock-pane ar">
+            <span class="pane-label">العربية</span>
+            <h5>لوحة التحكم</h5>
+            <div class="bts-pane-kpis">
+              <div class="bts-pane-kpi">
+                <span class="k-lbl">الطلبات</span>
+                <span class="k-val blue">847</span>
+              </div>
+              <div class="bts-pane-kpi">
+                <span class="k-lbl">الإيرادات</span>
+                <span class="k-val green">£2.4M</span>
+              </div>
+              <div class="bts-pane-kpi">
+                <span class="k-lbl">قيد الانتظار</span>
+                <span class="k-val gold">12</span>
+              </div>
+            </div>
+            <h5>أحدث الطلبات</h5>
+            <table class="bts-pane-table">
+              <thead>
+                <tr>
+                  <th>الطلب</th>
+                  <th>العميل</th>
+                  <th>الحالة</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>#SO-1042</td>
+                  <td>Acme Corp</td>
+                  <td><span class="st ok">معتمد</span></td>
+                </tr>
+                <tr>
+                  <td>#SO-1041</td>
+                  <td>Gulf Logistics</td>
+                  <td><span class="st warn">قيد الانتظار</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="cta-band"><div class="container">
-  <h2>Need software that works in both languages?</h2>
-  <p>Let's design the experience for your users from the beginning.</p>
-  <div class="hero-btns">
-    <a href="../en.html#contact" class="btn btn-primary">Start Your Project</a>
-    <a href="mailto:info@btsapp.net" class="btn btn-outline">Email us</a>
-  </div>
-</div></section>
+<!-- ═══════════════ 2. BTS DIFFERENCE ═══════════════ -->
+<section class="bts-section light">
+  <div class="container">
+    <div class="bts-head">
+      <span class="rule"></span>
+      <span class="kicker">The BTS difference</span>
+      <h2>Translation is not bilingual. BTS builds in both languages.</h2>
+      <p>Four principles that shape every bilingual system we deliver.</p>
+    </div>
 
-<footer class="footer"><div class="container">
-  <div class="footer-grid">
-    <div>
-      <div class="brand" style="color:#fff">Business Technology Solutions</div>
-      <p style="font-size:13.5px;line-height:1.7">AI, software and bilingual technology solutions for UK and GCC organisations. Registered in Scotland — SC894313.</p>
-    </div>
-    <div><h5>Services</h5>
-      <a href="ai-automation.html">AI Automation</a>
-      <a href="business-intelligence.html">Business Intelligence</a>
-      <a href="custom-software.html">Custom Software</a>
-      <a href="bilingual-systems.html">Bilingual Systems</a>
-      <a href="system-integration.html">System Integration</a>
-      <a href="logistics-warehouse.html">Logistics &amp; Warehouse</a>
-    </div>
-    <div><h5>Locations</h5>
-      <a href="../locations/uk.html">United Kingdom</a>
-      <a href="../locations/ksa.html">Saudi Arabia</a>
-      <a href="../locations/uae.html">UAE</a>
-      <a href="../locations/qatar.html">Qatar</a>
-      <a href="../locations/oman.html">Oman</a>
-      <a href="../locations/kuwait.html">Kuwait</a>
-      <a href="../locations/bahrain.html">Bahrain</a>
-    </div>
-    <div><h5>Company</h5>
-      <a href="../en.html#about">About</a>
-      <a href="../blog/">Insights</a>
-      <a href="../en.html#contact">Contact</a>
-    </div>
-    <div><h5>Contact</h5>
-      <a href="mailto:info@btsapp.net">info@btsapp.net</a>
-      <a href="tel:+447425252625">+44 7425 252625</a>
-      <a href="https://wa.me/447425252625">WhatsApp</a>
+    <div class="bts-pillars">
+      <div class="bts-pillar">
+        <span class="num">01 · DESIGNED TOGETHER</span>
+        <h3>Arabic and English designed at the same time</h3>
+        <p>Not English-first, Arabic-later. Every screen, every field, every label is designed in both languages from the start.</p>
+      </div>
+      <div class="bts-pillar">
+        <span class="num">02 · NATIVE RTL</span>
+        <h3>Right-to-left is the layout, not an afterthought</h3>
+        <p>Proper RTL reading order, mirrored layouts, right-aligned tables, RTL-aware icons and number formatting.</p>
+      </div>
+      <div class="bts-pillar">
+        <span class="num">03 · NOT JUST UI</span>
+        <h3>Documents, notifications and reports too</h3>
+        <p>Invoices, approvals, alerts and reports are bilingual — because your business doesn't stop at the interface.</p>
+      </div>
+      <div class="bts-pillar">
+        <span class="num">04 · ONE CODEBASE</span>
+        <h3>One system, two languages, no duplication</h3>
+        <p>Not two parallel platforms to maintain. One application that switches language without changing behaviour.</p>
+      </div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <div>© 2026 BTS — Business Technology Solutions. Registered in Scotland (SC894313).</div>
-    <div>
-      <a href="../privacy-policy.html">Privacy</a>
-      <a href="../terms-of-service.html">Terms</a>
+</section>
+
+<!-- ═══════════════ 3. WHAT WE BUILD ═══════════════ -->
+<section class="bts-section navy">
+  <div class="container">
+    <div class="bts-head">
+      <span class="rule"></span>
+      <span class="kicker">What we build</span>
+      <h2>Bilingual systems for the way UK and GCC teams actually work.</h2>
+      <p>Six capabilities that make bilingual delivery real — not a translation layer on top of an English product.</p>
+    </div>
+
+    <div class="bts-services">
+      <div class="bts-svc">
+        <h3>Arabic + English Interfaces</h3>
+        <p>Dashboards, portals and applications that display in either language — with full RTL layouts, not just translated labels.</p>
+      </div>
+      <div class="bts-svc">
+        <h3>Bilingual Documents</h3>
+        <p>Invoices, purchase orders, delivery notes, contracts and customs paperwork generated in Arabic, English, or both.</p>
+      </div>
+      <div class="bts-svc">
+        <h3>Notifications &amp; Alerts</h3>
+        <p>WhatsApp messages, emails and system alerts that reach the right person in the language they read.</p>
+      </div>
+      <div class="bts-svc">
+        <h3>Bilingual Reporting</h3>
+        <p>Dashboards and reports in both languages — same numbers, same filters, same behaviour, no duplicated data.</p>
+      </div>
+      <div class="bts-svc">
+        <h3>Language Switching</h3>
+        <p>Instant language toggle that preserves state, respects user preference, and works on every device.</p>
+      </div>
+      <div class="bts-svc">
+        <h3>Localisation &amp; Formats</h3>
+        <p>Dates, currency, numbers, addresses and business terminology adapted for GCC and UK usage.</p>
+      </div>
     </div>
   </div>
-</div></footer>
+</section>
+
+<!-- ═══════════════ 4. HOW WE WORK ═══════════════ -->
+<section class="bts-section light" id="how">
+  <div class="container">
+    <div class="bts-head">
+      <span class="rule"></span>
+      <span class="kicker">How we work</span>
+      <h2>From the first screen to a fully bilingual system.</h2>
+      <p>Three phases. Each one delivers something testable in both languages before moving to the next.</p>
+    </div>
+
+    <div class="bts-phases">
+      <div class="bts-phase">
+        <div class="bts-phase-num">01</div>
+        <h3>Define</h3>
+        <p class="bts-phase-lead">We agree what needs to be bilingual — interface, documents, notifications, reports — and define terminology, formats and RTL behaviour in both languages.</p>
+        <div class="bts-phase-meta">
+          <span class="bts-phase-label">Typical duration</span>
+          <span class="bts-phase-value">1–2 weeks</span>
+        </div>
+        <div class="bts-phase-meta">
+          <span class="bts-phase-label">You receive</span>
+          <span class="bts-phase-value">Bilingual scope, terminology guide, RTL design specification</span>
+        </div>
+      </div>
+
+      <div class="bts-phase featured">
+        <div class="bts-phase-num">02</div>
+        <h3>Build</h3>
+        <p class="bts-phase-lead">We develop both languages in parallel. Every screen, form and message is reviewed in Arabic and English before it ships — not translated after launch.</p>
+        <div class="bts-phase-meta">
+          <span class="bts-phase-label">Typical duration</span>
+          <span class="bts-phase-value">4–8 weeks</span>
+        </div>
+        <div class="bts-phase-meta">
+          <span class="bts-phase-label">You receive</span>
+          <span class="bts-phase-value">Working bilingual system, tested in both languages, ready for rollout</span>
+        </div>
+      </div>
+
+      <div class="bts-phase">
+        <div class="bts-phase-num">03</div>
+        <h3>Extend</h3>
+        <p class="bts-phase-lead">As your system grows — new screens, new documents, new workflows — bilingual delivery continues. Terminology, formatting and RTL patterns carry forward automatically.</p>
+        <div class="bts-phase-meta">
+          <span class="bts-phase-label">Typical duration</span>
+          <span class="bts-phase-value">Ongoing</span>
+        </div>
+        <div class="bts-phase-meta">
+          <span class="bts-phase-label">You receive</span>
+          <span class="bts-phase-value">New bilingual features, terminology updates, ongoing review</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="bts-phases-note">A bilingual system is not two systems. It is one system that respects the language of every person who uses it.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ 5. UK + GCC ADVANTAGE ═══════════════ -->
+<section class="bts-section navy">
+  <div class="container">
+    <div class="bts-head">
+      <span class="rule"></span>
+      <span class="kicker">UK + GCC advantage</span>
+      <h2>Built where UK and GCC business realities meet.</h2>
+      <p>Our specialisation is the intersection of three things most software providers only handle one of.</p>
+    </div>
+
+    <div class="bts-services">
+      <div class="bts-svc">
+        <span class="bts-product-tag dev" style="margin-bottom:16px">UK TECHNOLOGY</span>
+        <h3>Bilingual delivery to UK standards</h3>
+        <p>Security, architecture and code quality designed to UK standards — with bilingual behaviour treated as a first-class engineering concern.</p>
+      </div>
+      <div class="bts-svc">
+        <span class="bts-product-tag dev" style="margin-bottom:16px">ARABIC + ENGLISH</span>
+        <h3>Arabic-native, not Arabic-adapted</h3>
+        <p>RTL layouts, Arabic typography, terminology and formatting designed by people who understand how Arabic business software should read.</p>
+      </div>
+      <div class="bts-svc">
+        <span class="bts-product-tag dev" style="margin-bottom:16px">GCC OPERATIONS</span>
+        <h3>Built for regional business reality</h3>
+        <p>Arabic invoices, GCC customs paperwork, WhatsApp notifications, multi-currency and bilingual teams working side by side.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 6. SOFT CTA ═══════════════ -->
+<section class="bts-section navy">
+  <div class="container">
+    <div style="max-width:760px;margin:0 auto;text-align:center">
+      <span class="rule" style="margin:0 auto 20px"></span>
+      <span class="kicker" style="display:block;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--bts-gold);margin-bottom:14px">Not sure where to start?</span>
+      <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.02em;margin:0 0 20px">Show us what you need in both languages.</h2>
+      <p style="font-size:17px;line-height:1.65;color:#b8c5d6;margin:0 0 36px">Send us a screen, a document, or a workflow that needs to work in Arabic and English. We'll tell you what it takes to make it genuinely bilingual — no charge, no obligation.</p>
+      <div class="bts-hero-cta" style="justify-content:center">
+        <a href="../en.html#contact" class="btn btn-primary">Discuss a System</a>
+        <a href="mailto:info@btsapp.net" class="btn btn-outline">Email BTS</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 7. FINAL CTA ═══════════════ -->
+<section class="cta-band">
+  <div class="container">
+    <h2>Need a system that works in Arabic and English?</h2>
+    <p>Tell us what needs to be bilingual. We'll respond within one business day.</p>
+    <div class="hero-btns">
+      <a href="../en.html#contact" class="btn btn-primary">Start Your Project</a>
+      <a href="https://wa.me/447425252625?text=Hi%20BTS%2C%20I%27d%20like%20to%20discuss%20a%20bilingual%20Arabic%2FEnglish%20system." target="_blank" rel="noopener" class="btn btn-outline">WhatsApp BTS</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="color:#fff">Business Technology Solutions</div>
+        <p style="font-size:13.5px;line-height:1.7">BTS is a UK technology partner helping organisations across the UK and GCC modernise operations through AI automation, intelligent software, business intelligence and bilingual digital systems. Headquartered in Glasgow, Scotland. Registered in Scotland (SC894313).</p>
+      </div>
+      <div><h5>Services</h5>
+        <a href="ai-automation.html">AI Automation</a>
+        <a href="business-intelligence.html">Business Intelligence</a>
+        <a href="custom-software.html">Custom Software</a>
+        <a href="bilingual-systems.html">Bilingual Systems</a>
+        <a href="system-integration.html">System Integration</a>
+        <a href="logistics-warehouse.html">Logistics &amp; Warehouse</a>
+      </div>
+      <div><h5>Locations</h5>
+        <a href="../locations/uk.html">United Kingdom</a>
+        <a href="../locations/ksa.html">Saudi Arabia</a>
+        <a href="../locations/uae.html">UAE</a>
+        <a href="../locations/qatar.html">Qatar</a>
+        <a href="../locations/oman.html">Oman</a>
+        <a href="../locations/kuwait.html">Kuwait</a>
+        <a href="../locations/bahrain.html">Bahrain</a>
+      </div>
+      <div><h5>Company</h5>
+        <a href="../en.html#about">About</a>
+        <a href="../blog/">Insights</a>
+        <a href="../en.html#contact">Contact</a>
+        <a href="../privacy-policy.html">Privacy</a>
+      </div>
+      <div><h5>Contact</h5>
+        <a href="mailto:info@btsapp.net">info@btsapp.net</a>
+        <a href="tel:+447425252625">+44 7425 252625</a>
+        <a href="https://wa.me/447425252625">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 BTS — Business Technology Solutions. Registered in Scotland (SC894313).</div>
+      <div>
+        <a href="../privacy-policy.html">Privacy</a>
+        <a href="../terms-of-service.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
 <script src="../assets/js/main.js"></script>
+
 <button class="scroll-top-btn" id="scrollTopBtn" type="button" aria-label="Scroll to top" title="Back to top">
   <svg viewBox="0 0 24 24" aria-hidden="true">
     <path d="M12 19V5"/>
@@ -154,5 +965,3 @@ gtag('consent','default',{analytics_storage:'denied'});</script>
 
 </body>
 </html>
-
-
