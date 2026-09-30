@@ -1003,20 +1003,6 @@ body.rtl .ticker-track {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-
-/* If video-control and scroll-top-btn would overlap on hero pages,
-   push the scroll-top-btn up so they stack neatly */
-.hero ~ * .scroll-top-btn,
-body:has(.hero) .scroll-top-btn {
-  /* when a hero video with control is visible at top, scroll-top only
-     appears after scrolling, so this is rarely an issue — kept for safety */
-}
-
-/* RTL mirroring */
-body.rtl .video-control,
-body.rtl .scroll-top-btn {
-  /* inset-inline-end handles this automatically — no override needed */
-}
 /* ═══════════════════════════════════════════════════════════════
    HERO BAND — narrower, contained video (McKinsey-style)
    ═══════════════════════════════════════════════════════════════ */
