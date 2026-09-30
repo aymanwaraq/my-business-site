@@ -210,7 +210,7 @@ function toggleMobile(){
   var btn = document.getElementById('scrollTopBtn');
   if (!btn) return;
 
-  var showAt = 400;
+  var showAt = 300;
   var ticking = false;
 
   function update() {
@@ -235,6 +235,7 @@ function toggleMobile(){
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 })();
+
 
 /* ═══════════════════════════════════════════════════════════════
    IMAGE LIGHTBOX — click any content image to view full size

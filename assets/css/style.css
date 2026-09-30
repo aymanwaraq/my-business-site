@@ -2066,6 +2066,66 @@ body.rtl .location-break::before {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   SCROLL-TO-TOP BUTTON
+   ═══════════════════════════════════════════════════════════════ */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 24px;
+  
+  /* CRITICAL FIX: 
+     In English (LTR), this puts it on the LEFT (away from WhatsApp).
+     In Arabic (RTL), this puts it on the RIGHT (away from WhatsApp). */
+  inset-inline-start: 24px; 
+  inset-inline-end: auto;
+  
+  z-index: 999; /* Ensure it sits above other elements */
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #4a90e2, #7b2cbf);
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(11, 26, 43, 0.3);
+  
+  /* Hidden by default */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity .25s ease, transform .25s ease, visibility .25s;
+}
+
+/* The .show class is added by JavaScript when you scroll down */
+.scroll-top-btn.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.scroll-top-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(11, 26, 43, 0.4);
+}
+
+.scroll-top-btn:focus-visible {
+  outline: 2px solid #C9A84C;
+  outline-offset: 3px;
+}
+
+.scroll-top-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ═══════════════════════════════════════════════════════════════
    LOCATION VIDEO BAND — same visual as photo band, video variant
    ═══════════════════════════════════════════════════════════════ */
 .location-break video.location-break-video {

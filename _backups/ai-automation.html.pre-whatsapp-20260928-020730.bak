@@ -1,0 +1,941 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Automation for UK &amp; GCC Business Operations | BTS</title>
+<meta name="description" content="BTS helps UK and GCC businesses automate workflows, documents, approvals, WhatsApp processes and repetitive operations using AI, business rules, APIs and intelligent automation.">
+<link rel="canonical" href="https://btsapp.net/services/ai-automation.html">
+<link rel="alternate" hreflang="ar" href="https://btsapp.net/services/ai-automation.ar.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{analytics_storage:'denied'});</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-72BT0DL8NJ"></script>
+<script>gtag('js',new Date());gtag('config','G-72BT0DL8NJ');</script>
+<script>
+(function(){
+  try {
+    var saved = localStorage.getItem('bts_theme');
+    var pref = saved ? saved :
+               (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (pref === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  } catch(e){}
+})();
+</script>
+<style>
+/* ═══════════════════════════════════════════════════════════
+   AI AUTOMATION PAGE — v2 aggressive redesign
+   All colours use tokens so light/dark flip automatically.
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --bts-navy:#0b1a2b;
+  --bts-navy-2:#122a44;
+  --bts-navy-3:#1a3a5c;
+  --bts-blue:#3b82f6;
+  --bts-gold:#C9A84C;
+  --bts-success:#10b981;
+  --bts-warning:#f59e0b;
+  --bts-danger:#ef4444;
+}
+
+/* ─── HERO ─────────────────────────────────────────────── */
+.bts-hero {
+  background:
+    radial-gradient(1200px 600px at 85% -10%, rgba(59,130,246,.18), transparent 60%),
+    radial-gradient(900px 500px at 10% 100%, rgba(201,168,76,.10), transparent 55%),
+    linear-gradient(160deg, #071322 0%, #0b1a2b 55%, #0e2136 100%);
+  color:#fff;
+  padding:96px 0 88px;
+  position:relative;
+  overflow:hidden;
+}
+.bts-hero::before {
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image: radial-gradient(circle at 70% 40%, #000 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at 70% 40%, #000 0%, transparent 70%);
+  pointer-events:none;
+}
+.bts-hero .container { position:relative; z-index:2; }
+.bts-hero-grid {
+  display:grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap:72px;
+  align-items:center;
+}
+.bts-hero-eyebrow {
+  display:inline-flex; align-items:center; gap:12px;
+  font-size:12px; letter-spacing:.16em; text-transform:uppercase;
+  color:#FFD770; font-weight:700;
+  padding:8px 14px;
+  border:1px solid rgba(255,215,112,.25);
+  border-radius:100px;
+  background:rgba(255,215,112,.06);
+  margin-bottom:28px;
+}
+.bts-hero-eyebrow::before {
+  content:""; width:6px; height:6px; border-radius:50%;
+  background:#FFD770;
+  box-shadow:0 0 0 3px rgba(255,215,112,.18);
+}
+.bts-hero h1 {
+  font-size:clamp(36px,4.2vw,60px);
+  font-weight:800;
+  line-height:1.08;
+  letter-spacing:-.02em;
+  margin:0 0 24px;
+  color:#fff;
+}
+.bts-hero h1 em {
+  font-style:normal;
+  background:linear-gradient(120deg,#FFD770,#C9A84C 60%);
+  -webkit-background-clip:text; background-clip:text;
+  color:transparent;
+}
+.bts-hero-lead {
+  font-size:18px;
+  line-height:1.65;
+  color:#c4d2e4;
+  max-width:560px;
+  margin:0 0 36px;
+}
+.bts-hero-cta { display:flex; gap:14px; flex-wrap:wrap; }
+.bts-hero-stats {
+  display:flex; gap:32px; margin-top:48px;
+  padding-top:32px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.bts-hero-stats .hs { font-size:13px; color:#7a8fa8; letter-spacing:.04em; }
+.bts-hero-stats .hs strong {
+  display:block; color:#fff; font-size:22px; font-weight:800;
+  letter-spacing:-.01em; margin-bottom:4px;
+}
+
+/* ─── PRODUCT MOCKUP (KPI strip) ─────────────────────────── */
+.bts-mock {
+  background:linear-gradient(160deg,#0d1f34 0%,#0a1828 100%);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
+  padding:28px;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.5),
+    0 0 0 1px rgba(59,130,246,.08) inset;
+  position:relative;
+}
+.bts-mock::before {
+  content:"";
+  position:absolute; inset:-1px;
+  border-radius:16px;
+  background:linear-gradient(135deg,rgba(59,130,246,.35),transparent 40%,transparent 60%,rgba(201,168,76,.25));
+  z-index:-1;
+  filter:blur(12px);
+  opacity:.6;
+}
+.bts-mock-head {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:22px;
+}
+.bts-mock-brand {
+  display:flex; align-items:center; gap:10px;
+  font-size:14px; font-weight:700; color:#fff; letter-spacing:.01em;
+}
+.bts-mock-brand .dot {
+  width:8px; height:8px; border-radius:50%;
+  background:#10b981;
+  box-shadow:0 0 0 3px rgba(16,185,129,.2);
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { box-shadow:0 0 0 3px rgba(16,185,129,.2); }
+  50%     { box-shadow:0 0 0 6px rgba(16,185,129,.05); }
+}
+.bts-mock-sub { font-size:11.5px; color:#7a8fa8; letter-spacing:.06em; text-transform:uppercase; }
+
+.bts-mock-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+.bts-kpi {
+  background:#0a1729;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:10px;
+  padding:14px 14px 12px;
+  position:relative;
+  overflow:hidden;
+}
+.bts-kpi::before {
+  content:""; position:absolute; top:0; left:0; right:0; height:2px;
+  background:var(--kpi-accent, #3b82f6);
+  opacity:.9;
+}
+.bts-kpi .kpi-label {
+  font-size:10.5px; letter-spacing:.08em; text-transform:uppercase;
+  color:#7a8fa8; font-weight:600;
+  margin-bottom:6px;
+}
+.bts-kpi .kpi-value {
+  font-size:24px; font-weight:800; line-height:1;
+  color:var(--kpi-accent, #fff);
+  letter-spacing:-.02em;
+}
+.bts-kpi .kpi-foot {
+  font-size:10.5px; color:#6a7d94; margin-top:6px;
+  letter-spacing:.02em;
+}
+
+/* Coloured variants */
+.bts-kpi.blue   { --kpi-accent:#3b82f6; }
+.bts-kpi.green  { --kpi-accent:#10b981; }
+.bts-kpi.orange { --kpi-accent:#f59e0b; }
+.bts-kpi.red    { --kpi-accent:#ef4444; }
+.bts-kpi.purple { --kpi-accent:#a78bfa; }
+.bts-kpi.gold   { --kpi-accent:#C9A84C; }
+
+/* ─── SECTION BASE ─────────────────────────────────────── */
+.bts-section { padding:96px 0; position:relative; }
+.bts-section.navy {
+  background:
+    radial-gradient(900px 400px at 15% -20%, rgba(59,130,246,.10), transparent 60%),
+    linear-gradient(180deg,#0b1a2b 0%,#0a1729 100%);
+  color:#e8eef7;
+}
+.bts-section.light {
+  background:#f5f7fa;
+  color:#1a2332;
+}
+[data-theme="dark"] .bts-section.light {
+  background:#0e1f33;
+  color:#e8eef7;
+}
+
+/* ─── SECTION HEADS ────────────────────────────────────── */
+.bts-head { max-width:760px; margin-bottom:64px; }
+.bts-head .rule {
+  display:block; width:44px; height:2px;
+  background:var(--bts-gold); margin-bottom:20px;
+}
+.bts-head .kicker {
+  display:block;
+  font-size:12.5px; letter-spacing:.16em; text-transform:uppercase;
+  font-weight:700; color:var(--bts-gold); margin-bottom:14px;
+}
+.bts-head h2 {
+  font-size:clamp(28px,3.4vw,46px);
+  font-weight:800;
+  line-height:1.1;
+  letter-spacing:-.02em;
+  margin:0 0 18px;
+}
+.bts-section.navy .bts-head h2 { color:#fff; }
+.bts-section.light .bts-head h2 { color:#0b1a2b; }
+[data-theme="dark"] .bts-section.light .bts-head h2 { color:#fff; }
+.bts-head p {
+  font-size:17px; line-height:1.65; margin:0;
+  max-width:640px;
+}
+.bts-section.navy .bts-head p { color:#b8c5d6; }
+.bts-section.light .bts-head p { color:#4a5666; }
+[data-theme="dark"] .bts-section.light .bts-head p { color:#b8c5d6; }
+
+/* ─── PILLARS (Section 2) ──────────────────────────────── */
+.bts-pillars {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
+}
+.bts-pillar {
+  background:#fff;
+  border:1px solid #e6ebf2;
+  border-radius:14px;
+  padding:32px 26px;
+  position:relative;
+  transition:transform .25s, box-shadow .25s, border-color .25s;
+}
+.bts-pillar:hover {
+  transform:translateY(-4px);
+  border-color:#3b82f6;
+  box-shadow:0 20px 40px rgba(11,26,43,.08);
+}
+[data-theme="dark"] .bts-pillar {
+  background:#122a44;
+  border-color:rgba(255,255,255,.08);
+}
+[data-theme="dark"] .bts-pillar:hover {
+  border-color:#3b82f6;
+  box-shadow:0 20px 40px rgba(0,0,0,.3);
+}
+.bts-pillar .num {
+  display:inline-block;
+  font-size:11.5px; font-weight:800; letter-spacing:.12em;
+  color:var(--bts-gold);
+  padding:5px 10px;
+  border-radius:100px;
+  background:rgba(201,168,76,.08);
+  border:1px solid rgba(201,168,76,.2);
+  margin-bottom:20px;
+}
+[data-theme="dark"] .bts-pillar .num {
+  background:rgba(201,168,76,.12);
+  border-color:rgba(201,168,76,.25);
+}
+.bts-pillar h3 {
+  font-size:18px; font-weight:700; margin:0 0 12px;
+  color:#0b1a2b; line-height:1.25;
+}
+[data-theme="dark"] .bts-pillar h3 { color:#fff; }
+.bts-pillar p {
+  font-size:14.5px; line-height:1.65; color:#4a5666; margin:0;
+}
+[data-theme="dark"] .bts-pillar p { color:#b8c5d6; }
+
+/* ─── SERVICE CARDS (Section 3) ────────────────────────── */
+.bts-services {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+}
+.bts-svc {
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;
+  padding:32px 28px;
+  transition:background .25s, border-color .25s, transform .25s;
+  position:relative;
+  overflow:hidden;
+}
+.bts-svc::after {
+  content:"";
+  position:absolute; left:0; top:0; bottom:0; width:2px;
+  background:var(--bts-gold);
+  transform:scaleY(0);
+  transform-origin:top;
+  transition:transform .35s ease;
+}
+.bts-svc:hover {
+  background:rgba(59,130,246,.06);
+  border-color:rgba(59,130,246,.28);
+  transform:translateY(-3px);
+}
+.bts-svc:hover::after { transform:scaleY(1); }
+.bts-svc h3 {
+  font-size:17px; font-weight:700; color:#fff;
+  margin:0 0 12px; letter-spacing:-.005em;
+}
+.bts-svc p {
+  font-size:14.5px; line-height:1.65; color:#b8c5d6; margin:0;
+}
+
+/* ─── PROCESS BAND (Section 4) ─────────────────────────── */
+.bts-process-band {
+  background:linear-gradient(135deg,#071322 0%,#122a44 100%);
+  border-radius:20px;
+  padding:52px 44px;
+  border:1px solid rgba(255,255,255,.06);
+  position:relative;
+  overflow:hidden;
+}
+.bts-process-band::before {
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:48px 48px;
+  pointer-events:none;
+}
+.bts-process {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  position:relative;
+  z-index:1;
+  flex-wrap:wrap;
+}
+.bts-proc-step {
+  display:flex; flex-direction:column; align-items:center;
+  flex:1; min-width:110px;
+  text-align:center;
+  position:relative;
+}
+.bts-proc-step .dot {
+  width:52px; height:52px;
+  border-radius:50%;
+  background:rgba(59,130,246,.12);
+  border:2px solid rgba(59,130,246,.4);
+  display:flex; align-items:center; justify-content:center;
+  font-size:14px; font-weight:800; color:#3b82f6;
+  margin-bottom:14px;
+  position:relative;
+  z-index:2;
+}
+.bts-proc-step.done .dot {
+  background:rgba(201,168,76,.15);
+  border-color:rgba(201,168,76,.5);
+  color:#FFD770;
+}
+.bts-proc-step .lbl {
+  font-size:12.5px; font-weight:600; color:#c4d2e4;
+  line-height:1.35; letter-spacing:.01em;
+}
+.bts-proc-line {
+  flex:0 0 auto;
+  align-self:flex-start;
+  margin-top:25px;
+  width:24px; height:2px;
+  background:linear-gradient(90deg,rgba(59,130,246,.5),rgba(201,168,76,.5));
+  opacity:.5;
+}
+
+/* ─── PRODUCTS (Section 5) ─────────────────────────────── */
+.bts-products {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+  margin-top:16px;
+}
+.bts-product-card {
+  background:linear-gradient(160deg,#0d1f34 0%,#0a1828 100%);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
+  padding:32px;
+  transition:transform .3s, border-color .3s, box-shadow .3s;
+  position:relative;
+  overflow:hidden;
+}
+.bts-product-card:hover {
+  transform:translateY(-4px);
+  border-color:rgba(59,130,246,.35);
+  box-shadow:0 24px 60px rgba(0,0,0,.4);
+}
+.bts-product-tag {
+  display:inline-block;
+  font-size:11px; font-weight:800; letter-spacing:.12em;
+  padding:5px 10px; border-radius:100px;
+  margin-bottom:20px;
+}
+.bts-product-tag.dev {
+  color:#FFD770;
+  background:rgba(201,168,76,.1);
+  border:1px solid rgba(201,168,76,.25);
+}
+.bts-product-card h3 {
+  font-size:24px; font-weight:800; color:#fff;
+  margin:0 0 10px; letter-spacing:-.01em;
+}
+.bts-product-card > p {
+  font-size:14.5px; line-height:1.65; color:#b8c5d6;
+  margin:0 0 24px;
+}
+.bts-product-preview {
+  background:#0a1729;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:10px;
+  padding:14px;
+  margin-bottom:20px;
+}
+.bts-product-preview .bts-mock-grid { grid-template-columns:repeat(3,1fr); gap:8px; }
+.bts-product-preview .bts-kpi { padding:10px 10px 8px; }
+.bts-product-preview .bts-kpi .kpi-label { font-size:9.5px; margin-bottom:5px; }
+.bts-product-preview .bts-kpi .kpi-value { font-size:18px; }
+.bts-product-preview .bts-kpi .kpi-foot  { font-size:9.5px; margin-top:5px; }
+.bts-product-cta {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:13.5px; font-weight:700;
+  color:#3b82f6;
+  transition:gap .2s, color .2s;
+}
+.bts-product-cta:hover { gap:12px; color:#FFD770; }
+.bts-product-cta svg {
+  width:16px; height:16px;
+  stroke:currentColor; fill:none; stroke-width:2.5;
+  stroke-linecap:round; stroke-linejoin:round;
+}
+
+/* ─── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width:1100px) {
+  .bts-hero-grid { grid-template-columns:1fr; gap:48px; }
+  .bts-pillars { grid-template-columns:1fr 1fr; }
+  .bts-services { grid-template-columns:1fr 1fr; }
+  .bts-products { grid-template-columns:1fr; }
+}
+@media (max-width:720px) {
+  .bts-section { padding:64px 0; }
+  .bts-pillars, .bts-services { grid-template-columns:1fr; }
+  .bts-process { gap:16px; }
+  .bts-proc-line { display:none; }
+  .bts-proc-step { min-width:calc(50% - 12px); }
+  .bts-hero { padding:64px 0 56px; }
+  .bts-hero-stats { gap:22px; flex-wrap:wrap; }
+  .bts-mock { padding:20px; }
+  .bts-mock-grid { grid-template-columns:repeat(2,1fr); }
+  .bts-product-card { padding:24px; }
+}
+
+/* â”€â”€â”€ Accessibility: keyboard focus on CTAs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.bts-hero-cta a:focus-visible,
+.bts-product-cta:focus-visible,
+.bts-hero-eyebrow:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid #FFD770;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+/* ─── Engagement phases (Section 4) ─────────────────────────── */
+.bts-phases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.bts-phase {
+  background: #fff;
+  border: 1px solid #e6ebf2;
+  border-radius: 16px;
+  padding: 40px 32px;
+  position: relative;
+  transition: transform .25s, border-color .25s, box-shadow .25s;
+}
+.bts-phase:hover {
+  transform: translateY(-4px);
+  border-color: #3b82f6;
+  box-shadow: 0 24px 60px rgba(11,26,43,.08);
+}
+[data-theme="dark"] .bts-phase {
+  background: #122a44;
+  border-color: rgba(255,255,255,.08);
+}
+[data-theme="dark"] .bts-phase:hover {
+  border-color: rgba(59,130,246,.4);
+  box-shadow: 0 24px 60px rgba(0,0,0,.35);
+}
+.bts-phase.featured {
+  border-color: #3b82f6;
+  box-shadow: 0 16px 48px rgba(59,130,246,.12);
+}
+[data-theme="dark"] .bts-phase.featured {
+  border-color: rgba(59,130,246,.5);
+  box-shadow: 0 16px 48px rgba(59,130,246,.18);
+}
+.bts-phase-num {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .16em;
+  color: var(--bts-gold);
+  margin-bottom: 16px;
+}
+.bts-phase h3 {
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -.015em;
+  color: #0b1a2b;
+  margin: 0 0 16px;
+}
+[data-theme="dark"] .bts-phase h3 { color: #fff; }
+.bts-phase-lead {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #4a5666;
+  margin: 0 0 28px;
+}
+[data-theme="dark"] .bts-phase-lead { color: #b8c5d6; }
+.bts-phase-meta {
+  padding-top: 16px;
+  border-top: 1px solid #e6ebf2;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+[data-theme="dark"] .bts-phase-meta { border-color: rgba(255,255,255,.08); }
+.bts-phase-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #7a8699;
+}
+[data-theme="dark"] .bts-phase-label { color: #7a8fa8; }
+.bts-phase-value {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #0b1a2b;
+  line-height: 1.5;
+}
+[data-theme="dark"] .bts-phase-value { color: #e8eef7; }
+.bts-phases-note {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid #e6ebf2;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #4a5666;
+  text-align: center;
+  max-width: 720px;
+  margin-inline: auto;
+  font-style: italic;
+}
+[data-theme="dark"] .bts-phases-note {
+  border-color: rgba(255,255,255,.08);
+  color: #b8c5d6;
+}
+@media (max-width: 900px) {
+  .bts-phases { grid-template-columns: 1fr; }
+  .bts-phase { padding: 32px 24px; }
+}
+
+/* â”€â”€â”€ Decorative SVGs in CTAs â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
+.bts-product-cta svg { pointer-events: none; }
+</style></head>
+<body>
+
+<div class="utility-bar"><div class="container">
+  <div><a href="../en.html">BTS · Glasgow, UK</a></div>
+  <div>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    </button>
+    <a href="../blog/">Insights</a>
+    <a href="../en.html#contact">Contact</a>
+    <a href="ai-automation.ar.html" onclick="setLang('ar')">العربية</a>
+  </div>
+</div></div>
+
+<nav class="nav"><div class="container">
+  <a href="../en.html" class="brand">
+    <img src="../assets/images/Logo.png" alt="BTS">
+    Business Technology Solutions
+  </a>
+  <button class="mobile-toggle" onclick="toggleMobile()">☰</button>
+  <ul class="nav-links">
+    <li class="active"><a href="../en.html#services">Services</a></li>
+    <li><a href="../en.html#locations">Locations</a></li>
+    <li><a href="../blog/">Insights</a></li>
+    <li><a href="../en.html#about">About</a></li>
+    <li><a href="../en.html#contact" class="nav-cta">Start a Project</a></li>
+  </ul>
+</div></nav>
+
+<!-- ═══════════════ 1. HERO ═══════════════ -->
+<section class="bts-hero">
+  <div class="container">
+    <div class="bts-hero-grid">
+      <div>
+        <span class="bts-hero-eyebrow">UK Technology · GCC Delivery</span>
+        <h1>AI automation for <em>real business operations</em>.</h1>
+        <p class="bts-hero-lead">Turn documents, messages and repetitive processes into controlled, connected workflows — AI understands the inputs, business rules decide the logic, systems execute the work, and people stay in control of what matters.</p>
+        <div class="bts-hero-cta">
+          <a href="../en.html#contact" class="btn btn-primary">Start a Project</a>
+          <a href="#how" class="btn btn-outline">See how it works</a>
+        </div>
+        <div class="bts-hero-stats">
+          <div class="hs"><strong>7</strong>GCC markets</div>
+          <div class="hs"><strong>AR/EN</strong>Bilingual by design</div>
+          <div class="hs"><strong>UK</strong>Technology &amp; delivery</div>
+        </div>
+      </div>
+
+      <!-- Live product mockup -->
+      <div class="bts-mock" aria-hidden="true">
+        <div class="bts-mock-head">
+          <div class="bts-mock-brand">
+            <span class="dot"></span>
+            BTS Logistics
+          </div>
+          <div class="bts-mock-sub">Live Ops Dashboard</div>
+        </div>
+        <div class="bts-mock-grid">
+          <div class="bts-kpi blue">
+            <div class="kpi-label">Active Shipments</div>
+            <div class="kpi-value">95</div>
+            <div class="kpi-foot">↑ 31% from last month</div>
+          </div>
+          <div class="bts-kpi green">
+            <div class="kpi-label">Completed</div>
+            <div class="kpi-value">5</div>
+            <div class="kpi-foot">↑ 2% from last month</div>
+          </div>
+          <div class="bts-kpi orange">
+            <div class="kpi-label">Approval Queue</div>
+            <div class="kpi-value">21</div>
+            <div class="kpi-foot">Awaiting review</div>
+          </div>
+          <div class="bts-kpi purple">
+            <div class="kpi-label">AI Processed</div>
+            <div class="kpi-value">95</div>
+            <div class="kpi-foot">✓ Automated</div>
+          </div>
+          <div class="bts-kpi gold">
+            <div class="kpi-label">AI Confidence</div>
+            <div class="kpi-value">70.6%</div>
+            <div class="kpi-foot">↑ 5.0% from learning</div>
+          </div>
+          <div class="bts-kpi red">
+            <div class="kpi-label">High Risk</div>
+            <div class="kpi-value">0</div>
+            <div class="kpi-foot">Needs attention</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 2. BTS DIFFERENCE ═══════════════ -->
+<section class="bts-section light">
+  <div class="container">
+    <div class="bts-head">
+      <span class="rule"></span>
+      <span class="kicker">The BTS difference</span>
+      <h2>AI is not the workflow. BTS connects AI to the workflow.</h2>
+      <p>Four components work together to make automation reliable in real business operations.</p>
+    </div>
+
+    <div class="bts-pillars">
+      <div class="bts-pillar">
+        <span class="num">01 · AI UNDERSTANDS</span>
+        <h3>Documents, messages, requests and data</h3>
+        <p>Extraction, classification and intent recognition across the inputs your business already receives.</p>
+      </div>
+      <div class="bts-pillar">
+        <span class="num">02 · RULES DECIDE</span>
+        <h3>Thresholds, validation, routing and escalation</h3>
+        <p>The business logic that governs what should happen next — owned by you, not by the model.</p>
+      </div>
+      <div class="bts-pillar">
+        <span class="num">03 · SYSTEMS EXECUTE</span>
+        <h3>APIs, databases, ERP, CRM and warehouse systems</h3>
+        <p>The action layer where the workflow does real work inside the systems you already run.</p>
+      </div>
+      <div class="bts-pillar">
+        <span class="num">04 · PEOPLE CONTROL</span>
+        <h3>Approvals, exceptions and oversight</h3>
+        <p>Human review where it matters, automatic where it doesn't — with full traceability.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 3. WHAT WE AUTOMATE ═══════════════ -->
+<section class="bts-section navy">
+  <div class="container">
+    <div class="bts-head">
+      <span class="rule"></span>
+      <span class="kicker">What we automate</span>
+      <h2>Practical automation for the processes that cost you the most.</h2>
+      <p>Six areas where AI, business rules and integration create measurable operational improvement.</p>
+    </div>
+
+    <div class="bts-services">
+      <div class="bts-svc">
+        <h3>Document Processing</h3>
+        <p>Extract structured data from invoices, purchase orders, BOLs, customs paperwork and other business files.</p>
+      </div>
+      <div class="bts-svc">
+        <h3>Data Entry &amp; Validation</h3>
+        <p>Move information between documents, spreadsheets, databases and business systems while applying validation rules.</p>
+      </div>
+      <div class="bts-svc">
+        <h3>WhatsApp AI Workflows</h3>
+        <p>Connect customer and operational conversations to structured workflows, notifications and internal systems.</p>
+      </div>
+      <div class="bts-svc">
+        <h3>Approvals &amp; Escalation</h3>
+        <p>Route requests to the right person based on business rules, thresholds and exceptions — with full audit trails.</p>
+      </div>
+      <div class="bts-svc">
+        <h3>Reporting &amp; Alerts</h3>
+        <p>Turn operational data into automated reports, live dashboards and real-time alerts.</p>
+      </div>
+      <div class="bts-svc">
+        <h3>Repetitive Digital Tasks</h3>
+        <p>Automate browser, desktop and system-based processes where appropriate using RPA and APIs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 4. HOW WE WORK ═══════════════ -->
+<section class="bts-section light" id="how">
+  <div class="container">
+    <div class="bts-head">
+      <span class="rule"></span>
+      <span class="kicker">How we work</span>
+      <h2>From first conversation to running workflow.</h2>
+      <p>We work in three phases. Each one has a clear beginning, a clear deliverable, and a clear decision point before moving on.</p>
+    </div>
+
+    <div class="bts-phases">
+      <div class="bts-phase">
+        <div class="bts-phase-num">01</div>
+        <h3>Discover</h3>
+        <p class="bts-phase-lead">We map your process, talk to the people who run it, and identify where time and accuracy are lost. No assumptions — every step in the diagram comes from a real observation.</p>
+        <div class="bts-phase-meta">
+          <span class="bts-phase-label">Typical duration</span>
+          <span class="bts-phase-value">2 weeks</span>
+        </div>
+        <div class="bts-phase-meta">
+          <span class="bts-phase-label">You receive</span>
+          <span class="bts-phase-value">Process map, automation opportunities, prioritised roadmap</span>
+        </div>
+      </div>
+
+      <div class="bts-phase featured">
+        <div class="bts-phase-num">02</div>
+        <h3>Pilot</h3>
+        <p class="bts-phase-lead">We automate one workflow end-to-end — usually the one causing the most pain. It runs alongside your existing process, measured against real operational metrics, before anything is switched over.</p>
+        <div class="bts-phase-meta">
+          <span class="bts-phase-label">Typical duration</span>
+          <span class="bts-phase-value">4–8 weeks</span>
+        </div>
+        <div class="bts-phase-meta">
+          <span class="bts-phase-label">You receive</span>
+          <span class="bts-phase-value">Working automation, integration to your systems, measured results</span>
+        </div>
+      </div>
+
+      <div class="bts-phase">
+        <div class="bts-phase-num">03</div>
+        <h3>Scale</h3>
+        <p class="bts-phase-lead">Once the pilot proves value, we extend the same pattern to adjacent workflows. Rules, dashboards and approvals travel with it — so each new process takes less time than the last.</p>
+        <div class="bts-phase-meta">
+          <span class="bts-phase-label">Typical duration</span>
+          <span class="bts-phase-value">Ongoing</span>
+        </div>
+        <div class="bts-phase-meta">
+          <span class="bts-phase-label">You receive</span>
+          <span class="bts-phase-value">Additional workflows, expanded dashboards, internal team enablement</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="bts-phases-note">Automation is not about replacing people. It is about removing friction from the way work moves through your business.</p>
+  </div>
+</section>
+<!-- ═══════════════ 9. UK + GCC ADVANTAGE ═══════════════ -->
+<section class="bts-section navy">
+  <div class="container">
+    <div class="bts-head">
+      <span class="rule"></span>
+      <span class="kicker">UK + GCC advantage</span>
+      <h2>Built for the way UK and GCC businesses actually operate.</h2>
+      <p>Our specialisation is the intersection of three things most providers only handle one of.</p>
+    </div>
+
+    <div class="bts-services">
+      <div class="bts-svc">
+        <span class="bts-product-tag dev" style="margin-bottom:16px">UK TECHNOLOGY</span>
+        <h3>Technology and process discipline</h3>
+        <p>Security, integration and architecture designed to UK standards — clean, documented and maintainable by any team.</p>
+      </div>
+      <div class="bts-svc">
+        <span class="bts-product-tag dev" style="margin-bottom:16px">ARABIC + ENGLISH</span>
+        <h3>Bilingual by design, not by translation</h3>
+        <p>RTL interfaces, Arabic documents, and workflows that support both languages from day one — not bolted on later.</p>
+      </div>
+      <div class="bts-svc">
+        <span class="bts-product-tag dev" style="margin-bottom:16px">GCC OPERATIONS</span>
+        <h3>Built for regional requirements</h3>
+        <p>Logistics, customs documents, WhatsApp-based operations and the workflows common across GCC markets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 10. BTS LABS ═══════════════ -->
+
+
+<!-- ═══════════════ 11. SOFT CTA ═══════════════ -->
+<section class="bts-section navy">
+  <div class="container">
+    <div style="max-width:760px;margin:0 auto;text-align:center">
+      <span class="rule" style="margin:0 auto 20px"></span>
+      <span class="kicker" style="display:block;font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--bts-gold);margin-bottom:14px">Not sure where to start?</span>
+      <h2 style="font-size:clamp(28px,3.4vw,42px);font-weight:800;color:#fff;line-height:1.15;letter-spacing:-.02em;margin:0 0 20px">Send us one workflow.</h2>
+      <p style="font-size:17px;line-height:1.65;color:#b8c5d6;margin:0 0 36px">Send us one workflow, one document, or one process. We'll show you where AI fits — no charge, no obligation.</p>
+      <div class="bts-hero-cta" style="justify-content:center">
+        <a href="../en.html#contact" class="btn btn-primary">Discuss a Process</a>
+        <a href="mailto:info@btsapp.net" class="btn btn-outline">Email BTS</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 12. FINAL CTA ═══════════════ -->
+<section class="cta-band">
+  <div class="container">
+    <h2>Have a process that should be automated?</h2>
+    <p>Send us the workflow. We'll help you identify where AI and automation can create real value. We respond within one business day.</p>
+    <div class="hero-btns">
+      <a href="../en.html#contact" class="btn btn-primary">Start Your Project</a>
+      <a href="https://wa.me/447425252625?text=Hi%20BTS%2C%20I%27d%20like%20to%20discuss%20an%20automation%20project." target="_blank" rel="noopener" class="btn btn-outline">WhatsApp BTS</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="color:#fff">Business Technology Solutions</div>
+        <p style="font-size:13.5px;line-height:1.7">BTS is a UK technology partner helping organisations across the UK and GCC modernise operations through AI automation, intelligent software, business intelligence and bilingual digital systems. Headquartered in Glasgow, Scotland. Registered in Scotland (SC894313).</p>
+      </div>
+      <div><h5>Services</h5>
+        <a href="ai-automation.html">AI Automation</a>
+        <a href="business-intelligence.html">Business Intelligence</a>
+        <a href="custom-software.html">Custom Software</a>
+        <a href="bilingual-systems.html">Bilingual Systems</a>
+        <a href="system-integration.html">System Integration</a>
+        <a href="logistics-warehouse.html">Logistics &amp; Warehouse</a>
+      </div>
+      <div><h5>Locations</h5>
+        <a href="../locations/uk.html">United Kingdom</a>
+        <a href="../locations/ksa.html">Saudi Arabia</a>
+        <a href="../locations/uae.html">UAE</a>
+        <a href="../locations/qatar.html">Qatar</a>
+        <a href="../locations/oman.html">Oman</a>
+        <a href="../locations/kuwait.html">Kuwait</a>
+        <a href="../locations/bahrain.html">Bahrain</a>
+      </div>
+      <div><h5>Company</h5>
+        <a href="../en.html#about">About</a>
+        <a href="../blog/">Insights</a>
+        <a href="../en.html#contact">Contact</a>
+        <a href="../privacy-policy.html">Privacy</a>
+      </div>
+      <div><h5>Contact</h5>
+        <a href="mailto:info@btsapp.net">info@btsapp.net</a>
+        <a href="tel:+447425252625">+44 7425 252625</a>
+        <a href="https://wa.me/447425252625">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 BTS — Business Technology Solutions. Registered in Scotland (SC894313).</div>
+      <div>
+        <a href="../privacy-policy.html">Privacy</a>
+        <a href="../terms-of-service.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+
+<button class="scroll-top-btn" id="scrollTopBtn" type="button" aria-label="Scroll to top" title="Back to top">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 19V5"/>
+    <path d="M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+<div class="img-lightbox" id="imgLightbox" role="dialog" aria-modal="true" aria-label="Image preview">
+  <button class="img-lightbox-close" id="imgLightboxClose" type="button" aria-label="Close image preview">×</button>
+  <img class="img-lightbox-img" id="imgLightboxImg" src="" alt="">
+</div>
+</body>
+</html>

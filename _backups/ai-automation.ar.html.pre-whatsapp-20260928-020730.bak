@@ -1,0 +1,829 @@
+﻿<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>أتمتة الذكاء الاصطناعي لعمليات الأعمال في بريطانيا والخليج | BTS</title>
+<meta name="description" content="تساعد BTS الشركات في بريطانيا ودول الخليج على أتمتة سير العمل والمستندات والموافقات وعمليات واتساب والعمليات المتكررة باستخدام الذكاء الاصطناعي وقواعد العمل وواجهات API والأتمتة الذكية.">
+<link rel="canonical" href="https://btsapp.net/services/ai-automation.ar.html">
+<link rel="alternate" hreflang="en" href="https://btsapp.net/services/ai-automation.html">
+<link rel="alternate" hreflang="ar" href="https://btsapp.net/services/ai-automation.ar.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{analytics_storage:'denied'});</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-72BT0DL8NJ"></script>
+<script>gtag('js',new Date());gtag('config','G-72BT0DL8NJ');</script>
+<script>
+(function(){
+  try {
+    var saved = localStorage.getItem('bts_theme');
+    var pref = saved ? saved :
+               (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    if (pref === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+  } catch(e){}
+})();
+</script>
+<style>
+/* ═══════════════════════════════════════════════════════════
+   صفحة أتمتة الذكاء الاصطناعي — النسخة العربية
+   نفس البنية والألوان، مع تعديلات RTL
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  --bts-navy:#0b1a2b;
+  --bts-navy-2:#122a44;
+  --bts-navy-3:#1a3a5c;
+  --bts-blue:#3b82f6;
+  --bts-gold:#C9A84C;
+  --bts-success:#10b981;
+  --bts-warning:#f59e0b;
+  --bts-danger:#ef4444;
+}
+
+/* ─── HERO ─────────────────────────────────────────────── */
+.bts-hero {
+  background:
+    radial-gradient(1200px 600px at 15% -10%, rgba(59,130,246,.18), transparent 60%),
+    radial-gradient(900px 500px at 90% 100%, rgba(201,168,76,.10), transparent 55%),
+    linear-gradient(200deg, #071322 0%, #0b1a2b 55%, #0e2136 100%);
+  color:#fff;
+  padding:96px 0 88px;
+  position:relative;
+  overflow:hidden;
+}
+.bts-hero::before {
+  content:"";
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+  background-size:64px 64px;
+  mask-image: radial-gradient(circle at 30% 40%, #000 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at 30% 40%, #000 0%, transparent 70%);
+  pointer-events:none;
+}
+.bts-hero .container { position:relative; z-index:2; }
+.bts-hero-grid {
+  display:grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap:72px;
+  align-items:center;
+}
+.bts-hero-eyebrow {
+  display:inline-flex; align-items:center; gap:12px;
+  font-size:12.5px; letter-spacing:.06em;
+  color:#FFD770; font-weight:700;
+  padding:8px 14px;
+  border:1px solid rgba(255,215,112,.25);
+  border-radius:100px;
+  background:rgba(255,215,112,.06);
+  margin-bottom:28px;
+}
+.bts-hero-eyebrow::before {
+  content:""; width:6px; height:6px; border-radius:50%;
+  background:#FFD770;
+  box-shadow:0 0 0 3px rgba(255,215,112,.18);
+}
+.bts-hero h1 {
+  font-size:clamp(32px,3.8vw,54px);
+  font-weight:800;
+  line-height:1.25;
+  margin:0 0 24px;
+  color:#fff;
+}
+.bts-hero h1 em {
+  font-style:normal;
+  background:linear-gradient(120deg,#FFD770,#C9A84C 60%);
+  -webkit-background-clip:text; background-clip:text;
+  color:transparent;
+}
+.bts-hero-lead {
+  font-size:17.5px;
+  line-height:1.8;
+  color:#c4d2e4;
+  max-width:560px;
+  margin:0 0 36px;
+}
+.bts-hero-cta { display:flex; gap:14px; flex-wrap:wrap; }
+.bts-hero-stats {
+  display:flex; gap:32px; margin-top:48px;
+  padding-top:32px;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.bts-hero-stats .hs { font-size:13px; color:#7a8fa8; }
+.bts-hero-stats .hs strong {
+  display:block; color:#fff; font-size:22px; font-weight:800;
+  margin-bottom:4px;
+  direction:ltr;
+  unicode-bidi:isolate;
+  text-align:right;
+}
+
+/* ─── PRODUCT MOCKUP ─────────────────────────────────────── */
+.bts-mock {
+  background:linear-gradient(160deg,#0d1f34 0%,#0a1828 100%);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
+  padding:28px;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,.5),
+    0 0 0 1px rgba(59,130,246,.08) inset;
+  position:relative;
+  direction:rtl;
+}
+.bts-mock::before {
+  content:"";
+  position:absolute; inset:-1px;
+  border-radius:16px;
+  background:linear-gradient(135deg,rgba(59,130,246,.35),transparent 40%,transparent 60%,rgba(201,168,76,.25));
+  z-index:-1;
+  filter:blur(12px);
+  opacity:.6;
+}
+.bts-mock-head {
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:22px;
+  flex-direction:row-reverse;
+}
+.bts-mock-brand {
+  display:flex; align-items:center; gap:10px;
+  font-size:14px; font-weight:700; color:#fff;
+  font-family:'Inter',sans-serif;
+  direction:ltr;
+}
+.bts-mock-brand .dot {
+  width:8px; height:8px; border-radius:50%;
+  background:#10b981;
+  box-shadow:0 0 0 3px rgba(16,185,129,.2);
+  animation:pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%,100% { box-shadow:0 0 0 3px rgba(16,185,129,.2); }
+  50%     { box-shadow:0 0 0 6px rgba(16,185,129,.05); }
+}
+.bts-mock-sub {
+  font-size:11.5px; color:#7a8fa8;
+  letter-spacing:.02em;
+}
+
+.bts-mock-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+}
+.bts-kpi {
+  background:#0a1729;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:10px;
+  padding:14px 14px 12px;
+  position:relative;
+  overflow:hidden;
+}
+.bts-kpi::before {
+  content:""; position:absolute; top:0; left:0; right:0; height:2px;
+  background:var(--kpi-accent, #3b82f6);
+  opacity:.9;
+}
+.bts-kpi .kpi-label {
+  font-size:11px;
+  color:#7a8fa8; font-weight:600;
+  margin-bottom:6px;
+}
+.bts-kpi .kpi-value {
+  font-size:24px; font-weight:800; line-height:1;
+  color:var(--kpi-accent, #fff);
+  direction:ltr;
+  unicode-bidi:isolate;
+  text-align:right;
+  font-family:'Inter',sans-serif;
+}
+.bts-kpi .kpi-foot {
+  font-size:10.5px; color:#6a7d94; margin-top:6px;
+}
+
+.bts-kpi.blue   { --kpi-accent:#3b82f6; }
+.bts-kpi.green  { --kpi-accent:#10b981; }
+.bts-kpi.orange { --kpi-accent:#f59e0b; }
+.bts-kpi.red    { --kpi-accent:#ef4444; }
+.bts-kpi.purple { --kpi-accent:#a78bfa; }
+.bts-kpi.gold   { --kpi-accent:#C9A84C; }
+
+/* ─── SECTION BASE ─────────────────────────────────────── */
+.bts-section { padding:96px 0; position:relative; }
+.bts-section.navy {
+  background:
+    radial-gradient(900px 400px at 85% -20%, rgba(59,130,246,.10), transparent 60%),
+    linear-gradient(180deg,#0b1a2b 0%,#0a1729 100%);
+  color:#e8eef7;
+}
+.bts-section.light {
+  background:#f5f7fa;
+  color:#1a2332;
+}
+[data-theme="dark"] .bts-section.light {
+  background:#0e1f33;
+  color:#e8eef7;
+}
+
+/* ─── SECTION HEADS ────────────────────────────────────── */
+.bts-head { max-width:760px; margin-bottom:64px; }
+.bts-head .rule {
+  display:block; width:44px; height:2px;
+  background:var(--bts-gold); margin-bottom:20px;
+}
+.bts-head .kicker {
+  display:block;
+  font-size:13px; letter-spacing:.04em;
+  font-weight:700; color:var(--bts-gold); margin-bottom:14px;
+}
+.bts-head h2 {
+  font-size:clamp(26px,3.2vw,42px);
+  font-weight:800;
+  line-height:1.35;
+  margin:0 0 18px;
+}
+.bts-section.navy .bts-head h2 { color:#fff; }
+.bts-section.light .bts-head h2 { color:#0b1a2b; }
+[data-theme="dark"] .bts-section.light .bts-head h2 { color:#fff; }
+.bts-head p {
+  font-size:16.5px; line-height:1.85; margin:0;
+  max-width:640px;
+}
+.bts-section.navy .bts-head p { color:#b8c5d6; }
+.bts-section.light .bts-head p { color:#4a5666; }
+[data-theme="dark"] .bts-section.light .bts-head p { color:#b8c5d6; }
+
+/* ─── PILLARS ──────────────────────────────────────────── */
+.bts-pillars {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
+}
+.bts-pillar {
+  background:#fff;
+  border:1px solid #e6ebf2;
+  border-radius:14px;
+  padding:32px 26px;
+  position:relative;
+  transition:transform .25s, box-shadow .25s, border-color .25s;
+}
+.bts-pillar:hover {
+  transform:translateY(-4px);
+  border-color:#3b82f6;
+  box-shadow:0 20px 40px rgba(11,26,43,.08);
+}
+[data-theme="dark"] .bts-pillar {
+  background:#122a44;
+  border-color:rgba(255,255,255,.08);
+}
+[data-theme="dark"] .bts-pillar:hover {
+  border-color:#3b82f6;
+  box-shadow:0 20px 40px rgba(0,0,0,.3);
+}
+.bts-pillar .num {
+  display:inline-block;
+  font-size:11.5px; font-weight:800;
+  color:var(--bts-gold);
+  padding:5px 10px;
+  border-radius:100px;
+  background:rgba(201,168,76,.08);
+  border:1px solid rgba(201,168,76,.2);
+  margin-bottom:20px;
+}
+[data-theme="dark"] .bts-pillar .num {
+  background:rgba(201,168,76,.12);
+  border-color:rgba(201,168,76,.25);
+}
+.bts-pillar h3 {
+  font-size:17px; font-weight:700; margin:0 0 12px;
+  color:#0b1a2b; line-height:1.5;
+}
+[data-theme="dark"] .bts-pillar h3 { color:#fff; }
+.bts-pillar p {
+  font-size:14.5px; line-height:1.8; color:#4a5666; margin:0;
+}
+[data-theme="dark"] .bts-pillar p { color:#b8c5d6; }
+
+/* ─── SERVICE CARDS ────────────────────────────────────── */
+.bts-services {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:20px;
+}
+.bts-svc {
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;
+  padding:32px 28px;
+  transition:background .25s, border-color .25s, transform .25s;
+  position:relative;
+  overflow:hidden;
+}
+.bts-svc::after {
+  content:"";
+  position:absolute; right:0; top:0; bottom:0; width:2px;
+  background:var(--bts-gold);
+  transform:scaleY(0);
+  transform-origin:top;
+  transition:transform .35s ease;
+}
+.bts-svc:hover {
+  background:rgba(59,130,246,.06);
+  border-color:rgba(59,130,246,.28);
+  transform:translateY(-3px);
+}
+.bts-svc:hover::after { transform:scaleY(1); }
+.bts-svc h3 {
+  font-size:17px; font-weight:700; color:#fff;
+  margin:0 0 12px;
+}
+.bts-svc p {
+  font-size:14.5px; line-height:1.8; color:#b8c5d6; margin:0;
+}
+
+/* ─── ENGAGEMENT PHASES ────────────────────────────────── */
+.bts-phases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.bts-phase {
+  background: #fff;
+  border: 1px solid #e6ebf2;
+  border-radius: 16px;
+  padding: 40px 32px;
+  position: relative;
+  transition: transform .25s, border-color .25s, box-shadow .25s;
+}
+.bts-phase:hover {
+  transform: translateY(-4px);
+  border-color: #3b82f6;
+  box-shadow: 0 24px 60px rgba(11,26,43,.08);
+}
+[data-theme="dark"] .bts-phase {
+  background: #122a44;
+  border-color: rgba(255,255,255,.08);
+}
+[data-theme="dark"] .bts-phase:hover {
+  border-color: rgba(59,130,246,.4);
+  box-shadow: 0 24px 60px rgba(0,0,0,.35);
+}
+.bts-phase.featured {
+  border-color: #3b82f6;
+  box-shadow: 0 16px 48px rgba(59,130,246,.12);
+}
+[data-theme="dark"] .bts-phase.featured {
+  border-color: rgba(59,130,246,.5);
+  box-shadow: 0 16px 48px rgba(59,130,246,.18);
+}
+.bts-phase-num {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--bts-gold);
+  margin-bottom: 16px;
+}
+.bts-phase h3 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0b1a2b;
+  margin: 0 0 16px;
+}
+[data-theme="dark"] .bts-phase h3 { color: #fff; }
+.bts-phase-lead {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #4a5666;
+  margin: 0 0 28px;
+}
+[data-theme="dark"] .bts-phase-lead { color: #b8c5d6; }
+.bts-phase-meta {
+  padding-top: 16px;
+  border-top: 1px solid #e6ebf2;
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+[data-theme="dark"] .bts-phase-meta { border-color: rgba(255,255,255,.08); }
+.bts-phase-label {
+  font-size: 11.5px;
+  font-weight: 800;
+  color: #7a8699;
+}
+[data-theme="dark"] .bts-phase-label { color: #7a8fa8; }
+.bts-phase-value {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: #0b1a2b;
+  line-height: 1.6;
+}
+[data-theme="dark"] .bts-phase-value { color: #e8eef7; }
+.bts-phases-note {
+  margin-top: 48px;
+  padding-top: 32px;
+  border-top: 1px solid #e6ebf2;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #4a5666;
+  text-align: center;
+  max-width: 720px;
+  margin-inline: auto;
+  font-style: italic;
+}
+[data-theme="dark"] .bts-phases-note {
+  border-color: rgba(255,255,255,.08);
+  color: #b8c5d6;
+}
+
+/* ─── PRODUCT TAG ─────────────────────────────────────── */
+.bts-product-tag {
+  display:inline-block;
+  font-size:11px; font-weight:800;
+  letter-spacing:.02em;
+  padding:5px 10px; border-radius:100px;
+  margin-bottom:20px;
+}
+.bts-product-tag.dev {
+  color:#FFD770;
+  background:rgba(201,168,76,.1);
+  border:1px solid rgba(201,168,76,.25);
+}
+
+/* ─── ACCESSIBILITY ───────────────────────────────────── */
+.bts-hero-cta a:focus-visible,
+.bts-hero-eyebrow:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid #FFD770;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─── RTL overrides ───────────────────────────────────── */
+body.rtl .bts-head .rule { margin-inline-start: 0; }
+body.rtl .bts-hero-stats { flex-direction:row-reverse; }
+body.rtl .btn-primary::after,
+body.rtl .btn-outline::after { content:""; }
+
+/* ─── RESPONSIVE ───────────────────────────────────────── */
+@media (max-width:1100px) {
+  .bts-hero-grid { grid-template-columns:1fr; gap:48px; }
+  .bts-pillars { grid-template-columns:1fr 1fr; }
+  .bts-services { grid-template-columns:1fr 1fr; }
+  .bts-phases { grid-template-columns:1fr; }
+}
+@media (max-width:720px) {
+  .bts-section { padding:64px 0; }
+  .bts-pillars, .bts-services { grid-template-columns:1fr; }
+  .bts-hero { padding:64px 0 56px; }
+  .bts-hero-stats { gap:22px; flex-wrap:wrap; }
+  .bts-mock { padding:20px; }
+  .bts-mock-grid { grid-template-columns:repeat(2,1fr); }
+  .bts-phase { padding: 32px 24px; }
+}
+</style>
+</head>
+<body class="rtl">
+
+<div class="utility-bar"><div class="container">
+  <div><a href="../ar.html">BTS · غلاسكو، المملكة المتحدة</a></div>
+  <div>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="تبديل الوضع الداكن" title="تبديل الوضع الداكن">
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    </button>
+    <a href="../blog/ar/">رؤى</a>
+    <a href="../ar.html#contact">اتصل بنا</a>
+    <a href="ai-automation.html" onclick="setLang('en')">English</a>
+  </div>
+</div></div>
+
+<nav class="nav"><div class="container">
+  <a href="../ar.html" class="brand">
+    <img src="../assets/images/Logo.png" alt="BTS">
+    حلول تكنولوجيا الأعمال
+  </a>
+  <button class="mobile-toggle" onclick="toggleMobile()">☰</button>
+  <ul class="nav-links">
+    <li class="active"><a href="../ar.html#services">الخدمات</a></li>
+    <li><a href="../ar.html#locations">الفروع</a></li>
+    <li><a href="../blog/ar/">رؤى</a></li>
+    <li><a href="../ar.html#about">من نحن</a></li>
+    <li><a href="../ar.html#contact" class="nav-cta">ابدأ مشروعك</a></li>
+  </ul>
+</div></nav>
+
+<!-- ═══════════════ 1. البطل ═══════════════ -->
+<section class="bts-hero">
+  <div class="container">
+    <div class="bts-hero-grid">
+      <div>
+        <span class="bts-hero-eyebrow">تقنية بريطانية · تسليم في الخليج</span>
+        <h1>أتمتة الذكاء الاصطناعي <em> لعمليات المؤسسات الحقيقية</em>.</h1>
+        <p class="bts-hero-lead">حوّل المستندات والرسائل والعمليات المتكررة إلى سير عمل منظم ومترابط — الذكاء الاصطناعي يفهم المدخلات، وقواعد العمل تُقرر المنطق، والأنظمة تنفّذ المهام، ويبقى الأشخاص في السيطرة على ما يهم.</p>
+        <div class="bts-hero-cta">
+          <a href="../ar.html#contact" class="btn btn-primary">ابدأ مشروعك</a>
+          <a href="#how" class="btn btn-outline">كيف نعمل</a>
+        </div>
+        <div class="bts-hero-stats">
+          <div class="hs"><strong>7</strong>أسواق الخليج</div>
+          <div class="hs"><strong>عربي/إنجليزي</strong>ثنائي اللغة بالتصميم</div>
+          <div class="hs"><strong>المملكة المتحدة</strong>التكنولوجيا والتنفيذ</div>
+        </div>
+      </div>
+
+      <!-- لوحة المعاينة الحية -->
+      <div class="bts-mock" aria-hidden="true">
+        <div class="bts-mock-head">
+          <div class="bts-mock-brand">
+            <span class="dot"></span>
+            BTS Logistics
+          </div>
+          <div class="bts-mock-sub">لوحة العمليات المباشرة</div>
+        </div>
+        <div class="bts-mock-grid">
+          <div class="bts-kpi blue">
+            <div class="kpi-label">الشحنات النشطة</div>
+            <div class="kpi-value">95</div>
+            <div class="kpi-foot">↑ 31% من الشهر الماضي</div>
+          </div>
+          <div class="bts-kpi green">
+            <div class="kpi-label">مكتملة</div>
+            <div class="kpi-value">5</div>
+            <div class="kpi-foot">↑ 2% من الشهر الماضي</div>
+          </div>
+          <div class="bts-kpi orange">
+            <div class="kpi-label">قائمة الموافقات</div>
+            <div class="kpi-value">21</div>
+            <div class="kpi-foot">بانتظار المراجعة</div>
+          </div>
+          <div class="bts-kpi purple">
+            <div class="kpi-label">معالجة بالذكاء</div>
+            <div class="kpi-value">95</div>
+            <div class="kpi-foot">✓ مؤتمتة</div>
+          </div>
+          <div class="bts-kpi gold">
+            <div class="kpi-label">دقة الذكاء الاصطناعي</div>
+            <div class="kpi-value">70.6%</div>
+            <div class="kpi-foot">↑ 5.0% من التعلم</div>
+          </div>
+          <div class="bts-kpi red">
+            <div class="kpi-label">مخاطر عالية</div>
+            <div class="kpi-value">0</div>
+            <div class="kpi-foot">تحتاج انتباهاً</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 2. ما يميّز BTS ═══════════════ -->
+<section class="bts-section light">
+  <div class="container">
+    <div class="bts-head">
+      <span class="rule"></span>
+      <span class="kicker">ما يميّز BTS</span>
+      <h2>الذكاء الاصطناعي ليس سير العمل. BTS يربط الذكاء الاصطناعي بسير العمل.</h2>
+      <p>أربعة مكونات تعمل معاً لجعل الأتمتة موثوقة في عمليات الأعمال الحقيقية.</p>
+    </div>
+
+    <div class="bts-pillars">
+      <div class="bts-pillar">
+        <span class="num">01 · الذكاء الاصطناعي يفهم</span>
+        <h3>المستندات والرسائل والطلبات والبيانات</h3>
+        <p>الاستخراج والتصنيف والتعرّف على النوايا عبر المدخلات التي يستقبلها عملك بالفعل.</p>
+      </div>
+      <div class="bts-pillar">
+        <span class="num">02 · القواعد تُقرر</span>
+        <h3>الحدود والتحقق والتوجيه والتصعيد</h3>
+        <p>منطق الأعمال الذي يحكم ما يجب أن يحدث بعد ذلك — تملكه أنت، لا النموذج.</p>
+      </div>
+      <div class="bts-pillar">
+        <span class="num">03 · الأنظمة تنفّذ</span>
+        <h3>واجهات API وقواعد البيانات وأنظمة ERP وCRM والمستودعات</h3>
+        <p>طبقة التنفيذ حيث يقوم سير العمل بالمهام الفعلية داخل الأنظمة التي تشغّلها بالفعل.</p>
+      </div>
+      <div class="bts-pillar">
+        <span class="num">04 · الأشخاص يتحكّمون</span>
+        <h3>الموافقات والاستثناءات والإشراف</h3>
+        <p>المراجعة البشرية حيث تهم، والتلقائية حيث لا تهم — مع تتبع كامل.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 3. ما نؤتمته ═══════════════ -->
+<section class="bts-section navy">
+  <div class="container">
+    <div class="bts-head">
+      <span class="rule"></span>
+      <span class="kicker">ما نؤتمته</span>
+      <h2>أتمتة عملية للعمليات التي تكلّفك أكثر من غيرها.</h2>
+      <p>ستة مجالات يخلق فيها الذكاء الاصطناعي وقواعد العمل والتكامل تحسيناً تشغيلياً قابلاً للقياس.</p>
+    </div>
+
+    <div class="bts-services">
+      <div class="bts-svc">
+        <h3>معالجة المستندات</h3>
+        <p>استخراج بيانات منظمة من الفواتير وأوامر الشراء وبوالص الشحن والمستندات الجمركية وغيرها من ملفات الأعمال.</p>
+      </div>
+      <div class="bts-svc">
+        <h3>إدخال البيانات والتحقق</h3>
+        <p>نقل المعلومات بين المستندات وجداول البيانات وقواعد البيانات وأنظمة الأعمال مع تطبيق قواعد التحقق.</p>
+      </div>
+      <div class="bts-svc">
+        <h3>سير عمل واتساب بالذكاء الاصطناعي</h3>
+        <p>ربط محادثات العملاء والعمليات التشغيلية بسير عمل منظم وإشعارات وأنظمة داخلية.</p>
+      </div>
+      <div class="bts-svc">
+        <h3>الموافقات والتصعيد</h3>
+        <p>توجيه الطلبات إلى الشخص المناسب بناءً على قواعد العمل والحدود والاستثناءات — مع سجلات تدقيق كاملة.</p>
+      </div>
+      <div class="bts-svc">
+        <h3>التقارير والتنبيهات</h3>
+        <p>تحويل البيانات التشغيلية إلى تقارير آلية ولوحات تحكم حية وتنبيهات فورية.</p>
+      </div>
+      <div class="bts-svc">
+        <h3>المهام الرقمية المتكررة</h3>
+        <p>أتمتة عمليات المتصفح وسطح المكتب والأنظمة حيثما كان ذلك مناسباً باستخدام RPA وواجهات API.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 4. كيف نعمل ═══════════════ -->
+<section class="bts-section light" id="how">
+  <div class="container">
+    <div class="bts-head">
+      <span class="rule"></span>
+      <span class="kicker">كيف نعمل</span>
+      <h2>من المحادثة الأولى إلى سير العمل الفعّال.</h2>
+      <p>نعمل على ثلاث مراحل. كل مرحلة لها بداية واضحة ومخرَج واضح ونقطة قرار قبل الانتقال.</p>
+    </div>
+
+    <div class="bts-phases">
+      <div class="bts-phase">
+        <div class="bts-phase-num">01</div>
+        <h3>الاستكشاف</h3>
+        <p class="bts-phase-lead">نرسم خريطة عمليتك، ونتحدث إلى الأشخاص الذين يشغّلونها، ونحدد أين يُفقَد الوقت والدقة. دون افتراضات — كل خطوة في المخطط تأتي من ملاحظة حقيقية.</p>
+        <div class="bts-phase-meta">
+          <span class="bts-phase-label">المدة النموذجية</span>
+          <span class="bts-phase-value">أسبوعان</span>
+        </div>
+        <div class="bts-phase-meta">
+          <span class="bts-phase-label">ما تحصل عليه</span>
+          <span class="bts-phase-value">خريطة العملية، فرص الأتمتة، خطة عمل مُرتّبة حسب الأولوية</span>
+        </div>
+      </div>
+
+      <div class="bts-phase featured">
+        <div class="bts-phase-num">02</div>
+        <h3>المشروع التجريبي</h3>
+        <p class="bts-phase-lead">نؤتمت سير عمل واحد من البداية إلى النهاية — عادةً الأكثر إيلاماً. يعمل جنباً إلى جنب مع عمليتك الحالية، ويُقاس بمؤشرات تشغيلية حقيقية قبل أي انتقال كامل.</p>
+        <div class="bts-phase-meta">
+          <span class="bts-phase-label">المدة النموذجية</span>
+          <span class="bts-phase-value">4–8 أسابيع</span>
+        </div>
+        <div class="bts-phase-meta">
+          <span class="bts-phase-label">ما تحصل عليه</span>
+          <span class="bts-phase-value">أتمتة فعّالة، تكامل مع أنظمتك، نتائج قابلة للقياس</span>
+        </div>
+      </div>
+
+      <div class="bts-phase">
+        <div class="bts-phase-num">03</div>
+        <h3>التوسّع</h3>
+        <p class="bts-phase-lead">بعد إثبات قيمة المشروع التجريبي، نوسّع النمط نفسه إلى سير عمل مجاور. القواعد ولوحات التحكم والموافقات تنتقل معه — فيستغرق كل سير عمل جديد وقتاً أقل من سابقه.</p>
+        <div class="bts-phase-meta">
+          <span class="bts-phase-label">المدة النموذجية</span>
+          <span class="bts-phase-value">مستمر</span>
+        </div>
+        <div class="bts-phase-meta">
+          <span class="bts-phase-label">ما تحصل عليه</span>
+          <span class="bts-phase-value">سير عمل إضافي، لوحات تحكم موسّعة، تمكين الفريق الداخلي</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="bts-phases-note">الأتمتة ليست استبدالاً للأشخاص. إنها إزالة العوائق من طريقة انتقال العمل عبر عملك.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ 5. ميزة بريطانيا والخليج ═══════════════ -->
+<section class="bts-section navy">
+  <div class="container">
+    <div class="bts-head">
+      <span class="rule"></span>
+      <span class="kicker">ميزة بريطانيا والخليج</span>
+      <h2>مُصمّمة للطريقة التي تعمل بها الشركات في بريطانيا ودول الخليج فعلياً.</h2>
+      <p>تخصصنا هو تقاطع ثلاثة عناصر يتعامل معظم المزودين مع واحد منها فقط.</p>
+    </div>
+
+    <div class="bts-services">
+      <div class="bts-svc">
+        <span class="bts-product-tag dev" style="margin-bottom:16px">تقنية بريطانية</span>
+        <h3>انضباط تقني وتشغيلي</h3>
+        <p>الأمان والتكامل والهندسة مُصمّمة وفق المعايير البريطانية — نظيفة وموثّقة وقابلة للصيانة من أي فريق.</p>
+      </div>
+      <div class="bts-svc">
+        <span class="bts-product-tag dev" style="margin-bottom:16px">عربي + إنجليزي</span>
+        <h3>ثنائي اللغة بالتصميم، لا بالترجمة</h3>
+        <p>واجهات RTL ومستندات عربية وسير عمل يدعم اللغتين منذ اليوم الأول — لا يُضاف لاحقاً.</p>
+      </div>
+      <div class="bts-svc">
+        <span class="bts-product-tag dev" style="margin-bottom:16px">عمليات الخليج</span>
+        <h3>مُصمّم للمتطلبات الإقليمية</h3>
+        <p>اللوجستيات والمستندات الجمركية وعمليات واتساب وسير العمل الشائع في أسواق الخليج.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 6. دعوة ناعمة ═══════════════ -->
+<section class="bts-section navy">
+  <div class="container">
+    <div style="max-width:760px;margin:0 auto;text-align:center">
+      <span class="rule" style="margin:0 auto 20px"></span>
+      <span class="kicker" style="display:block;font-size:13px;font-weight:700;color:var(--bts-gold);margin-bottom:14px">لست متأكداً من أين تبدأ؟</span>
+      <h2 style="font-size:clamp(26px,3.2vw,40px);font-weight:800;color:#fff;line-height:1.35;margin:0 0 20px">أرسل لنا سير عمل واحد.</h2>
+      <p style="font-size:16.5px;line-height:1.85;color:#b8c5d6;margin:0 0 36px">أرسل لنا سير عمل واحد، أو مستنداً واحداً، أو عملية واحدة. سنوضّح لك أين يتناسب الذكاء الاصطناعي — دون مقابل، ودون التزام.</p>
+      <div class="bts-hero-cta" style="justify-content:center">
+        <a href="../ar.html#contact" class="btn btn-primary">ناقش عملية</a>
+        <a href="mailto:info@btsapp.net" class="btn btn-outline">راسل BTS</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ 7. الدعوة النهائية ═══════════════ -->
+<section class="cta-band">
+  <div class="container">
+    <h2>هل لديك عملية ينبغي أتمتتها؟</h2>
+    <p>أرسل لنا سير العمل. سنساعدك في تحديد المجالات التي يمكن للذكاء الاصطناعي والأتمتة فيها خلق قيمة حقيقية. نرد خلال يوم عمل واحد.</p>
+    <div class="hero-btns">
+      <a href="../ar.html#contact" class="btn btn-primary">ابدأ مشروعك</a>
+      <a href="https://wa.me/447425252625?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20BTS%D8%8C%20%D8%A3%D8%B1%D8%BA%D8%A8%20%D9%81%D9%8A%20%D9%85%D9%86%D8%A7%D9%82%D8%B4%D8%A9%20%D9%85%D8%B4%D8%B1%D9%88%D8%B9%20%D8%A3%D8%AA%D9%85%D8%AA%D8%A9." target="_blank" rel="noopener" class="btn btn-outline">تواصل عبر واتساب</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="color:#fff">حلول تكنولوجيا الأعمال</div>
+        <p style="font-size:13.5px;line-height:1.8">BTS شريك تقني بريطاني يساعد المؤسسات في المملكة المتحدة ودول الخليج على تحديث عملياتها من خلال أتمتة الذكاء الاصطناعي والبرمجيات الذكية وذكاء الأعمال والأنظمة الرقمية ثنائية اللغة. المقر الرئيسي في غلاسكو، اسكتلندا. مسجلة في اسكتلندا (SC894313).</p>
+      </div>
+      <div><h5>الخدمات</h5>
+        <a href="ai-automation.ar.html">أتمتة الذكاء الاصطناعي</a>
+        <a href="business-intelligence.ar.html">ذكاء الأعمال</a>
+        <a href="custom-software.ar.html">برمجيات مخصصة</a>
+        <a href="bilingual-systems.ar.html">أنظمة ثنائية اللغة</a>
+        <a href="system-integration.ar.html">تكامل الأنظمة</a>
+        <a href="logistics-warehouse.ar.html">اللوجستيات والمستودعات</a>
+      </div>
+      <div><h5>الفروع</h5>
+        <a href="../locations/uk.ar.html">المملكة المتحدة</a>
+        <a href="../locations/ksa.ar.html">السعودية</a>
+        <a href="../locations/uae.ar.html">الإمارات</a>
+        <a href="../locations/qatar.ar.html">قطر</a>
+        <a href="../locations/oman.ar.html">عُمان</a>
+        <a href="../locations/kuwait.ar.html">الكويت</a>
+        <a href="../locations/bahrain.ar.html">البحرين</a>
+      </div>
+      <div><h5>الشركة</h5>
+        <a href="../ar.html#about">من نحن</a>
+        <a href="../blog/ar/">رؤى</a>
+        <a href="../ar.html#contact">اتصل بنا</a>
+        <a href="../privacy-policy.html">الخصوصية</a>
+      </div>
+      <div><h5>تواصل</h5>
+        <a href="mailto:info@btsapp.net">info@btsapp.net</a>
+        <a href="tel:+447425252625" dir="ltr">+44 7425 252625</a>
+        <a href="https://wa.me/447425252625">واتساب</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 BTS — حلول تكنولوجيا الأعمال. مسجلة في اسكتلندا (SC894313).</div>
+      <div>
+        <a href="../privacy-policy.html">الخصوصية</a>
+        <a href="../terms-of-service.html">الشروط</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+
+<button class="scroll-top-btn" id="scrollTopBtn" type="button" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 19V5"/>
+    <path d="M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+<div class="img-lightbox" id="imgLightbox" role="dialog" aria-modal="true" aria-label="معاينة الصورة">
+  <button class="img-lightbox-close" id="imgLightboxClose" type="button" aria-label="إغلاق المعاينة">×</button>
+  <img class="img-lightbox-img" id="imgLightboxImg" src="" alt="">
+</div>
+</body>
+</html>
