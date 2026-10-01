@@ -2142,7 +2142,85 @@ body.rtl .location-break::before {
   .location-break video.location-break-video { display: none; }
 }
 @media (max-width: 768px) {
+  /* Hide desktop-only line breaks on mobile */
   .desktop-break { display: none; }
+
+  /* ─── MOBILE MENU ─────────────────────────────────────────── */
+
+  /* Anchor the mobile menu to the nav bar */
+  .nav {
+    position: relative;
+  }
+
+  /* Hide nav links by default on mobile */
+  .nav-links {
+    display: none;
+  }
+
+  /* The open state of the mobile menu */
+  .nav-links.mobile-open {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+
+    flex-direction: column;
+    padding: 16px 24px;
+    margin: 0;
+
+    background: #fff;
+    border-top: 1px solid var(--line);
+    box-shadow: 0 14px 40px rgba(11, 26, 43, .12);
+  }
+
+  /* Make each link full-width and easily tappable */
+  .nav-links.mobile-open li {
+    width: 100%;
+    margin: 0;
+  }
+
+  .nav-links.mobile-open a {
+    display: block;
+    width: 100%;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    text-align: start;
+    font-size: 15px;
+  }
+
+  .nav-links.mobile-open li:last-child a {
+    border-bottom: none;
+  }
+
+  /* Ensure CTA button looks right inside the mobile menu */
+  .nav-links.mobile-open .nav-cta {
+    margin: 12px 0 0;
+    text-align: center;
+    border-bottom: none;
+  }
+
+  /* ─── DARK MODE COMPATIBILITY ─────────────────────────────── */
+  [data-theme="dark"] .nav-links.mobile-open {
+    background: #0b1a2b;
+    border-top-color: rgba(255, 255, 255, .08);
+  }
+
+  [data-theme="dark"] .nav-links.mobile-open a {
+    color: #e8eef7;
+    border-bottom-color: rgba(255, 255, 255, .08);
+  }
+
+  [data-theme="dark"] .nav-links.mobile-open .nav-cta {
+    color: #fff;
+  }
+
+  /* ─── RTL SUPPORT ─────────────────────────────────────────── */
+  body.rtl .nav-links.mobile-open a,
+  [dir="rtl"] .nav-links.mobile-open a {
+    text-align: right;
+  }
 }
 /* ═══════════════════════════════════════════════════════════════
    HERO ALIGNMENT FIX — Push text to the absolute right edge

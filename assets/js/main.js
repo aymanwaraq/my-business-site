@@ -1,19 +1,21 @@
 function setLang(l){try{localStorage.setItem('bts_lang',l);}catch(e){}}
 function toggleMobile(){
-  var nav=document.querySelector('.nav-links');if(!nav)return;
-  var open=nav.style.display==='flex';
-  nav.style.display=open?'':'flex';
-  nav.style.position='absolute';nav.style.top='100%';
-  nav.style.left='0';nav.style.right='0';
-  nav.style.background='#fff';nav.style.flexDirection='column';
-  nav.style.padding='16px 24px';
-  nav.style.borderTop='1px solid var(--line)';
-  nav.style.boxShadow='0 14px 40px rgba(11,26,43,.12)';
+  var nav = document.querySelector('.nav-links');
+  if (!nav) return;
+
+  var open = nav.classList.contains('mobile-open');
+
+  if (open) {
+    closeMobile();
+  } else {
+    nav.classList.add('mobile-open');
+  }
 }
+
 function closeMobile(){
   var nav = document.querySelector('.nav-links');
   if (nav) {
-    nav.style.display = '';
+    nav.classList.remove('mobile-open');
   }
 }
 (function(){
@@ -349,31 +351,31 @@ function closeMobile(){
 })();
 /* ═══════════════════════════════════════════════════════════════
    MOBILE MENU AUTO-CLOSE
-   Closes the mobile menu when any navigation link is clicked.
    ═══════════════════════════════════════════════════════════════ */
 document.addEventListener('DOMContentLoaded', function () {
-    var navLinks = document.querySelectorAll('.nav-links a');
-    
-    navLinks.forEach(function (link) {
-        link.addEventListener('click', function () {
-            closeMobile();
-        });
-    });
 
-    // Also close the menu if the user clicks outside of it
-    document.addEventListener('click', function (e) {
-        var nav = document.querySelector('.nav-links');
-        var toggle = document.querySelector('.mobile-toggle');
-        
-        if (!nav || !toggle) return;
-        
-        // If the menu is open and the click is NOT inside the nav or the toggle button, close it
-        var menuIsOpen = nav.style.display === 'flex';
-        var clickedInsideMenu = nav.contains(e.target);
-        var clickedOnToggle = toggle.contains(e.target);
-        
-        if (menuIsOpen && !clickedInsideMenu && !clickedOnToggle) {
-            closeMobile();
-        }
+  var navLinks = document.querySelectorAll('.nav-links a');
+
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      closeMobile();
     });
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', function (e) {
+    var nav = document.querySelector('.nav-links');
+    var toggle = document.querySelector('.mobile-toggle');
+
+    if (!nav || !toggle) return;
+
+    if (
+      nav.classList.contains('mobile-open') &&
+      !nav.contains(e.target) &&
+      !toggle.contains(e.target)
+    ) {
+      closeMobile();
+    }
+  });
+
 });
