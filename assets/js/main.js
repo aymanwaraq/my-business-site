@@ -1,21 +1,65 @@
 function setLang(l){try{localStorage.setItem('bts_lang',l);}catch(e){}}
-function toggleMobile(){
+function toggleMobile() {
   var nav = document.querySelector('.nav-links');
   if (!nav) return;
 
-  var open = nav.classList.contains('mobile-open');
+  var open = nav.style.display === 'flex';
 
   if (open) {
     closeMobile();
-  } else {
-    nav.classList.add('mobile-open');
+    return;
+  }
+
+  // Open menu
+  nav.style.display = 'flex';
+  nav.style.position = 'absolute';
+  nav.style.top = '100%';
+  nav.style.left = '0';
+  nav.style.right = '0';
+  nav.style.zIndex = '9999';
+  nav.style.background = '#ffffff';
+  nav.style.flexDirection = 'column';
+  nav.style.padding = '18px 24px';
+  nav.style.borderTop = '1px solid #d9e2ec';
+  nav.style.boxShadow = '0 14px 40px rgba(11,26,43,.18)';
+
+  // FORCE MENU TEXT TO DARK NAVY
+  var links = nav.querySelectorAll('a');
+
+  links.forEach(function(link) {
+
+    link.style.setProperty('color', '#0b1a2b', 'important');
+    link.style.setProperty('background', '#ffffff', 'important');
+    link.style.setProperty('font-weight', '700', 'important');
+    link.style.setProperty('opacity', '1', 'important');
+    link.style.setProperty('visibility', 'visible', 'important');
+
+    link.style.display = 'block';
+    link.style.width = '100%';
+    link.style.padding = '14px 8px';
+    link.style.textDecoration = 'none';
+
+  });
+
+  // START A PROJECT BUTTON
+  var cta = nav.querySelector('.nav-cta');
+
+  if (cta) {
+    cta.style.setProperty('color', '#ffffff', 'important');
+    cta.style.setProperty('background', '#4a90e2', 'important');
+    cta.style.setProperty('opacity', '1', 'important');
+
+    cta.style.borderRadius = '8px';
+    cta.style.textAlign = 'center';
+    cta.style.marginTop = '8px';
   }
 }
 
-function closeMobile(){
+function closeMobile() {
   var nav = document.querySelector('.nav-links');
+
   if (nav) {
-    nav.classList.remove('mobile-open');
+    nav.style.display = '';
   }
 }
 (function(){

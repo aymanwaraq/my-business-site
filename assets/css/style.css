@@ -2380,3 +2380,50 @@ html[lang="ar"] .hero-band-inner .hero-inner > .eyebrow {
   text-align: right !important;
   unicode-bidi: isolate !important;
 }
+/* =========================================================
+   MOBILE MENU — HIGH CONTRAST
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .nav-links {
+    background: #ffffff !important;
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links li a {
+    display: block;
+    width: 100%;
+    padding: 14px 8px;
+
+    color: #0b1a2b !important;
+    background: #ffffff !important;
+
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .nav-links li a:hover,
+  .nav-links li a:focus {
+    color: #1677d2 !important;
+    background: #f2f7fc !important;
+  }
+
+  /* Start a Project button */
+  .nav-links li a.nav-cta {
+    color: #ffffff !important;
+    background: #4a90e2 !important;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  .nav-links li a.nav-cta:hover,
+  .nav-links li a.nav-cta:focus {
+    color: #ffffff !important;
+    background: #357abd !important;
+  }
+}
