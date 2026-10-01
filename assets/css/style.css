@@ -2179,3 +2179,126 @@ body.rtl .location-break::before {
     background-repeat: no-repeat;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO — push text to the far LEFT on LTR (English) pages
+   ═══════════════════════════════════════════════════════════════ */
+html[lang="en"] .hero-band-inner .container,
+html:not([dir="rtl"]) .hero-band-inner .container {
+  max-width: 100%;
+  padding: 0;
+}
+
+html[lang="en"] .hero-band-inner .hero-inner,
+html:not([dir="rtl"]) .hero-band-inner .hero-inner {
+  max-width: 100%;
+  width: 100%;
+  padding-left: 5vw;
+  padding-right: 64px;
+  align-items: flex-start;
+  text-align: left;
+}
+
+html[lang="en"] .hero-band-inner .hero-inner h1,
+html[lang="en"] .hero-band-inner .hero-inner .eyebrow,
+html:not([dir="rtl"]) .hero-band-inner .hero-inner h1,
+html:not([dir="rtl"]) .hero-band-inner .hero-inner .eyebrow {
+  text-align: left;
+  width: 100%;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO EYEBROW — RTL: gold bar attached to the text on the RIGHT
+   ═══════════════════════════════════════════════════════════════ */
+body.rtl .hero-band-inner .hero-inner .eyebrow,
+[dir="rtl"] .hero-band-inner .hero-inner .eyebrow,
+html[lang="ar"] .hero-band-inner .hero-inner .eyebrow {
+  width: auto !important;
+  max-width: 100% !important;
+  display: inline-block !important;
+  border-inline-start: none !important;
+  border-inline-end: 3px solid #FFD770 !important;
+  padding-inline-start: 0 !important;
+  padding-inline-end: 14px !important;
+  align-self: flex-start !important;
+  margin-inline-start: auto !important;
+  margin-inline-end: 0 !important;
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: isolate !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO EYEBROW — RTL FINAL (gold bar on the RIGHT, text attached)
+   ═══════════════════════════════════════════════════════════════ */
+
+body.rtl .hero-band-inner .hero-inner .eyebrow,
+[dir="rtl"] .hero-band-inner .hero-inner .eyebrow,
+html[lang="ar"] .hero-band-inner .hero-inner .eyebrow {
+  width: auto !important;
+  max-width: 100% !important;
+  display: inline-block !important;
+  border-inline-start: 3px solid #FFD770 !important;
+  padding-inline-start: 14px !important;
+  border-inline-end: none !important;
+  padding-inline-end: 0 !important;
+  border-right: 3px solid #FFD770 !important;
+  border-left: none !important;
+  padding-right: 14px !important;
+  padding-left: 0 !important;
+  align-self: flex-start !important;
+  margin-inline-start: auto !important;
+  margin-inline-end: 0 !important;
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: isolate !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO EYEBROW — RTL FINAL v2 (force to RIGHT edge)
+   ═══════════════════════════════════════════════════════════════ */
+body.rtl .hero-band-inner .hero-inner > .eyebrow,
+[dir="rtl"] .hero-band-inner .hero-inner > .eyebrow,
+html[lang="ar"] .hero-band-inner .hero-inner > .eyebrow {
+  width: auto !important;
+  max-width: 100% !important;
+  display: inline-block !important;
+  border-left: none !important;
+  border-right: 3px solid #FFD770 !important;
+  padding-left: 0 !important;
+  padding-right: 14px !important;
+  border-inline-start: none !important;
+  border-inline-end: none !important;
+  padding-inline-start: 0 !important;
+  padding-inline-end: 0 !important;
+  margin-inline-start: 0 !important;
+  margin-inline-end: 0 !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  align-self: flex-end !important;
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: isolate !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HERO EYEBROW — RTL FINAL v3 (gold bar visible on the right)
+   ═══════════════════════════════════════════════════════════════ */
+body.rtl .hero-band-inner .hero-inner > .eyebrow,
+[dir="rtl"] .hero-band-inner .hero-inner > .eyebrow,
+html[lang="ar"] .hero-band-inner .hero-inner > .eyebrow {
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  width: auto !important;
+  max-width: 100% !important;
+  display: inline-block !important;
+  border-right: 3px solid #FFD770 !important;
+  padding-right: 14px !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  align-self: flex-end !important;
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: isolate !important;
+}
