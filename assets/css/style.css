@@ -2141,3 +2141,41 @@ body.rtl .location-break::before {
 @media (prefers-reduced-motion: reduce) {
   .location-break video.location-break-video { display: none; }
 }
+@media (max-width: 768px) {
+  .desktop-break { display: none; }
+}
+/* ═══════════════════════════════════════════════════════════════
+   HERO ALIGNMENT FIX — Push text to the absolute right edge
+   ═══════════════════════════════════════════════════════════════ */
+
+/* 1. Make the hero container full-width instead of centered */
+.hero-band-inner .container {
+  max-width: 100%;
+  padding: 0;
+}
+
+/* 2. Make the hero-inner full-width and push text to the right */
+.hero-band-inner .hero-inner {
+  max-width: 100%;
+  width: 100%;
+  padding-right: 5vw; /* Adjust this value to control the gap from the right edge */
+  padding-left: 64px; /* Keeps left padding for balance */
+}
+
+/* 3. Ensure the text itself is right-aligned */
+.hero-band-inner .hero-inner h1,
+.hero-band-inner .hero-inner .eyebrow {
+  text-align: right;
+  width: 100%;
+}
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE HERO — Show poster image instead of video
+   ═══════════════════════════════════════════════════════════════ */
+@media (max-width: 640px) {
+  .hero-band-inner {
+    background-image: url('../images/hero-poster.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}
