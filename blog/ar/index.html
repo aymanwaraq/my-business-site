@@ -19,50 +19,139 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="/assets/css/blog.css" />
+  <link rel="stylesheet" href="../../assets/css/style.css">
 
-<link rel="stylesheet" href="../assets/css/style.css">
+  <!-- Force zero margins for blog container to fix the gap -->
+  <style>
+    .blog-index, #blog-index-root { margin-top: 0 !important; padding-top: 0 !important; }
+  </style>
 </head>
-<body class="blog-page">
+<body>
 
-  <div class="blog-container">
-    <header class="blog-header">
-      <div class="blog-header__inner">
-        <div>
-          <h1 class="blog-header__title">المدونة</h1>
-          <p class="blog-header__subtitle">
-            رؤى حول الذكاء الاصطناعي، والأتمتة، والخدمات اللوجستية، والتحول الرقمي.
-          </p>
-        </div>
-        <a class="blog-lang-switch" href="/blog/" hreflang="en" lang="en">
-          <span>English</span>
-          <span aria-hidden="true">←</span>
-        </a>
+<!-- UTILITY BAR (Adds Theme Toggle and Language Switcher) -->
+<div class="utility-bar"><div class="container">
+  <div><a href="../../ar.html">BTS · غلاسكو، المملكة المتحدة</a></div>
+  <div>
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="تبديل الوضع الداكن" title="تبديل الوضع الداكن">
+      <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+    </button>
+    <a href="index.html">رؤى</a>
+    <a href="../../ar.html#contact">اتصل بنا</a>
+    <a href="../index.html" onclick="setLang('en')">English</a>
+  </div>
+</div></div>
+
+<!-- NAVIGATION BAR -->
+<nav class="nav">
+  <div class="container">
+    <a href="../../ar.html" class="brand">
+      <img src="../../assets/images/Logo.png" alt="BTS Logo">
+      حلول تكنولوجيا الأعمال
+    </a>
+    <button class="mobile-toggle" onclick="toggleMobile()" aria-label="افتح القائمة">☰</button>
+    <ul class="nav-links">
+      <li><a href="../../ar.html#services">الخدمات</a></li>
+      <li><a href="../../ar.html#locations">الفروع</a></li>
+      <li class="active"><a href="index.html">رؤى</a></li>
+      <li><a href="../../ar.html#about">من نحن</a></li>
+      <li><a href="../../ar.html#contact" class="nav-cta">ابدأ مشروعك</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- BLOG HERO SECTION (Minimal padding) -->
+<section class="bts-section navy" style="padding-top: 80px; padding-bottom: 20px;">
+  <div class="container">
+    <div class="bts-head" style="max-width: 760px; margin-left: auto; margin-right: 0; text-align: right; margin-bottom: 0;">
+      <span class="rule" style="margin-right: 0;"></span>
+      <span class="kicker">رؤى</span>
+      <h2>أحدث المقالات من BTS</h2>
+      <p>أفكار حول أتمتة الذكاء الاصطناعي، وذكاء الأعمال، والأنظمة ثنائية اللغة، والتحول الرقمي في المملكة المتحدة ودول الخليج.</p>
+      <div style="margin-top: 24px;">
+        <a href="/blog/" class="btn btn-primary" style="display: inline-block; background: #4a90e2; color: #ffffff; padding: 10px 20px; border-radius: 4px; text-decoration: none; font-weight: bold; border: 2px solid #4a90e2;">Read in English</a>
       </div>
-    </header>
+    </div>
+  </div>
+</section>
 
+<!-- BLOG LISTING SECTION (Minimal top padding) -->
+<section class="bts-section light" style="padding-top: 20px; padding-bottom: 80px;">
+  <div class="container">
     <main class="blog-index">
       <div id="blog-index-root" aria-live="polite" aria-busy="true"></div>
     </main>
   </div>
+</section>
 
-  <script src="/assets/js/blog.js"></script>
-  <script>
-    Blog.init({
-      mode: "index",
-      lang: "ar",
-      postsUrl: "/blog/posts.json"
-    });
-  </script>
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="color:#fff">حلول تكنولوجيا الأعمال</div>
+        <p style="font-size:13.5px;line-height:1.8">BTS شريك تقني بريطاني يساعد المؤسسات في المملكة المتحدة ودول الخليج على تحديث عملياتها من خلال أتمتة الذكاء الاصطناعي والبرمجيات الذكية وذكاء الأعمال والأنظمة الرقمية ثنائية اللغة. المقر الرئيسي في غلاسكو، اسكتلندا. مسجلة في اسكتلندا (SC894313).</p>
+      </div>
+      <div><h5>الخدمات</h5>
+        <a href="../../services/ai-automation.ar.html">أتمتة الذكاء الاصطناعي</a>
+        <a href="../../services/business-intelligence.ar.html">ذكاء الأعمال</a>
+        <a href="../../services/custom-software.ar.html">برمجيات مخصصة</a>
+        <a href="../../services/bilingual-systems.ar.html">أنظمة ثنائية اللغة</a>
+        <a href="../../services/system-integration.ar.html">تكامل الأنظمة</a>
+        <a href="../../services/logistics-warehouse.ar.html">اللوجستيات والمستودعات</a>
+      </div>
+      <div><h5>الفروع</h5>
+        <a href="../../locations/uk.ar.html">المملكة المتحدة</a>
+        <a href="../../locations/ksa.ar.html">السعودية</a>
+        <a href="../../locations/uae.ar.html">الإمارات</a>
+        <a href="../../locations/qatar.ar.html">قطر</a>
+        <a href="../../locations/oman.ar.html">عُمان</a>
+        <a href="../../locations/kuwait.ar.html">الكويت</a>
+        <a href="../../locations/bahrain.ar.html">البحرين</a>
+      </div>
+      <div><h5>الشركة</h5>
+        <a href="../../ar.html#about">من نحن</a>
+        <a href="index.html">رؤى</a>
+        <a href="../../ar.html#contact">اتصل بنا</a>
+        <a href="../../privacy-policy.html">الخصوصية</a>
+      </div>
+      <div><h5>تواصل</h5>
+        <a href="mailto:info@btsapp.net">info@btsapp.net</a>
+        <!-- FIXED: Phone number alignment for RTL -->
+        <a href="tel:+447425252625" style="display: block; text-align: right;">
+          <span dir="ltr">+44 7425 252625</span>
+        </a>
+        <a href="https://wa.me/447425252625">واتساب</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 BTS — حلول تكنولوجيا الأعمال. مسجلة في اسكتلندا (SC894313).</div>
+      <div>
+        <a href="../../privacy-policy.html">الخصوصية</a>
+        <a href="../../terms-of-service.html">الشروط</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
-<script src="../assets/js/main.js" defer></script>
+<!-- Scroll to Top Button -->
+<button class="scroll-top-btn" id="scrollTopBtn" type="button" aria-label="العودة إلى الأعلى" title="العودة إلى الأعلى">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M12 19V5"/>
+    <path d="M5 12l7-7 7 7"/>
+  </svg>
+</button>
 
+<!-- Scripts -->
+<script src="/assets/js/blog.js"></script>
+<script>
+  Blog.init({
+    mode: "index",
+    lang: "ar",
+    postsUrl: "/blog/posts.json"
+  });
+</script>
+<script src="../../assets/js/main.js" defer></script>
 
-    <!-- Scroll to Top Button -->
-    <button class="scroll-top-btn" id="scrollTopBtn" type="button" aria-label="Scroll to top" title="Back to top">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 19V5"/>
-        <path d="M5 12l7-7 7 7"/>
-      </svg>
-    </button>
 </body>
 </html>

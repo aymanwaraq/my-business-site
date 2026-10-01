@@ -202,6 +202,23 @@
                 padding: 40px 20px;
             }
         }
+        /* Force legal card text to be dark so it's readable on the white background */
+.legal-card,
+.legal-card p,
+.legal-card li,
+.legal-card .details {
+    color: #1f2937 !important;
+}
+
+/* Ensure links inside the card stay blue and visible */
+.legal-card a {
+    color: var(--primary) !important;
+}
+
+/* Keep the notice box text dark as well */
+.notice-box {
+    color: #1f2937 !important;
+}
     </style>
 <script>
 (function(){
