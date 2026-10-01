@@ -10,6 +10,12 @@ function toggleMobile(){
   nav.style.borderTop='1px solid var(--line)';
   nav.style.boxShadow='0 14px 40px rgba(11,26,43,.12)';
 }
+function closeMobile(){
+  var nav = document.querySelector('.nav-links');
+  if (nav) {
+    nav.style.display = '';
+  }
+}
 (function(){
   var KEY='bts_ga_consent';
   var b=document.getElementById('cookieBanner');if(!b)return;
@@ -341,3 +347,33 @@ function toggleMobile(){
   });
   observer.observe(document.body, { childList: true, subtree: true });
 })();
+/* ═══════════════════════════════════════════════════════════════
+   MOBILE MENU AUTO-CLOSE
+   Closes the mobile menu when any navigation link is clicked.
+   ═══════════════════════════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', function () {
+    var navLinks = document.querySelectorAll('.nav-links a');
+    
+    navLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+            closeMobile();
+        });
+    });
+
+    // Also close the menu if the user clicks outside of it
+    document.addEventListener('click', function (e) {
+        var nav = document.querySelector('.nav-links');
+        var toggle = document.querySelector('.mobile-toggle');
+        
+        if (!nav || !toggle) return;
+        
+        // If the menu is open and the click is NOT inside the nav or the toggle button, close it
+        var menuIsOpen = nav.style.display === 'flex';
+        var clickedInsideMenu = nav.contains(e.target);
+        var clickedOnToggle = toggle.contains(e.target);
+        
+        if (menuIsOpen && !clickedInsideMenu && !clickedOnToggle) {
+            closeMobile();
+        }
+    });
+});
